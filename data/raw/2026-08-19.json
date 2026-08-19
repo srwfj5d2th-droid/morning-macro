@@ -1,75 +1,80 @@
 {
-  "pulled_at_utc": "2026-08-19T12:59:40.404545Z",
+  "pulled_at_utc": "2026-08-19T13:14:53.817740Z",
   "sources": {
+    "treasury_gov_2026": {
+      "source": "treasury.gov par yield curve",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&_format=csv",
+      "latest_obs": "2026-08-18"
+    },
     "ust_3m": {
       "source": "FRED DGS3MO",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS3MO&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS3MO&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 3.87
     },
     "ust_2y": {
       "source": "FRED DGS2",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 4.19
     },
     "ust_10y": {
       "source": "FRED DGS10",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 4.72
     },
     "ust_30y": {
       "source": "FRED DGS30",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 5.31
     },
     "tips_10y_real": {
       "source": "FRED DFII10",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 2.44
     },
     "bkeven_10y_fred": {
       "source": "FRED T10YIE",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE&cosd=2026-08-04",
       "latest_obs": "2026-08-18",
       "latest_val": 2.3
     },
     "hy_oas": {
       "source": "FRED BAMLH0A0HYM2",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 2.7
     },
     "ig_oas": {
       "source": "FRED BAMLC0A0CM",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2026-08-04",
       "latest_obs": "2026-08-17",
       "latest_val": 0.81
     },
     "sofr": {
       "source": "FRED SOFR",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR&cosd=2026-08-04",
       "latest_obs": "2026-08-18",
       "latest_val": 3.65
     },
     "on_rrp": {
       "source": "FRED RRPONTSYD",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD&cosd=2026-08-04",
       "latest_obs": "2026-08-18",
       "latest_val": 0.155
     },
     "tga": {
       "source": "FRED WTREGEN",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WTREGEN&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WTREGEN&cosd=2026-08-04",
       "latest_obs": "2026-08-12",
       "latest_val": 963950.0
     },
     "fed_bs": {
       "source": "FRED WALCL",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=2025-12-01",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=2026-08-04",
       "latest_obs": "2026-08-12",
       "latest_val": 6759955.0
     },
@@ -95,25 +100,25 @@
       "source": "Yahoo DX-Y.NYB",
       "url": "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?range=1y&interval=1d",
       "latest_obs": "2026-08-19",
-      "latest_val": 99.116997
+      "latest_val": 99.085999
     },
     "wti": {
       "source": "Yahoo CL=F",
       "url": "https://query1.finance.yahoo.com/v8/finance/chart/CL%3DF?range=1y&interval=1d",
       "latest_obs": "2026-08-19",
-      "latest_val": 83.849998
+      "latest_val": 84.459999
     },
     "gold": {
       "source": "Yahoo GC=F",
       "url": "https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?range=1y&interval=1d",
       "latest_obs": "2026-08-19",
-      "latest_val": 4474.100098
+      "latest_val": 4485.799805
     },
     "copper": {
       "source": "Yahoo HG=F",
       "url": "https://query1.finance.yahoo.com/v8/finance/chart/HG%3DF?range=1y&interval=1d",
       "latest_obs": "2026-08-19",
-      "latest_val": 6.4515
+      "latest_val": 6.458
     },
     "spy": {
       "source": "Yahoo SPY",
@@ -143,7 +148,7 @@
   "row_date": "2026-08-18",
   "validation_ok": true,
   "validation_problems": [],
-  "cells_filled": 3668,
+  "cells_filled": 8,
   "conflicts_kept_existing": 0,
   "spx_ath": {
     "value": 7798.990234,

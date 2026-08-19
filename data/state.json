@@ -1,31 +1,31 @@
 {
-  "computed_at_utc": "2026-08-19T13:00:17.827460Z",
+  "computed_at_utc": "2026-08-19T13:15:15.240172Z",
   "row_date": "2026-08-18",
   "trading_rows": 176,
   "seasoned": true,
   "series": {
     "ust_3m": {
-      "last": 3.87,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 0.01,
-      "d5": -0.02,
-      "trend20": "up",
-      "z120": 1.289,
+      "last": 3.86,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": -0.01,
+      "d5": -0.03,
+      "trend20": "down",
+      "z120": 1.144,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
-      "ytd_abs": 0.2,
-      "ytd_pct": 5.45
+      "ytd_abs": 0.19,
+      "ytd_pct": 5.177
     },
     "ust_2y": {
       "last": 4.19,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 0.02,
-      "d5": -0.06,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": 0.0,
+      "d5": -0.03,
       "trend20": "down",
-      "z120": 0.952,
+      "z120": 0.943,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
@@ -33,32 +33,32 @@
       "ytd_pct": 20.749
     },
     "ust_10y": {
-      "last": 4.72,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 0.04,
-      "d5": 0.0,
+      "last": 4.71,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": -0.01,
+      "d5": 0.01,
       "trend20": "up",
-      "z120": 1.677,
+      "z120": 1.602,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.54,
-      "ytd_pct": 12.919
+      "ytd_abs": 0.53,
+      "ytd_pct": 12.679
     },
     "ust_30y": {
-      "last": 5.31,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 0.06,
-      "d5": 0.06,
+      "last": 5.28,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": -0.03,
+      "d5": 0.04,
       "trend20": "up",
-      "z120": 2.432,
+      "z120": 2.16,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.47,
-      "ytd_pct": 9.711
+      "ytd_abs": 0.44,
+      "ytd_pct": 9.091
     },
     "tips_10y_real": {
       "last": 2.44,
@@ -315,25 +315,25 @@
   },
   "derived": {
     "s2s10": {
-      "last": 53.0,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 2.0,
-      "d5": 6.0,
+      "last": 52.0,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": -1.0,
+      "d5": 4.0,
       "trend20": "up",
-      "z120": 0.863,
+      "z120": 0.754,
       "z_thin": false,
       "flag": false,
       "unit": "bp"
     },
     "s3m10y": {
       "last": 85.0,
-      "last_date": "2026-08-17",
-      "n_obs": 179,
-      "d1": 3.0,
-      "d5": 2.0,
+      "last_date": "2026-08-18",
+      "n_obs": 180,
+      "d1": 0.0,
+      "d5": 4.0,
       "trend20": "up",
-      "z120": 1.381,
+      "z120": 1.371,
       "z_thin": false,
       "flag": false,
       "unit": "bp"
@@ -348,15 +348,15 @@
   "flags": [
     {
       "series": "ust_10y",
-      "z120": 1.677,
-      "last": 4.72,
-      "last_date": "2026-08-17"
+      "z120": 1.602,
+      "last": 4.71,
+      "last_date": "2026-08-18"
     },
     {
       "series": "ust_30y",
-      "z120": 2.432,
-      "last": 5.31,
-      "last_date": "2026-08-17"
+      "z120": 2.16,
+      "last": 5.28,
+      "last_date": "2026-08-18"
     },
     {
       "series": "tips_10y_real",

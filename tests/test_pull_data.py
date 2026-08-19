@@ -8,7 +8,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 from pull_data import (TIER1_MAX_LAG, merge, parse_fred_csv,  # noqa: E402
-                       parse_yahoo_chart, trading_days_between, validate)
+                       parse_treasury_gov_csv, parse_yahoo_chart,
+                       trading_days_between, validate)
+
+
+def test_parse_treasury_gov_csv():
+    text = ('Date,"1 Mo","3 Mo","2 Yr","10 Yr","30 Yr"\n'
+            "08/18/2026,3.78,3.86,4.19,4.71,5.28\n"
+            "08/17/2026,3.79,3.87,4.19,4.72,5.31\n")
+    out = parse_treasury_gov_csv(text)
+    assert out["2026-08-18"] == {"ust_3m": 3.86, "ust_2y": 4.19,
+                                 "ust_10y": 4.71, "ust_30y": 5.28}
+    assert out["2026-08-17"]["ust_30y"] == 5.31
 
 
 def test_parse_fred_csv_skips_missing_values():

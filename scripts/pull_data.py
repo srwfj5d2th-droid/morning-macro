@@ -157,6 +157,41 @@ def parse_yahoo_chart(data):
     return out
 
 
+TREASURY_GOV_URL = ("https://home.treasury.gov/resource-center/data-chart-center/"
+                    "interest-rates/daily-treasury-rates.csv/{year}/all"
+                    "?type=daily_treasury_yield_curve"
+                    "&field_tdr_date_value={year}&_format=csv")
+TREASURY_GOV_COLS = {"3 Mo": "ust_3m", "2 Yr": "ust_2y",
+                     "10 Yr": "ust_10y", "30 Yr": "ust_30y"}
+
+
+def fetch_treasury_gov(year):
+    """{date: {col: val}} same-day par yields from treasury.gov (posted ~6pm ET,
+    so at 6:30am the prior trading day IS present — FRED ingests a day later)."""
+    url = TREASURY_GOV_URL.format(year=year)
+    return parse_treasury_gov_csv(_get(url).decode("utf-8", "replace")), url
+
+
+def parse_treasury_gov_csv(text):
+    out = {}
+    reader = csv.DictReader(io.StringIO(text))
+    for row in reader:
+        try:
+            m, d, y = row["Date"].split("/")
+            date = f"{y}-{m}-{d}"
+        except (KeyError, ValueError):
+            continue
+        vals = {}
+        for src, col in TREASURY_GOV_COLS.items():
+            try:
+                vals[col] = float(row[src])
+            except (KeyError, TypeError, ValueError):
+                continue
+        if vals:
+            out[date] = vals
+    return out
+
+
 def fetch_nyfed_sofr():
     url = "https://markets.newyorkfed.org/api/rates/secured/sofr/last/10.json"
     data = json.loads(_get(url).decode("utf-8", "replace"))
@@ -218,6 +253,21 @@ def pull_all(start):
     """Fetch everything; return (incoming {date:{col:val}}, provenance dict)."""
     incoming, prov = {}, {"pulled_at_utc": dt.datetime.utcnow().isoformat() + "Z",
                           "sources": {}}
+    # treasury.gov first: same-day par yields (FRED carries the same H.15
+    # values a day later, so first-writer-wins keeps the two consistent)
+    years = {start[:4], dt.date.today().strftime("%Y")}
+    for y in sorted(years):
+        try:
+            tsy, url = fetch_treasury_gov(y)
+            prov["sources"][f"treasury_gov_{y}"] = {
+                "source": "treasury.gov par yield curve", "url": url,
+                "latest_obs": max(tsy) if tsy else None}
+            for d, vals in tsy.items():
+                if d >= start:
+                    incoming.setdefault(d, {}).update(vals)
+        except RuntimeError as e:
+            prov["sources"][f"treasury_gov_{y}"] = {"error": str(e)}
+
     fred_vals = {}
     for col, sid in FRED_SERIES.items():
         time.sleep(0.6)   # politeness: FRED throttles rapid-fire requests
@@ -229,7 +279,9 @@ def pull_all(start):
         if col == "bkeven_10y_fred":
             continue
         for d, v in series.items():
-            incoming.setdefault(d, {})[col] = v
+            # setdefault: treasury.gov already populated tenor cells for the
+            # freshest day; FRED (same H.15 values, one day later) backfills
+            incoming.setdefault(d, {}).setdefault(col, v)
     # derived 10y breakeven = nominal - real (§5: "derived"); T10YIE cross-check
     for d, nom in fred_vals.get("ust_10y", {}).items():
         real = fred_vals.get("tips_10y_real", {}).get(d)
