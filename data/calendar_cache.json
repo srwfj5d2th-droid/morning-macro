@@ -1,0 +1,146 @@
+{
+ "refreshed_at_utc": "2026-08-19T13:09:49.091749Z",
+ "source": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
+ "events": [
+  {
+   "date": "2026-08-17T08:30:00-04:00",
+   "title": "Empire State Manufacturing Index",
+   "impact": "Low",
+   "forecast": "10.6",
+   "previous": "15.6"
+  },
+  {
+   "date": "2026-08-17T10:00:00-04:00",
+   "title": "NAHB Housing Market Index",
+   "impact": "Low",
+   "forecast": "33",
+   "previous": "34"
+  },
+  {
+   "date": "2026-08-17T16:00:00-04:00",
+   "title": "TIC Long-Term Purchases",
+   "impact": "Low",
+   "forecast": "151.4B",
+   "previous": "232.7B"
+  },
+  {
+   "date": "2026-08-18T08:15:00-04:00",
+   "title": "ADP Weekly Employment Change",
+   "impact": "Low",
+   "forecast": null,
+   "previous": "8.3K"
+  },
+  {
+   "date": "2026-08-18T08:30:00-04:00",
+   "title": "Building Permits",
+   "impact": "Low",
+   "forecast": "1.37M",
+   "previous": "1.37M"
+  },
+  {
+   "date": "2026-08-18T08:30:00-04:00",
+   "title": "Housing Starts",
+   "impact": "Low",
+   "forecast": "1.34M",
+   "previous": "1.43M"
+  },
+  {
+   "date": "2026-08-18T08:30:00-04:00",
+   "title": "Import Prices m/m",
+   "impact": "Low",
+   "forecast": "0.1%",
+   "previous": "0.3%"
+  },
+  {
+   "date": "2026-08-18T09:15:00-04:00",
+   "title": "Capacity Utilization Rate",
+   "impact": "Low",
+   "forecast": "76.3%",
+   "previous": "76.1%"
+  },
+  {
+   "date": "2026-08-18T09:15:00-04:00",
+   "title": "Industrial Production m/m",
+   "impact": "Low",
+   "forecast": "0.3%",
+   "previous": "0.1%"
+  },
+  {
+   "date": "2026-08-18T10:00:00-04:00",
+   "title": "Pending Home Sales m/m",
+   "impact": "Low",
+   "forecast": "0.1%",
+   "previous": "-5.4%"
+  },
+  {
+   "date": "2026-08-18T16:30:00-04:00",
+   "title": "API Weekly Statistical Bulletin",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-08-19T10:30:00-04:00",
+   "title": "Crude Oil Inventories",
+   "impact": "Low",
+   "forecast": "0.2M",
+   "previous": "17.4M"
+  },
+  {
+   "date": "2026-08-19T14:00:00-04:00",
+   "title": "FOMC Meeting Minutes",
+   "impact": "High",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-08-19T14:30:00-04:00",
+   "title": "President Trump Speaks",
+   "impact": "Medium",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-08-20T08:30:00-04:00",
+   "title": "Philly Fed Manufacturing Index",
+   "impact": "Medium",
+   "forecast": "24.1",
+   "previous": "41.4"
+  },
+  {
+   "date": "2026-08-20T08:30:00-04:00",
+   "title": "Unemployment Claims",
+   "impact": "Medium",
+   "forecast": "210K",
+   "previous": "209K"
+  },
+  {
+   "date": "2026-08-20T10:00:00-04:00",
+   "title": "CB Leading Index m/m",
+   "impact": "Low",
+   "forecast": "0.1%",
+   "previous": "-0.2%"
+  },
+  {
+   "date": "2026-08-20T10:30:00-04:00",
+   "title": "Natural Gas Storage",
+   "impact": "Low",
+   "forecast": "15B",
+   "previous": "36B"
+  },
+  {
+   "date": "2026-08-21T09:45:00-04:00",
+   "title": "Flash Manufacturing PMI",
+   "impact": "Low",
+   "forecast": "53.9",
+   "previous": "53.8"
+  },
+  {
+   "date": "2026-08-21T09:45:00-04:00",
+   "title": "Flash Services PMI",
+   "impact": "Low",
+   "forecast": "54.0",
+   "previous": "53.6"
+  }
+ ]
+}

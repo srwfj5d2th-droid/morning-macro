@@ -1,0 +1,208 @@
+{
+ "as_of": "2026-08-19",
+ "refresh": "quarterly",
+ "source": "https://api.nasdaq.com/api/screener/stocks?limit=120&marketcap=mega&download=true",
+ "rule": "top-50 S&P 500 constituents by market cap, share classes deduped",
+ "constituents": [
+  {
+   "symbol": "NVDA",
+   "market_cap": 5317708000000.0
+  },
+  {
+   "symbol": "AAPL",
+   "market_cap": 4524633625400.0
+  },
+  {
+   "symbol": "GOOGL",
+   "market_cap": 4209566000000.0
+  },
+  {
+   "symbol": "MSFT",
+   "market_cap": 3576365474830.0
+  },
+  {
+   "symbol": "AMZN",
+   "market_cap": 2798509056255.0
+  },
+  {
+   "symbol": "AVGO",
+   "market_cap": 1807880475240.0
+  },
+  {
+   "symbol": "META",
+   "market_cap": 1385002709346.0
+  },
+  {
+   "symbol": "TSLA",
+   "market_cap": 1330484030617.0
+  },
+  {
+   "symbol": "LLY",
+   "market_cap": 1153849595282.0
+  },
+  {
+   "symbol": "BRK-B",
+   "market_cap": 1109686367158.0
+  },
+  {
+   "symbol": "MU",
+   "market_cap": 1062487900735.0
+  },
+  {
+   "symbol": "JPM",
+   "market_cap": 965586135334.0
+  },
+  {
+   "symbol": "WMT",
+   "market_cap": 916770718656.0
+  },
+  {
+   "symbol": "AMD",
+   "market_cap": 790754585594.0
+  },
+  {
+   "symbol": "XOM",
+   "market_cap": 680768144098.0
+  },
+  {
+   "symbol": "JNJ",
+   "market_cap": 653347608633.0
+  },
+  {
+   "symbol": "V",
+   "market_cap": 650825590706.0
+  },
+  {
+   "symbol": "INTC",
+   "market_cap": 510986945671.0
+  },
+  {
+   "symbol": "MA",
+   "market_cap": 503101268641.0
+  },
+  {
+   "symbol": "ABBV",
+   "market_cap": 457542007432.0
+  },
+  {
+   "symbol": "BAC",
+   "market_cap": 449144227484.0
+  },
+  {
+   "symbol": "CSCO",
+   "market_cap": 439903522961.0
+  },
+  {
+   "symbol": "COST",
+   "market_cap": 426338348225.0
+  },
+  {
+   "symbol": "PLTR",
+   "market_cap": 412048253959.0
+  },
+  {
+   "symbol": "ORCL",
+   "market_cap": 411302454090.0
+  },
+  {
+   "symbol": "LRCX",
+   "market_cap": 410333182320.0
+  },
+  {
+   "symbol": "AMAT",
+   "market_cap": 408357153632.0
+  },
+  {
+   "symbol": "CVX",
+   "market_cap": 406495181913.0
+  },
+  {
+   "symbol": "GE",
+   "market_cap": 389179323001.0
+  },
+  {
+   "symbol": "CAT",
+   "market_cap": 386526823913.0
+  },
+  {
+   "symbol": "KO",
+   "market_cap": 382152423763.0
+  },
+  {
+   "symbol": "UNH",
+   "market_cap": 353589538079.0
+  },
+  {
+   "symbol": "MS",
+   "market_cap": 341676696825.0
+  },
+  {
+   "symbol": "HD",
+   "market_cap": 336516909008.0
+  },
+  {
+   "symbol": "MRK",
+   "market_cap": 333487590308.0
+  },
+  {
+   "symbol": "PG",
+   "market_cap": 333439922457.0
+  },
+  {
+   "symbol": "NFLX",
+   "market_cap": 323829588603.0
+  },
+  {
+   "symbol": "PANW",
+   "market_cap": 304924100000.0
+  },
+  {
+   "symbol": "RTX",
+   "market_cap": 303905983891.0
+  },
+  {
+   "symbol": "DELL",
+   "market_cap": 303735809982.0
+  },
+  {
+   "symbol": "GS",
+   "market_cap": 302955114882.0
+  },
+  {
+   "symbol": "PM",
+   "market_cap": 292427053425.0
+  },
+  {
+   "symbol": "GEV",
+   "market_cap": 267540072122.0
+  },
+  {
+   "symbol": "WFC",
+   "market_cap": 264297541966.0
+  },
+  {
+   "symbol": "KLAC",
+   "market_cap": 254502247861.0
+  },
+  {
+   "symbol": "TXN",
+   "market_cap": 248622550037.0
+  },
+  {
+   "symbol": "ANET",
+   "market_cap": 243643377501.0
+  },
+  {
+   "symbol": "SNDK",
+   "market_cap": 238045083446.0
+  },
+  {
+   "symbol": "C",
+   "market_cap": 230899173180.0
+  },
+  {
+   "symbol": "AMGN",
+   "market_cap": 229919979086.0
+  }
+ ]
+}

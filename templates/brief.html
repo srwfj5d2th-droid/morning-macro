@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Macro Brief — {{DATE_ISO}} — {{REGIME_TAG}}</title>
+<!--
+  templates/brief.html — v1.3 §6 section order, §9 design system.
+  Built fresh 2026-08-19 (sample-morning-brief.html absent at build; §13.8).
+  Tokens ({{...}}) are filled by the morning session. Inline CSS only, no JS,
+  single column <=720px. Charts arrive as inline SVG. The Google Fonts link is
+  progressive enhancement — every face has a full local fallback stack, and the
+  page is complete without it.
+  Regime palette: confirming #2E7D5B | diverging #B07C1F | tightening #46586B
+                  stress #A63D2F | calm #64707D (provisional, backlog.md)
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0; padding:0; background:#F4F2EE; color:#1F2430; font-family:'Source Sans 3', -apple-system, 'Segoe UI', system-ui, sans-serif; font-size:16px; line-height:1.55;">
+<div style="max-width:720px; margin:0 auto; padding:0 0 48px 0;">
+
+  <!-- ============ masthead: regime band ============ -->
+  <div style="background:{{REGIME_COLOR}}; color:#FCFBF9; padding:26px 28px 22px 28px;">
+    <div style="font-family:'IBM Plex Mono', Menlo, monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.85;">Morning Macro Brief · {{DATE_LONG}}</div>
+    <div style="font-family:Fraunces, Georgia, serif; font-size:30px; font-weight:700; line-height:1.15; margin-top:6px;">{{MASTHEAD_TITLE}}</div>
+    <div style="display:inline-block; margin-top:12px; border:1px solid rgba(252,251,249,0.5); border-radius:2px; padding:2px 10px; font-family:'IBM Plex Mono', Menlo, monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;">{{REGIME_TAG}}</div>
+  </div>
+
+  <div style="background:#FCFBF9; padding:26px 28px;">
+
+    <!-- ============ 1 · regime line ============ -->
+    <p style="font-size:18.5px; font-weight:600; margin:0 0 22px 0; border-left:3px solid {{REGIME_COLOR}}; padding-left:14px;">{{REGIME_LINE}}</p>
+
+    <!-- ============ 2 · recap strip ============ -->
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:13.5px;">
+      <tr style="border-bottom:1.5px solid #1F2430;">
+        <td style="padding:6px 0; font-weight:600; text-transform:uppercase; font-size:11px; letter-spacing:0.1em;">Recap</td>
+        <td style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Close</td>
+        <td style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">1D</td>
+        <td style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">YTD</td>
+        <td style="padding:6px 0 6px 8px; width:96px;"></td>
+      </tr>
+{{RECAP_ROWS}}
+    </table>
+    <p style="font-family:'IBM Plex Mono', Menlo, monospace; font-size:12.5px; margin:10px 0 0 0; color:#4A5160;">{{ATH_LINE}}</p>
+
+{{CLAIMS_SECTION}}
+
+    <!-- ============ 4 · the story ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">The story</h2>
+{{STORY_HTML}}
+
+    <!-- ============ 5 · tier 1 dashboard ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Rates · credit · liquidity</h2>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:13px;">
+      <tr style="border-bottom:1.5px solid #1F2430;">
+        <td style="padding:5px 0; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Series</td>
+        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">Level</td>
+        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">1D</td>
+        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">5D</td>
+        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">z(120d)</td>
+        <td style="padding:5px 0 5px 8px; width:96px;"></td>
+      </tr>
+{{DASHBOARD_ROWS}}
+    </table>
+    <p style="font-size:12px; color:#6B7280; margin:8px 0 0 0;">{{DASHBOARD_LAG_NOTE}}</p>
+{{DASHBOARD_INTERP}}
+
+    <!-- ============ 6 · movers ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Movers</h2>
+{{MOVERS_HTML}}
+
+    <!-- ============ 7 · chart of the day ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Chart of the day</h2>
+    <div style="background:#FFFFFF; border:1px solid #E5E1DA; padding:14px 14px 6px 14px;">
+{{COD_SVG}}
+    </div>
+    <p style="font-size:13.5px; color:#4A5160; margin:8px 0 0 0;"><span style="font-weight:600; color:{{REGIME_COLOR}};">Why this chart today —</span> {{COD_WHY}}</p>
+
+    <!-- ============ 8 · AI capex & financing cycle ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">AI capex &amp; financing cycle</h2>
+{{TIER3_HTML}}
+
+    <!-- ============ 9 · today's calendar ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Today's calendar</h2>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:13.5px;">
+{{CALENDAR_ROWS}}
+    </table>
+{{CALENDAR_NOTE}}
+
+    <!-- ============ 10 · concept of the day ============ -->
+    <div style="margin:36px 0 0 0; background:#F7F5F1; border-top:3px solid {{REGIME_COLOR}}; padding:18px 20px 16px 20px;">
+      <div style="font-family:'IBM Plex Mono', Menlo, monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#6B7280;">Concept of the day · {{CONCEPT_UNIT}}</div>
+      <h3 style="font-family:Fraunces, Georgia, serif; font-size:18.5px; font-weight:700; margin:6px 0 8px 0;">{{CONCEPT_TITLE}}</h3>
+{{CONCEPT_HTML}}
+      <p style="font-size:14.5px; margin:12px 0 0 0; border-left:3px solid {{REGIME_COLOR}}; padding-left:12px;"><em><span style="font-weight:600; font-style:normal;">Client translation:</span> {{CLIENT_TRANSLATION}}</em></p>
+    </div>
+
+    <!-- ============ 11 · client lens ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Client lens</h2>
+{{CLIENT_LENS_HTML}}
+
+    <!-- ============ 12 · flags ============ -->
+    <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Flags</h2>
+{{FLAGS_HTML}}
+
+    <!-- ============ footer ============ -->
+    <div style="margin-top:40px; padding-top:14px; border-top:1px solid #E5E1DA; font-size:11.5px; color:#8A8F99; line-height:1.6;">
+      Personal research for Jacob Puckett — not investment advice, not client-distributable material. Anything shared with clients goes through LPL review.<br>
+      Data: Federal Reserve Economic Data (FRED), St. Louis Fed · U.S. Treasury · NY Fed · Financial Modeling Prep · Yahoo Finance · Wikipedia (constituents) · ForexFactory (calendar). Values as pulled {{PULL_STAMP}}; observation dates as labeled.<br>
+      {{PROVENANCE_NOTE}}
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
