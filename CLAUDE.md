@@ -248,7 +248,7 @@ The brief is Jacob's; the **system design** is a shareable artifact for other ad
 4. ~~Koyfin~~ **Resolved:** no Koyfin subscription exists — the spec line was an error (Jacob, 2026-08-19). Full automation; no manual paste channel.
 5. ~~Curriculum~~ **Resolved:** 8-unit sequence ratified as written 2026-08-19. Tracker starts at Unit 1, segment 1.
 6. ~~Regime-tag vocabulary~~ **Resolved** — see §10.
-7. ~~Hosting decision~~ **Resolved:** GitHub Pages, public repo — approved by Jacob 2026-08-18. Confirmed constraint: brief contains only market data and curriculum; no household, client, or NR-position content ever enters the repo.
+7. ~~Hosting decision~~ **Resolved:** GitHub Pages, public repo — approved by Jacob 2026-08-18; live 2026-08-20 at https://srwfj5d2th-droid.github.io/morning-macro/ (repo github.com/srwfj5d2th-droid/morning-macro, account confirmed by Jacob). Confirmed constraint: brief contains only market data and curriculum; no household, client, or NR-position content ever enters the repo.
 8. ~~Template revision~~ **Resolved:** `sample-morning-brief.html` was not present in the project folder at build time, so `templates/brief.html` was built fresh from the §9 design system in the v1.3 §6 section order (flagged to Jacob 2026-08-19; reconstruction, not redesign).
 9. ~~Movers endpoints & mega-cap universe~~ **Resolved:** verified 2026-08-18/19 — see §14. Mega-cap universe: static top-50 list (`data/megacap50.json`), refreshed quarterly by market cap; chosen because per-symbol market-cap ranking is plan-gated daily but fine quarterly. Amendable at monthly review.
 

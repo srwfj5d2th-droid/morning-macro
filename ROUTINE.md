@@ -47,7 +47,8 @@ Run order:
     Pages publishes on push).
 11. Email Jacob (the repo owner's Gmail, to himself) the notification layer:
     subject `Macro Brief — {date} — {regime tag}`, body from
-    briefs/<today>-email.html with the link pointing at the hosted Pages URL.
+    briefs/<today>-email.html with the link pointing at the hosted page:
+    https://srwfj5d2th-droid.github.io/morning-macro/briefs/<today>.html
     If the Gmail connector is unavailable, skip the email, and note the
     failure in the commit message — the page is the product.
 
