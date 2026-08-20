@@ -250,7 +250,24 @@ def main():
 """
     email_out = REPO / "briefs" / f"{content['brief_date']}-email.html"
     email_out.write_text(email)
-    print(f"brief -> {out}\nemail -> {email_out}\nsize: {out.stat().st_size/1024:.0f}KB")
+
+    # ---- site index: redirect to the latest brief, list the archive ----
+    dates = sorted((p.stem for p in (REPO / "briefs").glob("????-??-??.html")),
+                   reverse=True)
+    links = "\n".join(
+        f'<li><a href="briefs/{d}.html" style="color:#46586B;">{d}</a></li>'
+        for d in dates)
+    (REPO / "index.html").write_text(f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=briefs/{dates[0]}.html">
+<title>Morning Macro Brief</title></head>
+<body style="font-family:Georgia,serif; max-width:640px; margin:40px auto;">
+<p>Redirecting to the latest brief: <a href="briefs/{dates[0]}.html">{dates[0]}</a></p>
+<p>Archive:</p><ul>{links}</ul>
+</body></html>
+""")
+    print(f"brief -> {out}\nemail -> {email_out}\nindex -> latest {dates[0]}\n"
+          f"size: {out.stat().st_size/1024:.0f}KB")
 
 
 if __name__ == "__main__":
