@@ -62,6 +62,15 @@ Run order:
     If the Gmail connector is unavailable, skip the email, and note the
     failure in the commit message — the page is the product.
 
+Voice contract (§6 amendment, 2026-08-21 — non-negotiable): write like a smart
+friend explaining, not an analyst flexing. Gloss every technical term in plain
+English on first use each morning; give every section one "why this matters"
+sentence in real-life terms (mortgages, bond funds, client accounts); translate
+magnitudes ("z +2.2" → "higher than all but a handful of days in the past six
+months") alongside the numbers, never instead of them; no unexplained desk
+slang. Jacob is a CFP learning market mechanics through this brief — assume
+advisor vocabulary, explain trader vocabulary.
+
 Style contract (compressed from §4A/§4C/§6): every brief is a complete read;
 significance language is earned by computed state, never by prose; causal
 claims only as hypotheses with logged tests; on quiet days say plainly that

@@ -176,6 +176,14 @@ Micro as macro sensor: large single-name and sector moves are treated as leading
 
 Prose over bullets throughout the interpretive sections. Tables for data only.
 
+**Voice amendment (2026-08-21, Jacob — "a tough read; bring the language down to my level"):** the standing register is *a smart friend explaining, not an analyst flexing*. Concretely:
+- Every technical term gets a plain-English gloss the first time it appears each morning ("HY OAS — the extra yield investors demand to lend to junk-rated companies").
+- Every section earns a "why this matters" sentence in real-life terms: mortgages, CDs, bond funds, paychecks, client accounts — the actual movement in someone's financial life.
+- Magnitudes are translated, not just stated: "z +2.2" becomes "higher than on all but a handful of days in the past six months," alongside the number, not instead of it.
+- Desk slang is replaced or explained: no bare "tape," "bid," "pinned," "de-grossed," "long end" without a first-use anchor.
+- The **Reading key** box in the template is fixed furniture — same place every day, like the recap strip.
+- The numbers and the discipline (§4C) are untouched; the explanation rises to meet them. This amends voice only — structure and section order unchanged, so the §10 design freeze is respected.
+
 ---
 
 ## 7. Educational curriculum — CFP → CFA macro bridge
