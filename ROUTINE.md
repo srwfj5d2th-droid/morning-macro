@@ -33,9 +33,12 @@ Run order:
    `python3 scripts/refresh_universe.py` (constituents only; megacap50 is
    quarterly).
 5. `python3 scripts/scan_movers.py --row-date <row_date from state.json>`.
-6. Headlines and movers stated-reasons: use the Bigdata.com connector; if it
-   is unavailable or out of credits, fall back to web search with named-source
-   attribution and state the gap in the brief per §4.
+6. Headlines and movers stated-reasons: web search with named-source
+   attribution — this is the standing source (Bigdata.com was removed
+   2026-08-21; do not use it or any other paid service even if a connector
+   appears attached). Attribute every stated reason to a named outlet; if
+   nothing credible surfaces for a mover, say so rather than inferring a
+   reason.
 7. Choose the regime tag (calm | risk-on/confirming | risk-on/diverging |
    tightening | stress) from computed state, and charts:
    `python3 scripts/render_charts.py sparklines --regime <tag> --days 30
