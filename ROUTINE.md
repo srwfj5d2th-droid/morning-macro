@@ -13,6 +13,13 @@ order, strict), §4 (fail-closed), §4B (claims ledger), §4C/§4D (epistemics a
 neutrality), and §8 (the NR governance wall). Do not redesign anything.
 
 Run order:
+0. **Idempotency check:** if `git log -1` already shows a `brief: <today>`
+   commit, the brief exists — verify the page responds and (if the Gmail
+   connector is attached) that today's notification email was sent, send it if
+   missing, and stop. Never rebuild an existing day's brief.
+   **Dependencies:** the cloud sandbox may lack matplotlib/pytest — run
+   `python3 -m pip install --quiet matplotlib pytest` if imports fail, and
+   note it in the commit message.
 1. `python3 scripts/pull_data.py --daily` — if it exits 2 (Tier 1 missing or
    stale), STOP: write no analysis; email Jacob a two-line notice ("Data pull
    incomplete ({series}); no brief generated"), commit the failure log, end.
