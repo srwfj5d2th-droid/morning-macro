@@ -182,6 +182,13 @@ def main():
     cod = Path(content["chart_of_day_svg"]).read_text()
     cod = cod[cod.find("<svg"):]
 
+    # Friday liquidity panel (§9): inline into the Tier 3 section where the
+    # content marks a [[LIQUIDITY_SVG]] slot
+    if content.get("liquidity_svg_path"):
+        liq = Path(content["liquidity_svg_path"]).read_text()
+        content["tier3_html"] = content["tier3_html"].replace(
+            "[[LIQUIDITY_SVG]]", liq[liq.find("<svg"):])
+
     ath = state["derived"]["spx_ath"]
     ath_line = (f"S&P 500 distance from all-time closing high "
                 f"({ath['ath_date']}, {ath['ath']:,.2f}): {ath['dist_pct']:+.2f}%")
