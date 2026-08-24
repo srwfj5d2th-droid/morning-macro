@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:fred.stlouisfed.org)",
+      "WebFetch(domain:home.treasury.gov)",
+      "WebFetch(domain:query1.finance.yahoo.com)",
+      "WebFetch(domain:en.wikipedia.org)"
+    ]
+  },
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "fred.stlouisfed.org",
+        "home.treasury.gov",
+        "query1.finance.yahoo.com",
+        "en.wikipedia.org"
+      ]
+    }
+  }
+}
