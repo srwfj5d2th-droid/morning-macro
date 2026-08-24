@@ -1,0 +1,26 @@
+Data pull incomplete (all Tier 1 series: UST rates, TIPS/breakeven, HY/IG OAS, SOFR, Fed BS/RRP/TGA, DXY, WTI/gold/copper); no brief generated.
+
+pull_data.py --daily crashed (unhandled RuntimeError, not a clean exit 2) while
+fetching FRED. Root cause: this session's network egress policy blocks the
+data hosts entirely, not a transient fetch error — confirmed via both curl and
+WebFetch:
+
+  - fred.stlouisfed.org:443 -> proxy CONNECT rejected 403 (policy denial)
+  - home.treasury.gov:443   -> proxy CONNECT rejected 403 (policy denial)
+  - query1.finance.yahoo.com:443 -> proxy CONNECT rejected 403 (policy denial)
+  - en.wikipedia.org:443    -> proxy CONNECT rejected 403 (policy denial)
+  - WebFetch to fred.stlouisfed.org -> {"error_type":"EGRESS_BLOCKED","domain":"fred.stlouisfed.org"}
+
+Per the agent-proxy runbook, 403s from the egress gateway are organization
+policy denials and must be reported, not retried or routed around.
+
+FMP via the MCP connector still works (spot-checked mcp__FMP__quote for SPY),
+but per §5/§14 FMP alone cannot cover the Tier 1 spine (treasury endpoint lags
+~2 trading days and is cross-check-only; forex/batch-quote are plan-gated),
+so Tier 1 cannot be validated today through that path alone.
+
+No code changes made to route around the policy per the proxy runbook and
+the "do not redesign anything" instruction. This looks like an environment
+network-policy configuration issue (FRED/Yahoo/Treasury/Wikipedia not on the
+egress allowlist for this session) rather than a script bug — flagging for
+Jacob to check the scheduled task's environment egress policy.
