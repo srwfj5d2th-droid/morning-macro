@@ -13,10 +13,13 @@ order, strict), §4 (fail-closed), §4B (claims ledger), §4C/§4D (epistemics a
 neutrality), and §8 (the NR governance wall). Do not redesign anything.
 
 Run order:
-0. **Idempotency check:** if `git log -1` already shows a `brief: <today>`
-   commit, the brief exists — verify the page responds and (if the Gmail
-   connector is attached) that today's notification email was sent, send it if
-   missing, and stop. Never rebuild an existing day's brief.
+0. **Idempotency check:** if the git log already shows a `brief: <today>`
+   commit AND `briefs/<today>.html` exists, the brief exists — verify the page
+   responds and (if the Gmail connector is attached) that today's notification
+   email was sent, send it if missing, and stop. Never rebuild an existing
+   day's brief. A `brief: <today> [data-pull-failed]` failure notice does NOT
+   count as the day's brief — if a failure notice exists but the pull now
+   succeeds (e.g. an egress-policy fix landed), proceed with the full run.
    **Dependencies:** the cloud sandbox may lack matplotlib/pytest — run
    `python3 -m pip install --quiet matplotlib pytest` if imports fail, and
    note it in the commit message.
