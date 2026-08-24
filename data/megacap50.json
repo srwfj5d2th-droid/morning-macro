@@ -1,208 +1,208 @@
 {
  "as_of": "2026-08-24",
  "refresh": "quarterly",
- "source": "https://api.nasdaq.com/api/screener/stocks?limit=120&marketcap=mega&download=true",
- "rule": "top-50 S&P 500 constituents by market cap, share classes deduped",
+ "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+ "rule": "top-50 S&P 500 constituents by index weight (float-adjusted market cap), share classes deduped",
  "constituents": [
   {
    "symbol": "NVDA",
-   "market_cap": 5196224000000.0
+   "index_weight_pct": 7.865622
   },
   {
    "symbol": "AAPL",
-   "market_cap": 4514709583000.0
-  },
-  {
-   "symbol": "GOOGL",
-   "market_cap": 4217148600000.0
+   "index_weight_pct": 6.871781
   },
   {
    "symbol": "MSFT",
-   "market_cap": 3588320603071.0
+   "index_weight_pct": 5.429147
   },
   {
    "symbol": "AMZN",
-   "market_cap": 2789664279126.0
+   "index_weight_pct": 3.829235
+  },
+  {
+   "symbol": "GOOGL",
+   "index_weight_pct": 3.058096
   },
   {
    "symbol": "AVGO",
-   "market_cap": 1752930423953.0
-  },
-  {
-   "symbol": "TSLA",
-   "market_cap": 1433132767387.0
+   "index_weight_pct": 2.638486
   },
   {
    "symbol": "META",
-   "market_cap": 1400873673128.0
-  },
-  {
-   "symbol": "LLY",
-   "market_cap": 1181779659401.0
-  },
-  {
-   "symbol": "BRK-B",
-   "market_cap": 1093933303969.0
+   "index_weight_pct": 1.826426
   },
   {
    "symbol": "MU",
-   "market_cap": 1091874710524.0
+   "index_weight_pct": 1.648915
+  },
+  {
+   "symbol": "TSLA",
+   "index_weight_pct": 1.544976
+  },
+  {
+   "symbol": "LLY",
+   "index_weight_pct": 1.501924
   },
   {
    "symbol": "JPM",
-   "market_cap": 934565102438.0
+   "index_weight_pct": 1.424748
   },
   {
-   "symbol": "WMT",
-   "market_cap": 825252808374.0
+   "symbol": "BRK-B",
+   "index_weight_pct": 1.374749
   },
   {
    "symbol": "AMD",
-   "market_cap": 772568813627.0
+   "index_weight_pct": 1.167044
   },
   {
    "symbol": "XOM",
-   "market_cap": 678917783716.0
-  },
-  {
-   "symbol": "V",
-   "market_cap": 662957658684.0
+   "index_weight_pct": 1.034958
   },
   {
    "symbol": "JNJ",
-   "market_cap": 651250996853.0
+   "index_weight_pct": 0.983761
+  },
+  {
+   "symbol": "V",
+   "index_weight_pct": 0.931205
   },
   {
    "symbol": "MA",
-   "market_cap": 508637651462.0
-  },
-  {
-   "symbol": "INTC",
-   "market_cap": 476026210856.0
+   "index_weight_pct": 0.708429
   },
   {
    "symbol": "ABBV",
-   "market_cap": 468215395834.0
+   "index_weight_pct": 0.707866
+  },
+  {
+   "symbol": "WMT",
+   "index_weight_pct": 0.687475
+  },
+  {
+   "symbol": "INTC",
+   "index_weight_pct": 0.672678
   },
   {
    "symbol": "CSCO",
-   "market_cap": 437656905202.0
-  },
-  {
-   "symbol": "PLTR",
-   "market_cap": 432225503191.0
-  },
-  {
-   "symbol": "BAC",
-   "market_cap": 431382646637.0
-  },
-  {
-   "symbol": "ORCL",
-   "market_cap": 421902587370.0
+   "index_weight_pct": 0.66321
   },
   {
    "symbol": "COST",
-   "market_cap": 420302601703.0
+   "index_weight_pct": 0.635791
   },
   {
-   "symbol": "CVX",
-   "market_cap": 405566569414.0
+   "symbol": "PLTR",
+   "index_weight_pct": 0.624676
+  },
+  {
+   "symbol": "BAC",
+   "index_weight_pct": 0.609021
   },
   {
    "symbol": "LRCX",
-   "market_cap": 392914794000.0
-  },
-  {
-   "symbol": "KO",
-   "market_cap": 391962236037.0
+   "index_weight_pct": 0.593964
   },
   {
    "symbol": "AMAT",
-   "market_cap": 390703893138.0
+   "index_weight_pct": 0.591017
+  },
+  {
+   "symbol": "CVX",
+   "index_weight_pct": 0.581055
   },
   {
    "symbol": "CAT",
-   "market_cap": 380564840603.0
+   "index_weight_pct": 0.576587
   },
   {
    "symbol": "MRK",
-   "market_cap": 376367033377.0
+   "index_weight_pct": 0.569862
   },
   {
    "symbol": "GE",
-   "market_cap": 361455652654.0
+   "index_weight_pct": 0.54958
   },
   {
    "symbol": "UNH",
-   "market_cap": 350160725763.0
+   "index_weight_pct": 0.535673
   },
   {
-   "symbol": "MS",
-   "market_cap": 336415299746.0
+   "symbol": "KO",
+   "index_weight_pct": 0.533334
   },
   {
    "symbol": "PG",
-   "market_cap": 336298975121.0
-  },
-  {
-   "symbol": "HD",
-   "market_cap": 334642329646.0
+   "index_weight_pct": 0.509352
   },
   {
    "symbol": "NFLX",
-   "market_cap": 331407958813.0
+   "index_weight_pct": 0.50668
+  },
+  {
+   "symbol": "HD",
+   "index_weight_pct": 0.505383
   },
   {
    "symbol": "GS",
-   "market_cap": 302608620906.0
+   "index_weight_pct": 0.463513
   },
   {
    "symbol": "PM",
-   "market_cap": 293377807623.0
+   "index_weight_pct": 0.443541
   },
   {
    "symbol": "PANW",
-   "market_cap": 291664050000.0
-  },
-  {
-   "symbol": "DELL",
-   "market_cap": 286515580661.0
+   "index_weight_pct": 0.43881
   },
   {
    "symbol": "RTX",
-   "market_cap": 282907912007.0
+   "index_weight_pct": 0.427539
   },
   {
    "symbol": "GEV",
-   "market_cap": 254841286980.0
+   "index_weight_pct": 0.389023
+  },
+  {
+   "symbol": "MS",
+   "index_weight_pct": 0.388183
   },
   {
    "symbol": "WFC",
-   "market_cap": 253532104330.0
+   "index_weight_pct": 0.387885
+  },
+  {
+   "symbol": "ORCL",
+   "index_weight_pct": 0.376027
   },
   {
    "symbol": "TXN",
-   "market_cap": 241426158271.0
+   "index_weight_pct": 0.363852
   },
   {
    "symbol": "KLAC",
-   "market_cap": 240391542604.0
-  },
-  {
-   "symbol": "ANET",
-   "market_cap": 237930029845.0
+   "index_weight_pct": 0.363482
   },
   {
    "symbol": "AMGN",
-   "market_cap": 237515858757.0
+   "index_weight_pct": 0.358638
   },
   {
    "symbol": "SNDK",
-   "market_cap": 233696439116.0
+   "index_weight_pct": 0.357626
   },
   {
    "symbol": "TMO",
-   "market_cap": 232670874661.0
+   "index_weight_pct": 0.353628
+  },
+  {
+   "symbol": "LIN",
+   "index_weight_pct": 0.34077
+  },
+  {
+   "symbol": "C",
+   "index_weight_pct": 0.339446
   }
  ]
 }

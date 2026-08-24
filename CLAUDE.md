@@ -287,7 +287,7 @@ Every endpoint below was exercised live on 2026-08-18/19; nothing here is assume
 | DXY | Yahoo `DX-Y.NYB` | FMP forex gated |
 | WTI / gold / copper | Yahoo `CL=F` / `GC=F` / `HG=F` | FMP commodity per-symbol gated |
 | SPX/NDX/RUT, SPY/RSP/SMH | Yahoo v8 chart | FMP index-quote as cross-check |
-| S&P 500 constituents | Wikipedia list page (parsed, cached in `data/sp500_constituents.json`) | FMP constituents gated; refresh weekly |
+| S&P 500 constituents + megacap-50 | State Street's official daily SPY holdings file (`www.ssga.com`, xlsx, stdlib-parsed) — the fund's actual holdings and index weights | **Amended 2026-08-24:** replaced Wikipedia (membership) and the Nasdaq screener (caps) at Jacob's request — he doesn't trust Wikipedia, and the fund manager's own file is strictly more authoritative. Constituents weekly, megacap-50 quarterly (top-50 by index weight = float-adjusted cap) |
 | Broad movers scan | Yahoo v8 `spark` batch endpoint (chunks of ~20) over the constituents list | FMP batch quotes gated |
 | Economic calendar | ForexFactory weekly JSON (`ff_calendar_thisweek.json`) with impact + consensus | FMP economics-calendar gated; refresh Mondays into `data/calendar_cache.json` |
 | Headlines & movers stated-reasons | Web search, named-source attribution required | **Standing source since 2026-08-21** — Bigdata.com removed by Jacob's no-paid-services decision (its credits were exhausted and FMP news is plan-gated); proved sufficient across the first three editions |

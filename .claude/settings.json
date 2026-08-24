@@ -4,7 +4,7 @@
       "WebFetch(domain:fred.stlouisfed.org)",
       "WebFetch(domain:home.treasury.gov)",
       "WebFetch(domain:query1.finance.yahoo.com)",
-      "WebFetch(domain:en.wikipedia.org)"
+      "WebFetch(domain:www.ssga.com)"
     ]
   },
   "sandbox": {
@@ -13,7 +13,7 @@
         "fred.stlouisfed.org",
         "home.treasury.gov",
         "query1.finance.yahoo.com",
-        "en.wikipedia.org"
+        "www.ssga.com"
       ]
     }
   }
