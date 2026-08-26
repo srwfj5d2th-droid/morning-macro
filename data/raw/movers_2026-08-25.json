@@ -1,0 +1,203 @@
+{
+ "row_date": "2026-08-25",
+ "scanned_at_utc": "2026-08-26T10:36:06.903201Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "MRNA",
+   "pct_1d": 14.357,
+   "close": 158.83,
+   "prev_close": 138.89,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SMCI",
+   "pct_1d": 9.355,
+   "close": 38.46,
+   "prev_close": 35.17,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HOOD",
+   "pct_1d": 8.174,
+   "close": 112.09,
+   "prev_close": 103.62,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CDW",
+   "pct_1d": 7.23,
+   "close": 142.09,
+   "prev_close": 132.51,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LITE",
+   "pct_1d": 6.673,
+   "close": 885.565,
+   "prev_close": 830.17,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "RDDT",
+   "pct_1d": 6.385,
+   "close": 162.45,
+   "prev_close": 152.7,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ALB",
+   "pct_1d": -5.887,
+   "close": 133.18,
+   "prev_close": 141.51,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "IBKR",
+   "pct_1d": 5.524,
+   "close": 98.19,
+   "prev_close": 93.05,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CDNS",
+   "pct_1d": 5.058,
+   "close": 331.9,
+   "prev_close": 315.92,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "AMD",
+   "pct_1d": 4.911,
+   "close": 479.18,
+   "prev_close": 456.75,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRVL",
+   "pct_1d": 4.837,
+   "close": 240.38,
+   "prev_close": 229.29,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CVNA",
+   "pct_1d": 4.756,
+   "close": 75.77,
+   "prev_close": 72.33,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "COHR",
+   "pct_1d": 4.592,
+   "close": 288.14,
+   "prev_close": 275.49,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "COIN",
+   "pct_1d": 4.279,
+   "close": 187.16,
+   "prev_close": 179.48,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DELL",
+   "pct_1d": 4.227,
+   "close": 451.5,
+   "prev_close": 433.19,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CIEN",
+   "pct_1d": 4.224,
+   "close": 387.66,
+   "prev_close": 371.95,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DOW",
+   "pct_1d": -4.071,
+   "close": 30.16,
+   "prev_close": 31.44,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LYB",
+   "pct_1d": -4.064,
+   "close": 62.55,
+   "prev_close": 65.2,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "APP",
+   "pct_1d": 4.002,
+   "close": 310.54,
+   "prev_close": 298.59,
+   "close_date": "2026-08-25",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRK",
+   "pct_1d": 3.843,
+   "close": 156.45,
+   "prev_close": 150.66,
+   "close_date": "2026-08-25",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "PANW",
+   "pct_1d": -3.135,
+   "close": 339.9,
+   "prev_close": 350.9,
+   "close_date": "2026-08-25",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "NFLX",
+   "pct_1d": 2.775,
+   "close": 82.23,
+   "prev_close": 80.01,
+   "close_date": "2026-08-25",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": [
+  {
+   "etf": "XLE",
+   "sector": "Energy",
+   "pct_1d": -1.664,
+   "spy_pct_1d": 0.32,
+   "divergence_pp": -1.984
+  }
+ ]
+}
