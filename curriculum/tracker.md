@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 1 — Yield curve mechanics — complete** (capstone taught 2026-08-28). Unit 2 — real vs. nominal decomposition — begins next brief.
+Current position: **Unit 2 — Real vs. nominal decomposition — segment 1 of ~6** (taught 2026-08-31).
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -12,6 +12,7 @@ Current position: **Unit 1 — Yield curve mechanics — complete** (capstone ta
 | 2026-08-26 | 1 | 6 | Convexity — why duration is a straight-line approximation of a curved relationship; gains get a boost, losses get a cushion | 10Y and 30Y both −6bp today (too small a move to show convexity) — set up against this month's larger 30Y selloff and tonight's Nvidia/Friday's Jackson Hole event risk |
 | 2026-08-27 | 1 | 7 | The term premium — what's left over once you subtract the expected path; parallel curve shifts read as premium moves, not path repricings | 2Y and 10Y both +2bp today (a uniform, parallel nudge) — contrasted against segment 2's Treasury-buyback example where only the long end moved |
 | 2026-08-28 | 1 | 8 (capstone) | Putting it together — three questions for reading any curve move (which part moved; how big relative to duration; what's left after subtracting path) | 2Y/10Y/30Y all +1bp today (smaller echo of segment 7's parallel-shift example) — run through the full three-question toolkit hours ahead of Fed Chair Warsh's first Jackson Hole speech |
+| 2026-08-31 | 2 | 1 | Real vs. nominal decomposition — nominal yield ≈ TIPS real yield + breakeven inflation; what each piece measures | 08-27 same-date triplet: TIPS real 2.34% + breakeven 2.33% = 4.67%, matching that day's nominal 10Y to the basis point — set up against Friday's front-end-led curve move (Unit 1's toolkit applied: "which part moved" pointed to path, not premium) |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -25,3 +26,4 @@ Current position: **Unit 1 — Yield curve mechanics — complete** (capstone ta
 | Convexity | 2026-08-26 |
 | Term premium | 2026-08-28 (R) |
 | Three-question synthesis (Unit 1 capstone) | 2026-08-28 |
+| Real/nominal decomposition (TIPS + breakeven) | 2026-08-31 |
