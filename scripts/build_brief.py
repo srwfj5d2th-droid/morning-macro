@@ -35,7 +35,7 @@ DASH = [("UST 3M", "ust_3m", "yld"), ("UST 2Y", "ust_2y", "yld"),
         ("10Y breakeven", "bkeven_10y", "yld"), ("HY OAS", "hy_oas", "sprd"),
         ("IG OAS", "ig_oas", "sprd"), ("DXY", "dxy", "lvl"),
         ("SOFR", "sofr", "yld"), ("Fed bal. sheet $M", "fed_bs", "big"),
-        ("ON RRP $B", "on_rrp", "lvl"), ("TGA $M", "tga", "big")]
+        ("ON RRP $B", "on_rrp", "bn"), ("TGA $M", "tga", "big")]
 MONO = "font-family:'IBM Plex Mono', Menlo, monospace;"
 
 
@@ -66,6 +66,8 @@ def fdelta(s, d, kind):
         return f"{d:+.0f}bp"
     if kind == "big":
         return f"{d:+,.0f}"
+    if kind == "bn":
+        return f"{d:+,.2f}"
     prev = s["last"] - d
     return f"{100 * d / prev:+.2f}%" if prev else "—"
 
