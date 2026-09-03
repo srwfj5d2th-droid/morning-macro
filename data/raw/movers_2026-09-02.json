@@ -1,0 +1,227 @@
+{
+ "row_date": "2026-09-02",
+ "scanned_at_utc": "2026-09-03T10:34:52.821651Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "DELL",
+   "pct_1d": 15.812,
+   "close": 492.2,
+   "prev_close": 425.0,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "RDDT",
+   "pct_1d": 9.306,
+   "close": 158.1,
+   "prev_close": 144.64,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "PANW",
+   "pct_1d": -9.282,
+   "close": 328.48,
+   "prev_close": 362.09,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CHTR",
+   "pct_1d": 8.742,
+   "close": 158.97,
+   "prev_close": 146.19,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DDOG",
+   "pct_1d": -6.527,
+   "close": 209.23,
+   "prev_close": 223.84,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SWKS",
+   "pct_1d": 6.32,
+   "close": 71.67,
+   "prev_close": 67.41,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "EIX",
+   "pct_1d": -6.139,
+   "close": 55.19,
+   "prev_close": 58.8,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "XYZ",
+   "pct_1d": 5.881,
+   "close": 82.46,
+   "prev_close": 77.88,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "PLTR",
+   "pct_1d": -5.814,
+   "close": 169.46,
+   "prev_close": 179.92,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "STLD",
+   "pct_1d": 5.788,
+   "close": 247.64,
+   "prev_close": 234.09,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "TTD",
+   "pct_1d": 5.588,
+   "close": 14.55,
+   "prev_close": 13.78,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CRWD",
+   "pct_1d": -5.417,
+   "close": 203.42,
+   "prev_close": 215.07,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BBY",
+   "pct_1d": 5.289,
+   "close": 87.0,
+   "prev_close": 82.63,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "PCG",
+   "pct_1d": -5.192,
+   "close": 13.33,
+   "prev_close": 14.06,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "OMC",
+   "pct_1d": -5.03,
+   "close": 81.76,
+   "prev_close": 86.09,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NUE",
+   "pct_1d": 4.783,
+   "close": 263.97,
+   "prev_close": 251.92,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FTNT",
+   "pct_1d": -4.517,
+   "close": 154.54,
+   "prev_close": 161.85,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CBOE",
+   "pct_1d": -4.389,
+   "close": 294.12,
+   "prev_close": 307.62,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "PYPL",
+   "pct_1d": 4.332,
+   "close": 54.67,
+   "prev_close": 52.4,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NOW",
+   "pct_1d": -4.325,
+   "close": 136.72,
+   "prev_close": 142.9,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "TKO",
+   "pct_1d": 4.126,
+   "close": 189.79,
+   "prev_close": 182.27,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MOS",
+   "pct_1d": 4.036,
+   "close": 25.78,
+   "prev_close": 24.78,
+   "close_date": "2026-09-02",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NVDA",
+   "pct_1d": 3.205,
+   "close": 224.41,
+   "prev_close": 217.44,
+   "close_date": "2026-09-02",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "ORCL",
+   "pct_1d": 3.135,
+   "close": 145.75,
+   "prev_close": 141.32,
+   "close_date": "2026-09-02",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "GEV",
+   "pct_1d": 2.605,
+   "close": 921.94,
+   "prev_close": 898.53,
+   "close_date": "2026-09-02",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "WFC",
+   "pct_1d": 2.562,
+   "close": 89.27,
+   "prev_close": 87.04,
+   "close_date": "2026-09-02",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": []
+}

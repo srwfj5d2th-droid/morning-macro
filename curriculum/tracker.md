@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 2 — Real vs. nominal decomposition — segment 3 of ~6** (taught 2026-09-02).
+Current position: **Unit 2 — Real vs. nominal decomposition — segment 4 of ~6** (taught 2026-09-03).
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ Current position: **Unit 2 — Real vs. nominal decomposition — segment 3 of ~
 | 2026-08-31 | 2 | 1 | Real vs. nominal decomposition — nominal yield ≈ TIPS real yield + breakeven inflation; what each piece measures | 08-27 same-date triplet: TIPS real 2.34% + breakeven 2.33% = 4.67%, matching that day's nominal 10Y to the basis point — set up against Friday's front-end-led curve move (Unit 1's toolkit applied: "which part moved" pointed to path, not premium) |
 | 2026-09-01 | 2 | 2 | Reading which piece moved — applying the segment-1 identity to an actual event, not just a snapshot | Friday's 10Y +6bp decomposed: real yield +8bp (2.34%→2.42%) vs. breakeven −2bp (2.33%→2.31%), summing to +6bp to the basis point — shows the hawkish repricing was a real-rate story, not an inflation story, reinforcing today's CL-0006 confirmation |
 | 2026-09-02 | 2 | 3 | The real yield itself has two pieces — expected real short-rate path vs. real term premium; this system can only read the split qualitatively (no term-structure model), flagged as a stated limit rather than a false-precision claim | Real yield's second straight rise (2.42%→2.44%) alongside rising Fed-hike odds (~40%→68% this week per CNBC/TechTimes) read as path-driven, not premium-driven — set up against today's whole-curve flag and the new CL-0009 claim on software's rate sensitivity |
+| 2026-09-03 | 2 | 4 | Breakevens have two pieces too — expected inflation vs. inflation risk premium, the mirror of segment 3's real-yield split; another qualitative-only read (no model to separate them) | Five-day move split: breakeven +3bp (2.32%→2.35%) vs. real yield +12bp (2.32%→2.44%) over the same window — the inflation-expectations side has stayed quiet while the real-rate side did nearly all the work, set against today's flat-but-still-flagged Treasury close |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -30,3 +31,4 @@ Current position: **Unit 2 — Real vs. nominal decomposition — segment 3 of ~
 | Three-question synthesis (Unit 1 capstone) | 2026-08-28 |
 | Real/nominal decomposition (TIPS + breakeven) | 2026-09-02 (R) |
 | Real yield decomposition (path vs. real term premium) | 2026-09-02 |
+| Breakeven decomposition (expected inflation vs. inflation risk premium) | 2026-09-03 |
