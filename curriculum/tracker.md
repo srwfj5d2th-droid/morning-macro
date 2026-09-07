@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 2 — Real vs. nominal decomposition — segment 5 of ~6** (taught 2026-09-04).
+Current position: **Unit 2 complete (capstone taught 2026-09-07) — Unit 3, Credit spreads, begins next edition.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -17,6 +17,7 @@ Current position: **Unit 2 — Real vs. nominal decomposition — segment 5 of ~
 | 2026-09-02 | 2 | 3 | The real yield itself has two pieces — expected real short-rate path vs. real term premium; this system can only read the split qualitatively (no term-structure model), flagged as a stated limit rather than a false-precision claim | Real yield's second straight rise (2.42%→2.44%) alongside rising Fed-hike odds (~40%→68% this week per CNBC/TechTimes) read as path-driven, not premium-driven — set up against today's whole-curve flag and the new CL-0009 claim on software's rate sensitivity |
 | 2026-09-03 | 2 | 4 | Breakevens have two pieces too — expected inflation vs. inflation risk premium, the mirror of segment 3's real-yield split; another qualitative-only read (no model to separate them) | Five-day move split: breakeven +3bp (2.32%→2.35%) vs. real yield +12bp (2.32%→2.44%) over the same window — the inflation-expectations side has stayed quiet while the real-rate side did nearly all the work, set against today's flat-but-still-flagged Treasury close |
 | 2026-09-04 | 2 | 5 | Putting the four-piece decomposition to work on a live event — a Fed governor's rate-path comment should hit the front end and the real-rate-path component first and hardest, with breakevens slower to react since it isn't new inflation information | Waller's dovish comments: 2Y −5bp (most policy-sensitive, moved most), 10Y −2bp, lagged real yield/breakeven (dated 09-02) hadn't caught up yet — a live illustration of where policy-path news should land first |
+| 2026-09-07 | 2 | 6 (capstone) | Big headline, small move — a large growth surprise doesn't guarantee a large yield reaction; check whether it's priced in already or whether the decomposition simply hasn't caught up to lagged data yet before concluding either way | August payrolls beat consensus ~2.8x (+162K vs. +58K) yet the 10Y closed +1bp — the capstone anomaly, logged as an open test (CL-0012) against tomorrow's real-yield fill rather than resolved by assumption |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -34,3 +35,4 @@ Current position: **Unit 2 — Real vs. nominal decomposition — segment 5 of ~
 | Real yield decomposition (path vs. real term premium) | 2026-09-02 |
 | Breakeven decomposition (expected inflation vs. inflation risk premium) | 2026-09-03 |
 | Four-piece decomposition applied live (which piece a Fed comment should hit first) | 2026-09-04 |
+| Headline size vs. yield-reaction size (check pricing-in vs. lagged data before concluding) | 2026-09-07 |
