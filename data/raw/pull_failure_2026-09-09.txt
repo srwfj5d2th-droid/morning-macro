@@ -1,0 +1,49 @@
+Data pull incomplete (tips_10y_real, bkeven_10y); no brief generated.
+
+pull_data.py --daily ran cleanly (exit 2, the designed fail-closed exit —
+not a crash) and pulled row_date=2026-09-08 (Tuesday's close; Monday
+2026-09-07 was Labor Day, a market holiday with no session). Every other
+Tier 1 series filled within its allowed lag:
+
+  - UST 3m/2y/10y/30y, DXY, SPX/NDX/RUT/SPY/RSP/SMH, WTI/gold/copper:
+    fresh through 2026-09-08.
+  - HY OAS / IG OAS (BAMLH0A0HYM2 / BAMLC0A0CM): latest FRED obs 2026-09-07,
+    1 trading day behind row_date -- inside the 2-day allowed lag.
+
+Two series exceeded their allowed lag:
+
+  - tips_10y_real (FRED DFII10): latest published obs is still 2026-09-04,
+    2 trading days stale (max 1).
+  - bkeven_10y (derived = DGS10 - DFII10): stale for the same reason --
+    downstream of DFII10, not fetched independently.
+
+Confirmed via direct curl this is a genuine FRED publication lag, not a
+blocked host: FRED responded normally (curl, default UA, per the fetcher-
+quirks note) and returned real data through 2026-09-04 for DFII10, while
+the separate T10YIE cross-check series (used only to sanity-check the
+derived breakeven, not as the Tier 1 source per §5/§14) already shows a
+2026-09-08 print (2.37). DFII10 itself has not posted the 09-05..09-08
+window yet as of this morning's pull (10:33 UTC) -- most likely the
+Labor Day holiday shifted its release cadence by a day. Not substituting
+T10YIE for DFII10 as a workaround: that would change the source map
+decision in §5/§14 without re-verification, which is outside this run's
+scope ("do not redesign anything").
+
+Fail-closed per §4: no analysis, no narrative, no claims-ledger
+reconciliation performed today (open claims CL-0008/0009/0010/0012 remain
+open and will be reconciled against today's state once it exists -- CL-0010
+and CL-0012 were already due 2026-09-08, when Tuesday's run correctly wrote
+a markets-closed note instead of a brief; they now carry one extra day of
+lag through no fault of the claim tests themselves).
+
+Committed alongside this notice: macro_series.csv gained its normal
+append-only fill for 2026-09-04 (backfilled tips_10y_real/bkeven_10y/hy_oas/
+ig_oas once FRED published them) and a new 2026-09-08 row with every
+series that did clear validation. tips_10y_real, bkeven_10y, hy_oas,
+ig_oas, sofr, fed_bs, on_rrp, and tga on the 2026-09-08 row remain blank
+pending their normal publication lag and will fill on a later run, per
+§14's "a fill, never an overwrite" rule. This is routine data-pipeline
+behavior, independent of today's fail-closed decision.
+
+Next run should retry the pull; if DFII10 has posted by then, the brief
+resumes normally.
