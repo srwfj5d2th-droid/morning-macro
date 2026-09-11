@@ -1,0 +1,235 @@
+{
+ "row_date": "2026-09-10",
+ "scanned_at_utc": "2026-09-11T10:35:09.337786Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "COO",
+   "pct_1d": -14.666,
+   "close": 54.17,
+   "prev_close": 63.48,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SWKS",
+   "pct_1d": 9.786,
+   "close": 84.03,
+   "prev_close": 76.54,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BKR",
+   "pct_1d": -6.662,
+   "close": 59.4,
+   "prev_close": 63.64,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FCX",
+   "pct_1d": -6.585,
+   "close": 71.21,
+   "prev_close": 76.23,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HPE",
+   "pct_1d": -6.248,
+   "close": 55.22,
+   "prev_close": 58.9,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "RDDT",
+   "pct_1d": 6.078,
+   "close": 155.34,
+   "prev_close": 146.44,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FDS",
+   "pct_1d": -5.817,
+   "close": 262.93,
+   "prev_close": 279.17,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LRCX",
+   "pct_1d": -5.645,
+   "close": 298.01,
+   "prev_close": 315.84,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "VRT",
+   "pct_1d": -5.615,
+   "close": 248.13,
+   "prev_close": 262.89,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "INTC",
+   "pct_1d": -5.572,
+   "close": 100.32,
+   "prev_close": 106.24,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LITE",
+   "pct_1d": -5.387,
+   "close": 935.7,
+   "prev_close": 988.98,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ORCL",
+   "pct_1d": -5.376,
+   "close": 152.94,
+   "prev_close": 161.63,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DELL",
+   "pct_1d": -5.349,
+   "close": 506.62,
+   "prev_close": 535.25,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CHTR",
+   "pct_1d": 4.982,
+   "close": 140.56,
+   "prev_close": 133.89,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ELV",
+   "pct_1d": 4.948,
+   "close": 416.54,
+   "prev_close": 396.9,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MU",
+   "pct_1d": -4.9,
+   "close": 977.41,
+   "prev_close": 1027.77,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "WDC",
+   "pct_1d": -4.427,
+   "close": 460.93,
+   "prev_close": 482.28,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LH",
+   "pct_1d": -4.404,
+   "close": 306.96,
+   "prev_close": 321.1,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CVNA",
+   "pct_1d": -4.264,
+   "close": 70.28,
+   "prev_close": 73.41,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FLEX",
+   "pct_1d": -4.144,
+   "close": 108.01,
+   "prev_close": 112.68,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BSX",
+   "pct_1d": -4.137,
+   "close": 43.1,
+   "prev_close": 44.96,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SNDK",
+   "pct_1d": -4.057,
+   "close": 1692.59,
+   "prev_close": 1764.17,
+   "close_date": "2026-09-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "AAPL",
+   "pct_1d": 3.561,
+   "close": 326.57,
+   "prev_close": 315.34,
+   "close_date": "2026-09-10",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "AMD",
+   "pct_1d": -3.358,
+   "close": 503.6,
+   "prev_close": 521.1,
+   "close_date": "2026-09-10",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "AMAT",
+   "pct_1d": -3.165,
+   "close": 454.01,
+   "prev_close": 468.85,
+   "close_date": "2026-09-10",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "KLAC",
+   "pct_1d": -3.133,
+   "close": 177.18,
+   "prev_close": 182.91,
+   "close_date": "2026-09-10",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "GEV",
+   "pct_1d": -2.853,
+   "close": 923.91,
+   "prev_close": 951.04,
+   "close_date": "2026-09-10",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": []
+}
