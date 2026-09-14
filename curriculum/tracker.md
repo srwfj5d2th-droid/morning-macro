@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 3, Credit spreads — segment 2 of ~10 taught 2026-09-11.**
+Current position: **Unit 3, Credit spreads — segment 3 of ~10 taught 2026-09-14.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -20,6 +20,7 @@ Current position: **Unit 3, Credit spreads — segment 2 of ~10 taught 2026-09-1
 | 2026-09-07 | 2 | 6 (capstone) | Big headline, small move — a large growth surprise doesn't guarantee a large yield reaction; check whether it's priced in already or whether the decomposition simply hasn't caught up to lagged data yet before concluding either way | August payrolls beat consensus ~2.8x (+162K vs. +58K) yet the 10Y closed +1bp — the capstone anomaly, logged as an open test (CL-0012) against tomorrow's real-yield fill rather than resolved by assumption |
 | 2026-09-10 | 3 | 1 | OAS — the extra yield lenders demand for default/liquidity risk on top of the Treasury rate; credit spreads and the level of Treasury yields are two separate dials, not one | Every Tier 1 Treasury tenor flagged simultaneously (a first for this system) while HY OAS eased and IG OAS held flat — the cleanest live case yet for why this system distinguishes a "tightening" rates regime from a "stress" credit regime |
 | 2026-09-11 | 3 | 2 | Default premium vs. liquidity premium — the two components bundled into OAS; why HY/IG OAS are diversified averages that one borrower's story doesn't move | Oracle's own credit story clearly deteriorated (downgrade to one notch above junk, large new debt-funded AI capex, FCF negative into 2029) while the aggregate IG OAS this system tracks stayed flat — single-borrower vs. market-wide, live |
+| 2026-09-14 | 3 | 3 | A rate spike isn't a risk spike until credit says so — OAS as the tie-breaker between a "clean" Fed-driven rate move (credit stays calm) and a "something's breaking" move (credit widens alongside yields) | Every Treasury tenor flagged for a third session, the 3-month bill posting this system's largest z-score ever recorded on hawkish Fed-hike repricing, while HY/IG OAS stayed unflagged — the live case for why the regime tag reads "tightening," not "stress" |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -40,3 +41,4 @@ Current position: **Unit 3, Credit spreads — segment 2 of ~10 taught 2026-09-1
 | Headline size vs. yield-reaction size (check pricing-in vs. lagged data before concluding) | 2026-09-07 |
 | OAS / credit spreads as a signal distinct from the level of Treasury yields | 2026-09-10 |
 | Default premium vs. liquidity premium (OAS's two components; aggregate vs. single-borrower) | 2026-09-11 |
+| OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-09-14 |
