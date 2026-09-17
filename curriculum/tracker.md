@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 3, Credit spreads — segment 5 of ~10 taught 2026-09-16.**
+Current position: **Unit 3, Credit spreads — segment 6 of ~10 taught 2026-09-17.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -23,6 +23,7 @@ Current position: **Unit 3, Credit spreads — segment 5 of ~10 taught 2026-09-1
 | 2026-09-14 | 3 | 3 | A rate spike isn't a risk spike until credit says so — OAS as the tie-breaker between a "clean" Fed-driven rate move (credit stays calm) and a "something's breaking" move (credit widens alongside yields) | Every Treasury tenor flagged for a third session, the 3-month bill posting this system's largest z-score ever recorded on hawkish Fed-hike repricing, while HY/IG OAS stayed unflagged — the live case for why the regime tag reads "tightening," not "stress" |
 | 2026-09-15 | 3 | 4 | Dispersion is a second false-positive mode alongside rate spikes — violent single-day equity swings (even 13%+ moves) aren't a credit signal either; check whether OAS actually moved before reading a rotation as a risk event | CrowdStrike +13.9% and Corning −13.7% the same session on the weekend AI-caution headlines, while HY/IG OAS stayed unflagged — extends segment 3's tie-breaker test from a whole-curve rate spike to single-day sector dispersion |
 | 2026-09-16 | 3 | 5 | Flat OAS heading into a known, scheduled event (not just an unknown shock) is itself informative — corporate bond investors can price an anticipated catalyst in advance, so calm spreads ahead of it read differently than calm spreads with no catalyst in sight | HY OAS ticked up only 6bp (still unflagged, z −0.55) and IG OAS stayed flat hours before today's FOMC decision — credit showing no sign of pricing a hawkish surprise, set against CL-0016's live test of the decision itself |
+| 2026-09-17 | 3 | 6 | The morning after: once a known event actually happens, credit's reaction — not the rate move itself — is the real risk signal; a real but unpriced surprise (the dot plot) is exactly the kind of thing that should widen spreads if lenders read it as raising default/liquidity risk | The Fed delivered a hawkish "higher for longer" surprise (CL-0016 confirmed) but this system's OAS series still carries Tuesday's date, a session behind the decision — the live test moves to tomorrow's fill rather than being answerable today, extending segment 5's framing to the day the event itself lands |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -46,3 +47,4 @@ Current position: **Unit 3, Credit spreads — segment 5 of ~10 taught 2026-09-1
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-09-14 |
 | OAS as tie-breaker for equity dispersion — a violent single-day rotation is only a risk event if credit confirms it | 2026-09-15 |
 | Flat credit spreads ahead of a known/scheduled catalyst are informative, not just quiet | 2026-09-16 |
+| The morning-after test — credit's reaction to an event that actually happened, not the rate move, is the real risk signal | 2026-09-17 |
