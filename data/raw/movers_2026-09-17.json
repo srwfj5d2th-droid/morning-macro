@@ -1,0 +1,227 @@
+{
+ "row_date": "2026-09-17",
+ "scanned_at_utc": "2026-09-18T10:35:18.857681Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "GNRC",
+   "pct_1d": 18.343,
+   "close": 207.23,
+   "prev_close": 175.11,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SMCI",
+   "pct_1d": 9.498,
+   "close": 40.35,
+   "prev_close": 36.85,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRNA",
+   "pct_1d": 8.55,
+   "close": 158.07,
+   "prev_close": 145.62,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HPE",
+   "pct_1d": 7.692,
+   "close": 61.04,
+   "prev_close": 56.68,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "INTC",
+   "pct_1d": 7.669,
+   "close": 108.8,
+   "prev_close": 101.05,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SWKS",
+   "pct_1d": 6.695,
+   "close": 91.32,
+   "prev_close": 85.59,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "AMD",
+   "pct_1d": 6.359,
+   "close": 545.09,
+   "prev_close": 512.5,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SNDK",
+   "pct_1d": 6.212,
+   "close": 1614.39,
+   "prev_close": 1519.97,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "WDAY",
+   "pct_1d": 6.135,
+   "close": 199.28,
+   "prev_close": 187.76,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HPQ",
+   "pct_1d": 5.994,
+   "close": 34.66,
+   "prev_close": 32.7,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "COIN",
+   "pct_1d": 5.75,
+   "close": 173.97,
+   "prev_close": 164.51,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "TMUS",
+   "pct_1d": -5.566,
+   "close": 166.45,
+   "prev_close": 176.26,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DVA",
+   "pct_1d": -5.556,
+   "close": 183.09,
+   "prev_close": 193.86,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MU",
+   "pct_1d": 5.499,
+   "close": 977.5,
+   "prev_close": 926.55,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FSLR",
+   "pct_1d": 5.281,
+   "close": 201.16,
+   "prev_close": 191.07,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ARE",
+   "pct_1d": 5.269,
+   "close": 56.34,
+   "prev_close": 53.52,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ORCL",
+   "pct_1d": 5.19,
+   "close": 150.59,
+   "prev_close": 143.16,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HOOD",
+   "pct_1d": 5.162,
+   "close": 109.81,
+   "prev_close": 104.42,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ALB",
+   "pct_1d": 5.097,
+   "close": 115.05,
+   "prev_close": 109.47,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRVL",
+   "pct_1d": 4.81,
+   "close": 240.76,
+   "prev_close": 229.71,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "PSKY",
+   "pct_1d": -4.668,
+   "close": 10.62,
+   "prev_close": 11.14,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DELL",
+   "pct_1d": 4.458,
+   "close": 588.4,
+   "prev_close": 563.29,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "IP",
+   "pct_1d": 4.375,
+   "close": 35.55,
+   "prev_close": 34.06,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NXPI",
+   "pct_1d": 4.096,
+   "close": 227.95,
+   "prev_close": 218.98,
+   "close_date": "2026-09-17",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NVDA",
+   "pct_1d": 2.543,
+   "close": 219.34,
+   "prev_close": 213.9,
+   "close_date": "2026-09-17",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": [
+  {
+   "etf": "XLC",
+   "sector": "Communication Services",
+   "pct_1d": -0.575,
+   "spy_pct_1d": 1.134,
+   "divergence_pp": -1.709
+  }
+ ]
+}
