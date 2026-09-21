@@ -1,178 +1,171 @@
 {
- "refreshed_at_utc": "2026-09-14T10:35:20.094292Z",
+ "refreshed_at_utc": "2026-09-21T10:35:07.208818Z",
  "source": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
  "events": [
   {
-   "date": "2026-09-15T08:15:00-04:00",
+   "date": "2026-09-21T06:30:00-04:00",
+   "title": "FOMC Member Goolsbee Speaks",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-09-22T08:15:00-04:00",
    "title": "ADP Weekly Employment Change",
    "impact": "Low",
    "forecast": null,
-   "previous": "12.0K"
+   "previous": "16.3K"
   },
   {
-   "date": "2026-09-15T08:30:00-04:00",
-   "title": "Empire State Manufacturing Index",
+   "date": "2026-09-22T10:00:00-04:00",
+   "title": "Richmond Manufacturing Index",
    "impact": "Low",
-   "forecast": "14.1",
-   "previous": "20.6"
+   "forecast": "5",
+   "previous": "4"
   },
   {
-   "date": "2026-09-15T16:30:00-04:00",
+   "date": "2026-09-22T10:05:00-04:00",
+   "title": "FOMC Member Williams Speaks",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-09-22T10:20:00-04:00",
+   "title": "FOMC Member Jefferson Speaks",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-09-22T13:00:00-04:00",
+   "title": "FOMC Member Barkin Speaks",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-09-22T16:30:00-04:00",
    "title": "API Weekly Statistical Bulletin",
    "impact": "Low",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-09-16T08:30:00-04:00",
-   "title": "Core Retail Sales m/m",
-   "impact": "Medium",
-   "forecast": "0.5%",
-   "previous": "-0.3%"
-  },
-  {
-   "date": "2026-09-16T08:30:00-04:00",
-   "title": "Retail Sales m/m",
-   "impact": "Medium",
-   "forecast": "0.8%",
-   "previous": "-0.6%"
-  },
-  {
-   "date": "2026-09-16T08:30:00-04:00",
-   "title": "Import Prices m/m",
+   "date": "2026-09-23T09:45:00-04:00",
+   "title": "Flash Manufacturing PMI",
    "impact": "Low",
-   "forecast": "0.0%",
-   "previous": "-0.4%"
+   "forecast": "53.4",
+   "previous": "53.2"
   },
   {
-   "date": "2026-09-16T10:00:00-04:00",
-   "title": "Business Inventories m/m",
+   "date": "2026-09-23T09:45:00-04:00",
+   "title": "Flash Services PMI",
    "impact": "Low",
-   "forecast": "0.3%",
-   "previous": "0.0%"
+   "forecast": "56.0",
+   "previous": "56.8"
   },
   {
-   "date": "2026-09-16T10:00:00-04:00",
-   "title": "NAHB Housing Market Index",
+   "date": "2026-09-23T10:05:00-04:00",
+   "title": "FOMC Member Barr Speaks",
    "impact": "Low",
-   "forecast": "34",
-   "previous": "35"
+   "forecast": null,
+   "previous": null
   },
   {
-   "date": "2026-09-16T10:30:00-04:00",
+   "date": "2026-09-23T10:30:00-04:00",
    "title": "Crude Oil Inventories",
    "impact": "Low",
    "forecast": null,
-   "previous": "-0.4M"
+   "previous": "-0.6M"
   },
   {
-   "date": "2026-09-16T14:00:00-04:00",
-   "title": "Federal Funds Rate",
-   "impact": "High",
-   "forecast": "4.00%",
-   "previous": "3.75%"
-  },
-  {
-   "date": "2026-09-16T14:00:00-04:00",
-   "title": "FOMC Economic Projections",
-   "impact": "High",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-16T14:00:00-04:00",
-   "title": "FOMC Statement",
-   "impact": "High",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-16T14:30:00-04:00",
-   "title": "FOMC Press Conference",
-   "impact": "High",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-16T16:00:00-04:00",
-   "title": "TIC Long-Term Purchases",
+   "date": "2026-09-24T04:10:00-04:00",
+   "title": "FOMC Member Williams Speaks",
    "impact": "Low",
-   "forecast": "146.3B",
-   "previous": "172.7B"
+   "forecast": null,
+   "previous": null
   },
   {
-   "date": "2026-09-17T08:30:00-04:00",
-   "title": "Philly Fed Manufacturing Index",
-   "impact": "Medium",
-   "forecast": "28.9",
-   "previous": "47.4"
-  },
-  {
-   "date": "2026-09-17T08:30:00-04:00",
+   "date": "2026-09-24T08:30:00-04:00",
    "title": "Unemployment Claims",
    "impact": "Medium",
-   "forecast": "209K",
-   "previous": "206K"
+   "forecast": "201K",
+   "previous": "196K"
   },
   {
-   "date": "2026-09-17T08:30:00-04:00",
-   "title": "Building Permits",
+   "date": "2026-09-24T08:30:00-04:00",
+   "title": "Current Account",
    "impact": "Low",
-   "forecast": "1.40M",
-   "previous": "1.44M"
+   "forecast": "-259B",
+   "previous": "-227B"
   },
   {
-   "date": "2026-09-17T08:30:00-04:00",
-   "title": "Housing Starts",
+   "date": "2026-09-24T08:50:00-04:00",
+   "title": "FOMC Member Hammack Speaks",
    "impact": "Low",
-   "forecast": "1.32M",
-   "previous": "1.24M"
+   "forecast": null,
+   "previous": null
   },
   {
-   "date": "2026-09-17T10:00:00-04:00",
-   "title": "Pending Home Sales m/m",
+   "date": "2026-09-24T10:00:00-04:00",
+   "title": "New Home Sales",
    "impact": "Low",
-   "forecast": "0.3%",
-   "previous": "-2.3%"
+   "forecast": "619K",
+   "previous": "607K"
   },
   {
-   "date": "2026-09-17T10:30:00-04:00",
+   "date": "2026-09-24T10:10:00-04:00",
+   "title": "FOMC Member Paulson Speaks",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-09-24T10:30:00-04:00",
    "title": "Natural Gas Storage",
    "impact": "Low",
    "forecast": null,
-   "previous": "40B"
+   "previous": "44B"
   },
   {
-   "date": "2026-09-18T09:15:00-04:00",
-   "title": "Capacity Utilization Rate",
-   "impact": "Low",
-   "forecast": "76.4%",
-   "previous": "76.3%"
-  },
-  {
-   "date": "2026-09-18T09:15:00-04:00",
-   "title": "Industrial Production m/m",
-   "impact": "Low",
-   "forecast": "0.1%",
-   "previous": "0.2%"
-  },
-  {
-   "date": "2026-09-18T09:30:00-04:00",
-   "title": "FOMC Member Bowman Speaks",
+   "date": "2026-09-25T05:15:00-04:00",
+   "title": "FOMC Member Williams Speaks",
    "impact": "Low",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-09-18T10:00:00-04:00",
-   "title": "CB Leading Index m/m",
+   "date": "2026-09-25T08:30:00-04:00",
+   "title": "Core Durable Goods Orders m/m",
    "impact": "Low",
-   "forecast": "0.2%",
-   "previous": "0.2%"
+   "forecast": "0.5%",
+   "previous": "0.4%"
   },
   {
-   "date": "2026-09-18T11:45:00-04:00",
-   "title": "FOMC Member Schmid Speaks",
+   "date": "2026-09-25T08:30:00-04:00",
+   "title": "Durable Goods Orders m/m",
+   "impact": "Low",
+   "forecast": "-0.3%",
+   "previous": "1.1%"
+  },
+  {
+   "date": "2026-09-25T10:00:00-04:00",
+   "title": "Revised UoM Consumer Sentiment",
+   "impact": "Medium",
+   "forecast": "47.5",
+   "previous": "47.8"
+  },
+  {
+   "date": "2026-09-25T10:00:00-04:00",
+   "title": "Revised UoM Inflation Expectations",
+   "impact": "Medium",
+   "forecast": null,
+   "previous": "4.6%"
+  },
+  {
+   "date": "2026-09-25T14:00:00-04:00",
+   "title": "FOMC Member Hammack Speaks",
    "impact": "Low",
    "forecast": null,
    "previous": null
