@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 3, Credit spreads — segment 9 of ~10 taught 2026-09-22.**
+Current position: **Unit 3, Credit spreads — segment 10 of 10 (capstone) taught 2026-09-24. Unit 3 complete; Unit 4 (Liquidity plumbing) opens next session.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -27,6 +27,7 @@ Current position: **Unit 3, Credit spreads — segment 9 of ~10 taught 2026-09-2
 | 2026-09-18 | 3 | 7 | A cushion, not just calm — credit tightening on a hawkish surprise is its own signal, distinct from merely staying flat; flat says "nothing new to reprice," tighter says "risk looked marginally better, not worse," to a market that should have had a reason to worry | Segment 6's cliffhanger answered: the first same-day OAS fill for the Fed's decision day (dated 09-16) showed HY OAS −6bp and IG OAS −2bp, not the widening a "tightening financial conditions" read would predict — logged as a data point, not a trend, via new claim CL-0019 |
 | 2026-09-21 | 3 | 8 | One data point becomes two — when a repeated observation starts to earn the word "pattern"; a single confirming print is a data point, a second independent one pointing the same way starts to earn confidence, precisely because it didn't have to agree with the first | CL-0019's next dated OAS fill (09-17) arrived unchanged from 09-16 on both HY and IG OAS, to the basis point — confirmed for a second straight session — set against CL-0015 refuting the same day for the opposite reason: a second data point (SMH's continued outperformance vs. SPY) that didn't confirm the AI-capex-scare thesis either |
 | 2026-09-22 | 3 | 9 | Tight spreads have a blind spot too — OAS is a photograph of current default/liquidity conditions, not a forecast; sustained compression can mean genuine improvement or can be the exact backdrop (2006-2007 is the textbook case) in which risk quietly builds before a turn — named honestly as a limit, not asserted about today | HY/IG OAS eased for a third straight session (dated 09-18) during the year's most powerful one-day equity/chip rally (Meta's Muse-driven rally, Story/Movers) — the live setup for the concept, with CL-0021 opened as the falsifiable version of whether the rally itself is durable |
+| 2026-09-24 | 3 | 10 (capstone) | Assembling segments 3-9 into one working checklist for reading any live day — scheduled or shock; did credit react; one session or a pattern — and applying it end to end rather than teaching a new idea | Every Tier 1 rate series flagged simultaneously (three of four within a fraction of this system's most extreme readings ever recorded) on a weak 5Y auction + hot PMI data, while HY/IG OAS stayed unchanged to the basis point — the cleanest live case yet for "tightening," not "stress," closing the unit on the same distinction segment 1 opened it with |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -54,3 +55,4 @@ Current position: **Unit 3, Credit spreads — segment 9 of ~10 taught 2026-09-2
 | Credit tightening (not just staying flat) on a hawkish surprise is itself a distinct, stronger signal | 2026-09-18 |
 | One data point vs. a pattern — a second independent confirming observation earns more confidence than the first | 2026-09-21 |
 | OAS's blind spot — a photograph of current risk, not a forecast; sustained compression can also be the backdrop for risk quietly building | 2026-09-22 |
+| The credit tie-breaker checklist (Unit 3 capstone) — scheduled or shock; did credit react; one session or a pattern | 2026-09-24 |
