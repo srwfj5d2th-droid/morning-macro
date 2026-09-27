@@ -13,13 +13,22 @@ order, strict), §4 (fail-closed), §4B (claims ledger), §4C/§4D (epistemics a
 neutrality), and §8 (the NR governance wall). Do not redesign anything.
 
 Run order:
-0. **Idempotency check:** if the git log already shows a `brief: <today>`
-   commit AND `briefs/<today>.html` exists, the brief exists — verify the page
-   responds and (if the Gmail connector is attached) that today's notification
-   email was sent, send it if missing, and stop. Never rebuild an existing
-   day's brief. A `brief: <today> [data-pull-failed]` failure notice does NOT
-   count as the day's brief — if a failure notice exists but the pull now
-   succeeds (e.g. an egress-policy fix landed), proceed with the full run.
+0. **Idempotency check:** `git fetch origin main` first, then check whether
+   `origin/main` (not just local `git log`, which can be sitting on a stale or
+   detached HEAD left over from a prior run — see the branch-safety note on
+   step 10) already contains a `brief: <today>` commit AND `briefs/<today>.html`
+   exists in that history. If so, the brief exists and is actually published —
+   verify the page responds and (if the Gmail connector is attached) that
+   today's notification email was sent, send it if missing, and stop. Never
+   rebuild an existing day's brief. A `brief: <today> [data-pull-failed]`
+   failure notice does NOT count as the day's brief — if a failure notice
+   exists but the pull now succeeds (e.g. an egress-policy fix landed),
+   proceed with the full run. If local `git log`/HEAD shows a `brief: <today>`
+   commit that `origin/main` does NOT contain (a prior run committed but the
+   branch/push step failed or was skipped), do not redo the run or its
+   analysis — the content is already good — just repair the git state per the
+   branch-safety note on step 10 (fast-forward `main` to it, push, verify),
+   then continue to step 11 (email) if it hasn't gone out yet.
    **Dependencies:** the cloud sandbox may lack matplotlib/pytest — run
    `python3 -m pip install --quiet matplotlib pytest` if imports fail, and
    note it in the commit message.
@@ -57,7 +66,25 @@ Run order:
    Teach the next curriculum segment (curriculum/tracker.md says where you
    are); update the tracker.
 10. Commit everything: `brief: YYYY-MM-DD [regime tag]`, and push (GitHub
-    Pages publishes on push).
+    Pages publishes on push) — **verified, not assumed:**
+    - `git add -A && git commit -m "brief: YYYY-MM-DD [regime tag]"`.
+    - **Branch safety:** the cloud checkout can leave HEAD detached (this has
+      actually happened — a prior run's brief commit sat on a detached HEAD
+      for two days, `main`/`origin/main` never advanced, and GitHub Pages
+      silently never republished, even though the commit itself was fine).
+      Check with `git symbolic-ref -q HEAD`; if it fails (detached), first
+      confirm the new commit is a clean fast-forward of `main`
+      (`git merge-base --is-ancestor main HEAD`), then
+      `git checkout main && git merge --ff-only <the new commit>` before
+      pushing. Never force a non-fast-forward move of `main`.
+    - `git push -u origin main`.
+    - **Verify the push actually landed:** `git fetch origin main` and confirm
+      `git rev-parse origin/main` equals `git rev-parse main` (== the brief
+      commit's hash). If they don't match, retry the push (standard
+      network-retry backoff); if the mismatch persists after retries, do not
+      report the run as done or silently proceed to step 11 — the commit
+      exists locally but Pages will not have it. Note the discrepancy plainly
+      wherever the run's outcome is reported.
 11. Email Jacob (the repo owner's Gmail, to himself) the notification layer:
     subject `Macro Brief — {date} — {regime tag}`, body from
     briefs/<today>-email.html with the link pointing at the hosted page:
