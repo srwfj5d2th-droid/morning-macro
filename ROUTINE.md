@@ -18,8 +18,9 @@ Run order:
    detached HEAD left over from a prior run — see the branch-safety note on
    step 10) already contains a `brief: <today>` commit AND `briefs/<today>.html`
    exists in that history. If so, the brief exists and is actually published —
-   verify the page responds and (if the Gmail connector is attached) that
-   today's notification email was sent, send it if missing, and stop. Never
+   verify the page responds, that (if the Gmail connector is attached)
+   today's notification email was sent, and that step 12's Research Commons
+   copy exists — fill in whichever is missing — and stop. Never
    rebuild an existing day's brief. A `brief: <today> [data-pull-failed]`
    failure notice does NOT count as the day's brief — if a failure notice
    exists but the pull now succeeds (e.g. an egress-policy fix landed),
@@ -91,6 +92,21 @@ Run order:
     https://srwfj5d2th-droid.github.io/morning-macro/briefs/<today>.html
     If the Gmail connector is unavailable, skip the email, and note the
     failure in the commit message — the page is the product.
+12. Copy the day's research to **Research Commons** (Google Drive, the shared
+    research folder the NR scans and other routines read; rules in its
+    README.md, Drive file 1OoD2bYGBhuBmNLznc1srKKDqSDMzMxkS). Into the
+    `macro-brief/` folder (Drive folder id `1nFmchHzC1keEKU2pq83ohuKlWW0P0vUv`)
+    upload two files with the Google Drive connector's create_file,
+    `contentMimeType` as given and `disableConversionToGoogleType: true`:
+    - `<today>_brief.md` ← briefs/<today>.md (text/markdown)
+    - `<today>_movers.json` ← data/raw/movers_<row_date>.json
+      (application/json)
+    Search the folder for each title first and skip any that already exist
+    (never duplicate). This is one-way: the macro routine writes to
+    `macro-brief/` only and never reads `company-research/` or `nr-bench/` —
+    nothing from those folders may enter this public repo (§8). If the Drive
+    connector is unavailable, skip this step and note it wherever the run's
+    outcome is reported; the page remains the product.
 
 Voice contract (§6 amendment, 2026-08-21 — non-negotiable): write like a smart
 friend explaining, not an analyst flexing. Gloss every technical term in plain

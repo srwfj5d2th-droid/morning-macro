@@ -59,6 +59,7 @@ Rationale: cloud tasks run regardless of machine state; desktop tasks require th
 **Delivery (two layers, laptop-primary):**
 1. **Full brief** — a self-contained HTML file (`briefs/YYYY-MM-DD.html`, charts embedded as inline SVG/base64 PNG, zero external dependencies) built from `templates/brief.html`, committed, and published via GitHub Pages. **This is the product** — the coffee read.
 2. **Email (notification layer)** — short: regime pill, regime line, recap strip, and the link. Subject: `Macro Brief — {date} — {regime tag}`. Fifteen-second scan that gets Jacob to the page; it does not attempt to be the brief.
+3. **Research Commons copy** *(added 2026-09-27 by Jacob)* — the markdown brief and movers scan are also written to the `Research Commons/macro-brief/` folder in Jacob's Google Drive, the shared research layer his NR scans and other routines read. Strictly one-way: this system writes there and never reads that folder's other subfolders into the public repo (§8 holds). Research only; no personal, account, or client data lives in that Drive (rules in its README).
 
 ---
 
