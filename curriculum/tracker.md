@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 4, Liquidity plumbing — segment 1 taught 2026-09-25.**
+Current position: **Unit 4, Liquidity plumbing — segment 2 taught 2026-09-28.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -29,6 +29,7 @@ Current position: **Unit 4, Liquidity plumbing — segment 1 taught 2026-09-25.*
 | 2026-09-22 | 3 | 9 | Tight spreads have a blind spot too — OAS is a photograph of current default/liquidity conditions, not a forecast; sustained compression can mean genuine improvement or can be the exact backdrop (2006-2007 is the textbook case) in which risk quietly builds before a turn — named honestly as a limit, not asserted about today | HY/IG OAS eased for a third straight session (dated 09-18) during the year's most powerful one-day equity/chip rally (Meta's Muse-driven rally, Story/Movers) — the live setup for the concept, with CL-0021 opened as the falsifiable version of whether the rally itself is durable |
 | 2026-09-24 | 3 | 10 (capstone) | Assembling segments 3-9 into one working checklist for reading any live day — scheduled or shock; did credit react; one session or a pattern — and applying it end to end rather than teaching a new idea | Every Tier 1 rate series flagged simultaneously (three of four within a fraction of this system's most extreme readings ever recorded) on a weak 5Y auction + hot PMI data, while HY/IG OAS stayed unchanged to the basis point — the cleanest live case yet for "tightening," not "stress," closing the unit on the same distinction segment 1 opened it with |
 | 2026-09-25 | 4 | 1 | Liquidity plumbing opens — where bank reserves come from (the Fed's balance sheet), the Treasury General Account (TGA) as the government's own checking account, and the overnight reverse repo facility (ON RRP) as the now-nearly-drained shock absorber between them | This week's Thursday H.4.1 release showed the Fed's balance sheet essentially flat (+$1.156B) while the TGA jumped $100.056B in a week — tied directly to this week's $70B five-year note auction settlement (CL-0022) — with ON RRP down >99% from where this system began tracking, leaving little buffer left to cushion a build that size; paired with the Friday liquidity panel |
+| 2026-09-28 | 4 | 2 | Why a scarce-reserves squeeze would show up in SOFR first — and how a confirmed test case tells you it isn't one; a level-shift from an actual Fed hike vs. a scarcity-driven creep toward the top of the target range are the same gauge telling two very different stories | CL-0020 confirmed this morning: SOFR's post-hike jump sat calmly inside the Fed's new 3.75–4.00% range the whole test window, a clean level shift rather than the TGA-build-driven scarcity squeeze segment 1 set up as the thing to watch for |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -58,3 +59,4 @@ Current position: **Unit 4, Liquidity plumbing — segment 1 taught 2026-09-25.*
 | OAS's blind spot — a photograph of current risk, not a forecast; sustained compression can also be the backdrop for risk quietly building | 2026-09-22 |
 | The credit tie-breaker checklist (Unit 3 capstone) — scheduled or shock; did credit react; one session or a pattern | 2026-09-24 |
 | Liquidity plumbing — reserves, TGA, and ON RRP as the drained shock absorber between them | 2026-09-25 |
+| Scarce-reserves squeeze vs. mechanical level-shift — same gauge (SOFR), two different stories | 2026-09-28 |

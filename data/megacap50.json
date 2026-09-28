@@ -1,208 +1,208 @@
 {
- "as_of": "2026-09-21",
+ "as_of": "2026-09-28",
  "refresh": "quarterly",
  "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
  "rule": "top-50 S&P 500 constituents by index weight (float-adjusted market cap), share classes deduped",
  "constituents": [
   {
    "symbol": "NVDA",
-   "index_weight_pct": 8.065936
+   "index_weight_pct": 8.161439
   },
   {
    "symbol": "AAPL",
-   "index_weight_pct": 7.514951
+   "index_weight_pct": 7.458574
   },
   {
    "symbol": "MSFT",
-   "index_weight_pct": 5.613785
+   "index_weight_pct": 5.743153
   },
   {
    "symbol": "AMZN",
-   "index_weight_pct": 3.733477
+   "index_weight_pct": 3.672187
   },
   {
    "symbol": "GOOGL",
-   "index_weight_pct": 3.09227
+   "index_weight_pct": 3.023887
   },
   {
    "symbol": "AVGO",
-   "index_weight_pct": 2.496656
+   "index_weight_pct": 2.515201
   },
   {
    "symbol": "META",
-   "index_weight_pct": 2.274996
+   "index_weight_pct": 2.483681
   },
   {
    "symbol": "MU",
-   "index_weight_pct": 1.67364
+   "index_weight_pct": 1.831613
   },
   {
    "symbol": "TSLA",
-   "index_weight_pct": 1.565225
-  },
-  {
-   "symbol": "JPM",
-   "index_weight_pct": 1.421031
-  },
-  {
-   "symbol": "BRK-B",
-   "index_weight_pct": 1.417323
-  },
-  {
-   "symbol": "LLY",
-   "index_weight_pct": 1.384076
+   "index_weight_pct": 1.571244
   },
   {
    "symbol": "AMD",
-   "index_weight_pct": 1.349402
+   "index_weight_pct": 1.542433
+  },
+  {
+   "symbol": "LLY",
+   "index_weight_pct": 1.418915
+  },
+  {
+   "symbol": "BRK-B",
+   "index_weight_pct": 1.410651
+  },
+  {
+   "symbol": "JPM",
+   "index_weight_pct": 1.366271
   },
   {
    "symbol": "XOM",
-   "index_weight_pct": 1.027377
+   "index_weight_pct": 0.989294
   },
   {
    "symbol": "JNJ",
-   "index_weight_pct": 0.987484
+   "index_weight_pct": 0.979224
   },
   {
    "symbol": "V",
-   "index_weight_pct": 0.932002
+   "index_weight_pct": 0.938122
   },
   {
    "symbol": "INTC",
-   "index_weight_pct": 0.815696
+   "index_weight_pct": 0.915827
   },
   {
    "symbol": "WMT",
-   "index_weight_pct": 0.710697
+   "index_weight_pct": 0.721083
   },
   {
    "symbol": "ABBV",
-   "index_weight_pct": 0.708077
+   "index_weight_pct": 0.69976
   },
   {
    "symbol": "MA",
-   "index_weight_pct": 0.692922
-  },
-  {
-   "symbol": "CSCO",
-   "index_weight_pct": 0.660973
+   "index_weight_pct": 0.687778
   },
   {
    "symbol": "PLTR",
-   "index_weight_pct": 0.614196
+   "index_weight_pct": 0.653892
+  },
+  {
+   "symbol": "CSCO",
+   "index_weight_pct": 0.629992
   },
   {
    "symbol": "COST",
-   "index_weight_pct": 0.601999
+   "index_weight_pct": 0.612989
   },
   {
    "symbol": "CVX",
-   "index_weight_pct": 0.601198
-  },
-  {
-   "symbol": "BAC",
-   "index_weight_pct": 0.576587
-  },
-  {
-   "symbol": "CAT",
-   "index_weight_pct": 0.558288
-  },
-  {
-   "symbol": "MRK",
-   "index_weight_pct": 0.551816
-  },
-  {
-   "symbol": "PG",
-   "index_weight_pct": 0.521461
-  },
-  {
-   "symbol": "KO",
-   "index_weight_pct": 0.517525
-  },
-  {
-   "symbol": "UNH",
-   "index_weight_pct": 0.517196
+   "index_weight_pct": 0.605297
   },
   {
    "symbol": "LRCX",
-   "index_weight_pct": 0.511401
+   "index_weight_pct": 0.591026
   },
   {
    "symbol": "AMAT",
-   "index_weight_pct": 0.503033
+   "index_weight_pct": 0.576793
+  },
+  {
+   "symbol": "CAT",
+   "index_weight_pct": 0.565733
+  },
+  {
+   "symbol": "BAC",
+   "index_weight_pct": 0.552347
+  },
+  {
+   "symbol": "MRK",
+   "index_weight_pct": 0.549839
+  },
+  {
+   "symbol": "KO",
+   "index_weight_pct": 0.509323
+  },
+  {
+   "symbol": "PG",
+   "index_weight_pct": 0.509133
   },
   {
    "symbol": "GE",
-   "index_weight_pct": 0.496433
+   "index_weight_pct": 0.508351
   },
   {
-   "symbol": "NFLX",
-   "index_weight_pct": 0.481282
+   "symbol": "UNH",
+   "index_weight_pct": 0.506331
   },
   {
    "symbol": "PANW",
-   "index_weight_pct": 0.46165
-  },
-  {
-   "symbol": "HD",
-   "index_weight_pct": 0.457288
+   "index_weight_pct": 0.457647
   },
   {
    "symbol": "PM",
-   "index_weight_pct": 0.45058
+   "index_weight_pct": 0.444681
+  },
+  {
+   "symbol": "NFLX",
+   "index_weight_pct": 0.443728
+  },
+  {
+   "symbol": "HD",
+   "index_weight_pct": 0.438192
   },
   {
    "symbol": "GS",
-   "index_weight_pct": 0.425972
-  },
-  {
-   "symbol": "WFC",
-   "index_weight_pct": 0.403545
-  },
-  {
-   "symbol": "RTX",
-   "index_weight_pct": 0.395717
-  },
-  {
-   "symbol": "ORCL",
-   "index_weight_pct": 0.388108
-  },
-  {
-   "symbol": "CRWD",
-   "index_weight_pct": 0.379775
-  },
-  {
-   "symbol": "GEV",
-   "index_weight_pct": 0.377475
-  },
-  {
-   "symbol": "TMO",
-   "index_weight_pct": 0.37139
-  },
-  {
-   "symbol": "MS",
-   "index_weight_pct": 0.37025
+   "index_weight_pct": 0.408119
   },
   {
    "symbol": "SNDK",
-   "index_weight_pct": 0.3631
+   "index_weight_pct": 0.388878
+  },
+  {
+   "symbol": "CRWD",
+   "index_weight_pct": 0.384541
+  },
+  {
+   "symbol": "RTX",
+   "index_weight_pct": 0.382504
+  },
+  {
+   "symbol": "GEV",
+   "index_weight_pct": 0.381988
   },
   {
    "symbol": "TXN",
-   "index_weight_pct": 0.356663
+   "index_weight_pct": 0.380534
   },
   {
-   "symbol": "C",
-   "index_weight_pct": 0.343477
+   "symbol": "WFC",
+   "index_weight_pct": 0.375784
   },
   {
-   "symbol": "IBM",
-   "index_weight_pct": 0.339096
+   "symbol": "TMO",
+   "index_weight_pct": 0.373806
   },
   {
    "symbol": "KLAC",
-   "index_weight_pct": 0.335123
+   "index_weight_pct": 0.367908
+  },
+  {
+   "symbol": "ORCL",
+   "index_weight_pct": 0.355057
+  },
+  {
+   "symbol": "MS",
+   "index_weight_pct": 0.350939
+  },
+  {
+   "symbol": "MRVL",
+   "index_weight_pct": 0.344036
+  },
+  {
+   "symbol": "C",
+   "index_weight_pct": 0.337331
   }
  ]
 }
