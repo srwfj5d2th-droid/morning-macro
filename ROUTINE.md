@@ -117,6 +117,15 @@ months") alongside the numbers, never instead of them; no unexplained desk
 slang. Jacob is a CFP learning market mechanics through this brief — assume
 advisor vocabulary, explain trader vocabulary.
 
+Voice contract, part 2 (§6 amendment, 2026-09-29 — non-negotiable): the
+masthead teaser (`masthead_title`) is ONE sentence — the single biggest
+takeaway of the morning — never a running paragraph that tries to recap every
+item in the brief; that big serif type is hard to read at paragraph length.
+Everything else the masthead used to carry belongs in Story/Movers/Claims/
+Flags instead. Beyond that, push the plain-language rule one notch further:
+short sentences, one idea each, minimal stacked clauses — write for someone
+skimming over coffee, not parsing a research note.
+
 Style contract (compressed from §4A/§4C/§6): every brief is a complete read;
 significance language is earned by computed state, never by prose; causal
 claims only as hypotheses with logged tests; on quiet days say plainly that

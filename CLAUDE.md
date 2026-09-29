@@ -185,6 +185,11 @@ Prose over bullets throughout the interpretive sections. Tables for data only.
 - The **Reading key** box in the template is fixed furniture — same place every day, like the recap strip.
 - The numbers and the discipline (§4C) are untouched; the explanation rises to meet them. This amends voice only — structure and section order unchanged, so the §10 design freeze is respected.
 
+**Voice amendment (2026-09-29, Jacob — "hard to read; bring it down to my level a bit more"):**
+- **Masthead is a headline, not a paragraph.** `masthead_title` (the large serif teaser at the top of the page) is capped at one sentence — the single biggest takeaway of the morning, not a running recap of every item in the brief. Everything the old multi-clause masthead carried (the movers, the secondary items, the claims-ledger housekeeping) still belongs in the brief — it just lives in Story/Movers/Claims/Flags where it was always meant to be read at body-text size, not crammed into the big serif band up top.
+- **Plainer language, one more notch down.** Keep every existing voice-contract rule (glosses, "why this matters," magnitude translation, no bare desk slang) but write for someone skimming over coffee, not someone parsing a research note: shorter sentences, fewer stacked subordinate clauses, one idea per sentence where possible. If a sentence needs a semicolon and two em-dashes to hold together, it's a candidate to split into two.
+- This amends voice only, same as the 2026-08-21 amendment — structure, section order, and template are unchanged, so §10's design freeze still holds. Applies starting the next scheduled run.
+
 ---
 
 ## 7. Educational curriculum — CFP → CFA macro bridge
