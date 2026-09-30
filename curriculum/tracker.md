@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 4, Liquidity plumbing — segment 3 taught 2026-09-29.**
+Current position: **Unit 4, Liquidity plumbing — segment 4 taught 2026-09-30.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -31,6 +31,7 @@ Current position: **Unit 4, Liquidity plumbing — segment 3 taught 2026-09-29.*
 | 2026-09-25 | 4 | 1 | Liquidity plumbing opens — where bank reserves come from (the Fed's balance sheet), the Treasury General Account (TGA) as the government's own checking account, and the overnight reverse repo facility (ON RRP) as the now-nearly-drained shock absorber between them | This week's Thursday H.4.1 release showed the Fed's balance sheet essentially flat (+$1.156B) while the TGA jumped $100.056B in a week — tied directly to this week's $70B five-year note auction settlement (CL-0022) — with ON RRP down >99% from where this system began tracking, leaving little buffer left to cushion a build that size; paired with the Friday liquidity panel |
 | 2026-09-28 | 4 | 2 | Why a scarce-reserves squeeze would show up in SOFR first — and how a confirmed test case tells you it isn't one; a level-shift from an actual Fed hike vs. a scarcity-driven creep toward the top of the target range are the same gauge telling two very different stories | CL-0020 confirmed this morning: SOFR's post-hike jump sat calmly inside the Fed's new 3.75–4.00% range the whole test window, a clean level shift rather than the TGA-build-driven scarcity squeeze segment 1 set up as the thing to watch for |
 | 2026-09-29 | 4 | 3 | The reserves identity — reserves ≈ Fed balance sheet minus TGA minus ON RRP — and why a heavy Treasury refunding mechanically drains reserves before it shows up anywhere else, with SOFR (segment 2) as the tripwire to watch once the ON RRP cushion runs out | Today's own numbers run through the identity (~$6.75T balance sheet, ~$977B TGA, ~$851M ON RRP ≈ $5.77T in reserves, all thin history) against the live backdrop of HY OAS's first-ever flag and a fresh multi-decade Treasury high — the endpoint capability (tracing a Treasury refunding to equity-market liquidity) now has its mechanical anchor in place |
+| 2026-09-30 | 4 | 4 | QT vs. the TGA drain — two mechanisms that look identical in segment 3's reserves identity (both shrink reserves) but differ in cause and durability: a Treasury-driven TGA build is temporary and self-reversing, while the Fed's own balance-sheet runoff (QT) is a deliberate policy choice that doesn't refill on its own | This week's own numbers split the two cleanly: the Fed's balance sheet barely moved (+$1.156B w/w) while the TGA alone moved nearly 100x that (+$100.056B) — this week's reserve pressure is almost entirely the Treasury's doing, not active QT, set against the live backdrop of HY OAS's largest flag on record and IG OAS's first-ever flag |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -62,3 +63,4 @@ Current position: **Unit 4, Liquidity plumbing — segment 3 taught 2026-09-29.*
 | Liquidity plumbing — reserves, TGA, and ON RRP as the drained shock absorber between them | 2026-09-25 |
 | Scarce-reserves squeeze vs. mechanical level-shift — same gauge (SOFR), two different stories | 2026-09-28 |
 | The reserves identity (Fed balance sheet minus TGA minus ON RRP) and the Treasury-refunding-to-liquidity transmission mechanism | 2026-09-29 |
+| QT vs. an autonomous TGA/RRP drain — same identity, different cause and durability | 2026-09-30 |
