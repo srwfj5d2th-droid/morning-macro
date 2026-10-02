@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 4, Liquidity plumbing — segment 5 taught 2026-10-01.**
+Current position: **Unit 4, Liquidity plumbing — segment 6 taught 2026-10-02.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -33,6 +33,7 @@ Current position: **Unit 4, Liquidity plumbing — segment 5 taught 2026-10-01.*
 | 2026-09-29 | 4 | 3 | The reserves identity — reserves ≈ Fed balance sheet minus TGA minus ON RRP — and why a heavy Treasury refunding mechanically drains reserves before it shows up anywhere else, with SOFR (segment 2) as the tripwire to watch once the ON RRP cushion runs out | Today's own numbers run through the identity (~$6.75T balance sheet, ~$977B TGA, ~$851M ON RRP ≈ $5.77T in reserves, all thin history) against the live backdrop of HY OAS's first-ever flag and a fresh multi-decade Treasury high — the endpoint capability (tracing a Treasury refunding to equity-market liquidity) now has its mechanical anchor in place |
 | 2026-09-30 | 4 | 4 | QT vs. the TGA drain — two mechanisms that look identical in segment 3's reserves identity (both shrink reserves) but differ in cause and durability: a Treasury-driven TGA build is temporary and self-reversing, while the Fed's own balance-sheet runoff (QT) is a deliberate policy choice that doesn't refill on its own | This week's own numbers split the two cleanly: the Fed's balance sheet barely moved (+$1.156B w/w) while the TGA alone moved nearly 100x that (+$100.056B) — this week's reserve pressure is almost entirely the Treasury's doing, not active QT, set against the live backdrop of HY OAS's largest flag on record and IG OAS's first-ever flag |
 | 2026-10-01 | 4 | 5 | The quarter-end turn — why ON RRP usage jumps even in a "drained" facility, once a quarter: banks temporarily shrink repo-lending books to look smaller on the regulatory snapshot date (the supplementary leverage ratio), pushing money funds to park cash at the Fed's ON RRP instead — a balance-sheet costume change, not a liquidity event, that unwinds within days | ON RRP jumped from $0.85B (09-28) to $11.54B in two sessions right at Sept 30 (Q3's last day), its largest flag since this system began tracking it (z +2.31) — set against today's live backdrop of two claims confirming together (CL-0022, CL-0025): the rate selloff holding and credit broadening into investment-grade for the first time |
+| 2026-10-02 | 4 | 6 | The quarter-end turn, verified — the speed of an unwind is itself diagnostic: a regulatory-snapshot effect is mechanically tied to one calendar date and should reverse immediately once it passes, while a genuine liquidity problem takes real money moving and doesn't resolve in a single session | Segment 5's prediction confirmed within one day: ON RRP collapsed from $11.54B back to $0.35B in a single session (10-01), essentially the whole round trip — set against the day's own rates-easing/credit-widening divergence (HY OAS's widest reading on record, Treasury yields easing for a second day) heading into this morning's payrolls report |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -65,4 +66,4 @@ Current position: **Unit 4, Liquidity plumbing — segment 5 taught 2026-10-01.*
 | Scarce-reserves squeeze vs. mechanical level-shift — same gauge (SOFR), two different stories | 2026-09-28 |
 | The reserves identity (Fed balance sheet minus TGA minus ON RRP) and the Treasury-refunding-to-liquidity transmission mechanism | 2026-09-29 |
 | QT vs. an autonomous TGA/RRP drain — same identity, different cause and durability | 2026-09-30 |
-| The quarter-end turn — regulatory balance-sheet window dressing vs. a genuine liquidity event | 2026-10-01 |
+| The quarter-end turn — regulatory balance-sheet window dressing vs. a genuine liquidity event | 2026-10-02 (R) |
