@@ -1,346 +1,143 @@
 {
- "refreshed_at_utc": "2026-09-28T10:35:39.885558Z",
+ "refreshed_at_utc": "2026-10-05T10:38:11.477567Z",
  "source": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
  "events": [
   {
-   "date": "2026-09-28T08:15:00-04:00",
+   "date": "2026-10-05T09:45:00-04:00",
+   "title": "Final Services PMI",
+   "impact": "Low",
+   "forecast": "58.7",
+   "previous": "58.7"
+  },
+  {
+   "date": "2026-10-05T10:00:00-04:00",
+   "title": "ISM Services PMI",
+   "impact": "Medium",
+   "forecast": "55.1",
+   "previous": "55.4"
+  },
+  {
+   "date": "2026-10-06T08:15:00-04:00",
+   "title": "ADP Weekly Employment Change",
+   "impact": "Low",
+   "forecast": null,
+   "previous": null
+  },
+  {
+   "date": "2026-10-06T08:16:00-04:00",
+   "title": "ADP Weekly Employment Change",
+   "impact": "Low",
+   "forecast": null,
+   "previous": "20.0K"
+  },
+  {
+   "date": "2026-10-06T08:30:00-04:00",
+   "title": "Trade Balance",
+   "impact": "Low",
+   "forecast": "-95.2B",
+   "previous": "-88.6B"
+  },
+  {
+   "date": "2026-10-06T10:10:00-04:00",
+   "title": "RCM/TIPP Economic Optimism",
+   "impact": "Low",
+   "forecast": "44.5",
+   "previous": "45.6"
+  },
+  {
+   "date": "2026-10-06T10:45:00-04:00",
    "title": "FOMC Member Bowman Speaks",
    "impact": "Low",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-09-28T13:25:00-04:00",
-   "title": "FOMC Member Cook Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-28T13:30:00-04:00",
-   "title": "FOMC Member Barkin Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T09:00:00-04:00",
-   "title": "HPI m/m",
-   "impact": "Low",
-   "forecast": "0.1%",
-   "previous": "0.0%"
-  },
-  {
-   "date": "2026-09-29T09:00:00-04:00",
-   "title": "S&P/CS Composite-20 HPI y/y",
-   "impact": "Low",
-   "forecast": "2.2%",
-   "previous": "2.1%"
-  },
-  {
-   "date": "2026-09-29T10:00:00-04:00",
-   "title": "CB Consumer Confidence",
-   "impact": "Medium",
-   "forecast": "90.1",
-   "previous": "89.4"
-  },
-  {
-   "date": "2026-09-29T10:00:00-04:00",
-   "title": "JOLTS Job Openings",
-   "impact": "Medium",
-   "forecast": "7.23M",
-   "previous": "7.27M"
-  },
-  {
-   "date": "2026-09-29T11:00:00-04:00",
-   "title": "FOMC Member Bowman Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T12:40:00-04:00",
-   "title": "FOMC Member Barr Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T13:00:00-04:00",
-   "title": "FOMC Member Goolsbee Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T13:30:00-04:00",
-   "title": "FOMC Member Musalem Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T14:00:00-04:00",
-   "title": "FOMC Member Williams Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T15:00:00-04:00",
-   "title": "FOMC Member Waller Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-29T16:30:00-04:00",
+   "date": "2026-10-06T16:30:00-04:00",
    "title": "API Weekly Statistical Bulletin",
    "impact": "Low",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-09-30T08:15:00-04:00",
-   "title": "ADP Non-Farm Employment Change",
-   "impact": "Medium",
-   "forecast": "70K",
-   "previous": "38K"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Core PCE Price Index m/m",
-   "impact": "High",
-   "forecast": "0.3%",
-   "previous": "0.2%"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Final GDP q/q",
-   "impact": "High",
-   "forecast": "1.5%",
-   "previous": "1.5%"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Final GDP Price Index q/q",
-   "impact": "Medium",
-   "forecast": "6.4%",
-   "previous": "6.4%"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Goods Trade Balance",
-   "impact": "Low",
-   "forecast": "-113.8B",
-   "previous": "-118.8B"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Personal Income m/m",
-   "impact": "Low",
-   "forecast": "0.5%",
-   "previous": "0.4%"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Personal Spending m/m",
-   "impact": "Low",
-   "forecast": "1.0%",
-   "previous": "0.2%"
-  },
-  {
-   "date": "2026-09-30T08:30:00-04:00",
-   "title": "Prelim Wholesale Inventories m/m",
-   "impact": "Low",
-   "forecast": "1.1%",
-   "previous": "1.3%"
-  },
-  {
-   "date": "2026-09-30T09:45:00-04:00",
-   "title": "Chicago PMI",
-   "impact": "Low",
-   "forecast": "51.3",
-   "previous": "47.1"
-  },
-  {
-   "date": "2026-09-30T10:30:00-04:00",
+   "date": "2026-10-07T10:30:00-04:00",
    "title": "Crude Oil Inventories",
    "impact": "Low",
    "forecast": null,
-   "previous": "3.0M"
+   "previous": "0.9M"
   },
   {
-   "date": "2026-09-30T13:30:00-04:00",
-   "title": "FOMC Member Barkin Speaks",
+   "date": "2026-10-07T13:01:00-04:00",
+   "title": "10-y Bond Auction",
    "impact": "Low",
+   "forecast": null,
+   "previous": "4.83|2.7"
+  },
+  {
+   "date": "2026-10-07T14:00:00-04:00",
+   "title": "FOMC Meeting Minutes",
+   "impact": "High",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-09-30T15:25:00-04:00",
-   "title": "FOMC Member Cook Speaks",
+   "date": "2026-10-07T15:00:00-04:00",
+   "title": "Consumer Credit m/m",
    "impact": "Low",
-   "forecast": null,
-   "previous": null
+   "forecast": "15.4B",
+   "previous": "18.1B"
   },
   {
-   "date": "2026-09-30T17:10:00-04:00",
-   "title": "FOMC Member Goolsbee Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-09-30T18:00:00-04:00",
-   "title": "FOMC Member Kashkari Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-01T05:30:00-04:00",
-   "title": "Challenger Job Cuts y/y",
-   "impact": "Low",
-   "forecast": null,
-   "previous": "-38.5%"
-  },
-  {
-   "date": "2026-10-01T08:30:00-04:00",
+   "date": "2026-10-08T08:30:00-04:00",
    "title": "Unemployment Claims",
    "impact": "Medium",
-   "forecast": "199K",
+   "forecast": "200K",
    "previous": "197K"
   },
   {
-   "date": "2026-10-01T09:05:00-04:00",
-   "title": "FOMC Member Barkin Speaks",
+   "date": "2026-10-08T10:00:00-04:00",
+   "title": "Final Wholesale Inventories m/m",
    "impact": "Low",
-   "forecast": null,
-   "previous": null
+   "forecast": "0.7%",
+   "previous": "0.7%"
   },
   {
-   "date": "2026-10-01T09:05:00-04:00",
-   "title": "FOMC Member Collins Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-01T09:05:00-04:00",
-   "title": "FOMC Member Schmid Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-01T09:45:00-04:00",
-   "title": "Final Manufacturing PMI",
-   "impact": "Low",
-   "forecast": "57.0",
-   "previous": "57.0"
-  },
-  {
-   "date": "2026-10-01T10:00:00-04:00",
-   "title": "FOMC Member Waller Speaks",
-   "impact": "Medium",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-01T10:00:00-04:00",
-   "title": "ISM Manufacturing PMI",
-   "impact": "Medium",
-   "forecast": "55.0",
-   "previous": "54.6"
-  },
-  {
-   "date": "2026-10-01T10:00:00-04:00",
-   "title": "Construction Spending m/m",
-   "impact": "Low",
-   "forecast": "0.1%",
-   "previous": "-0.5%"
-  },
-  {
-   "date": "2026-10-01T10:00:00-04:00",
-   "title": "ISM Manufacturing Prices",
-   "impact": "Low",
-   "forecast": "72.0",
-   "previous": "71.1"
-  },
-  {
-   "date": "2026-10-01T10:15:00-04:00",
-   "title": "Omdia Total Vehicle Sales",
-   "impact": "Low",
-   "forecast": "16.5M",
-   "previous": "16.8M"
-  },
-  {
-   "date": "2026-10-01T10:30:00-04:00",
+   "date": "2026-10-08T10:30:00-04:00",
    "title": "Natural Gas Storage",
    "impact": "Low",
    "forecast": null,
-   "previous": "53B"
+   "previous": "64B"
   },
   {
-   "date": "2026-10-01T13:30:00-04:00",
-   "title": "FOMC Member Jefferson Speaks",
+   "date": "2026-10-08T13:01:00-04:00",
+   "title": "30-y Bond Auction",
+   "impact": "Low",
+   "forecast": null,
+   "previous": "5.31|2.6"
+  },
+  {
+   "date": "2026-10-08T13:40:00-04:00",
+   "title": "FOMC Member Musalem Speaks",
    "impact": "Low",
    "forecast": null,
    "previous": null
   },
   {
-   "date": "2026-10-01T15:00:00-04:00",
-   "title": "FOMC Member Bowman Speaks",
-   "impact": "Low",
+   "date": "2026-10-09T10:00:00-04:00",
+   "title": "Prelim UoM Consumer Sentiment",
+   "impact": "Medium",
+   "forecast": "47.6",
+   "previous": "47.8"
+  },
+  {
+   "date": "2026-10-09T10:00:00-04:00",
+   "title": "Prelim UoM Inflation Expectations",
+   "impact": "Medium",
    "forecast": null,
-   "previous": null
+   "previous": "4.6%"
   },
   {
-   "date": "2026-10-01T15:30:00-04:00",
-   "title": "FOMC Member Cook Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-01T18:45:00-04:00",
-   "title": "FOMC Member Logan Speaks",
-   "impact": "Low",
-   "forecast": null,
-   "previous": null
-  },
-  {
-   "date": "2026-10-02T08:30:00-04:00",
-   "title": "Average Hourly Earnings m/m",
-   "impact": "High",
-   "forecast": "0.3%",
-   "previous": "0.3%"
-  },
-  {
-   "date": "2026-10-02T08:30:00-04:00",
-   "title": "Non-Farm Employment Change",
-   "impact": "High",
-   "forecast": "98K",
-   "previous": "162K"
-  },
-  {
-   "date": "2026-10-02T08:30:00-04:00",
-   "title": "Unemployment Rate",
-   "impact": "High",
-   "forecast": "4.1%",
-   "previous": "4.1%"
-  },
-  {
-   "date": "2026-10-02T10:00:00-04:00",
-   "title": "Factory Orders m/m",
-   "impact": "Low",
-   "forecast": "-0.1%",
-   "previous": "0.9%"
-  },
-  {
-   "date": "2026-10-02T10:00:00-04:00",
-   "title": "FOMC Member Logan Speaks",
+   "date": "2026-10-09T16:00:00-04:00",
+   "title": "FOMC Member Collins Speaks",
    "impact": "Low",
    "forecast": null,
    "previous": null
