@@ -23,3 +23,21 @@ Opened at build, 2026-08-19:
 - [ ] **Scheduled-task run-limit check** (§13.1) and **Gmail-connector check in
   the task context** (§13.3) — perform when the task is created, after manual
   brief approval.
+
+Opened 2026-10-05 (Jacob flagged live, same morning as the 2026-10-05 brief):
+
+- [ ] **"Widest/largest this system has recorded" needs historical context by
+  default.** The 2026-10-05 brief originally called HY OAS's print "the widest
+  reading this system has ever recorded" with no caveat — technically true,
+  but this system only has ~8 months of data, so "ever" implied far more than
+  it could support. Corrected same-day with real historical comparisons (HY
+  OAS's long-run median since 1996, and its peaks in 2008/2020/2015-16/2022),
+  sourced to FRED/TradingEconomics. Proposed standing fix for the monthly
+  review: any time a brief calls a reading a record *within this system's own
+  data*, it must pair that claim with where the series has actually traded
+  historically (a small reference table of known peaks/median per Tier 1
+  series, hand-maintained or scripted), not rely on the model remembering to
+  add context after the fact. Candidate implementation: a
+  `data/historical_context.json` reference file (median + major-episode peaks
+  per series, sourced once, cited going forward) that `compute_state.py` or
+  the model consults before any "record"/"widest"/"largest" claim.
