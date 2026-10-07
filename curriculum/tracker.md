@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 4, Liquidity plumbing — capstone (segment 8) taught 2026-10-06. Unit 4 complete; Unit 5 (the dollar cycle) starts next session.**
+Current position: **Unit 5, The dollar cycle — segment 1 taught 2026-10-07.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -36,6 +36,7 @@ Current position: **Unit 4, Liquidity plumbing — capstone (segment 8) taught 2
 | 2026-10-02 | 4 | 6 | The quarter-end turn, verified — the speed of an unwind is itself diagnostic: a regulatory-snapshot effect is mechanically tied to one calendar date and should reverse immediately once it passes, while a genuine liquidity problem takes real money moving and doesn't resolve in a single session | Segment 5's prediction confirmed within one day: ON RRP collapsed from $11.54B back to $0.35B in a single session (10-01), essentially the whole round trip — set against the day's own rates-easing/credit-widening divergence (HY OAS's widest reading on record, Treasury yields easing for a second day) heading into this morning's payrolls report |
 | 2026-10-05 | 4 | 7 | Settlement day, not auction day — a Treasury auction announcement doesn't move the reserves identity by itself; what moves it is settlement, the day the Treasury actually collects cash from winning bidders, usually one or two sessions after the auction — the opposite case from segment 6's quarter-end spike, which reversed in a single day because it was a calendar-date snapshot effect, not real money moving | This week's own calendar (10Y auction Wed, 30Y auction Thu) set up as the next live test — watch the TGA line in Friday's H.4.1 release a session or two after each auction, not on the auction days themselves — against the live backdrop of HY OAS's widest reading on record for a third straight session while equities rallied (today's new "risk-on/diverging" regime tag, CL-0030) |
 | 2026-10-06 | 4 | 8 (capstone) | Assembling segments 1-7 into one working checklist — the reserves identity (Fed balance sheet minus TGA minus ON RRP), the four distinct causes that can move it (QT, TGA refunding build, quarter-end snapshot, auction settlement), and SOFR as the gauge that tells you reserves got scarce — applied end to end as one system rather than four separate numbers, closing the unit | SOFR flagged again today (z +2.88) but read as the aging post-hike repricing, not a fresh squeeze, using the very checklist this capstone just assembled — set against a day every other rate, funding cost, and the dollar also jumped together while credit alone eased (CL-0030 still open) |
+| 2026-10-07 | 5 | 1 | The dollar cycle opens — why a stronger DXY is itself a tightening event that happens through trade and debt markets, not a Fed decision: it raises the local-currency cost of servicing dollar debt for non-U.S. borrowers, raises the dollar price of commodities for the rest of the world, and translates foreign revenue into fewer dollars for U.S. multinationals | DXY eased −0.33% today after days of climbing (still flagged, z +1.82) on the same session the S&P 500 closed at a fresh record high and Treasury yields eased across the board — a pause inside the dollar's multi-week climb, not a reversal, used to introduce why that climb matters beyond the FX desk |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -72,3 +73,4 @@ Current position: **Unit 4, Liquidity plumbing — capstone (segment 8) taught 2
 | Settlement day vs. auction day — when a Treasury auction actually drains reserves | 2026-10-05 |
 | The liquidity-plumbing checklist (Unit 4 capstone) — reserves identity, four distinct causes, SOFR as the scarce-reserves gauge | 2026-10-06 |
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-06 (R) |
+| The dollar cycle — DXY strength as tightening transmitted through trade and debt markets, not a Fed decision | 2026-10-07 |
