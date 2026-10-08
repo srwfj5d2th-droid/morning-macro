@@ -98,6 +98,18 @@ def z_cell(s):
     return f"{z:+.2f}{mark}"
 
 
+def pctile_cell(state, key):
+    """§4F: where today's level ranks against real long-run history, not
+    just the 120-day window. '—' for series with no long-history source
+    (Fed balance sheet, TGA, ON RRP, DXY — structurally modern-only or not
+    yet built); '*' flags the two series with only ~3 years available."""
+    ctx = state.get("long_history", {}).get(key)
+    if ctx is None:
+        return '<span style="color:#B9BEC7;">&mdash;</span>'
+    star = "*" if ctx.get("short_history") else ""
+    return f'{ctx["pct_rank_all_time"]:.0f}{star}'
+
+
 def recap_rows(state, spark_dir, color, row_date):
     rows = []
     for label, key, kind in RECAP:
@@ -142,6 +154,8 @@ def dash_rows(state, spark_dir, color, row_date):
             f'        <td style="padding:6px 6px; text-align:right; {MONO} '
             f'{"font-weight:600; color:" + color + ";" if flagged else ""}">'
             f'{z_cell(s)}</td>\n'
+            f'        <td style="padding:6px 6px; text-align:right; {MONO}">'
+            f'{pctile_cell(state, key)}</td>\n'
             f'        <td style="padding:2px 0 2px 8px;">{spark(spark_dir, key)}</td>\n'
             f'      </tr>')
     return "\n".join(rows)

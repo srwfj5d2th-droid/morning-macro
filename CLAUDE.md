@@ -129,6 +129,64 @@ Each scheduled run is a fresh session; without a mechanism, the brief is 250 ana
 - **Event days (CPI, FOMC, payrolls, major earnings):** the 6:30am brief runs *before* the event. It does not predict; it frames — stating what to watch and what each plausible outcome would imply, each logged as a conditional claim (§4B). The next morning's reconciliation grades those claims against the actual print. Event eves set the test; event aftermaths answer it. No same-day supplemental editions in v1.
 - **Market holidays:** no brief, or a one-line "markets closed" notice; decided at build.
 
+## 4F. Long-run historical context (ratified 2026-10-08, Jacob)
+
+The failure mode: "the widest/highest reading this system has tracked" is
+true but misleading when the system's own lookback is ~10 months (or, for
+the 120-day z-score specifically, ~6 months) — a reader hears "historically
+extreme" when the data only supports "unusual lately." This already caused
+one real overclaim (HY OAS called "the widest ... ever recorded" on
+2026-10-05, corrected same-day) and is the standing fix for it.
+
+- **The rule:** any brief sentence that calls a Tier 1 reading a
+  record/widest/highest/largest — whether "this system has tracked" or any
+  other superlative — must pair that claim with where the series actually
+  sits against real long-run history: its all-time percentile rank, the
+  most recent prior reading at least as extreme and how long ago that was,
+  whether a recession followed that prior reading within about a year, and
+  any named historical episode (recession or not) that reached a comparable
+  level. A big 120-day z-score and a mid-range all-time percentile is itself
+  the sentence worth writing ("unusual lately, unremarkable historically")
+  — that is analysis, not a downgrade of the finding.
+- **Source of truth:** `data/history/*.csv` (real FRED history — decades,
+  where the source actually has it) plus `data/history/episodes.json`
+  (named historical windows), read by `scripts/history_context.py` and
+  attached to `data/state.json`'s `long_history` and `curve_inversions`
+  blocks by `compute_state.py`. Exactly like every other numeric claim in
+  this system (§4C), a long-run comparison must come from this file, never
+  from the model's training-data recall of "2008 HY OAS peaked near 22%" —
+  recall is exactly the failure mode that produced the 10-05 overclaim in
+  the first place.
+- **Say so when there's no long-run source.** Fed balance sheet, TGA, and
+  ON RRP are structurally modern-only instruments with no pre-QE-era
+  "normal" to compare against; DXY has no long-run source built yet. A
+  brief never improvises a comparison for these — it states plainly that
+  none exists.
+- **The HY/IG OAS constraint.** This system's live data source for the
+  literal ICE BofA OAS series only has ~3 years of history available (see
+  `data/history/README.md` for the verified constraint) — real-world FRED
+  has this back to 1996, this environment's mirror does not. `ig_oas` gets
+  a genuine 40-year proxy (Moody's Baa yield minus the 10Y Treasury,
+  `baa_10y_spread`) for *direction and episode timing*, explicitly never
+  for magnitude (Baa is investment-grade and runs structurally tighter than
+  junk spreads). `hy_oas` gets no numeric proxy at all — only its own
+  honest ~3-year percentile, labeled `short_history: true`. Never silently
+  upgrade either into looking like a decades-long claim.
+- **Curve inversions get their own treatment.** 2s10s and 3m10y each carry
+  a `curve_inversions` summary: every material (non-noise) inverted episode
+  since real history began, and whether a recession followed within 36
+  months. This is the standing answer to "does an inverted curve mean
+  recession" — a track record, not a prediction.
+- **Refresh cadence:** `data/history/*.csv` is reference data, not part of
+  the daily pipeline — refreshed via `scripts/build_long_history.py
+  --refresh` at monthly review or sooner if a gap starts to matter, not
+  every morning. `compute_state.py` reads whatever is on disk; it never
+  re-fetches it itself.
+- **Dashboard column:** the Tier 1 table (§6.5) carries a "Hist. %ile"
+  column alongside z(120d), rendered mechanically from `long_history` —
+  never written by the model. `*` marks the two short-history series; an
+  em-dash marks series with no long-run source.
+
 ---
 
 ## 5. Data tiers and sources
@@ -166,7 +224,7 @@ Micro as macro sensor: large single-name and sector moves are treated as leading
 2. **Recap strip** — fixed-position table: yesterday's move and YTD for S&P 500, Nasdaq, Russell 2000, UST 10Y, HY OAS, DXY, WTI, gold. Includes one permanent line: **S&P 500 distance from all-time high** (pure market data; its private significance to Jacob's standing triggers lives outside this repo). Reference material, same place every day, ten seconds.
 3. **Claims reconciliation** — resolutions of prior conditional claims (§4B), stated plainly whichever way they resolved. Omitted only when no claims are open or due.
 4. **The story** — what is driving markets right now. Narrative detection explicitly includes **what the major financial press is leading with this morning** (headlines via web search with named-source attribution — headline-level access is sufficient; the headline *is* the narrative. *Amended 2026-08-21: Bigdata.com removed per the no-paid-services decision.*) One or two paragraphs stating the prevailing narrative with attribution, then the pivot: does the state file confirm it, complicate it, or refute it? The design intent: Jacob reads this before opening the WSJ, so the Journal's framing lands in data context rather than setting it. On quiet days, §4A governs; politically live narratives follow §4D. The brief never repeats a narrative it hasn't tested.
-5. **Tier 1 dashboard** — rates/credit/liquidity table with deltas and z-flags, then interpretation. Every number in the interpretation must exist in the table or the day's pull.
+5. **Tier 1 dashboard** — rates/credit/liquidity table with deltas, z-flags, and each series' all-time historical percentile (§4F), then interpretation. Every number in the interpretation must exist in the table or the day's pull.
 6. **Movers** (§5 Tier 2) — up to 3 names + 1 sector note, each with fact / stated reason / read-through. On calm macro days this section moves up and leads.
 7. **Chart of the day** — one featured, annotated chart, editorially selected each morning by these rules, in order: (a) the series with the largest |z| move; (b) the mover with the strongest read-through; (c) the series behind the day's dominant news story; (d) the series most relevant to today's calendar event. Must map to `macro_series.csv` or a fetchable series logged that day. Rotation is the point — the chart follows the story. A short "why this chart today" line is mandatory.
 8. **Tier 3** — AI capex/financing-cycle note; expanded Friday section.

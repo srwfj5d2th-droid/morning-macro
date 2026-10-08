@@ -37,7 +37,14 @@ Run order:
    stale), STOP: write no analysis; email Jacob a two-line notice ("Data pull
    incomplete ({series}); no brief generated"), commit the failure log, end.
 2. `python3 scripts/compute_state.py` — every number in your prose must exist
-   in data/state.json or the day's data/raw/ files. Nothing from memory.
+   in data/state.json or the day's data/raw/ files. Nothing from memory. This
+   also attaches `long_history`/`curve_inversions` (§4F) from
+   `data/history/*.csv` if that directory exists; if it's missing or stale
+   (check its newest file's mtime — refresh via
+   `python3 scripts/build_long_history.py --refresh` if it's been a month+
+   since the last refresh or the dir doesn't exist yet), note that in the
+   commit/system notes rather than blocking the run — it's reference data,
+   not Tier 1, so its absence never fails the brief closed.
 3. Reconcile data/claims_ledger.csv: for every open claim, check its test
    condition against today's state; mark confirmed/refuted/expired past
    deadline (fill date_resolved and resolution_note); report every resolution
@@ -133,7 +140,11 @@ the data shows nothing outside normal ranges and lead with the movers; prose
 over bullets in interpretive sections; the movers cap is 3 names + 1 sector
 note with fact / attributed reason / read-through, and NR-held names get
 facts and read-throughs but never position commentary — plausibly NR-relevant
-items get one `→ Route to NR commentary process:` flag line only.
+items get one `→ Route to NR commentary process:` flag line only; any
+"widest/highest/record this system has tracked" sentence must pair with that
+series' `long_history` percentile and nearest comparable episode from
+`data/state.json` (§4F) — never left as a bare short-lookback superlative,
+and never say "no long-run source" when `long_history` actually has the key.
 
 Market holiday: if pull_data shows no new market close (row_date unchanged
 from the last brief), commit a one-line "markets closed" note instead of a

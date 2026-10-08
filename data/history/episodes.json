@@ -1,0 +1,33 @@
+{
+  "_README": "Two kinds of entries. 'recessions' are NBER-dated, computed directly from data/history/usrec.csv (not hand-typed) by scripts/build_long_history.py's companion check -- re-derive after any refresh rather than editing by hand. 'named_episodes' are hand-curated date-range labels for well-known historical market/credit stress windows that are NOT all NBER recessions (1987 crash, 1994 bond selloff, 1998 LTCM, 2011 eurozone/debt-ceiling, 2015-16 energy bust, 2018Q4 selloff, 2022-23 hiking cycle) -- the date ranges themselves are well-established historical facts, but every min/max/median *value* a brief states for a series during one of these windows must be computed live from data/history/*.csv, never typed here or recalled from training.",
+  "recessions": [
+    {"name": "1945 reconversion recession", "start": "1945-03-01", "end": "1945-10-01"},
+    {"name": "1948-49 recession", "start": "1948-12-01", "end": "1949-10-01"},
+    {"name": "1953-54 recession", "start": "1953-08-01", "end": "1954-05-01"},
+    {"name": "1957-58 recession", "start": "1957-09-01", "end": "1958-04-01"},
+    {"name": "1960-61 recession", "start": "1960-05-01", "end": "1961-02-01"},
+    {"name": "1970 recession", "start": "1970-01-01", "end": "1970-11-01"},
+    {"name": "1973-75 oil-shock recession", "start": "1973-12-01", "end": "1975-03-01"},
+    {"name": "1980 recession (first Volcker)", "start": "1980-02-01", "end": "1980-07-01"},
+    {"name": "1981-82 recession (second Volcker)", "start": "1981-08-01", "end": "1982-11-01"},
+    {"name": "1990-91 recession (Gulf War/S&L crisis)", "start": "1990-08-01", "end": "1991-03-01"},
+    {"name": "2001 recession (dot-com bust)", "start": "2001-04-01", "end": "2001-11-01"},
+    {"name": "2007-09 Global Financial Crisis", "start": "2008-01-01", "end": "2009-06-01"},
+    {"name": "2020 COVID recession", "start": "2020-03-01", "end": "2020-04-01"}
+  ],
+  "named_episodes": [
+    {"name": "1987 Black Monday crash", "start": "1987-10-14", "end": "1987-10-23"},
+    {"name": "1990-91 Gulf War oil spike", "start": "1990-08-01", "end": "1991-01-31"},
+    {"name": "1994 bond market crash (Fed hiking shock)", "start": "1994-02-01", "end": "1994-12-31"},
+    {"name": "1997-98 Asian financial crisis", "start": "1997-07-01", "end": "1998-01-31"},
+    {"name": "1998 LTCM / Russia default crisis", "start": "1998-08-01", "end": "1998-10-31"},
+    {"name": "2000-02 dot-com bear market", "start": "2000-03-01", "end": "2002-10-31"},
+    {"name": "2007-09 Global Financial Crisis", "start": "2007-10-01", "end": "2009-03-31"},
+    {"name": "2011 Eurozone debt crisis / US debt-ceiling standoff", "start": "2011-07-01", "end": "2011-10-31"},
+    {"name": "2013 taper tantrum", "start": "2013-05-01", "end": "2013-09-30"},
+    {"name": "2015-16 energy/credit bust", "start": "2015-06-01", "end": "2016-02-29"},
+    {"name": "2018 Q4 selloff (QT + rate-hike scare)", "start": "2018-10-01", "end": "2018-12-31"},
+    {"name": "2020 COVID crash", "start": "2020-02-19", "end": "2020-03-23"},
+    {"name": "2022-23 inflation-shock hiking cycle", "start": "2022-01-01", "end": "2023-07-31"}
+  ]
+}

@@ -27,10 +27,26 @@ import math
 import sys
 from pathlib import Path
 
+import history_context as hc
+
 REPO = Path(__file__).resolve().parent.parent
 CSV_PATH = REPO / "data" / "macro_series.csv"
 ATH_PATH = REPO / "data" / "spx_ath.json"
 STATE_PATH = REPO / "data" / "state.json"
+HIST_DIR = REPO / "data" / "history"
+
+# Tier 1 keys with real long-run history (§4F, added 2026-10-08 — Jacob: a
+# "widest/highest this system has tracked" claim against ~10 months of data
+# is true but misleading; this pairs every such series with where it sits
+# against real history, computed from data/history/*.csv, never recalled.
+# bp_to_pct: state.json stores these two curve series in bp; the long-history
+# files are in percentage points, so divide by 100 before comparing.
+LONG_HISTORY_KEYS = {
+    "ust_3m": {}, "ust_2y": {}, "ust_10y": {}, "ust_30y": {},
+    "tips_10y_real": {}, "bkeven_10y": {}, "sofr": {},
+    "hy_oas": {}, "ig_oas": {},
+    "s2s10": {"bp_to_pct": True}, "s3m10y": {"bp_to_pct": True},
+}
 
 SEASONING_MIN = 60      # §4: no z asserted below this many prior observations
 Z_WINDOW = 120
@@ -163,6 +179,39 @@ def main():
 
     derived_curve("s2s10", "ust_10y", "ust_2y")
     derived_curve("s3m10y", "ust_10y", "ust_3m")
+
+    # long-run historical context (§4F) — supplementary, not fail-closed:
+    # if data/history/ hasn't been built/refreshed yet, skip quietly rather
+    # than failing the whole run over reference data.
+    if HIST_DIR.exists():
+        state["long_history"] = {}
+        for key, opts in LONG_HISTORY_KEYS.items():
+            s = state["series"].get(key) or state["derived"].get(key)
+            if s is None or key not in hc.SOURCES:
+                continue
+            value = s["last"] / 100.0 if opts.get("bp_to_pct") else s["last"]
+            try:
+                ctx = hc.context_for(key, value, s["last_date"], direction="high")
+            except FileNotFoundError:
+                continue
+            if ctx:
+                state["long_history"][key] = ctx
+                if ctx.get("proxy_key"):
+                    prow = state["series"].get(key) or {}
+                    try:
+                        proxy_rows, _ = hc._series_for(ctx["proxy_key"])
+                        pdate, pval = proxy_rows[-1]
+                        state["long_history"][ctx["proxy_key"]] = hc.context_for(
+                            ctx["proxy_key"], pval, pdate, direction="high")
+                    except (FileNotFoundError, IndexError):
+                        pass
+        try:
+            state["curve_inversions"] = {
+                "s2s10": hc.summarize_inversions("s2s10"),
+                "s3m10y": hc.summarize_inversions("s3m10y"),
+            }
+        except FileNotFoundError:
+            pass
 
     if ATH_PATH.exists():
         ath = json.loads(ATH_PATH.read_text())
