@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 5, The dollar cycle — segment 1 taught 2026-10-07.**
+Current position: **Unit 5, The dollar cycle — segment 2 taught 2026-10-08.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -74,3 +74,4 @@ Current position: **Unit 5, The dollar cycle — segment 1 taught 2026-10-07.**
 | The liquidity-plumbing checklist (Unit 4 capstone) — reserves identity, four distinct causes, SOFR as the scarce-reserves gauge | 2026-10-06 |
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-06 (R) |
 | The dollar cycle — DXY strength as tightening transmitted through trade and debt markets, not a Fed decision | 2026-10-07 |
+| Carry and rate differentials — money chases the currency paying more, reinforcing the dollar-strength transmission loop | 2026-10-08 |
