@@ -141,13 +141,17 @@ one real overclaim (HY OAS called "the widest ... ever recorded" on
 - **The rule:** any brief sentence that calls a Tier 1 reading a
   record/widest/highest/largest — whether "this system has tracked" or any
   other superlative — must pair that claim with where the series actually
-  sits against real long-run history: its all-time percentile rank, the
-  most recent prior reading at least as extreme and how long ago that was,
-  whether a recession followed that prior reading within about a year, and
-  any named historical episode (recession or not) that reached a comparable
-  level. A big 120-day z-score and a mid-range all-time percentile is itself
-  the sentence worth writing ("unusual lately, unremarkable historically")
-  — that is analysis, not a downgrade of the finding.
+  sits against real long-run history: its all-time percentile rank *and*
+  its trailing-30-year percentile (both — see the regime-pooling note
+  below; citing only one when they disagree is the same mistake this
+  section exists to fix), the most recent prior reading at least as
+  extreme and how long ago that was, whether a recession followed that
+  prior reading within about a year, and any named historical episode
+  (recession or not) that reached a comparable level. A big 120-day
+  z-score and a mid-range all-time percentile is itself the sentence worth
+  writing ("unusual lately, unremarkable historically") — that is
+  analysis, not a downgrade of the finding — but check the 30-year reading
+  before writing that sentence, since it may tell a different story.
 - **Source of truth:** `data/history/*.csv` (real FRED history — decades,
   where the source actually has it) plus `data/history/episodes.json`
   (named historical windows), read by `scripts/history_context.py` and
@@ -182,10 +186,34 @@ one real overclaim (HY OAS called "the widest ... ever recorded" on
   --refresh` at monthly review or sooner if a gap starts to matter, not
   every morning. `compute_state.py` reads whatever is on disk; it never
   re-fetches it itself.
-- **Dashboard column:** the Tier 1 table (§6.5) carries a "Hist. %ile"
-  column alongside z(120d), rendered mechanically from `long_history` —
-  never written by the model. `*` marks the two short-history series; an
-  em-dash marks series with no long-run source.
+- **Pooling 60+ years can itself mislead (Jacob, 2026-10-08 follow-up).**
+  An all-time percentile is immune to the mean-skew trap (it's an order
+  statistic, not an average — confirmed by checking this system's own data:
+  the 10Y Treasury's 64-year mean is 5.80% but its median is 5.39%, and the
+  percentile machinery uses the latter), but pooling genuinely different
+  monetary regimes into one number can still hide a real regime shift. Every
+  `long_history` entry therefore carries a second reading, `pct_rank_modern`
+  — the percentile within the trailing 30 years — alongside
+  `pct_rank_all_time`, plus `regime_divergence` (true when the two differ by
+  20 points or more) and `regime_divergence_pts`. **When a brief cites a
+  percentile and the two diverge, it must show both, not pick one** — the
+  disagreement is itself the finding ("unremarkable since the 1960s, but
+  running hot against the last 30 years" is a real sentence, not hedging).
+  Live example found running this against 2026-10-07's own data: the 10-year
+  Treasury sat at the 49th percentile all-time but the 87th percentile of
+  the last 30 years — a 38-point divergence, because the full 64-year pool
+  includes the Volcker-era double-digit years that the last 30 years don't.
+  `hy_oas`/`ig_oas` (short_history) and any series whose total history is
+  itself under ~35 years (TIPS real yield, breakeven) don't get a separate
+  modern window — there isn't a distinct older regime to pool against in
+  the first place, so `pct_rank_modern` is null and `regime_divergence` is
+  false for them by construction, not by omission.
+- **Dashboard column:** the Tier 1 table (§6.5) carries a "%ile all/30y"
+  column alongside z(120d), rendered mechanically from `long_history` as
+  `{all_time}/{modern}` — never written by the model. `†` marks a
+  regime-divergence flag; `*` marks the two short-history series (single
+  number, no modern window); an em-dash marks series with no long-run
+  source.
 
 ---
 

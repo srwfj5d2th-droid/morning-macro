@@ -82,6 +82,38 @@ and whether a recession followed within 12 months, matching named episodes)
 to `data/state.json` for every Tier 1 series listed in its
 `LONG_HISTORY_KEYS`, plus a `curve_inversions` summary for 2s10s and 3m10y
 (material inversion episodes and their historical lag to the next
-recession, capped at 36 months). The dashboard table's "Hist. %ile" column
+recession, capped at 36 months). The dashboard table's "%ile all/30y" column
 and any brief prose citing long-run context must come from this block —
 never from memory.
+
+### All-time percentile vs. trailing-30-year percentile
+
+Added same day, Jacob's follow-up: percentile rank already isn't the
+mean-skew trap (it's an order statistic — checked directly against this
+system's own pulled data, the 10Y's 64-year mean is 5.80% but its median is
+5.39%, and the percentile machinery uses the median-style order statistic,
+not the mean). But pooling 60+ years into one number still pools genuinely
+different monetary regimes — Volcker-era double-digit rates, the Great
+Moderation, the ZIRP era, now. A reading can look unremarkable against the
+full pool while running hot against the last 30 years, or the reverse.
+
+Every `long_history` entry (where there's enough history to make the
+comparison meaningful — see below) therefore carries both `pct_rank_all_time`
+and `pct_rank_modern` (`MODERN_WINDOW_YEARS = 30`, trailing from the as-of
+date), plus `regime_divergence` (true when they differ by
+`REGIME_DIVERGENCE_PTS = 20` or more) and `regime_divergence_pts`. Live
+example, found immediately on running this against 2026-10-07's data: the
+10-year Treasury was at the **49th** percentile all-time but the **87th**
+percentile of the last 30 years — a 38-point divergence. The full-history
+number was being pulled down by decades (1970s-80s) with yields regularly
+higher than today's; the last 30 years, which is what "normal" actually
+feels like to someone who's been investing or paying a mortgage during
+that span, has spent most of its time well below today's level. Both
+numbers are true; citing only the all-time one would have been the exact
+mistake this file exists to prevent.
+
+Series with no real second regime to pool against — `hy_oas`/`ig_oas`
+(`short_history`, ~3yr total) and any series whose full history is itself
+under roughly 35 years (TIPS real yield and breakeven, 2003+) — get
+`pct_rank_modern: null` and `regime_divergence: false` by construction:
+there isn't a distinct older era available to disagree with the recent one.

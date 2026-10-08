@@ -100,14 +100,25 @@ def z_cell(s):
 
 def pctile_cell(state, key):
     """§4F: where today's level ranks against real long-run history, not
-    just the 120-day window. '—' for series with no long-history source
-    (Fed balance sheet, TGA, ON RRP, DXY — structurally modern-only or not
-    yet built); '*' flags the two series with only ~3 years available."""
+    just the 120-day window. Shows all-time/trailing-30y side by side since
+    pooling 60+ years of history can itself mask a regime shift (Jacob,
+    2026-10-08) -- a reading can look unremarkable against the full pool
+    while running hot against the last 30 years, or vice versa. '—' for
+    series with no long-history source (Fed balance sheet, TGA, ON RRP,
+    DXY); '*' flags the two series with only ~3 years available (no
+    separate modern window to show, so a single number)."""
     ctx = state.get("long_history", {}).get(key)
     if ctx is None:
         return '<span style="color:#B9BEC7;">&mdash;</span>'
-    star = "*" if ctx.get("short_history") else ""
-    return f'{ctx["pct_rank_all_time"]:.0f}{star}'
+    if ctx.get("short_history"):
+        return f'{ctx["pct_rank_all_time"]:.0f}*'
+    modern = ctx.get("pct_rank_modern")
+    if modern is None:
+        return f'{ctx["pct_rank_all_time"]:.0f}'
+    cell = f'{ctx["pct_rank_all_time"]:.0f}/{modern:.0f}'
+    if ctx.get("regime_divergence"):
+        return f'<span style="font-weight:600;">{cell}&dagger;</span>'
+    return cell
 
 
 def recap_rows(state, spark_dir, color, row_date):

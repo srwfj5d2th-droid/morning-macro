@@ -52,3 +52,23 @@ Opened 2026-10-05 (Jacob flagged live, same morning as the 2026-10-05 brief):
   conspicuous exception, the 10Y real yield (TIPS), which genuinely is at
   the 100th percentile of its ~23-year history. The system had been
   overstating significance across the board; this is the correction.
+
+  **Same-day follow-up (Jacob):** sharp catch — pointed out that an average
+  over 40 years can itself mislead (e.g. a 40-year average mortgage rate
+  near 7% looks "normal" today, even though rates spent most of those
+  years well below it) and asked whether the percentile math was making
+  the same mistake. Checked: no, percentile rank is an order statistic
+  (count below/above), not a mean, so it was never vulnerable to that
+  specific trap — confirmed against the system's own data (10Y Treasury's
+  64yr mean 5.80% vs. median 5.39%, and the code uses the latter). But the
+  real, sharper version of the concern — does pooling 60+ years hide a
+  genuine regime shift — did apply. Fixed same day: every `long_history`
+  entry now carries a second reading, the trailing-30-year percentile
+  (`pct_rank_modern`), plus a `regime_divergence` flag when it disagrees
+  with the all-time one by 20+ points. First real catch: the 10-year
+  Treasury's 49th all-time percentile and 87th trailing-30-year percentile
+  diverge by 38 points — unremarkable since the 1960s, genuinely elevated
+  against the last 30 years. UST 2Y, 30Y, and the fed-funds/SOFR proxy
+  diverge the same way; the curve spreads and credit proxies don't. The
+  dashboard column is now "%ile all/30y" (`49/87†`), and §4F requires
+  citing both when they diverge rather than picking the more convenient one.

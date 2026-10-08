@@ -145,6 +145,9 @@ items get one `→ Route to NR commentary process:` flag line only; any
 series' `long_history` percentile and nearest comparable episode from
 `data/state.json` (§4F) — never left as a bare short-lookback superlative,
 and never say "no long-run source" when `long_history` actually has the key.
+When `long_history`'s `pct_rank_all_time` and `pct_rank_modern` disagree by
+20+ points (`regime_divergence: true`), cite both, not whichever is more
+convenient — the disagreement itself is the finding (§4F).
 
 Market holiday: if pull_data shows no new market close (row_date unchanged
 from the last brief), commit a one-line "markets closed" note instead of a

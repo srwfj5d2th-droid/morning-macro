@@ -17,6 +17,17 @@ producing a percentile that implies decades of support. Their long-run proxy
 (a Baa/Aaa-minus-10Y corporate credit spread, real history back to 1983-86)
 is exposed separately and must never be captioned as if it were the literal
 OAS series.
+
+Added 2026-10-08 (same day, Jacob's follow-up): percentile rank already
+avoids the mean-skew trap (order statistics, not an average) -- but pooling
+60+ years into one percentile still pools genuinely different monetary
+regimes (Volcker-era double-digit rates vs. the Great Moderation vs. ZIRP
+vs. now). A reading can look unremarkable against the full pool while being
+unusual against the last few decades, or vice versa, if those regimes
+differ enough. Every long_history block therefore carries a second,
+trailing-MODERN_WINDOW_YEARS-year percentile alongside the all-time one, and
+a `regime_divergence` flag when they disagree by REGIME_DIVERGENCE_PTS or
+more -- so a brief can show both instead of picking one silently.
 """
 
 import csv
@@ -26,6 +37,9 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 HIST_DIR = REPO / "data" / "history"
+
+MODERN_WINDOW_YEARS = 30
+REGIME_DIVERGENCE_PTS = 20
 
 # Tier 1 series key -> long-history source. "proxy" series are derived
 # (difference of two fetched series), computed here, not fetched directly.
@@ -148,6 +162,15 @@ def _percentiles(rows):
             "p75": pct(75), "p90": pct(90), "max": vals[-1]}
 
 
+def _window_rows(rows, end_date, years):
+    """Rows within the trailing `years` years ending at (and including)
+    end_date. Uses a day-count approximation (365.25/yr) rather than
+    date.replace(year=...) to sidestep the Feb-29 edge case."""
+    end = dt.date.fromisoformat(end_date)
+    start = end - dt.timedelta(days=round(years * 365.25))
+    return [(d, v) for d, v in rows if start.isoformat() <= d <= end_date]
+
+
 def _most_recent_at_least(rows, value, before_date):
     for d, v in reversed(rows):
         if d >= before_date:
@@ -233,6 +256,28 @@ def context_for(key, today_value, today_date, direction="high"):
         "percentiles": _percentiles(rows),
         "short_history": src["kind"] == "short_direct",
     }
+
+    # trailing-window percentile (regime-pooling check, Jacob 2026-10-08):
+    # the all-time number alone can look unremarkable while pooling eras
+    # that aren't really comparable (Volcker-era vs. now). None of the
+    # three short-history/direct-proxy series need this -- either the
+    # window is the whole series already (hy_oas/ig_oas, ~3yr) or there's
+    # no deep pool to pool incomparable regimes from in the first place.
+    window_rows = _window_rows(rows, today_date, MODERN_WINDOW_YEARS)
+    if window_rows and not out["short_history"]:
+        modern_pct = _percentile_rank(window_rows, today_value)
+        out["modern_window_years_requested"] = MODERN_WINDOW_YEARS
+        out["modern_years"] = _years_covered(window_rows)
+        out["modern_start_date"] = window_rows[0][0]
+        out["pct_rank_modern"] = modern_pct
+        out["percentiles_modern"] = _percentiles(window_rows)
+        divergence_pts = round(abs(out["pct_rank_all_time"] - modern_pct), 1)
+        out["regime_divergence_pts"] = divergence_pts
+        out["regime_divergence"] = divergence_pts >= REGIME_DIVERGENCE_PTS
+    else:
+        out["pct_rank_modern"] = None
+        out["regime_divergence"] = False
+        out["regime_divergence_pts"] = None
 
     cmp_fn = _most_recent_at_least if direction == "high" else _most_recent_at_most
     prior = cmp_fn(rows, today_value, today_date)

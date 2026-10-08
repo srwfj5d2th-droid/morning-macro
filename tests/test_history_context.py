@@ -203,3 +203,62 @@ def test_summarize_inversions_filters_noise_blips(tmp_path, monkeypatch):
                                       min_trough_bp=10)
     assert summary["n_material_episodes"] == 1
     assert summary["episodes"][0]["trough_value_bp"] == -50.0
+
+
+# --- trailing-window percentile / regime-divergence (Jacob, 2026-10-08 follow-up) ---
+
+def test_window_rows_filters_to_trailing_years():
+    rows = [("2000-01-01", 1.0), ("2010-01-01", 2.0), ("2019-06-01", 3.0),
+            ("2020-01-01", 4.0)]
+    windowed = hc._window_rows(rows, "2020-01-01", 5)
+    # only 2019-06-01 and 2020-01-01 fall within 5 years of 2020-01-01
+    assert windowed == [("2019-06-01", 3.0), ("2020-01-01", 4.0)]
+
+
+def test_context_for_flags_regime_divergence(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    # Mirrors the real ust_10y finding: an old, HIGH-value regime (1970-95,
+    # like the Volcker-era double-digit years) followed by a LOW-value
+    # modern regime (1996-2024, like the post-2008 near-zero years), then
+    # today's reading of 5.0 -- squarely in the middle of the full pool
+    # (high-regime 8s balance out low-regime 1s) but near the TOP of just
+    # the trailing-30y window, which is dominated by the low-regime 1s.
+    rows = [(f"{1970+y}-01-01", 8.0) for y in range(26)]           # 1970-95
+    rows += [(f"{1996+y}-01-01", 1.0) for y in range(29)]          # 1996-2024
+    rows += [("2025-01-01", 5.0)]                                  # today
+    _write_series(tmp_path, "regime_src", rows)
+    _write_episodes(tmp_path)
+    monkeypatch.setitem(hc.SOURCES, "fake_regime",
+                         {"kind": "direct", "file": "regime_src"})
+    ctx = hc.context_for("fake_regime", 5.0, "2025-01-01", direction="high")
+    # full 56yr pool: 26 eights (above 5) + 29 ones + the 5 itself -> ~54th
+    assert 40 < ctx["pct_rank_all_time"] < 60
+    # trailing 30y window (~1995-2025): dominated by the low-regime ones,
+    # so today's 5.0 sits at or near the very top of that window
+    assert ctx["pct_rank_modern"] >= 95.0
+    assert ctx["regime_divergence"] is True
+    assert ctx["regime_divergence_pts"] >= hc.REGIME_DIVERGENCE_PTS
+
+
+def test_context_for_no_divergence_when_windows_agree(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    rows = [(f"{1970+y}-01-01", 5.0) for y in range(50)]
+    _write_series(tmp_path, "flat_src", rows)
+    _write_episodes(tmp_path)
+    monkeypatch.setitem(hc.SOURCES, "fake_flat",
+                         {"kind": "direct", "file": "flat_src"})
+    ctx = hc.context_for("fake_flat", 5.0, "2019-01-01", direction="high")
+    assert ctx["regime_divergence"] is False
+    assert ctx["regime_divergence_pts"] < hc.REGIME_DIVERGENCE_PTS
+
+
+def test_context_for_short_history_has_no_modern_window(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    rows = [(f"2024-01-{i:02d}", float(i)) for i in range(1, 11)]
+    _write_series(tmp_path, "short_src2", rows)
+    _write_episodes(tmp_path)
+    monkeypatch.setitem(hc.SOURCES, "fake_short2",
+                         {"kind": "short_direct", "file": "short_src2"})
+    ctx = hc.context_for("fake_short2", 10.0, "2024-01-15", direction="high")
+    assert ctx["pct_rank_modern"] is None
+    assert ctx["regime_divergence"] is False
