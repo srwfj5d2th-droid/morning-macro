@@ -17,7 +17,7 @@ reads whatever is currently on disk here; it does not re-fetch it.
 | `dgs3mo.csv` | DGS3MO | 1981-09-01+ | 3-month Treasury |
 | `dgs2.csv` | DGS2 | 1976-06-01+ | 2-year Treasury |
 | `dgs10.csv` | DGS10 | 1962-01-02+ | 10-year Treasury |
-| `dgs30.csv` | DGS30 | 1977-02-15+ | 30-year Treasury (gap 2002-02 to 2006-02: Treasury stopped issuing 30Y bonds over that window) |
+| `dgs30.csv` | DGS30 | 1977-02-15+ | 30-year Treasury. Treasury suspended the 30Y bond 2002-02-18 to 2006-02-09 and the official series has no readings then — but this environment's file carries ~1,000 values in that window (found 2026-10-09). Provenance unverifiable, so `history_context.py` excludes 2002-02-19..2006-02-08 from every calculation (`exclude` in `SOURCES`). |
 | `dfii10.csv` | DFII10 | 2003-01-02+ | 10Y TIPS real yield — TIPS didn't exist before this |
 | `t10yie.csv` | T10YIE | 2003-01-02+ | 10Y breakeven inflation — same constraint |
 | `dff.csv` | DFF | 1954-07-01+ | Effective fed funds rate — **SOFR's long-run proxy**; SOFR itself only exists from 2018 |
@@ -26,6 +26,25 @@ reads whatever is currently on disk here; it does not re-fetch it.
 | `usrec.csv` | USREC | 1945-01-01+ | NBER recession indicator, monthly 0/1 — recession date ranges in `episodes.json` are derived from this, not hand-typed |
 | `baml_hy_oas.csv` | BAMLH0A0HYM2 | **2023-10-09+ only** | See constraint below |
 | `baml_ig_oas.csv` | BAMLC0A0CM | **2023-10-09+ only** | Same constraint |
+| `wti_spot.csv` | DCOILWTICO | 1986-01-02+ | WTI spot (Cushing) — deeper than the futures file, but spot ≠ front-month (they can differ by several dollars in a tight market), so it's a labeled proxy only; not currently consumed |
+
+Added 2026-10-09 from Yahoo's v8 chart endpoint (true daily bars via an
+explicit `period1/period2` window — `range=max` silently downsamples to
+monthly). Same symbols the daily pull quotes, so history and live series are
+one instrument (cross-checked: 10-05 through 10-08 closes match
+`macro_series.csv` exactly):
+
+| File | Yahoo symbol | Real coverage | Notes |
+|---|---|---|---|
+| `spx.csv` | ^GSPC | 1927-12-30+ | S&P 500 |
+| `ixic.csv` | ^IXIC | 1971-02-05+ | Nasdaq Composite (this system's `ndx` key) |
+| `dxy.csv` | DX-Y.NYB | 1971-01-04+ | ICE U.S. Dollar Index — **closes the DXY gap below** |
+| `wti_fut.csv` | CL=F | 2000-08-23+ | WTI front-month futures (the live series) |
+| `gold_fut.csv` | GC=F | 2000-08-30+ | Gold front-month futures (the live series) |
+
+Yahoo files carry a partial bar for the current session when fetched
+intraday; every consumer clips to the brief's as-of date, so it never
+leaks into a comparison.
 
 ### The HY/IG OAS constraint — read this before trusting a credit-spread percentile
 
@@ -55,9 +74,8 @@ one overclaim for a different one. It's fair to use for *episode timing*
 Fed balance sheet, TGA, and ON RRP are structurally modern-only instruments
 (ON RRP facility created 2014; TGA/WALCL as currently reported are a QE-era
 construct) — there's no pre-2008-ish "normal" to compare against, so no
-history file is built for them. DXY isn't covered yet either (no clean
-decades-long daily series confirmed reachable from this sandbox); flagged
-as a gap, not silently faked.
+history file is built for them. (DXY was listed here until 2026-10-09; it
+now has daily history to 1971 via Yahoo, above.)
 
 ## `episodes.json`
 
@@ -117,3 +135,35 @@ Series with no real second regime to pool against — `hy_oas`/`ig_oas`
 under roughly 35 years (TIPS real yield and breakeven, 2003+) — get
 `pct_rank_modern: null` and `regime_divergence: false` by construction:
 there isn't a distinct older era available to disagree with the recent one.
+
+## "First time since", combinations, and market context (added 2026-10-09)
+
+Jacob, again, 2026-10-09: the brief still didn't connect today to real
+history. The 10-08 layer said where a reading *ranks*; it couldn't say when
+it was last like this, what was going on then, or what came next.
+`history_context.py` now adds, and `compute_state.py` attaches:
+
+- **`long_history[key].prior_episode`** — the most recent stretch *before*
+  the current one when the series was at/beyond today's reading
+  (`group_episodes`: qualifying readings more than `EPISODE_GAP_DAYS = 365`
+  apart start a new stretch, so a dip-and-recover inside today's run never
+  counts as "last time"). Side (≥ or ≤) follows the trailing-30y percentile.
+  Carries the overlapping named episodes, any recession that began during
+  it or within 24 months after, the fed funds rate at its end (and its
+  12-month change — was the Fed hiking or cutting?), and the S&P 500's
+  return and worst drawdown over the 12 months after. The old
+  `most_recent_comparable` field is kept but is nearly always "days ago"
+  during a run; don't cite it as history.
+- **`joint_history`** — the standing combinations in
+  `compute_state.JOINT_CONFIGS`, each asking when its conditions were last
+  true *together*, using today's live readings (lagged components carry
+  their own `obs_date`).
+- **`market_history`** — S&P 500, Nasdaq, WTI, gold. Level percentiles are
+  meaningless for these (equity indexes trend up for a century; nominal oil
+  and gold aren't inflation-adjusted), so the context is return-based: how
+  often a one-day move this big happens, the last time a bigger one did,
+  distance from the record close, and year-to-date rank against every prior
+  year through the same calendar date.
+
+Honesty rules for all three: each "back then" is **one past instance**, not
+a track record and never a forecast; small counts are stated as counts.

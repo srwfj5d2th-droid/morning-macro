@@ -50,6 +50,7 @@ each window is computed from the pulled series, never hand-typed).
 import argparse
 import csv
 import io
+import json
 import subprocess
 import sys
 import time
@@ -86,6 +87,31 @@ COSD = {
     "usrec": "1945-01-01",
     "baml_hy_oas": "1990-01-01", "baml_ig_oas": "1990-01-01",
 }
+
+# Daily closes from Yahoo's v8 chart endpoint (verified 2026-10-09: an
+# explicit period1/period2 window with interval=1d returns true daily bars;
+# range=max silently downsamples to monthly). Same symbols the daily pull
+# uses, so the long history and the live series are one instrument.
+#   ^GSPC     1927-12-30+  S&P 500
+#   ^IXIC     1971-02-05+  Nasdaq Composite (this system's "ndx" key)
+#   DX-Y.NYB  1971-01-04+  ICE U.S. Dollar Index
+#   CL=F      2000-08+     WTI front-month futures
+#   GC=F      2000-08+     gold front-month futures
+YAHOO = {
+    "spx": "^GSPC",
+    "ixic": "^IXIC",
+    "dxy": "DX-Y.NYB",
+    "wti_fut": "CL=F",
+    "gold_fut": "GC=F",
+}
+YAHOO_PERIOD1 = -1420070400   # 1925-01-01, earlier than any symbol's start
+YAHOO_PERIOD2 = 2524608000    # 2050-01-01, i.e. "through today"
+
+# FRED spot WTI (Cushing), 1986+ -- a deeper oil reference than the futures
+# contract; spot and front-month track closely but are not the same series,
+# so it is labeled as a proxy wherever it is used.
+SERIES["wti_spot"] = "DCOILWTICO"
+COSD["wti_spot"] = "1983-01-01"
 
 
 def _get(url, retries=3, timeout=45):
@@ -124,28 +150,51 @@ def fetch_series(series_id, cosd):
     return rows, url
 
 
-def refresh():
+def fetch_yahoo_daily(symbol):
+    """Full daily close history for one Yahoo symbol, as [(date, value)]."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from pull_data import _get as yahoo_get, parse_yahoo_chart  # browser UA
+    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/"
+           f"{urllib.request.quote(symbol)}?period1={YAHOO_PERIOD1}"
+           f"&period2={YAHOO_PERIOD2}&interval=1d")
+    data = json.loads(yahoo_get(url).decode("utf-8", "replace"))
+    closes = parse_yahoo_chart(data)
+    return [(d, f"{closes[d]:.6f}".rstrip("0").rstrip(".")) for d in sorted(closes)], url
+
+
+def _write(key, rows):
+    out = HIST_DIR / f"{key}.csv"
+    with open(out, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["date", "value"])
+        w.writerows(rows)
+
+
+def refresh(only=None):
     HIST_DIR.mkdir(parents=True, exist_ok=True)
     report = []
-    for key, series_id in SERIES.items():
-        rows, url = fetch_series(series_id, COSD[key])
-        out = HIST_DIR / f"{key}.csv"
-        with open(out, "w", newline="") as f:
-            w = csv.writer(f)
-            w.writerow(["date", "value"])
-            w.writerows(rows)
+    jobs = [(k, "fred", sid) for k, sid in SERIES.items()]
+    jobs += [(k, "yahoo", sym) for k, sym in YAHOO.items()]
+    if only:
+        jobs = [j for j in jobs if j[0] in only]
+    for key, source, source_id in jobs:
+        if source == "fred":
+            rows, url = fetch_series(source_id, COSD[key])
+        else:
+            rows, url = fetch_yahoo_daily(source_id)
+        _write(key, rows)
         first = rows[0][0] if rows else None
         last = rows[-1][0] if rows else None
-        report.append((key, series_id, len(rows), first, last))
+        report.append((key, source_id, len(rows), first, last))
         time.sleep(0.6)  # politeness, same as pull_data.py
-    print(f"{'key':<14}{'fred_id':<16}{'n_obs':>8}  {'first':<12}{'last':<12}")
-    for key, series_id, n, first, last in report:
-        print(f"{key:<14}{series_id:<16}{n:>8}  {first or '-':<12}{last or '-':<12}")
+    print(f"{'key':<14}{'source_id':<16}{'n_obs':>8}  {'first':<12}{'last':<12}")
+    for key, source_id, n, first, last in report:
+        print(f"{key:<14}{source_id:<16}{n:>8}  {first or '-':<12}{last or '-':<12}")
     # sanity flag: anything with suspiciously short history that *should* be
     # long, so a future human (or Claude) notices if the environment changes
-    for key, series_id, n, first, last in report:
+    for key, source_id, n, first, last in report:
         if key not in ("baml_hy_oas", "baml_ig_oas", "usrec") and n < 1000:
-            print(f"WARNING: {key} ({series_id}) returned only {n} rows — "
+            print(f"WARNING: {key} ({source_id}) returned only {n} rows — "
                   f"expected deep history. Re-check before trusting its "
                   f"long_history output.", file=sys.stderr)
 
@@ -153,10 +202,12 @@ def refresh():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--only", nargs="+", metavar="KEY",
+                    help="refresh just these keys (e.g. spx dxy)")
     args = ap.parse_args()
     if not args.refresh:
         ap.error("pass --refresh (this is reference data, not a daily pull)")
-    refresh()
+    refresh(only=set(args.only) if args.only else None)
 
 
 if __name__ == "__main__":

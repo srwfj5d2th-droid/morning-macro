@@ -46,6 +46,28 @@ LONG_HISTORY_KEYS = {
     "tips_10y_real": {}, "bkeven_10y": {}, "sofr": {},
     "hy_oas": {}, "ig_oas": {},
     "s2s10": {"bp_to_pct": True}, "s3m10y": {"bp_to_pct": True},
+    "dxy": {},
+}
+
+# Price series: return-based long-run context (a level percentile of an
+# equity index or nominal oil price is meaningless). §4F, 2026-10-09.
+MARKET_HISTORY_KEYS = ["spx", "ndx", "wti", "gold"]
+
+# Standing cross-series configurations (§4F, 2026-10-09): "when were these
+# last true at the same time?" Each is a tension the brief has been
+# narrating day to day; history says whether it is ordinary or rare.
+JOINT_CONFIGS = {
+    "real_rates_high_credit_tight": {
+        "label": "10Y real yield this high AND investment-grade credit "
+                 "spread proxy (Baa minus 10Y) this tight",
+        "conditions": [("tips_10y_real", "high"), ("baa_10y_spread", "low")]},
+    "long_rates_high_stocks_near_record": {
+        "label": "10Y Treasury yield this high AND the S&P 500 this close "
+                 "to its record close",
+        "conditions": [("ust_10y", "high"), ("spx_dd", "high")]},
+    "long_rates_high_dollar_strong": {
+        "label": "10Y Treasury yield this high AND the dollar (DXY) this strong",
+        "conditions": [("ust_10y", "high"), ("dxy", "high")]},
 }
 
 SEASONING_MIN = 60      # §4: no z asserted below this many prior observations
@@ -212,6 +234,40 @@ def main():
             }
         except FileNotFoundError:
             pass
+
+        state["market_history"] = {}
+        for key in MARKET_HISTORY_KEYS:
+            try:
+                ctx = hc.market_context(key, row_date)
+            except FileNotFoundError:
+                continue
+            if ctx:
+                state["market_history"][key] = ctx
+
+        # live readings the brief quotes, so a joint config describes today,
+        # not the last date every history file happens to share
+        latest = {}
+        for key in ("ust_10y", "tips_10y_real", "dxy"):
+            s = state["series"].get(key)
+            if s:
+                latest[key] = (s["last_date"], s["last"])
+        spx = state["series"].get("spx")
+        if spx and ATH_PATH.exists():
+            ath_val = json.loads(ATH_PATH.read_text()).get("value")
+            if ath_val:
+                latest["spx_dd"] = (spx["last_date"],
+                                    round(100.0 * (spx["last"] / ath_val - 1.0), 4))
+        state["joint_history"] = {}
+        for name, cfg in JOINT_CONFIGS.items():
+            try:
+                ctx = hc.joint_context(cfg["conditions"], row_date,
+                                       latest={k: v for k, v in latest.items()
+                                               if k in dict(cfg["conditions"])})
+            except FileNotFoundError:
+                continue
+            if ctx:
+                ctx["label"] = cfg["label"]
+                state["joint_history"][name] = ctx
 
     if ATH_PATH.exists():
         ath = json.loads(ATH_PATH.read_text())

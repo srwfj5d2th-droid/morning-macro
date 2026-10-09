@@ -69,7 +69,22 @@ Run order:
    structure of the existing content_*.json files), then
    `python3 scripts/build_brief.py --content <that file>
     --sparks briefs/assets/<today> --date <today>`.
-   Also write the markdown twin briefs/<today>.md.
+   The content must include `history_html` (the "Today in history" prose)
+   and `history_headline` (one sentence for the email). `build_brief.py`
+   refuses to build without them. It also writes the markdown twin
+   briefs/<today>.md itself, so don't hand-write it.
+   **Writing `history_html`** (CLAUDE.md §4F amendment, 2026-10-09): read
+   `long_history[*].prior_episode`, `joint_history`, `market_history`, and
+   `curve_inversions` in data/state.json first. Lead with the day's
+   deepest anchor: a "first time since <month year>" for a flagged series,
+   or a combination with no precedent. Say what the backdrop was then (fed
+   funds, named episodes) and how today differs. Give at least one "what
+   came next, that time", always labeled as one past instance, not a
+   pattern or forecast. Add a counter-example where the data has one.
+   Cite both percentiles when they diverge. End with a "why this matters"
+   that answers a client's "are we in unusual territory?" Do not cite
+   `most_recent_comparable`; it lands inside the current run ("days ago")
+   and isn't history.
 9. Log any new conditional claims to the ledger (id sequence CL-XXXX).
    Teach the next curriculum segment (curriculum/tracker.md says where you
    are); update the tracker.
@@ -147,7 +162,7 @@ series' `long_history` percentile and nearest comparable episode from
 and never say "no long-run source" when `long_history` actually has the key.
 When `long_history`'s `pct_rank_all_time` and `pct_rank_modern` disagree by
 20+ points (`regime_divergence: true`), cite both, not whichever is more
-convenient — the disagreement itself is the finding (§4F).
+convenient — the disagreement itself is the finding (§4F). Every brief carries a "Today in history" section (§4F amendment, 2026-10-09). The 120-day z-score says what's unusual lately; the history section says what's unusual, full stop, and when it last happened.
 
 Market holiday: if pull_data shows no new market close (row_date unchanged
 from the last brief), commit a one-line "markets closed" note instead of a

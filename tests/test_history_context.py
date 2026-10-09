@@ -262,3 +262,141 @@ def test_context_for_short_history_has_no_modern_window(tmp_path, monkeypatch):
     ctx = hc.context_for("fake_short2", 10.0, "2024-01-15", direction="high")
     assert ctx["pct_rank_modern"] is None
     assert ctx["regime_divergence"] is False
+
+
+# --- 2026-10-09: "first time since" episodes, joint configs, market context ---
+
+def _daily(start, values):
+    """Consecutive calendar-day rows from `start` (fine for these tests)."""
+    import datetime as _dt
+    d0 = _dt.date.fromisoformat(start)
+    return [((d0 + _dt.timedelta(days=i)).isoformat(), float(v))
+            for i, v in enumerate(values)]
+
+
+def test_group_episodes_splits_on_gap_only():
+    rows = [("2000-01-01", 5.0), ("2000-03-01", 1.0), ("2000-06-01", 5.0),
+            ("2003-01-01", 5.0), ("2003-02-01", 6.0)]
+    eps = hc.group_episodes(rows, 5.0, "high", gap_days=365)
+    # a 5-month dip stays inside one episode; a 2.5-year gap starts a new one
+    assert [(e["start"], e["end"]) for e in eps] == [
+        ("2000-01-01", "2000-06-01"), ("2003-01-01", "2003-02-01")]
+    assert eps[1]["extreme"] == 6.0 and eps[1]["extreme_date"] == "2003-02-01"
+
+
+def test_group_episodes_low_side():
+    rows = [("2000-01-01", 1.0), ("2000-02-01", 3.0), ("2002-01-01", 0.5)]
+    eps = hc.group_episodes(rows, 1.0, "low", gap_days=365)
+    assert len(eps) == 2 and eps[1]["extreme"] == 0.5
+
+
+def test_prior_episode_skips_current_run(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path, recessions=[
+        {"name": "R1", "start": "2008-01-01", "end": "2009-06-01"}])
+    rows = [("2007-06-01", 5.3), ("2007-07-01", 5.0), ("2010-01-01", 3.0),
+            ("2026-09-28", 5.25), ("2026-10-06", 5.27)]
+    pe = hc.prior_episode(rows, 5.22, "2026-10-08", "high")
+    # current run anchors on the as-of print even though the file stops 10-06
+    assert pe["current_run_start"] == "2026-09-28"
+    assert pe["prior"]["start"] == pe["prior"]["end"] == "2007-06-01"
+    assert pe["prior"]["recessions_began_during_or_within_24m_after"] == ["R1"]
+    assert pe["n_prior_episodes"] == 1
+
+
+def test_prior_episode_none_when_unprecedented(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    rows = [("2003-01-01", 1.0), ("2010-01-01", 2.0)]
+    pe = hc.prior_episode(rows, 3.0, "2026-10-08", "high")
+    assert pe["prior"] is None and pe["n_prior_episodes"] == 0
+    assert pe["history_start"] == "2003-01-01"
+
+
+def test_prior_episode_today_value_overrides_stale_file_row(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    # file's as-of row (5.10) is below today's live print (5.22); the run
+    # must still be anchored on today, not treated as "not at this level"
+    rows = [("2007-06-01", 5.3), ("2026-10-08", 5.10)]
+    pe = hc.prior_episode(rows, 5.22, "2026-10-08", "high")
+    assert pe["current_run_start"] == "2026-10-08"
+    assert pe["prior"]["start"] == "2007-06-01"
+
+
+def test_context_for_ignores_rows_after_as_of(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    _write_series(tmp_path, "dgs10", [("2000-01-01", 1.0), ("2000-01-02", 2.0),
+                                      ("2000-01-03", 99.0)])  # future bar
+    ctx = hc.context_for("ust_10y", 2.0, "2000-01-02")
+    assert ctx["end_date"] == "2000-01-02"
+    assert ctx["pct_rank_all_time"] == 100.0
+
+
+def test_joint_context_requires_all_conditions_and_uses_latest(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    # a high on 1998-01-01 and b high on 1999-01-01 -- never together until now
+    _write_series(tmp_path, "dgs10", [("1998-01-01", 6.0), ("1999-01-01", 1.0),
+                                      ("2026-10-06", 5.0)])
+    _write_series(tmp_path, "dxy", [("1998-01-01", 80.0), ("1999-01-01", 110.0),
+                                    ("2026-10-06", 100.0)])
+    j = hc.joint_context([("ust_10y", "high"), ("dxy", "high")], "2026-10-08",
+                         latest={"ust_10y": ("2026-10-08", 5.2),
+                                 "dxy": ("2026-10-08", 102.0)})
+    assert j["prior"] is None and j["n_prior_episodes"] == 0
+    assert [c["obs_date"] for c in j["conditions"]] == ["2026-10-08", "2026-10-08"]
+    # now make 1998 qualify on both
+    _write_series(tmp_path, "dxy", [("1998-01-01", 105.0), ("1999-01-01", 110.0),
+                                    ("2026-10-06", 100.0)])
+    hc._cache.clear()
+    j = hc.joint_context([("ust_10y", "high"), ("dxy", "high")], "2026-10-08",
+                         latest={"ust_10y": ("2026-10-08", 5.2),
+                                 "dxy": ("2026-10-08", 102.0)})
+    assert j["prior"]["start"] == j["prior"]["end"] == "1998-01-01"
+
+
+def test_market_context_move_drawdown_and_ytd(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    import datetime as _dt
+    rows = []
+    d = _dt.date(2020, 1, 1)
+    price = 100.0
+    # three full years of +0.1%/day, with one -3% day in 2021
+    while d <= _dt.date(2023, 3, 1):
+        r = 0.001
+        if d.isoformat() == "2021-06-01":
+            r = -0.03
+        price *= (1 + r)
+        rows.append((d.isoformat(), round(price, 6)))
+        d += _dt.timedelta(days=1)
+    # as-of day: a -1% move; then a partial "future" bar that must be ignored
+    rows.append(("2023-03-02", round(price * 0.99, 6)))
+    rows.append(("2023-03-03", round(price * 0.5, 6)))
+    _write_series(tmp_path, "spx", rows)
+    m = hc.market_context("spx", "2023-03-02")
+    assert m["as_of"] == "2023-03-02"
+    assert abs(m["move"]["pct"] - (-1.0)) < 1e-6
+    # the only earlier move at least as big is the -3% day
+    assert m["move"]["last_at_least_this_big"]["date"] == "2021-06-01"
+    assert abs(m["drawdown"]["pct_below_record"] - (-1.0)) < 1e-6
+    assert m["drawdown"]["record_date"] == "2023-03-01"
+    # YTD through Mar 2: 2021 (2 full years of data before it? 2020 is the
+    # first year so it has no prior-year close) -> years 2021, 2022, 2023
+    assert m["ytd"]["n_years"] == 3 and m["ytd"]["first_year"] == 2021
+
+
+def test_market_context_none_without_as_of_bar(tmp_path, monkeypatch):
+    setup_fixture(tmp_path, monkeypatch)
+    _write_episodes(tmp_path)
+    rows = _daily("2020-01-01", [100 + i for i in range(400)])
+    _write_series(tmp_path, "spx", rows)
+    assert hc.market_context("spx", "2030-01-01") is None
+
+
+def test_add_months_clamps_month_end():
+    assert hc._add_months("2007-01-31", 1) == "2007-02-28"
+    assert hc._add_months("2008-01-31", 1) == "2008-02-29"
+    assert hc._add_months("2007-06-14", 24) == "2009-06-14"

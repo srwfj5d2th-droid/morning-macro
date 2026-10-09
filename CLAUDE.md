@@ -215,6 +215,53 @@ one real overclaim (HY OAS called "the widest ... ever recorded" on
   number, no modern window); an em-dash marks series with no long-run
   source.
 
+### §4F amendment (2026-10-09, Jacob — "I still didn't see a deeper connection to historical context like I've been asking for")
+
+The 10-08 layer told the reader where a reading *ranks*. It was used only
+defensively (to stop an overclaim), never to connect today to a real era.
+The standing fix makes history a section of its own, with the content
+generated from data and the section impossible to skip:
+
+- **"Today in history" is fixed furniture** (§6 item 5b, after the
+  dashboard). It is prose written by the model, followed by three tables
+  rendered mechanically by `build_brief.py` from `state.json`:
+  - *Series:* for every Tier 1 rate/credit series plus DXY, **the last time
+    before the current run** it was at least this high (or low). Readings
+    less than a year apart count as one stretch, so this is the last
+    genuinely separate era, not last month. Each row also gives *back then*:
+    the named episodes in that stretch's final year, any recession that
+    began then or within 24 months, the fed funds rate and its 12-month
+    change (was the Fed hiking or cutting?), and the S&P 500 over the
+    following year.
+  - *Together:* standing cross-series combinations
+    (`compute_state.JOINT_CONFIGS`) and when they were last true at the
+    same time.
+  - *Markets:* S&P 500, Nasdaq, WTI, gold. These get return-based context,
+    because a level percentile is meaningless for a trending price: how
+    often a move this big happens, the last bigger one, distance from the
+    record, and YTD rank against every prior year through the same date.
+- **The prose must** lead with the day's deepest historical anchor (a
+  "first time since…", or a combination with no precedent); say what the
+  backdrop was then and how today differs; give at least one "what came
+  next, that time" with the explicit caveat that one episode is not a
+  pattern and not a forecast; include a counter-example when the data has
+  one (history's patterns can skip a turn); and translate it into a
+  client-ready "are we in unusual territory?" answer. Every number comes
+  from `long_history` / `joint_history` / `market_history` /
+  `curve_inversions`; nothing is recalled.
+- **One-line `history_headline`** goes into the email under the regime
+  line. That's how the notification layer carries history too.
+- **Enforced in code.** `build_brief.py` refuses to build when long-run
+  history is available but `history_html` or `history_headline` is empty.
+  It also now generates the markdown twin from the same content and state,
+  so the twin can't drift from the page or drop the history tables.
+- **New sources** (Yahoo daily, same symbols as the live pull): S&P 500
+  1927+, Nasdaq Composite 1971+, DXY 1971+ (closes the DXY gap above), WTI
+  and gold futures 2000+. **Data-integrity exclusion:** this environment's
+  30Y file carries values for 2002-02 to 2006-02, when Treasury had
+  suspended the 30-year bond. They are excluded from every calculation.
+  Details are in `data/history/README.md`.
+
 ---
 
 ## 5. Data tiers and sources
@@ -253,6 +300,7 @@ Micro as macro sensor: large single-name and sector moves are treated as leading
 3. **Claims reconciliation** — resolutions of prior conditional claims (§4B), stated plainly whichever way they resolved. Omitted only when no claims are open or due.
 4. **The story** — what is driving markets right now. Narrative detection explicitly includes **what the major financial press is leading with this morning** (headlines via web search with named-source attribution — headline-level access is sufficient; the headline *is* the narrative. *Amended 2026-08-21: Bigdata.com removed per the no-paid-services decision.*) One or two paragraphs stating the prevailing narrative with attribution, then the pivot: does the state file confirm it, complicate it, or refute it? The design intent: Jacob reads this before opening the WSJ, so the Journal's framing lands in data context rather than setting it. On quiet days, §4A governs; politically live narratives follow §4D. The brief never repeats a narrative it hasn't tested.
 5. **Tier 1 dashboard** — rates/credit/liquidity table with deltas, z-flags, and each series' all-time historical percentile (§4F), then interpretation. Every number in the interpretation must exist in the table or the day's pull.
+5b. **Today in history** (§4F amendment, 2026-10-09) — the day's deepest connection to real history: prose first, then the mechanical Series / Together / Markets tables. Fixed furniture, every day, quiet or loud.
 6. **Movers** (§5 Tier 2) — up to 3 names + 1 sector note, each with fact / stated reason / read-through. On calm macro days this section moves up and leads.
 7. **Chart of the day** — one featured, annotated chart, editorially selected each morning by these rules, in order: (a) the series with the largest |z| move; (b) the mover with the strongest read-through; (c) the series behind the day's dominant news story; (d) the series most relevant to today's calendar event. Must map to `macro_series.csv` or a fetchable series logged that day. Rotation is the point — the chart follows the story. A short "why this chart today" line is mandatory.
 8. **Tier 3** — AI capex/financing-cycle note; expanded Friday section.

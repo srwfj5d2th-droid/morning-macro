@@ -72,3 +72,25 @@ Opened 2026-10-05 (Jacob flagged live, same morning as the 2026-10-05 brief):
   diverge the same way; the curve spreads and credit proxies don't. The
   dashboard column is now "%ile all/30y" (`49/87†`), and §4F requires
   citing both when they diverge rather than picking the more convenient one.
+
+Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deeper connection to historical context like I've been asking for"):
+
+- [x] **History as a section, not a guardrail.** The 10-08 layer was used
+  only defensively. Today's first edition cited 120-day z-scores and one
+  percentile, and missed findings that were already in `state.json`: the
+  10Y at its highest since June 2007, a real yield matched only in the
+  2008 crisis, and real rates this high alongside credit this tight with no
+  precedent since 2003. Shipped the same day, re-issued as today's second
+  edition. Shipped: "first time since" episodes with backdrop (fed funds,
+  S&P next year), standing cross-series combinations, return-based context
+  for S&P/Nasdaq/WTI/gold, and DXY long history (gap closed). Also: a
+  mechanical "Today in history" section, a one-line email headline, a
+  build-time refusal when the section is missing, and a generated markdown
+  twin. Data-integrity catch along the way: unverifiable 2002-06 30Y values
+  are excluded (README).
+- [ ] **Monthly refresh now covers Yahoo files too.** Run
+  `build_long_history.py --refresh` at review. Between refreshes, live
+  closes from `macro_series.csv` fill the gap (see `compute_state.py`).
+- [ ] **Candidate additional combinations** for review (keep the standing
+  set small so each one stays meaningful): e.g. oil YTD strength plus
+  breakevens, curve slope plus credit.

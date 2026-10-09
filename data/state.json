@@ -1,5 +1,5 @@
 {
-  "computed_at_utc": "2026-10-09T10:33:55.624948Z",
+  "computed_at_utc": "2026-10-09T17:05:30.622820Z",
   "row_date": "2026-10-08",
   "trading_rows": 212,
   "seasoned": true,
@@ -506,7 +506,76 @@
           "start": "2022-01-01",
           "end": "2023-07-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 4.23,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1981-09-01",
+        "current_run_start": "2026-09-24",
+        "current_run_years": 0.0,
+        "n_prior_episodes": 4,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 4.33,
+            "fed_funds_change_prior_12m": -1.0,
+            "spx_return_next_12m_pct": 19.0,
+            "spx_worst_drawdown_next_12m_pct": -9.1
+          },
+          "start": "2022-11-01",
+          "end": "2025-08-29",
+          "n_obs": 705,
+          "extreme": 5.63,
+          "extreme_date": "2023-10-06",
+          "years_before_as_of": 1.1,
+          "overlapping": [],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2026-08-31",
+            "value": 3.91
+          }
+        },
+        "track": [
+          {
+            "start": "1981-09-01",
+            "end": "1991-12-18",
+            "extreme": 17.01,
+            "overlapping": [
+              "1981-82 recession (second Volcker)",
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "1987 Black Monday crash",
+              "1990-91 Gulf War oil spike"
+            ]
+          },
+          {
+            "start": "1994-05-06",
+            "end": "2001-03-30",
+            "extreme": 6.42,
+            "overlapping": [
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2006-01-09",
+            "end": "2007-10-16",
+            "extreme": 5.19,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          },
+          {
+            "start": "2022-11-01",
+            "end": "2025-08-29",
+            "extreme": 5.63,
+            "overlapping": [
+              "2022-23 inflation-shock hiking cycle"
+            ]
+          }
+        ]
+      }
     },
     "ust_2y": {
       "start_date": "1976-06-01",
@@ -606,7 +675,82 @@
           "start": "2022-01-01",
           "end": "2023-07-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 4.75,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1976-06-01",
+        "current_run_start": "2026-09-18",
+        "current_run_years": 0.1,
+        "n_prior_episodes": 4,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 5.33,
+            "fed_funds_change_prior_12m": 0.25,
+            "spx_return_next_12m_pct": 13.2,
+            "spx_worst_drawdown_next_12m_pct": -18.9
+          },
+          "start": "2023-02-24",
+          "end": "2024-07-01",
+          "n_obs": 153,
+          "extreme": 5.19,
+          "extreme_date": "2023-10-17",
+          "years_before_as_of": 2.3,
+          "overlapping": [
+            {
+              "name": "2022-23 inflation-shock hiking cycle",
+              "kind": "episode",
+              "start": "2022-01-01",
+              "end": "2023-07-31"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2025-07-01",
+            "value": 3.78
+          }
+        },
+        "track": [
+          {
+            "start": "1976-06-01",
+            "end": "1992-12-15",
+            "extreme": 16.95,
+            "overlapping": [
+              "1980 recession (first Volcker)",
+              "1981-82 recession (second Volcker)",
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "1987 Black Monday crash",
+              "1990-91 Gulf War oil spike"
+            ]
+          },
+          {
+            "start": "1994-03-01",
+            "end": "2001-02-16",
+            "extreme": 7.74,
+            "overlapping": [
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2006-03-03",
+            "end": "2007-07-24",
+            "extreme": 5.29,
+            "overlapping": []
+          },
+          {
+            "start": "2023-02-24",
+            "end": "2024-07-01",
+            "extreme": 5.19,
+            "overlapping": [
+              "2022-23 inflation-shock hiking cycle"
+            ]
+          }
+        ]
+      }
     },
     "ust_10y": {
       "start_date": "1962-01-02",
@@ -718,38 +862,96 @@
           "start": "2000-03-01",
           "end": "2002-10-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 5.22,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1962-01-02",
+        "current_run_start": "2026-09-28",
+        "current_run_years": 0.0,
+        "n_prior_episodes": 2,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 5.28,
+            "fed_funds_change_prior_12m": 0.28,
+            "spx_return_next_12m_pct": -10.7,
+            "spx_worst_drawdown_next_12m_pct": -18.6
+          },
+          "start": "2006-06-23",
+          "end": "2007-06-14",
+          "n_obs": 7,
+          "extreme": 5.26,
+          "extreme_date": "2007-06-12",
+          "years_before_as_of": 19.3,
+          "overlapping": [],
+          "recessions_began_during_or_within_24m_after": [
+            "2007-09 Global Financial Crisis"
+          ],
+          "value_12m_after_end": {
+            "date": "2008-06-16",
+            "value": 4.25
+          }
+        },
+        "track": [
+          {
+            "start": "1966-08-17",
+            "end": "2002-05-17",
+            "extreme": 15.84,
+            "overlapping": [
+              "1970 recession",
+              "1973-75 oil-shock recession",
+              "1980 recession (first Volcker)",
+              "1981-82 recession (second Volcker)",
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "2001 recession (dot-com bust)",
+              "1987 Black Monday crash",
+              "1990-91 Gulf War oil spike",
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2006-06-23",
+            "end": "2007-06-14",
+            "extreme": 5.26,
+            "overlapping": []
+          }
+        ]
+      }
     },
     "ust_30y": {
       "start_date": "1977-02-15",
       "end_date": "2026-10-06",
       "years": 49.6,
-      "n_obs": 12406,
-      "pct_rank_all_time": 52.2,
+      "n_obs": 11412,
+      "pct_rank_all_time": 48.8,
       "percentiles": {
         "min": 0.99,
-        "p10": 2.83,
-        "p25": 3.93,
-        "median": 5.42,
-        "p75": 8.03,
-        "p90": 10.58,
+        "p10": 2.78,
+        "p25": 3.7,
+        "median": 5.74,
+        "p75": 8.25,
+        "p90": 10.77,
         "max": 15.21
       },
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 86.2,
+      "pct_rank_modern": 85.5,
       "percentiles_modern": {
         "min": 0.99,
-        "p10": 2.46,
-        "p25": 3.04,
-        "median": 4.4,
-        "p75": 5.11,
-        "p90": 5.81,
+        "p10": 2.32,
+        "p25": 2.98,
+        "median": 4.11,
+        "p75": 4.95,
+        "p90": 5.88,
         "max": 7.17
       },
-      "regime_divergence_pts": 34.0,
+      "regime_divergence_pts": 36.7,
       "regime_divergence": true,
       "most_recent_comparable": {
         "date": "2026-10-06",
@@ -818,7 +1020,71 @@
           "start": "2000-03-01",
           "end": "2002-10-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 5.6,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1977-02-15",
+        "current_run_start": "2026-09-30",
+        "current_run_years": 0.0,
+        "n_prior_episodes": 1,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 1.93,
+            "fed_funds_change_prior_12m": -4.65,
+            "spx_return_next_12m_pct": -20.4,
+            "spx_worst_drawdown_next_12m_pct": -33.8
+          },
+          "start": "1977-02-15",
+          "end": "2001-12-17",
+          "n_obs": 5856,
+          "extreme": 15.21,
+          "extreme_date": "1981-10-26",
+          "years_before_as_of": 24.8,
+          "overlapping": [
+            {
+              "name": "2001 recession (dot-com bust)",
+              "kind": "recession",
+              "start": "2001-04-01",
+              "end": "2001-11-01"
+            },
+            {
+              "name": "2000-02 dot-com bear market",
+              "kind": "episode",
+              "start": "2000-03-01",
+              "end": "2002-10-31"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [
+            "2001 recession (dot-com bust)"
+          ],
+          "value_12m_after_end": {
+            "date": "2006-02-09",
+            "value": 4.51
+          }
+        },
+        "track": [
+          {
+            "start": "1977-02-15",
+            "end": "2001-12-17",
+            "extreme": 15.21,
+            "overlapping": [
+              "1980 recession (first Volcker)",
+              "1981-82 recession (second Volcker)",
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "2001 recession (dot-com bust)",
+              "1987 Black Monday crash",
+              "1990-91 Gulf War oil spike",
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          }
+        ]
+      },
+      "exclude_note": "30Y readings from 2002-02-19 to 2006-02-08 excluded: Treasury had suspended the 30-year bond, so values in that window are not genuine 30Y constant-maturity prints."
     },
     "tips_10y_real": {
       "start_date": "2003-01-02",
@@ -870,7 +1136,53 @@
           "start": "2007-10-01",
           "end": "2009-03-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 2.92,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "2003-01-02",
+        "current_run_start": "2026-09-30",
+        "current_run_years": 0.0,
+        "n_prior_episodes": 1,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 0.62,
+            "fed_funds_change_prior_12m": -3.94,
+            "spx_return_next_12m_pct": 29.8,
+            "spx_worst_drawdown_next_12m_pct": -27.6
+          },
+          "start": "2008-10-10",
+          "end": "2008-11-24",
+          "n_obs": 17,
+          "extreme": 3.15,
+          "extreme_date": "2008-11-21",
+          "years_before_as_of": 17.9,
+          "overlapping": [
+            {
+              "name": "2007-09 Global Financial Crisis",
+              "kind": "recession",
+              "start": "2008-01-01",
+              "end": "2009-06-01"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2009-11-24",
+            "value": 1.21
+          }
+        },
+        "track": [
+          {
+            "start": "2008-10-10",
+            "end": "2008-11-24",
+            "extreme": 3.15,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          }
+        ]
+      }
     },
     "bkeven_10y": {
       "start_date": "2003-01-02",
@@ -934,7 +1246,54 @@
           "start": "2022-01-01",
           "end": "2023-07-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 2.36,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "2003-01-02",
+        "current_run_start": "2021-03-29",
+        "current_run_years": 5.5,
+        "n_prior_episodes": 2,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 0.13,
+            "fed_funds_change_prior_12m": 0.0,
+            "spx_return_next_12m_pct": 17.9,
+            "spx_worst_drawdown_next_12m_pct": -5.8
+          },
+          "start": "2009-12-29",
+          "end": "2013-04-29",
+          "n_obs": 276,
+          "extreme": 2.64,
+          "extreme_date": "2011-04-08",
+          "years_before_as_of": 13.4,
+          "overlapping": [],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2014-04-29",
+            "value": 2.18
+          }
+        },
+        "track": [
+          {
+            "start": "2003-10-30",
+            "end": "2008-07-30",
+            "extreme": 2.76,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          },
+          {
+            "start": "2009-12-29",
+            "end": "2013-04-29",
+            "extreme": 2.64,
+            "overlapping": [
+              "2011 Eurozone debt crisis / US debt-ceiling standoff"
+            ]
+          }
+        ]
+      }
     },
     "sofr": {
       "start_date": "1954-07-01",
@@ -1071,6 +1430,81 @@
           "end": "2023-07-31"
         }
       ],
+      "prior_episode": {
+        "level": 3.88,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1954-07-01",
+        "current_run_start": "2022-12-15",
+        "current_run_years": 3.8,
+        "n_prior_episodes": 3,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 4.17,
+            "fed_funds_change_prior_12m": -1.08,
+            "spx_return_next_12m_pct": -35.9,
+            "spx_worst_drawdown_next_12m_pct": -47.3
+          },
+          "start": "2005-09-30",
+          "end": "2008-01-21",
+          "n_obs": 817,
+          "extreme": 5.41,
+          "extreme_date": "2007-02-28",
+          "years_before_as_of": 18.7,
+          "overlapping": [
+            {
+              "name": "2007-09 Global Financial Crisis",
+              "kind": "recession",
+              "start": "2008-01-01",
+              "end": "2009-06-01"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [
+            "2007-09 Global Financial Crisis"
+          ],
+          "value_12m_after_end": {
+            "date": "2009-01-21",
+            "value": 0.23
+          }
+        },
+        "track": [
+          {
+            "start": "1959-09-11",
+            "end": "1960-06-09",
+            "extreme": 4.0,
+            "overlapping": [
+              "1960-61 recession"
+            ]
+          },
+          {
+            "start": "1964-11-27",
+            "end": "2001-07-25",
+            "extreme": 22.36,
+            "overlapping": [
+              "1970 recession",
+              "1973-75 oil-shock recession",
+              "1980 recession (first Volcker)",
+              "1981-82 recession (second Volcker)",
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "2001 recession (dot-com bust)",
+              "1987 Black Monday crash",
+              "1990-91 Gulf War oil spike",
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2005-09-30",
+            "end": "2008-01-21",
+            "extreme": 5.41,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          }
+        ]
+      },
       "proxy_note": "SOFR itself only exists from 2018; this uses the effective fed funds rate, its long-run predecessor as the economy's overnight rate."
     },
     "hy_oas": {
@@ -1098,7 +1532,18 @@
         "years_ago": 0.0,
         "recession_within_12m": []
       },
-      "episodes_matching_or_exceeding": []
+      "episodes_matching_or_exceeding": [],
+      "prior_episode": {
+        "level": 3.09,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "2023-10-09",
+        "current_run_start": "2023-10-09",
+        "current_run_years": 3.0,
+        "n_prior_episodes": 0,
+        "prior": null,
+        "track": []
+      }
     },
     "ig_oas": {
       "start_date": "2023-10-09",
@@ -1126,6 +1571,17 @@
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [],
+      "prior_episode": {
+        "level": 0.82,
+        "side": "low",
+        "gap_days": 365,
+        "history_start": "2023-10-09",
+        "current_run_start": "2024-11-06",
+        "current_run_years": 1.9,
+        "n_prior_episodes": 0,
+        "prior": null,
+        "track": []
+      },
       "proxy_key": "baa_10y_spread"
     },
     "baa_10y_spread": {
@@ -1269,6 +1725,65 @@
           "end": "2023-07-31"
         }
       ],
+      "prior_episode": {
+        "level": 1.46,
+        "side": "low",
+        "gap_days": 365,
+        "history_start": "1986-01-02",
+        "current_run_start": "2026-09-16",
+        "current_run_years": 0.1,
+        "n_prior_episodes": 4,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 4.33,
+            "fed_funds_change_prior_12m": -1.0,
+            "spx_return_next_12m_pct": 11.7,
+            "spx_worst_drawdown_next_12m_pct": -18.9
+          },
+          "start": "2024-04-08",
+          "end": "2025-02-19",
+          "n_obs": 96,
+          "extreme": 1.36,
+          "extreme_date": "2024-11-12",
+          "years_before_as_of": 1.6,
+          "overlapping": [],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2026-02-19",
+            "value": 1.68
+          }
+        },
+        "track": [
+          {
+            "start": "1988-11-17",
+            "end": "1990-04-27",
+            "extreme": 1.16,
+            "overlapping": []
+          },
+          {
+            "start": "1994-05-02",
+            "end": "1995-03-08",
+            "extreme": 1.22,
+            "overlapping": [
+              "1994 bond market crash (Fed hiking shock)"
+            ]
+          },
+          {
+            "start": "1996-06-10",
+            "end": "1997-10-23",
+            "extreme": 1.4,
+            "overlapping": [
+              "1997-98 Asian financial crisis"
+            ]
+          },
+          {
+            "start": "2024-04-08",
+            "end": "2025-02-19",
+            "extreme": 1.36,
+            "overlapping": []
+          }
+        ]
+      },
       "proxy_note": "Moody's Baa corporate bond yield minus the 10Y Treasury -- a long-run investment-grade credit-risk-premium PROXY, not the literal ICE BofA IG OAS series this system quotes daily. Real history back to 1986. Useful for direction and episode timing (did credit broadly tighten/widen, and when); its magnitude runs tighter than IG OAS and far tighter than HY OAS, so never quote its level as if it were either."
     },
     "s2s10": {
@@ -1411,7 +1926,112 @@
           "start": "2022-01-01",
           "end": "2023-07-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 0.47,
+        "side": "low",
+        "gap_days": 365,
+        "history_start": "1976-06-01",
+        "current_run_start": "2022-02-10",
+        "current_run_years": 4.7,
+        "n_prior_episodes": 7,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 0.1,
+            "fed_funds_change_prior_12m": -2.02,
+            "spx_return_next_12m_pct": 32.0,
+            "spx_worst_drawdown_next_12m_pct": -9.6
+          },
+          "start": "2018-04-13",
+          "end": "2020-08-10",
+          "n_obs": 507,
+          "extreme": -0.04,
+          "extreme_date": "2019-08-27",
+          "years_before_as_of": 6.2,
+          "overlapping": [
+            {
+              "name": "2020 COVID recession",
+              "kind": "recession",
+              "start": "2020-03-01",
+              "end": "2020-04-01"
+            },
+            {
+              "name": "2020 COVID crash",
+              "kind": "episode",
+              "start": "2020-02-19",
+              "end": "2020-03-23"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [
+            "2020 COVID recession"
+          ],
+          "value_12m_after_end": {
+            "date": "2021-08-10",
+            "value": 1.12
+          }
+        },
+        "track": [
+          {
+            "start": "1977-10-12",
+            "end": "1982-10-07",
+            "extreme": -2.41,
+            "overlapping": [
+              "1980 recession (first Volcker)",
+              "1981-82 recession (second Volcker)"
+            ]
+          },
+          {
+            "start": "1984-07-12",
+            "end": "1984-10-10",
+            "extreme": 0.2,
+            "overlapping": []
+          },
+          {
+            "start": "1986-02-27",
+            "end": "1986-04-03",
+            "extreme": 0.42,
+            "overlapping": []
+          },
+          {
+            "start": "1988-09-29",
+            "end": "1990-08-01",
+            "extreme": -0.45,
+            "overlapping": [
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "1990-91 Gulf War oil spike"
+            ]
+          },
+          {
+            "start": "1994-12-02",
+            "end": "2001-03-12",
+            "extreme": -0.52,
+            "overlapping": [
+              "1994 bond market crash (Fed hiking shock)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2005-05-20",
+            "end": "2007-10-12",
+            "extreme": -0.19,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          },
+          {
+            "start": "2018-04-13",
+            "end": "2020-08-10",
+            "extreme": -0.04,
+            "overlapping": [
+              "2020 COVID recession",
+              "2018 Q4 selloff (QT + rate-hike scare)",
+              "2020 COVID crash"
+            ]
+          }
+        ]
+      }
     },
     "s3m10y": {
       "start_date": "1981-09-01",
@@ -1553,7 +2173,279 @@
           "start": "2022-01-01",
           "end": "2023-07-31"
         }
-      ]
+      ],
+      "prior_episode": {
+        "level": 0.99,
+        "side": "low",
+        "gap_days": 365,
+        "history_start": "1981-09-01",
+        "current_run_start": "2022-07-05",
+        "current_run_years": 4.3,
+        "n_prior_episodes": 6,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 0.08,
+            "fed_funds_change_prior_12m": -1.47,
+            "spx_return_next_12m_pct": 15.3,
+            "spx_worst_drawdown_next_12m_pct": -9.8
+          },
+          "start": "2017-12-27",
+          "end": "2021-01-27",
+          "n_obs": 644,
+          "extreme": -0.52,
+          "extreme_date": "2019-08-28",
+          "years_before_as_of": 5.7,
+          "overlapping": [
+            {
+              "name": "2020 COVID recession",
+              "kind": "recession",
+              "start": "2020-03-01",
+              "end": "2020-04-01"
+            },
+            {
+              "name": "2020 COVID crash",
+              "kind": "episode",
+              "start": "2020-02-19",
+              "end": "2020-03-23"
+            }
+          ],
+          "recessions_began_during_or_within_24m_after": [
+            "2020 COVID recession"
+          ],
+          "value_12m_after_end": {
+            "date": "2022-01-27",
+            "value": 1.61
+          }
+        },
+        "track": [
+          {
+            "start": "1981-09-01",
+            "end": "1982-06-29",
+            "extreme": -1.6,
+            "overlapping": [
+              "1981-82 recession (second Volcker)"
+            ]
+          },
+          {
+            "start": "1986-02-27",
+            "end": "1986-04-03",
+            "extreme": 0.8,
+            "overlapping": []
+          },
+          {
+            "start": "1988-11-14",
+            "end": "1990-12-13",
+            "extreme": -0.35,
+            "overlapping": [
+              "1990-91 recession (Gulf War/S&L crisis)",
+              "1990-91 Gulf War oil spike"
+            ]
+          },
+          {
+            "start": "1995-05-05",
+            "end": "2001-04-06",
+            "extreme": -0.95,
+            "overlapping": [
+              "2001 recession (dot-com bust)",
+              "1997-98 Asian financial crisis",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2005-06-01",
+            "end": "2008-01-18",
+            "extreme": -0.64,
+            "overlapping": [
+              "2007-09 Global Financial Crisis"
+            ]
+          },
+          {
+            "start": "2017-12-27",
+            "end": "2021-01-27",
+            "extreme": -0.52,
+            "overlapping": [
+              "2020 COVID recession",
+              "2018 Q4 selloff (QT + rate-hike scare)",
+              "2020 COVID crash"
+            ]
+          }
+        ]
+      }
+    },
+    "dxy": {
+      "start_date": "1971-01-04",
+      "end_date": "2026-10-08",
+      "years": 55.8,
+      "n_obs": 14160,
+      "pct_rank_all_time": 71.4,
+      "percentiles": {
+        "min": 71.330002,
+        "p10": 81.43,
+        "p25": 87.900002,
+        "median": 96.010002,
+        "p75": 103.82,
+        "p90": 115.080002,
+        "max": 164.720001
+      },
+      "short_history": false,
+      "modern_window_years_requested": 30,
+      "modern_years": 30.0,
+      "modern_start_date": "1996-10-07",
+      "pct_rank_modern": 80.9,
+      "percentiles_modern": {
+        "min": 71.330002,
+        "p10": 79.470001,
+        "p25": 84.290001,
+        "median": 94.959999,
+        "p75": 100.349998,
+        "p90": 106.660004,
+        "max": 120.900002
+      },
+      "regime_divergence_pts": 9.5,
+      "regime_divergence": false,
+      "most_recent_comparable": {
+        "date": "2026-10-07",
+        "value": 102.239998,
+        "years_ago": 0.0,
+        "recession_within_12m": []
+      },
+      "episodes_matching_or_exceeding": [
+        {
+          "name": "1973-75 oil-shock recession",
+          "window_extreme": 109.5,
+          "start": "1973-12-01",
+          "end": "1975-03-01"
+        },
+        {
+          "name": "1981-82 recession (second Volcker)",
+          "window_extreme": 124.779999,
+          "start": "1981-08-01",
+          "end": "1982-11-01"
+        },
+        {
+          "name": "2001 recession (dot-com bust)",
+          "window_extreme": 120.900002,
+          "start": "2001-04-01",
+          "end": "2001-11-01"
+        },
+        {
+          "name": "2020 COVID recession",
+          "window_extreme": 102.82,
+          "start": "2020-03-01",
+          "end": "2020-04-01"
+        },
+        {
+          "name": "1998 LTCM / Russia default crisis",
+          "window_extreme": 102.57,
+          "start": "1998-08-01",
+          "end": "1998-10-31"
+        },
+        {
+          "name": "2000-02 dot-com bear market",
+          "window_extreme": 120.900002,
+          "start": "2000-03-01",
+          "end": "2002-10-31"
+        },
+        {
+          "name": "2020 COVID crash",
+          "window_extreme": 102.82,
+          "start": "2020-02-19",
+          "end": "2020-03-23"
+        },
+        {
+          "name": "2022-23 inflation-shock hiking cycle",
+          "window_extreme": 114.110001,
+          "start": "2022-01-01",
+          "end": "2023-07-31"
+        }
+      ],
+      "prior_episode": {
+        "level": 102.14,
+        "side": "high",
+        "gap_days": 365,
+        "history_start": "1971-01-04",
+        "current_run_start": "2026-10-05",
+        "current_run_years": 0.0,
+        "n_prior_episodes": 7,
+        "prior": {
+          "backdrop_at_end": {
+            "fed_funds": 4.33,
+            "fed_funds_change_prior_12m": -1.0,
+            "spx_return_next_12m_pct": 25.1,
+            "spx_worst_drawdown_next_12m_pct": -9.1
+          },
+          "start": "2022-04-26",
+          "end": "2025-04-09",
+          "n_obs": 641,
+          "extreme": 114.11,
+          "extreme_date": "2022-09-27",
+          "years_before_as_of": 1.5,
+          "overlapping": [],
+          "recessions_began_during_or_within_24m_after": [],
+          "value_12m_after_end": {
+            "date": "2026-04-09",
+            "value": 98.82
+          }
+        },
+        "track": [
+          {
+            "start": "1971-01-04",
+            "end": "1977-10-13",
+            "extreme": 120.55,
+            "overlapping": [
+              "1973-75 oil-shock recession"
+            ]
+          },
+          {
+            "start": "1981-05-05",
+            "end": "1987-01-12",
+            "extreme": 164.72,
+            "overlapping": [
+              "1981-82 recession (second Volcker)"
+            ]
+          },
+          {
+            "start": "1989-05-22",
+            "end": "1989-09-15",
+            "extreme": 105.61,
+            "overlapping": []
+          },
+          {
+            "start": "1998-06-15",
+            "end": "2003-01-07",
+            "extreme": 120.9,
+            "overlapping": [
+              "2001 recession (dot-com bust)",
+              "1998 LTCM / Russia default crisis",
+              "2000-02 dot-com bear market"
+            ]
+          },
+          {
+            "start": "2016-12-15",
+            "end": "2017-03-02",
+            "extreme": 103.29,
+            "overlapping": []
+          },
+          {
+            "start": "2020-03-19",
+            "end": "2020-03-23",
+            "extreme": 102.82,
+            "overlapping": [
+              "2020 COVID recession",
+              "2020 COVID crash"
+            ]
+          },
+          {
+            "start": "2022-04-26",
+            "end": "2025-04-09",
+            "extreme": 114.11,
+            "overlapping": [
+              "2022-23 inflation-shock hiking cycle"
+            ]
+          }
+        ]
+      }
     }
   },
   "curve_inversions": {
@@ -2000,6 +2892,333 @@
           "lag_months_to_recession": null
         }
       ]
+    }
+  },
+  "market_history": {
+    "spx": {
+      "label": "S&P 500",
+      "as_of": "2026-10-08",
+      "history_start": "1927-12-30",
+      "years": 98.8,
+      "move": {
+        "pct": -0.467,
+        "direction": "down",
+        "pct_days_at_least_this_big_all": 24.46,
+        "pct_days_at_least_this_big_30y": 25.41,
+        "per_year_recent": 63.9,
+        "per_year_window_years": 30,
+        "last_at_least_this_big": {
+          "date": "2026-09-28",
+          "pct": -0.771,
+          "trading_days_ago": 8
+        }
+      },
+      "drawdown": {
+        "pct_below_record": -0.685,
+        "record_close": 7818.9302,
+        "record_date": "2026-10-06",
+        "pct_days_this_close_or_closer_all": 13.2,
+        "pct_days_this_close_or_closer_30y": 19.4
+      },
+      "ytd": {
+        "pct": 13.44,
+        "rank_among_years": 37,
+        "n_years": 99,
+        "first_year": 1928,
+        "median_prior_years_pct": 7.54
+      }
+    },
+    "ndx": {
+      "label": "Nasdaq Composite",
+      "as_of": "2026-10-08",
+      "history_start": "1971-02-05",
+      "years": 55.7,
+      "move": {
+        "pct": -1.254,
+        "direction": "down",
+        "pct_days_at_least_this_big_all": 10.5,
+        "pct_days_at_least_this_big_30y": 14.81,
+        "per_year_recent": 37.3,
+        "per_year_window_years": 30,
+        "last_at_least_this_big": {
+          "date": "2026-08-18",
+          "pct": -1.333,
+          "trading_days_ago": 36
+        }
+      },
+      "drawdown": {
+        "pct_below_record": -1.473,
+        "record_close": 27599.7891,
+        "record_date": "2026-10-06",
+        "pct_days_this_close_or_closer_all": 19.0,
+        "pct_days_this_close_or_closer_30y": 17.9
+      },
+      "ytd": {
+        "pct": 17.0,
+        "rank_among_years": 23,
+        "n_years": 55,
+        "first_year": 1972,
+        "median_prior_years_pct": 12.9
+      }
+    },
+    "wti": {
+      "label": "WTI crude (front-month futures)",
+      "as_of": "2026-10-08",
+      "history_start": "2000-08-23",
+      "years": 26.1,
+      "move": {
+        "pct": 3.636,
+        "direction": "up",
+        "pct_days_at_least_this_big_all": 5.32,
+        "pct_days_at_least_this_big_30y": 5.32,
+        "per_year_recent": 13.4,
+        "per_year_window_years": 26.1,
+        "last_at_least_this_big": {
+          "date": "2026-09-15",
+          "pct": 4.379,
+          "trading_days_ago": 17
+        }
+      },
+      "drawdown": {
+        "pct_below_record": -37.029,
+        "record_close": 145.29,
+        "record_date": "2008-07-03",
+        "pct_days_this_close_or_closer_all": 43.5,
+        "pct_days_this_close_or_closer_30y": 43.5
+      },
+      "ytd": {
+        "pct": 59.33,
+        "rank_among_years": 4,
+        "n_years": 26,
+        "first_year": 2001,
+        "median_prior_years_pct": 3.15
+      }
+    },
+    "gold": {
+      "label": "Gold (front-month futures)",
+      "as_of": "2026-10-08",
+      "history_start": "2000-08-30",
+      "years": 26.1,
+      "move": {
+        "pct": 0.394,
+        "direction": "up",
+        "pct_days_at_least_this_big_all": 34.02,
+        "pct_days_at_least_this_big_30y": 34.02,
+        "per_year_recent": 85.4,
+        "per_year_window_years": 26.1,
+        "last_at_least_this_big": {
+          "date": "2026-10-06",
+          "pct": 0.729,
+          "trading_days_ago": 2
+        }
+      },
+      "drawdown": {
+        "pct_below_record": -21.837,
+        "record_close": 5318.3999,
+        "record_date": "2026-01-29",
+        "pct_days_this_close_or_closer_all": 74.3,
+        "pct_days_this_close_or_closer_30y": 74.3
+      },
+      "ytd": {
+        "pct": -4.24,
+        "rank_among_years": 22,
+        "n_years": 26,
+        "first_year": 2001,
+        "median_prior_years_pct": 10.57
+      }
+    }
+  },
+  "joint_history": {
+    "real_rates_high_credit_tight": {
+      "as_of": "2026-10-08",
+      "conditions": [
+        {
+          "key": "tips_10y_real",
+          "side": "high",
+          "value": 2.92,
+          "obs_date": "2026-10-07"
+        },
+        {
+          "key": "baa_10y_spread",
+          "side": "low",
+          "value": 1.46,
+          "obs_date": "2026-10-06"
+        }
+      ],
+      "shared_history_start": "2003-01-02",
+      "share_of_days_pct": 0.03,
+      "current_run_start": "2026-10-05",
+      "n_prior_episodes": 0,
+      "prior": null,
+      "track": [],
+      "label": "10Y real yield this high AND investment-grade credit spread proxy (Baa minus 10Y) this tight"
+    },
+    "long_rates_high_stocks_near_record": {
+      "as_of": "2026-10-08",
+      "conditions": [
+        {
+          "key": "ust_10y",
+          "side": "high",
+          "value": 5.22,
+          "obs_date": "2026-10-08"
+        },
+        {
+          "key": "spx_dd",
+          "side": "high",
+          "value": -0.6851,
+          "obs_date": "2026-10-08"
+        }
+      ],
+      "shared_history_start": "1962-01-02",
+      "share_of_days_pct": 7.08,
+      "current_run_start": "2026-10-05",
+      "n_prior_episodes": 7,
+      "prior": {
+        "start": "1995-02-06",
+        "end": "2000-09-01",
+        "years_before_as_of": 26.1,
+        "backdrop_at_end": {
+          "fed_funds": 6.52,
+          "fed_funds_change_prior_12m": 1.11,
+          "spx_return_next_12m_pct": -25.5,
+          "spx_worst_drawdown_next_12m_pct": -27.5
+        },
+        "overlapping": [
+          {
+            "name": "2000-02 dot-com bear market",
+            "kind": "episode",
+            "start": "2000-03-01",
+            "end": "2002-10-31"
+          }
+        ],
+        "recessions_began_during_or_within_24m_after": [
+          "2001 recession (dot-com bust)"
+        ]
+      },
+      "track": [
+        {
+          "start": "1967-07-26",
+          "end": "1968-12-09",
+          "overlapping": []
+        },
+        {
+          "start": "1972-03-03",
+          "end": "1973-01-11",
+          "overlapping": []
+        },
+        {
+          "start": "1980-07-14",
+          "end": "1980-11-28",
+          "overlapping": []
+        },
+        {
+          "start": "1982-11-03",
+          "end": "1983-10-07",
+          "overlapping": []
+        },
+        {
+          "start": "1985-01-22",
+          "end": "1987-08-26",
+          "overlapping": []
+        },
+        {
+          "start": "1989-07-19",
+          "end": "1994-02-03",
+          "overlapping": [
+            "1990-91 recession (Gulf War/S&L crisis)",
+            "1990-91 Gulf War oil spike",
+            "1994 bond market crash (Fed hiking shock)"
+          ]
+        },
+        {
+          "start": "1995-02-06",
+          "end": "2000-09-01",
+          "overlapping": [
+            "1997-98 Asian financial crisis",
+            "1998 LTCM / Russia default crisis",
+            "2000-02 dot-com bear market"
+          ]
+        }
+      ],
+      "label": "10Y Treasury yield this high AND the S&P 500 this close to its record close"
+    },
+    "long_rates_high_dollar_strong": {
+      "as_of": "2026-10-08",
+      "conditions": [
+        {
+          "key": "ust_10y",
+          "side": "high",
+          "value": 5.22,
+          "obs_date": "2026-10-08"
+        },
+        {
+          "key": "dxy",
+          "side": "high",
+          "value": 102.14,
+          "obs_date": "2026-10-08"
+        }
+      ],
+      "shared_history_start": "1971-01-04",
+      "share_of_days_pct": 21.12,
+      "current_run_start": "2026-10-05",
+      "n_prior_episodes": 4,
+      "prior": {
+        "start": "1998-06-15",
+        "end": "2002-05-17",
+        "years_before_as_of": 24.4,
+        "backdrop_at_end": {
+          "fed_funds": 1.7,
+          "fed_funds_change_prior_12m": -2.34,
+          "spx_return_next_12m_pct": -16.8,
+          "spx_worst_drawdown_next_12m_pct": -29.8
+        },
+        "overlapping": [
+          {
+            "name": "2001 recession (dot-com bust)",
+            "kind": "recession",
+            "start": "2001-04-01",
+            "end": "2001-11-01"
+          },
+          {
+            "name": "2000-02 dot-com bear market",
+            "kind": "episode",
+            "start": "2000-03-01",
+            "end": "2002-10-31"
+          }
+        ],
+        "recessions_began_during_or_within_24m_after": []
+      },
+      "track": [
+        {
+          "start": "1971-01-04",
+          "end": "1977-10-13",
+          "overlapping": [
+            "1973-75 oil-shock recession"
+          ]
+        },
+        {
+          "start": "1981-05-05",
+          "end": "1987-01-12",
+          "overlapping": [
+            "1981-82 recession (second Volcker)"
+          ]
+        },
+        {
+          "start": "1989-05-22",
+          "end": "1989-09-15",
+          "overlapping": []
+        },
+        {
+          "start": "1998-06-15",
+          "end": "2002-05-17",
+          "overlapping": [
+            "2001 recession (dot-com bust)",
+            "1998 LTCM / Russia default crisis",
+            "2000-02 dot-com bear market"
+          ]
+        }
+      ],
+      "label": "10Y Treasury yield this high AND the dollar (DXY) this strong"
     }
   }
 }
