@@ -1,87 +1,87 @@
 {
-  "computed_at_utc": "2026-10-08T11:44:25.765487Z",
-  "row_date": "2026-10-07",
-  "trading_rows": 211,
+  "computed_at_utc": "2026-10-09T10:33:55.624948Z",
+  "row_date": "2026-10-08",
+  "trading_rows": 212,
   "seasoned": true,
   "series": {
     "ust_3m": {
-      "last": 4.22,
-      "last_date": "2026-10-07",
-      "n_obs": 215,
+      "last": 4.23,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
       "d1": 0.01,
-      "d5": 0.02,
+      "d5": 0.06,
       "trend20": "up",
-      "z120": 2.257,
+      "z120": 2.256,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.55,
-      "ytd_pct": 14.986
+      "ytd_abs": 0.56,
+      "ytd_pct": 15.259
     },
     "ust_2y": {
-      "last": 4.77,
-      "last_date": "2026-10-07",
-      "n_obs": 215,
+      "last": 4.75,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
       "d1": -0.02,
-      "d5": -0.11,
+      "d5": -0.03,
       "trend20": "up",
-      "z120": 1.933,
+      "z120": 1.824,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 1.3,
-      "ytd_pct": 37.464
+      "ytd_abs": 1.28,
+      "ytd_pct": 36.888
     },
     "ust_10y": {
-      "last": 5.28,
+      "last": 5.22,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
+      "d1": -0.06,
+      "d5": -0.02,
+      "trend20": "up",
+      "z120": 2.266,
+      "z_thin": false,
+      "flag": true,
+      "unit": "pct",
+      "ytd_abs": 1.04,
+      "ytd_pct": 24.88
+    },
+    "ust_30y": {
+      "last": 5.6,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
+      "d1": -0.07,
+      "d5": -0.01,
+      "trend20": "up",
+      "z120": 2.353,
+      "z_thin": false,
+      "flag": true,
+      "unit": "pct",
+      "ytd_abs": 0.76,
+      "ytd_pct": 15.702
+    },
+    "tips_10y_real": {
+      "last": 2.92,
       "last_date": "2026-10-07",
       "n_obs": 215,
       "d1": 0.01,
       "d5": -0.01,
       "trend20": "up",
-      "z120": 2.587,
+      "z120": 2.314,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 1.1,
-      "ytd_pct": 26.316
-    },
-    "ust_30y": {
-      "last": 5.67,
-      "last_date": "2026-10-07",
-      "n_obs": 215,
-      "d1": 0.03,
-      "d5": 0.03,
-      "trend20": "up",
-      "z120": 2.817,
-      "z_thin": false,
-      "flag": true,
-      "unit": "pct",
-      "ytd_abs": 0.83,
-      "ytd_pct": 17.149
-    },
-    "tips_10y_real": {
-      "last": 2.91,
-      "last_date": "2026-10-06",
-      "n_obs": 214,
-      "d1": -0.04,
-      "d5": 0.0,
-      "trend20": "up",
-      "z120": 2.337,
-      "z_thin": false,
-      "flag": true,
-      "unit": "pct",
-      "ytd_abs": 0.98,
-      "ytd_pct": 50.777
+      "ytd_abs": 0.99,
+      "ytd_pct": 51.295
     },
     "bkeven_10y": {
       "last": 2.36,
-      "last_date": "2026-10-06",
-      "n_obs": 214,
+      "last_date": "2026-10-07",
+      "n_obs": 215,
       "d1": 0.0,
-      "d5": 0.01,
+      "d5": 0.0,
       "trend20": "down",
-      "z120": 0.354,
+      "z120": 0.358,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
@@ -89,251 +89,251 @@
       "ytd_pct": 4.889
     },
     "hy_oas": {
-      "last": 3.03,
-      "last_date": "2026-10-06",
-      "n_obs": 223,
-      "d1": -0.09,
-      "d5": -0.05,
+      "last": 3.09,
+      "last_date": "2026-10-07",
+      "n_obs": 224,
+      "d1": 0.06,
+      "d5": -0.03,
       "trend20": "up",
-      "z120": 2.626,
+      "z120": 3.109,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.22,
-      "ytd_pct": 7.829
+      "ytd_abs": 0.28,
+      "ytd_pct": 9.964
     },
     "ig_oas": {
-      "last": 0.83,
-      "last_date": "2026-10-06",
-      "n_obs": 223,
+      "last": 0.82,
+      "last_date": "2026-10-07",
+      "n_obs": 224,
       "d1": -0.01,
-      "d5": -0.01,
+      "d5": -0.02,
       "trend20": "up",
-      "z120": 1.691,
+      "z120": 1.325,
       "z_thin": false,
-      "flag": true,
+      "flag": false,
       "unit": "pct",
-      "ytd_abs": 0.04,
-      "ytd_pct": 5.063
+      "ytd_abs": 0.03,
+      "ytd_pct": 3.797
     },
     "dxy": {
-      "last": 102.239998,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": 0.409996,
-      "d5": 0.790001,
+      "last": 102.139999,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -0.099999,
+      "d5": 0.040001,
       "trend20": "up",
-      "z120": 2.158,
+      "z120": 2.018,
       "z_thin": false,
       "flag": true,
       "unit": "level",
-      "ytd_abs": 3.959999,
-      "ytd_pct": 4.029
+      "ytd_abs": 3.86,
+      "ytd_pct": 3.928
     },
     "sofr": {
-      "last": 3.9,
-      "last_date": "2026-10-06",
-      "n_obs": 213,
-      "d1": 0.01,
-      "d5": 0.02,
+      "last": 3.88,
+      "last_date": "2026-10-07",
+      "n_obs": 214,
+      "d1": -0.02,
+      "d5": -0.02,
       "trend20": "up",
-      "z120": 2.885,
+      "z120": 2.554,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.03,
-      "ytd_pct": 0.775
+      "ytd_abs": 0.01,
+      "ytd_pct": 0.258
     },
     "fed_bs": {
-      "last": 6743031.0,
-      "last_date": "2026-09-30",
-      "n_obs": 44,
-      "d1": -4673.0,
-      "d5": 12119.0,
+      "last": 6747560.0,
+      "last_date": "2026-10-07",
+      "n_obs": 45,
+      "d1": 4529.0,
+      "d5": 10356.0,
       "trend20": "up",
       "z120": null,
       "z_thin": true,
       "flag": false,
       "unit": "musd",
-      "ytd_abs": 102413.0,
-      "ytd_pct": 1.542
+      "ytd_abs": 106942.0,
+      "ytd_pct": 1.61
     },
     "on_rrp": {
-      "last": 2.338,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": 1.924,
-      "d5": -9.201,
-      "trend20": "up",
-      "z120": -0.011,
+      "last": 0.335,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -2.003,
+      "d5": -0.015,
+      "trend20": "down",
+      "z120": -0.506,
       "z_thin": false,
       "flag": false,
       "unit": "busd",
-      "ytd_abs": -103.655,
-      "ytd_pct": -97.794
+      "ytd_abs": -105.658,
+      "ytd_pct": -99.684
     },
     "tga": {
-      "last": 948674.0,
-      "last_date": "2026-09-30",
-      "n_obs": 44,
-      "d1": -28410.0,
-      "d5": -2062.0,
+      "last": 880253.0,
+      "last_date": "2026-10-07",
+      "n_obs": 45,
+      "d1": -68421.0,
+      "d5": -87682.0,
       "trend20": "up",
       "z120": null,
       "z_thin": true,
       "flag": false,
       "unit": "musd",
-      "ytd_abs": 111368.0,
-      "ytd_pct": 13.301
+      "ytd_abs": 42947.0,
+      "ytd_pct": 5.129
     },
     "spx": {
-      "last": 7801.77002,
-      "last_date": "2026-10-07",
-      "n_obs": 211,
-      "d1": -17.160156,
-      "d5": 150.229981,
+      "last": 7765.359863,
+      "last_date": "2026-10-08",
+      "n_obs": 212,
+      "d1": -36.410157,
+      "d5": 98.909668,
       "trend20": "up",
-      "z120": 1.467,
+      "z120": 1.291,
       "z_thin": false,
       "flag": false,
       "unit": "index",
-      "ytd_abs": 956.27002,
-      "ytd_pct": 13.969
+      "ytd_abs": 919.859863,
+      "ytd_pct": 13.437
     },
     "ndx": {
-      "last": 27538.689453,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -61.099609,
-      "d5": 677.628906,
+      "last": 27193.339844,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -345.349609,
+      "d5": 321.740235,
       "trend20": "up",
-      "z120": 2.019,
+      "z120": 1.533,
       "z_thin": false,
       "flag": true,
       "unit": "index",
-      "ytd_abs": 4296.699219,
-      "ytd_pct": 18.487
+      "ytd_abs": 3951.34961,
+      "ytd_pct": 17.001
     },
     "rut": {
-      "last": 2793.199951,
-      "last_date": "2026-10-07",
-      "n_obs": 211,
-      "d1": -37.100098,
-      "d5": -3.660156,
+      "last": 2794.129883,
+      "last_date": "2026-10-08",
+      "n_obs": 212,
+      "d1": 0.929932,
+      "d5": -12.5,
       "trend20": "down",
-      "z120": -1.252,
+      "z120": -1.281,
       "z_thin": false,
       "flag": false,
       "unit": "index",
-      "ytd_abs": 311.290039,
-      "ytd_pct": 12.542
+      "ytd_abs": 312.219971,
+      "ytd_pct": 12.58
     },
     "wti": {
-      "last": 88.279999,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -1.160003,
-      "d5": -2.139999,
+      "last": 91.489998,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": 3.209999,
+      "d5": -1.380005,
       "trend20": "down",
-      "z120": 0.006,
+      "z120": 0.332,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 30.860001,
-      "ytd_pct": 53.744
+      "ytd_abs": 34.07,
+      "ytd_pct": 59.335
     },
     "gold": {
-      "last": 4140.700195,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -46.399903,
-      "d5": -46.0,
+      "last": 4157.0,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": 16.299805,
+      "d5": -45.299805,
       "trend20": "down",
-      "z120": -0.936,
+      "z120": -0.852,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": -184.899903,
-      "ytd_pct": -4.275
+      "ytd_abs": -168.600098,
+      "ytd_pct": -3.898
     },
     "copper": {
-      "last": 6.5965,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": 0.002,
-      "d5": 0.0375,
-      "trend20": "down",
-      "z120": 0.973,
+      "last": 6.519,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -0.0775,
+      "d5": 0.037,
+      "trend20": "up",
+      "z120": 0.615,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 0.9665,
-      "ytd_pct": 17.167
+      "ytd_abs": 0.889,
+      "ytd_pct": 15.79
     },
     "spy": {
-      "last": 777.219971,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -1.870056,
-      "d5": 14.589966,
+      "last": 773.929993,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -3.289978,
+      "d5": 9.940003,
       "trend20": "up",
-      "z120": 1.501,
+      "z120": 1.315,
       "z_thin": false,
-      "flag": true,
+      "flag": false,
       "unit": "usd",
-      "ytd_abs": 95.299988,
-      "ytd_pct": 13.975
+      "ytd_abs": 92.01001,
+      "ytd_pct": 13.493
     },
     "rsp": {
-      "last": 210.600006,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -1.729996,
-      "d5": 2.580002,
+      "last": 211.869995,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": 1.269989,
+      "d5": 2.869995,
       "trend20": "down",
-      "z120": -0.17,
+      "z120": 0.023,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 19.040008,
-      "ytd_pct": 9.939
+      "ytd_abs": 20.309997,
+      "ytd_pct": 10.602
     },
     "smh": {
-      "last": 625.030029,
-      "last_date": "2026-10-07",
-      "n_obs": 214,
-      "d1": -7.469971,
-      "d5": 16.030029,
+      "last": 607.27002,
+      "last_date": "2026-10-08",
+      "n_obs": 215,
+      "d1": -17.760009,
+      "d5": -10.539978,
       "trend20": "up",
-      "z120": 1.201,
+      "z120": 0.777,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 264.900024,
-      "ytd_pct": 73.557
+      "ytd_abs": 247.140015,
+      "ytd_pct": 68.625
     }
   },
   "derived": {
     "s2s10": {
-      "last": 51.0,
-      "last_date": "2026-10-07",
-      "n_obs": 215,
-      "d1": 3.0,
-      "d5": 10.0,
+      "last": 47.0,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
+      "d1": -4.0,
+      "d5": 1.0,
       "trend20": "up",
-      "z120": 1.136,
+      "z120": 0.648,
       "z_thin": false,
       "flag": false,
       "unit": "bp"
     },
     "s3m10y": {
-      "last": 106.0,
-      "last_date": "2026-10-07",
-      "n_obs": 215,
-      "d1": 0.0,
-      "d5": -3.0,
+      "last": 99.0,
+      "last_date": "2026-10-08",
+      "n_obs": 216,
+      "d1": -7.0,
+      "d5": -8.0,
       "trend20": "up",
-      "z120": 2.341,
+      "z120": 1.708,
       "z_thin": false,
       "flag": true,
       "unit": "bp"
@@ -342,81 +342,69 @@
       "ath": 7818.930176,
       "ath_date": "2026-10-06",
       "basis": "close",
-      "dist_pct": -0.219
+      "dist_pct": -0.685
     }
   },
   "flags": [
     {
       "series": "ust_3m",
-      "z120": 2.257,
-      "last": 4.22,
-      "last_date": "2026-10-07"
+      "z120": 2.256,
+      "last": 4.23,
+      "last_date": "2026-10-08"
     },
     {
       "series": "ust_2y",
-      "z120": 1.933,
-      "last": 4.77,
-      "last_date": "2026-10-07"
+      "z120": 1.824,
+      "last": 4.75,
+      "last_date": "2026-10-08"
     },
     {
       "series": "ust_10y",
-      "z120": 2.587,
-      "last": 5.28,
-      "last_date": "2026-10-07"
+      "z120": 2.266,
+      "last": 5.22,
+      "last_date": "2026-10-08"
     },
     {
       "series": "ust_30y",
-      "z120": 2.817,
-      "last": 5.67,
-      "last_date": "2026-10-07"
+      "z120": 2.353,
+      "last": 5.6,
+      "last_date": "2026-10-08"
     },
     {
       "series": "tips_10y_real",
-      "z120": 2.337,
-      "last": 2.91,
-      "last_date": "2026-10-06"
+      "z120": 2.314,
+      "last": 2.92,
+      "last_date": "2026-10-07"
     },
     {
       "series": "hy_oas",
-      "z120": 2.626,
-      "last": 3.03,
-      "last_date": "2026-10-06"
-    },
-    {
-      "series": "ig_oas",
-      "z120": 1.691,
-      "last": 0.83,
-      "last_date": "2026-10-06"
+      "z120": 3.109,
+      "last": 3.09,
+      "last_date": "2026-10-07"
     },
     {
       "series": "dxy",
-      "z120": 2.158,
-      "last": 102.239998,
-      "last_date": "2026-10-07"
+      "z120": 2.018,
+      "last": 102.139999,
+      "last_date": "2026-10-08"
     },
     {
       "series": "sofr",
-      "z120": 2.885,
-      "last": 3.9,
-      "last_date": "2026-10-06"
+      "z120": 2.554,
+      "last": 3.88,
+      "last_date": "2026-10-07"
     },
     {
       "series": "ndx",
-      "z120": 2.019,
-      "last": 27538.689453,
-      "last_date": "2026-10-07"
-    },
-    {
-      "series": "spy",
-      "z120": 1.501,
-      "last": 777.219971,
-      "last_date": "2026-10-07"
+      "z120": 1.533,
+      "last": 27193.339844,
+      "last_date": "2026-10-08"
     },
     {
       "series": "s3m10y",
-      "z120": 2.341,
-      "last": 106.0,
-      "last_date": "2026-10-07"
+      "z120": 1.708,
+      "last": 99.0,
+      "last_date": "2026-10-08"
     }
   ],
   "long_history": {
@@ -425,7 +413,7 @@
       "end_date": "2026-10-06",
       "years": 45.1,
       "n_obs": 11274,
-      "pct_rank_all_time": 52.1,
+      "pct_rank_all_time": 52.2,
       "percentiles": {
         "min": 0.0,
         "p10": 0.07,
@@ -439,7 +427,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 70.3,
+      "pct_rank_modern": 70.4,
       "percentiles_modern": {
         "min": 0.0,
         "p10": 0.04,
@@ -452,8 +440,8 @@
       "regime_divergence_pts": 18.2,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-05",
-        "value": 4.22,
+        "date": "2026-09-29",
+        "value": 4.25,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -469,12 +457,6 @@
           "window_extreme": 7.85,
           "start": "1990-08-01",
           "end": "1991-03-01"
-        },
-        {
-          "name": "2001 recession (dot-com bust)",
-          "window_extreme": 4.22,
-          "start": "2001-04-01",
-          "end": "2001-11-01"
         },
         {
           "name": "1987 Black Monday crash",
@@ -531,7 +513,7 @@
       "end_date": "2026-10-06",
       "years": 50.3,
       "n_obs": 12584,
-      "pct_rank_all_time": 52.2,
+      "pct_rank_all_time": 51.9,
       "percentiles": {
         "min": 0.09,
         "p10": 0.48,
@@ -545,7 +527,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 82.0,
+      "pct_rank_modern": 81.6,
       "percentiles_modern": {
         "min": 0.09,
         "p10": 0.29,
@@ -555,7 +537,7 @@
         "p90": 5.52,
         "max": 6.93
       },
-      "regime_divergence_pts": 29.8,
+      "regime_divergence_pts": 29.7,
       "regime_divergence": true,
       "most_recent_comparable": {
         "date": "2026-10-06",
@@ -631,7 +613,7 @@
       "end_date": "2026-10-06",
       "years": 64.8,
       "n_obs": 16176,
-      "pct_rank_all_time": 49.3,
+      "pct_rank_all_time": 48.7,
       "percentiles": {
         "min": 0.52,
         "p10": 2.23,
@@ -645,7 +627,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 87.4,
+      "pct_rank_modern": 86.7,
       "percentiles_modern": {
         "min": 0.52,
         "p10": 1.73,
@@ -655,11 +637,11 @@
         "p90": 5.59,
         "max": 6.98
       },
-      "regime_divergence_pts": 38.1,
+      "regime_divergence_pts": 38.0,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-05",
-        "value": 5.31,
+        "date": "2026-10-06",
+        "value": 5.27,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -743,7 +725,7 @@
       "end_date": "2026-10-06",
       "years": 49.6,
       "n_obs": 12406,
-      "pct_rank_all_time": 52.9,
+      "pct_rank_all_time": 52.2,
       "percentiles": {
         "min": 0.99,
         "p10": 2.83,
@@ -757,7 +739,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 87.5,
+      "pct_rank_modern": 86.2,
       "percentiles_modern": {
         "min": 0.99,
         "p10": 2.46,
@@ -767,12 +749,12 @@
         "p90": 5.81,
         "max": 7.17
       },
-      "regime_divergence_pts": 34.6,
+      "regime_divergence_pts": 34.0,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2002-07-05",
-        "value": 5.7,
-        "years_ago": 24.3,
+        "date": "2026-10-06",
+        "value": 5.64,
+        "years_ago": 0.0,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [
@@ -922,7 +904,7 @@
       "regime_divergence_pts": 0.0,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "value": 2.36,
         "years_ago": 0.0,
         "recession_within_12m": []
@@ -959,7 +941,7 @@
       "end_date": "2026-10-06",
       "years": 72.3,
       "n_obs": 26396,
-      "pct_rank_all_time": 45.3,
+      "pct_rank_all_time": 45.1,
       "percentiles": {
         "min": 0.04,
         "p10": 0.16,
@@ -972,8 +954,8 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-05",
-      "pct_rank_modern": 67.2,
+      "modern_start_date": "1996-10-06",
+      "pct_rank_modern": 67.1,
       "percentiles_modern": {
         "min": 0.04,
         "p10": 0.09,
@@ -983,12 +965,12 @@
         "p90": 5.33,
         "max": 7.07
       },
-      "regime_divergence_pts": 21.9,
+      "regime_divergence_pts": 22.0,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2025-10-29",
-        "value": 4.12,
-        "years_ago": 0.9,
+        "date": "2026-10-06",
+        "value": 3.88,
+        "years_ago": 0.0,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [
@@ -1096,7 +1078,7 @@
       "end_date": "2026-10-06",
       "years": 3.0,
       "n_obs": 785,
-      "pct_rank_all_time": 50.7,
+      "pct_rank_all_time": 55.4,
       "percentiles": {
         "min": 2.59,
         "p10": 2.69,
@@ -1123,7 +1105,7 @@
       "end_date": "2026-10-06",
       "years": 3.0,
       "n_obs": 784,
-      "pct_rank_all_time": 46.7,
+      "pct_rank_all_time": 43.2,
       "percentiles": {
         "min": 0.73,
         "p10": 0.76,
@@ -1138,8 +1120,8 @@
       "regime_divergence": false,
       "regime_divergence_pts": null,
       "most_recent_comparable": {
-        "date": "2026-10-05",
-        "value": 0.84,
+        "date": "2026-10-06",
+        "value": 0.83,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -1294,7 +1276,7 @@
       "end_date": "2026-10-06",
       "years": 50.3,
       "n_obs": 12584,
-      "pct_rank_all_time": 40.0,
+      "pct_rank_all_time": 37.7,
       "percentiles": {
         "min": -2.41,
         "p10": -0.2599999999999998,
@@ -1308,7 +1290,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 41.7,
+      "pct_rank_modern": 39.1,
       "percentiles_modern": {
         "min": -1.0800000000000005,
         "p10": -0.1299999999999999,
@@ -1318,12 +1300,12 @@
         "p90": 2.3499999999999996,
         "max": 2.91
       },
-      "regime_divergence_pts": 1.7,
+      "regime_divergence_pts": 1.4,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-08-18",
-        "value": 0.5199999999999996,
-        "years_ago": 0.1,
+        "date": "2026-10-06",
+        "value": 0.47999999999999954,
+        "years_ago": 0.0,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [
@@ -1436,7 +1418,7 @@
       "end_date": "2026-10-06",
       "years": 45.1,
       "n_obs": 11274,
-      "pct_rank_all_time": 36.1,
+      "pct_rank_all_time": 34.4,
       "percentiles": {
         "min": -1.8900000000000001,
         "p10": -0.04999999999999982,
@@ -1450,7 +1432,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 43.4,
+      "pct_rank_modern": 41.5,
       "percentiles_modern": {
         "min": -1.8900000000000001,
         "p10": -0.2999999999999998,
@@ -1460,11 +1442,11 @@
         "p90": 3.12,
         "max": 3.8499999999999996
       },
-      "regime_divergence_pts": 7.3,
+      "regime_divergence_pts": 7.1,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-05",
-        "value": 1.0899999999999999,
+        "date": "2026-10-06",
+        "value": 1.0599999999999996,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -1552,6 +1534,12 @@
           "window_extreme": 2.4800000000000004,
           "start": "2015-06-01",
           "end": "2016-02-29"
+        },
+        {
+          "name": "2018 Q4 selloff (QT + rate-hike scare)",
+          "window_extreme": 1.0,
+          "start": "2018-10-01",
+          "end": "2018-12-31"
         },
         {
           "name": "2020 COVID crash",
