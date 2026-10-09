@@ -125,7 +125,26 @@ def lint(content, state):
                 errors.append(f"{field}: HY/IG OAS percentile without the ~3-year label: "
                               f"“{sent[:120]}…”")
 
-    # 7. the lead 'last time' fact must be used, not skipped
+    # 7. never "highest/lowest since" for a reading that isn't its own run's
+    #    extreme (5.22% on a day the run had peaked at 5.31% is not "the
+    #    highest since 2007") -- unless the sentence is about the peak itself
+    names = {"ust_10y": r"10-year|10Y", "ust_30y": r"30-year|30Y", "ust_2y": r"2-year|2Y",
+             "tips_10y_real": r"real yield|TIPS", "dxy": r"dollar|DXY",
+             "mortgage30": r"mortgage", "baa_10y_spread": r"Baa|credit spread"}
+    sup = re.compile(r"\b(highest|lowest|widest|tightest)\s+(level\s+)?since\b|\bat its (highest|lowest)\b", re.I)
+    for key, pat in names.items():
+        lb = ((state.get("long_history") or {}).get(key) or {}).get("lookback") or {}
+        if lb.get("today_is_run_extreme", True):
+            continue
+        for field, text in fields.items():
+            for sent in _sentences(text):
+                if sup.search(sent) and re.search(pat, sent) and not re.search(
+                        r"\bpeak\b|\brun'?s? high\b|\bhigh of\b|\bthis run's\b", sent, re.I):
+                    errors.append(f"{field}: “highest/lowest since” for {key}, but today isn't "
+                                  f"this run's extreme ({lb.get('run_extreme')} on "
+                                  f"{lb.get('run_extreme_date')}): “{sent[:120]}…”")
+
+    # 8. the lead 'last time' fact must be used, not skipped
     for f in state.get("history_digest") or []:
         if f.get("tier") == 1 and f["id"].startswith("lookback:") and f.get("anchor_date"):
             y = f["anchor_date"][:4]
@@ -137,7 +156,7 @@ def lint(content, state):
                               "regime line, the story, nor the masthead")
             break
 
-    # 8. TIPS-window caveat when the Cleveland record disagrees
+    # 9. TIPS-window caveat when the Cleveland record disagrees
     tips = (state.get("long_history") or {}).get("tips_10y_real") or {}
     if tips.get("tips_window_divergence") and re.search(r"real yield|TIPS", hist) \
             and re.search(r"\b2008\b|\b2003\b|percentile", hist) \

@@ -514,3 +514,17 @@ def test_lint_passes_grounded_prose_and_catches_overclaims():
     assert "1999" in joined
     assert "signals a" in joined
     assert "without a count" in joined
+
+
+def test_lint_blocks_highest_since_below_run_peak():
+    state = _lint_state()
+    state["long_history"]["ust_10y"]["lookback"] = {
+        "today_is_run_extreme": False, "run_extreme": 5.31, "run_extreme_date": "2026-10-05"}
+    bad = {"history_html": "<p>The 10-year is at its highest since 2007.</p>",
+           "regime_line": "2007"}
+    errors, _ = lint.lint(bad, state)
+    assert any("isn't this run's extreme" in e for e in errors)
+    ok = {"history_html": "<p>This run's peak in the 10-year was the highest since 2007.</p>",
+          "regime_line": "2007"}
+    errors, _ = lint.lint(ok, state)
+    assert not any("isn't this run's extreme" in e for e in errors)

@@ -1,5 +1,5 @@
 {
-  "computed_at_utc": "2026-10-09T17:39:29.799436Z",
+  "computed_at_utc": "2026-10-09T17:54:15.652515Z",
   "row_date": "2026-10-08",
   "trading_rows": 212,
   "seasoned": true,
@@ -410,9 +410,9 @@
   "long_history": {
     "ust_3m": {
       "start_date": "1981-09-01",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-08",
       "years": 45.1,
-      "n_obs": 11274,
+      "n_obs": 11276,
       "pct_rank_all_time": 52.2,
       "percentiles": {
         "min": 0.0,
@@ -605,9 +605,9 @@
     },
     "ust_2y": {
       "start_date": "1976-06-01",
-      "end_date": "2026-10-06",
-      "years": 50.3,
-      "n_obs": 12584,
+      "end_date": "2026-10-08",
+      "years": 50.4,
+      "n_obs": 12586,
       "pct_rank_all_time": 51.9,
       "percentiles": {
         "min": 0.09,
@@ -615,7 +615,7 @@
         "p25": 1.72,
         "median": 4.62,
         "p75": 7.09,
-        "p90": 9.84,
+        "p90": 9.83,
         "max": 16.95
       },
       "short_history": false,
@@ -635,8 +635,8 @@
       "regime_divergence_pts": 29.7,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 4.79,
+        "date": "2026-10-07",
+        "value": 4.77,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -716,7 +716,7 @@
           "365": "2024-07-01"
         },
         "current_run_start": "2026-09-18",
-        "current_run_sessions": 13,
+        "current_run_sessions": 14,
         "run_extreme": 4.92,
         "run_extreme_date": "2026-09-28",
         "today_is_run_extreme": false,
@@ -800,9 +800,9 @@
     },
     "ust_10y": {
       "start_date": "1962-01-02",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-08",
       "years": 64.8,
-      "n_obs": 16176,
+      "n_obs": 16178,
       "pct_rank_all_time": 48.7,
       "percentiles": {
         "min": 0.52,
@@ -817,7 +817,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-07",
-      "pct_rank_modern": 86.7,
+      "pct_rank_modern": 86.6,
       "percentiles_modern": {
         "min": 0.52,
         "p10": 1.73,
@@ -827,11 +827,11 @@
         "p90": 5.59,
         "max": 6.98
       },
-      "regime_divergence_pts": 38.0,
+      "regime_divergence_pts": 37.9,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 5.27,
+        "date": "2026-10-07",
+        "value": 5.28,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -910,7 +910,7 @@
         }
       ],
       "lookback": {
-        "ext": 86.7,
+        "ext": 86.6,
         "side": "high",
         "gated": true,
         "short_history": false,
@@ -923,7 +923,7 @@
           "365": "2007-06-14"
         },
         "current_run_start": "2026-09-28",
-        "current_run_sessions": 8,
+        "current_run_sessions": 9,
         "run_extreme": 5.31,
         "run_extreme_date": "2026-10-05",
         "today_is_run_extreme": false,
@@ -970,15 +970,15 @@
     },
     "ust_30y": {
       "start_date": "1977-02-15",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-08",
       "years": 49.6,
-      "n_obs": 11412,
+      "n_obs": 11414,
       "pct_rank_all_time": 48.8,
       "percentiles": {
         "min": 0.99,
         "p10": 2.78,
         "p25": 3.7,
-        "median": 5.74,
+        "median": 5.73,
         "p75": 8.25,
         "p90": 10.77,
         "max": 15.21
@@ -1000,8 +1000,8 @@
       "regime_divergence_pts": 36.7,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 5.64,
+        "date": "2026-10-07",
+        "value": 5.67,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -1081,13 +1081,13 @@
           "365": "2001-12-17"
         },
         "current_run_start": "2026-09-30",
-        "current_run_sessions": 6,
-        "run_extreme": 5.66,
-        "run_extreme_date": "2026-10-05",
+        "current_run_sessions": 7,
+        "run_extreme": 5.67,
+        "run_extreme_date": "2026-10-07",
         "today_is_run_extreme": false,
         "run_extreme_prior": {
           "end": "2001-07-11",
-          "n_obs": 5801,
+          "n_obs": 5791,
           "years_since": 25.2
         },
         "last_touch": {
@@ -1132,9 +1132,9 @@
     },
     "tips_10y_real": {
       "start_date": "2003-01-02",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-07",
       "years": 23.8,
-      "n_obs": 5945,
+      "n_obs": 5946,
       "pct_rank_all_time": 99.7,
       "percentiles": {
         "min": -1.19,
@@ -1414,9 +1414,9 @@
     },
     "sofr": {
       "start_date": "1954-07-01",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-07",
       "years": 72.3,
-      "n_obs": 26396,
+      "n_obs": 26397,
       "pct_rank_all_time": 45.1,
       "percentiles": {
         "min": 0.04,
@@ -1431,7 +1431,7 @@
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
       "modern_start_date": "1996-10-06",
-      "pct_rank_modern": 67.1,
+      "pct_rank_modern": 67.0,
       "percentiles_modern": {
         "min": 0.04,
         "p10": 0.09,
@@ -1441,11 +1441,11 @@
         "p90": 5.33,
         "max": 7.07
       },
-      "regime_divergence_pts": 22.0,
+      "regime_divergence_pts": 21.9,
       "regime_divergence": true,
       "most_recent_comparable": {
         "date": "2026-10-06",
-        "value": 3.88,
+        "value": 3.9,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -1548,7 +1548,7 @@
         }
       ],
       "lookback": {
-        "ext": 67.1,
+        "ext": 67.0,
         "side": "high",
         "gated": false,
         "short_history": false,
@@ -1561,7 +1561,7 @@
           "365": "2008-01-21"
         },
         "current_run_start": "2022-12-15",
-        "current_run_sessions": 1099,
+        "current_run_sessions": 1093,
         "run_extreme": 5.33,
         "run_extreme_date": "2023-07-27",
         "today_is_run_extreme": false,
@@ -1648,10 +1648,10 @@
     },
     "hy_oas": {
       "start_date": "2023-10-09",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-07",
       "years": 3.0,
-      "n_obs": 785,
-      "pct_rank_all_time": 55.4,
+      "n_obs": 786,
+      "pct_rank_all_time": 55.5,
       "percentiles": {
         "min": 2.59,
         "p10": 2.69,
@@ -1673,7 +1673,7 @@
       },
       "episodes_matching_or_exceeding": [],
       "lookback": {
-        "ext": 55.4,
+        "ext": 55.5,
         "side": "high",
         "gated": false,
         "short_history": true,
@@ -1716,10 +1716,10 @@
     },
     "ig_oas": {
       "start_date": "2023-10-09",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-07",
       "years": 3.0,
-      "n_obs": 784,
-      "pct_rank_all_time": 43.2,
+      "n_obs": 785,
+      "pct_rank_all_time": 43.3,
       "percentiles": {
         "min": 0.73,
         "p10": 0.76,
@@ -1741,7 +1741,7 @@
       },
       "episodes_matching_or_exceeding": [],
       "lookback": {
-        "ext": 56.8,
+        "ext": 56.7,
         "side": "low",
         "gated": false,
         "short_history": true,
@@ -2053,9 +2053,9 @@
     },
     "s2s10": {
       "start_date": "1976-06-01",
-      "end_date": "2026-10-06",
-      "years": 50.3,
-      "n_obs": 12584,
+      "end_date": "2026-10-08",
+      "years": 50.4,
+      "n_obs": 12586,
       "pct_rank_all_time": 37.7,
       "percentiles": {
         "min": -2.41,
@@ -2083,8 +2083,8 @@
       "regime_divergence_pts": 1.4,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 0.47999999999999954,
+        "date": "2026-10-07",
+        "value": 0.5100000000000007,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -2349,16 +2349,16 @@
     },
     "s3m10y": {
       "start_date": "1981-09-01",
-      "end_date": "2026-10-06",
+      "end_date": "2026-10-08",
       "years": 45.1,
-      "n_obs": 11274,
+      "n_obs": 11276,
       "pct_rank_all_time": 34.4,
       "percentiles": {
         "min": -1.8900000000000001,
         "p10": -0.04999999999999982,
         "p25": 0.5600000000000005,
         "median": 1.57,
-        "p75": 2.539999999999999,
+        "p75": 2.530000000000001,
         "p90": 3.17,
         "max": 5.180000000000001
       },
@@ -2379,8 +2379,8 @@
       "regime_divergence_pts": 7.1,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 1.0599999999999996,
+        "date": "2026-10-07",
+        "value": 1.0600000000000005,
         "years_ago": 0.0,
         "recession_within_12m": []
       },

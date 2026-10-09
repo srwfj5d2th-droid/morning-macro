@@ -257,8 +257,15 @@ def attach_history(state, rows, row_date):
         if s is None or key not in hc.SOURCES:
             continue
         value = s["last"] / 100.0 if opts.get("bp_to_pct") else s["last"]
+        if opts.get("bp_to_pct"):
+            a, b = {"s2s10": ("ust_10y", "ust_2y"), "s3m10y": ("ust_10y", "ust_3m")}[key]
+            oa, ob = dict(series_obs(rows, a)), dict(series_obs(rows, b))
+            live = [(d, oa[d] - ob[d]) for d in sorted(oa) if d in ob]
+        else:
+            live = series_obs(rows, key)
         try:
-            ctx = hc.context_for(key, value, s["last_date"], direction="high")
+            ctx = hc.context_for(key, value, s["last_date"], direction="high",
+                                 live_rows=live)
         except FileNotFoundError:
             continue
         if not ctx:

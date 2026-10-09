@@ -284,7 +284,7 @@ def _episodes_matching(rows, value, direction):
     return out
 
 
-def context_for(key, today_value, today_date, direction="high"):
+def context_for(key, today_value, today_date, direction="high", live_rows=None):
     """Build the long_history block for one Tier 1 series.
 
     direction: "high" if an elevated reading is the stress/extreme side
@@ -296,9 +296,11 @@ def context_for(key, today_value, today_date, direction="high"):
         return None
     src = SOURCES[key]
     rows, _ = _series_for(key)
-    # never let a bar dated after the as-of date into the comparison (Yahoo
-    # files carry a partial bar for the current session)
-    rows = [r for r in rows if r[0] <= today_date]
+    # never let a bar dated after the as-of date into the comparison; and
+    # let the live daily series fill/override recent days the monthly-
+    # refreshed file lacks (else e.g. a run's true high on the day after the
+    # file ends is missed)
+    rows = _merge_live([r for r in rows if r[0] <= today_date], live_rows, today_date)
     if not rows:
         return None
 

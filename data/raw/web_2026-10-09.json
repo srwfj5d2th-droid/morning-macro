@@ -1,0 +1,79 @@
+{
+  "_README": "Web-sourced (named-outlet) facts used in the 2026-10-09 brief's Story, Movers and Tier 3 prose, recorded per CLAUDE.md §14 so every number in prose is traceable to a file. Retrieved via web search on 2026-10-09 (UTC). These are attributed reporting, never treated as this system's own data; where they conflict with the state file, the state file wins (§4C).",
+  "retrieved_utc": "2026-10-09",
+  "items": [
+    {
+      "topic": "Market close 2026-10-08 (Story)",
+      "outlet": "CNBC (market wrap, live blog titled for Oct. 8, 2026), as summarized in search results",
+      "facts": [
+        "S&P 500 -0.47% to 7,765.36",
+        "Nasdaq Composite -1.25% to 27,193.34; biggest one-day loss since mid-August; second straight down day after records earlier in the week",
+        "Dow +51.77 points (+0.1%) to 51,231.64",
+        "Trigger: OpenAI's revenue came in below what had been signaled earlier",
+        "Oracle down more than 5%; Nvidia and AMD lost nearly 3% and almost 4%",
+        "Wider pressures cited: rising Treasury yields and elevated oil prices; crude rose on renewed Middle East tension and the prospect of expanded U.S. military operations against Iran"
+      ],
+      "urls": [
+        "https://www.cnbc.com/2026/10/07/stock-market-today-live-updates-.html",
+        "https://www.cnbc.com/2026/10/08/stock-market-today-live-updates.html",
+        "https://econcurrents.substack.com/p/08-october-2026-market-close-and",
+        "https://investrade.com/market-review-october-08-2026/"
+      ],
+      "system_check": "Index levels and moves match data/macro_series.csv (2026-10-08). The 'rising Treasury yields' framing does NOT match this system's data (10Y -6bp, 30Y -7bp on 10-08); the brief says so (§4C)."
+    },
+    {
+      "topic": "Coherent (COHR) -9.63% (Movers, CL-0038)",
+      "outlet": "Yahoo Finance; 24/7 Wall St; TIKR",
+      "facts": [
+        "Broad optics/photonics pullback on 2026-10-08 attributed to sector-wide profit-taking after large year-to-date gains",
+        "Rising yields and skepticism about AI-investment sustainability cited",
+        "One report: Lumentum up about 190% so far this year"
+      ],
+      "urls": [
+        "https://247wallst.com/investing/2026/10/08/optics-stocks-tumble-as-profit-taking-cuts-into-big-yearly-gains-applied-optoelectronics-drops-9-coherent-falls-5-lumentum-slides-4/",
+        "https://www.tikr.com/blog/coherent-stock-fell-nearly-10-in-a-day-as-rising-yields-hit-optics-stocks-heres-where-the-stock-could-go-by-2031"
+      ]
+    },
+    {
+      "topic": "CoStar Group (CSGP) +8.01% (Movers)",
+      "outlet": "Quiver Quant; Alphastreet",
+      "facts": [
+        "No clear same-day company announcement identified",
+        "Framed as repositioning ahead of the October 27, 2026 earnings report"
+      ],
+      "urls": [
+        "https://www.quiverquant.com/news/Why+CoStar+Group+(CSGP)+Stock+Is+Up+Today",
+        "https://news.alphastreet.com/costar-group-jumps-5-9-amid-sector-wide-rally/amp"
+      ]
+    },
+    {
+      "topic": "Oracle financing profile (Tier 3 weekly note, CL-0039)",
+      "outlet": "Bloomberg via AOL; CNBC; secondary coverage (Insider Finance, CoinCentral)",
+      "facts": [
+        "Long-term debt nearly doubled to more than $160 billion over two years (Bloomberg, via AOL)",
+        "S&P lowered Oracle's credit rating to BBB-",
+        "Fiscal-2026 free-cash-flow deficit of $23.7 billion while operating cash flow rose to $32 billion",
+        "Record $638 billion remaining performance obligations, about 1.5x market value"
+      ],
+      "urls": [
+        "https://aol.com/articles/oracle-stock-falls-debt-deal-180233000.html",
+        "https://www.cnbc.com/2026/06/26/oracle-stock-ends-worst-week-since-2001-as-investors-dwell-on-finances.html",
+        "https://www.insiderfinance.io/news/oracle-stock-near-low-after-ai-capex-fears",
+        "https://coincentral.com/oracle-orcl-stock-tumbles-ai-expansion-debt-cash-flow-concerns/"
+      ],
+      "note": "Mostly mid-2026 reporting; the brief labels the issuance figures below as months-stale."
+    },
+    {
+      "topic": "AI-related bond issuance (Tier 3 weekly note)",
+      "outlet": "Aviva Investors ('Bond voyage', July 2026); Bank of America forecast via itiger",
+      "facts": [
+        "Data-center-secured bond issuance approaching US$100bn since Meta's first such deal in October 2025",
+        "Bank of America 2026 forecast for hyperscaler investment-grade issuance raised to $175bn"
+      ],
+      "urls": [
+        "https://www.avivainvestors.com/en-nl/views/aiq-investment-thinking/2026/07/bond-voyage/",
+        "https://www.itiger.com/news/2603931398"
+      ]
+    }
+  ]
+}
