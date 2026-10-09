@@ -217,6 +217,7 @@ def test_window_rows_filters_to_trailing_years():
 
 def test_context_for_flags_regime_divergence(tmp_path, monkeypatch):
     setup_fixture(tmp_path, monkeypatch)
+    _write_series(tmp_path, "usrec", [("1945-01-01", 0.0), ("2026-09-01", 0.0)])
     # Mirrors the real ust_10y finding: an old, HIGH-value regime (1970-95,
     # like the Volcker-era double-digit years) followed by a LOW-value
     # modern regime (1996-2024, like the post-2008 near-zero years), then
@@ -242,6 +243,7 @@ def test_context_for_flags_regime_divergence(tmp_path, monkeypatch):
 
 def test_context_for_no_divergence_when_windows_agree(tmp_path, monkeypatch):
     setup_fixture(tmp_path, monkeypatch)
+    _write_series(tmp_path, "usrec", [("1945-01-01", 0.0), ("2026-09-01", 0.0)])
     rows = [(f"{1970+y}-01-01", 5.0) for y in range(50)]
     _write_series(tmp_path, "flat_src", rows)
     _write_episodes(tmp_path)
@@ -451,10 +453,113 @@ def test_then_vs_now_marks_similar_and_different(tmp_path, monkeypatch):
 
 
 def test_lately_vs_history_labels():
-    assert hc.lately_vs_history(2.3, False, 99.7, False) == "unusual lately and historically"
-    assert hc.lately_vs_history(3.1, False, 55.0, False) == "unusual lately, ordinary historically"
-    assert hc.lately_vs_history(None, True, 98.0, False) == "quiet lately, historically extreme"
-    assert hc.lately_vs_history(3.1, False, 99.0, True) == "3-yr record only"
+    lv = hc.lately_vs_history
+    assert lv(2.3, False, 99.7, 99.0, "1962", False) == "unusual lately; historically extreme"
+    assert lv(3.1, False, 55.0, 60.0, "1962", False) == "unusual lately; ordinary historically"
+    assert lv(3.1, False, 99.0, None, "2023", True) == "unusual lately; 3-yr record only"
+    # §4F: when only one lens is in its tail, show both -- never pick one
+    assert lv(0.5, False, 48.7, 86.6, "1962", False) == \
+        "quiet lately; high vs. last 30 yrs (87th), about average since 1962 (49th)"
+    assert lv(0.5, False, 8.0, 40.0, "1962", False) == \
+        "quiet lately; low since 1962 (8th), not vs. last 30 yrs (40th)"
+    # 2026-10-09 v2 finding: an unmeasured series was labeled "quiet lately"
+    # (mortgage rates had jumped a point). No read -> no claim.
+    label = lv(None, True, 98.0, None, "2003", False)
+    assert label == "no 6-month read; historically extreme" and "quiet" not in label
+
+
+def test_recent_z_measures_proxies_and_declines_monthly():
+    weekly = _days("2026-01-01", [6.5] * 25 + [7.4], step=7)
+    z, thin = hc.recent_z(weekly, weekly[-1][0])
+    assert thin is False and z > 0 or z == 0.0
+    monthly = _days("2026-01-01", [2.0, 2.1, 2.2, 2.3, 2.4, 2.5], step=30)
+    assert hc.recent_z(monthly, monthly[-1][0]) == (None, True)
+
+
+def test_lookback_run_with_a_dip_is_not_called_unbroken(tmp_path, monkeypatch):
+    """2026-10-09: 'TIPS has been at or above 2.92% since Sep 30' was false
+    (2.88 on Oct 1, 2.91 on Oct 6)."""
+    import history_digest as hd
+    _fixture_world(tmp_path, monkeypatch)
+    hist = (_days("2003-01-02", [1.0] * 70, step=30) + _days("2008-10-01", [3.1] * 17)
+            + _days("2009-01-01", [1.0] * 200, step=30) + _days("2025-06-01", [1.0] * 320))
+    run = [("2026-09-30", 2.93), ("2026-10-01", 2.88), ("2026-10-02", 2.92),
+           ("2026-10-05", 2.95), ("2026-10-06", 2.91)]
+    lb = hc.lookback(hist + run, 2.92, "2026-10-07", p_all=99.7)
+    assert lb["current_run_start"] == "2026-09-30"
+    assert lb["current_streak_start"] == "2026-10-07"
+    assert (lb["current_run_sessions"], lb["current_run_total_sessions"]) == (4, 6)
+    assert lb["current_run_unbroken"] is False
+    ctx = {"lookback": lb, "pct_rank_all_time": 99.7, "pct_rank_modern": None,
+           "start_date": "2003-01-02", "short_history": False}
+    s = hd._lookback_sentence("tips_10y_real", ctx, 2.92, "2026-10-07")
+    assert "has been at or above this level since" not in s
+    assert "4 of the 6 sessions since" in s
+
+
+def test_record_only_when_today_is_the_runs_extreme(tmp_path, monkeypatch):
+    _fixture_world(tmp_path, monkeypatch)
+    hist = _days("1990-01-01", [3.0] * 400, step=30)
+    run = [("2026-09-01", 5.5), ("2026-09-02", 6.0)]
+    lb = hc.lookback(hist + run, 5.8, "2026-09-03", p_all=99.0, p_30=99.0)
+    assert lb["record"] is False and lb["run_is_record"] is True
+    lb2 = hc.lookback(hist + run, 6.1, "2026-09-03", p_all=100.0, p_30=100.0)
+    assert lb2["record"] is True and lb2["run_is_record"] is False
+
+
+def test_brief_is_measured_in_sessions_not_readings(tmp_path, monkeypatch):
+    """9 monthly readings are 9 months, not 'briefly' (v2 finding F7)."""
+    _fixture_world(tmp_path, monkeypatch)
+    monthly = (_days("1990-01-01", [1.0] * 200, step=30) + _days("2006-03-01", [5.0] * 9, step=30)
+               + _days("2007-01-01", [1.0] * 230, step=30))
+    lb = hc.lookback(monthly, 5.0, "2026-09-01", p_all=99.0, p_30=99.0)
+    assert lb["cadence"] == "monthly" and lb["last_touch"]["brief"] is False
+    daily = (_days("1990-01-01", [1.0] * 3000) + _days("2006-06-01", [5.0] * 7)
+             + _days("2007-01-01", [1.0] * 7000))
+    lb = hc.lookback(daily, 5.0, "2026-09-01", p_all=99.0, p_30=99.0)
+    assert lb["cadence"] == "daily" and lb["last_touch"]["brief"] is True
+
+
+def test_change_series_skips_dates_whose_base_falls_in_a_hole():
+    rows = _days("2000-01-01", [1.0] * 400) + _days("2005-01-01", [2.0] * 400)
+    ch = dict(hc._change_series(rows))
+    # a "12-month change" on 2005-06-01 would really be a 4-year change
+    assert "2005-06-01" not in ch
+    assert ch["2006-01-31"] == 0.0
+
+
+def test_inversion_already_under_way_when_data_begins_is_start_unknown(tmp_path, monkeypatch):
+    _fixture_world(tmp_path, monkeypatch)
+    rows = _days("1981-09-01", [-0.5] * 30) + _days("1981-10-01", [0.5] * 9000)
+    _write_series(tmp_path, "dgs10", [(d, 4.0 + v) for d, v in rows])
+    _write_series(tmp_path, "dgs3mo", [(d, 4.0) for d, _ in rows])
+    c = hc.inversion_cycles("s3m10y", "2026-10-08")
+    assert c["cycles"][0]["status"] == "start_unknown" and c["n_judged"] == 0
+    assert c["base_rate_since"] == "1981"
+
+
+def test_digest_drops_a_pair_whose_count_depends_on_the_cut():
+    """v2 finding: 'happened twice before' held only at the 10% cut."""
+    import history_digest as hd
+    pair = {"bands": {"10": {"today_in_band": True, "current_run_start": "2026-06-17"},
+                      "20": {"current_run_start": "2023-09-19"}},
+            "track": [{"entry": "2006-04-01", "end": "2007-07-01",
+                       "recession_24m": {"status": "yes", "months_after": 20}}],
+            "shared_history_start": "2003-01-02", "stable_prior": False}
+    state = {"row_date": "2026-10-08", "series": {}, "derived": {},
+             "history_pairs": {"real_rates_vs_credit": pair}}
+    assert not any(f["id"].startswith("pair:") for f in hd.build_digest(state))
+    pair["stable_prior"] = True
+    assert any(f["id"].startswith("pair:") for f in hd.build_digest(state))
+
+
+def test_attach_history_failure_drops_every_history_key(tmp_path, monkeypatch):
+    import compute_state as cs
+    setup_fixture(tmp_path, monkeypatch)            # an empty history dir
+    state = {"series": {}, "derived": {}, "long_history": {"stale": 1}}
+    cs.attach_history_safe(state, [], "2026-10-08")
+    assert "history_error" in state
+    assert not any(k in state for k in cs.HISTORY_KEYS)
 
 
 def test_context_for_ignores_rows_after_as_of(tmp_path, monkeypatch):
@@ -528,3 +633,39 @@ def test_lint_blocks_highest_since_below_run_peak():
           "regime_line": "2007"}
     errors, _ = lint.lint(ok, state)
     assert not any("isn't this run's extreme" in e for e in errors)
+
+
+def test_lint_catches_the_v2_verification_findings():
+    state = _lint_state()
+    lh = state["long_history"]
+    lh["ust_10y"]["regime_divergence"] = True
+    lh["ust_10y"]["lookback"] = {"today_is_run_extreme": False, "run_extreme": 5.31,
+                                 "run_extreme_date": "2026-10-05", "current_run_unbroken": True}
+    lh["tips_10y_real"] = {"pct_rank_all_time": 99.7, "pct_rank_modern": None,
+                           "lookback": {"today_is_run_extreme": False, "run_extreme": 2.95,
+                                        "run_extreme_date": "2026-10-05",
+                                        "current_run_unbroken": False,
+                                        "current_run_sessions": 4,
+                                        "current_run_total_sessions": 6}}
+    lh["real10_cleveland"] = {"pct_rank_all_time": 54.0, "pct_rank_modern": 80.3,
+                              "regime_divergence": True, "start_date": "1982-01-01"}
+    base = "<p>The 10-year was last here briefly in 2007, at the 87th percentile of the last 30 years and the 49th since 1962.</p>"
+    probes = {
+        "below-peak superlative": "<p>Real yields are above every TIPS reading since 2003 except late 2008.</p>",
+        "N-year high": "<p>The 10-year hit a 19-year high today.</p>",
+        "one lens only": "<p>The Cleveland Fed's record puts real rates at the 54th percentile since 1982.</p>",
+        "soft label": "<p>The Cleveland Fed's longer record calls real rates middle-of-the-pack.</p>",
+        "wrong series percentile": "<p>The 10-year is at the 80th percentile of the last 30 years and the 49th since 1962.</p>",
+        "forecast": "<p>A recession will follow within two years.</p>",
+        "unattributed press": "<p>The press will call this a 19-year high.</p>",
+        "since on a broken run": "<p>Real yields have been at or above 2.92% since Sep 30.</p>",
+        "yearless outcome": "<p>Stocks were lower a year later in 5 of 14.</p>",
+    }
+    for name, para in probes.items():
+        errors, _ = lint.lint({"history_html": base + para, "regime_line": "2007"}, state)
+        assert errors, f"linter missed: {name}"
+    good = base + ("<p>The Cleveland Fed's longer record puts real rates at the 80th percentile "
+                   "of the last 30 years but only the 54th since 1982. Stocks were lower a year "
+                   "later in 5 of 14. Normally that's about one in four.</p>")
+    errors, _ = lint.lint({"history_html": good, "regime_line": "2007"}, state)
+    assert errors == []

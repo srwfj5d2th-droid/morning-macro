@@ -151,24 +151,35 @@ change only at monthly review:
     all-time or the 30-year view.
   - It is flagged `gap_sensitive` when the answer changes across 90-, 180-
     and 365-day grouping gaps. Prose may not use it then.
-  - `last_touch` and `last_sustained` (20+ readings) are reported
-    separately.
+  - `last_touch` and `last_sustained` (20+ sessions) are reported
+    separately. Thresholds are in sessions: `cadence` is inferred from the
+    file, and a weekly reading counts as 5 sessions, a monthly one as 21
+    (`last_touch.brief`).
   - The current run's own extreme is checked, so a reading below this run's
-    peak is never called "the highest since".
+    peak is never called "the highest since". `record` requires today to be
+    the run's extreme; otherwise `run_is_record` says the run's peak is.
+  - The current run is gap-grouped, so `current_run_total_sessions`,
+    `current_streak_start` and `current_run_unbroken` say whether "since X"
+    is literally true.
   - The `track` measures outcomes from each past stretch's **start**. Blips
-    (<10 readings) and regimes (>5 years) are excluded.
+    (<10 sessions) and regimes (>5 years) are excluded.
   - `most_recent_comparable` is kept for audit only. It lands inside the
     current run ("days ago") and must not be cited.
 - **`outcomes_from` / `base_rates`.** These give the S&P 500's next-12-month
   price return and deepest drop, and whether a recession began within 24
   months: `yes`, `no`, `in_progress`, or `pending` when the window ends
   after NBER can date it (USREC's last month minus 12). Each comes with the
-  **normal rate** over every month since 1948, 1962 or 1983.
+  **normal rate** over every month since 1948, 1962 or 1983, leaving out
+  months already inside a recession (tracks leave those cases out too), plus
+  the S&P's median deepest drop over any 12 months.
 - **`rate_shock` / `ytd_rank`** (`state.rate_pace`).
   - `rate_shock` covers 12-month moves at least this big: every past
     episode, measured from its start, against the normal rate. This is the
     honest track record for a rate move, where a level's own track is
-    usually 1–2 cases.
+    usually 1–2 cases. It reports how many shorter (<10-session) episodes it
+    left out, and flags a recession already counted for an earlier shock
+    (`same_recession_as_earlier`). The underlying 12-month changes skip any
+    date whose base reading falls more than 10 days early (a data hole).
   - `ytd_rank` ranks this year's change through today's date against every
     prior year. It works in bp mode for rates (negative bases kept) and %
     mode for prices. Years with data holes are skipped, and early-January
@@ -181,7 +192,9 @@ change only at monthly review:
 - **`inversion_cycles`** (`state.curve_cycles`). Runs within 365 days merge
   into one cycle. A cycle is material at 10+ sessions *and* a trough of
   −10bp or deeper. Cycles are classified `followed`, `not_followed`,
-  `pending`, or `began_in_recession`, against the 36-month normal rate. This
+  `pending`, `began_in_recession`, or `start_unknown` (already inverted when
+  the data begins), against the 36-month normal rate over the series' own
+  years. This
   replaces the fragment counts of `summarize_inversions`, which is kept but
   no longer used.
 - **`market_context`** covers S&P 500, Nasdaq, WTI and gold. It is
@@ -192,12 +205,19 @@ change only at monthly review:
   both have a date.
 - **`then_vs_now`** is a fixed panel for the lead fact's date vs. today. It
   marks each row similar or different (within 15 percentile points of that
-  measure's own history).
+  measure's own history on both the all-time and 30-year views) and shows
+  the gap in the measure's own units.
 - **`cycle_map`** is Unit 7's aggregate gauges vs. the 2000 and 2007 peaks,
   cycle level only (§8).
-- **`lately_vs_history`** is the script-written label: "unusual lately and
-  historically", "unusual lately, ordinary historically", "quiet lately,
-  historically extreme", "ordinary", or "3-yr record only".
+- **`lately_vs_history`** is the script-written label, two parts. Lately:
+  "unusual lately", "quiet lately", or "no 6-month read" (proxy and
+  reference series get a z from their own file via `recent_z`; a monthly
+  series can't). History, each lens tested on its own: "historically
+  extreme" (both), "high vs. last 30 yrs (87th), about average since 1962
+  (49th)" (one), "ordinary historically", or "3-yr record only".
+- **`by_decade`** (series with 35+ years) gives each decade's range and the
+  share of its readings at or above today's. It is the only source for a
+  decade framing in prose.
 
 `scripts/history_digest.py` picks at most four facts a day and writes their
 sentences. `scripts/check_history_prose.py` lints the model's prose against

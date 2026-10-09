@@ -240,15 +240,21 @@ which change only at monthly review:
   - the markets table and the S&P pullback line.
 
   Every cell and every History-check sentence is rendered from `state.json`.
+  On the page, everything after the then-vs-now panel folds under one
+  "numbers behind this" toggle so the visible section stays a few-minute
+  read; the markdown twin carries it all, caveat footnotes included.
 - **"Last time" is honest by construction.**
   - It is claimed only for a reading in a tail: top or bottom fifth on the
     all-time or 30-year view (`TAIL_GATE`).
   - It is claimed only when the answer survives different ways of grouping
     readings into stretches (`gap_sensitive`).
-  - "Briefly" is separated from "routinely": a touch under 20 readings
-    versus a sustained stretch.
+  - "Briefly" is separated from "routinely": a touch under 20 sessions'
+    worth of readings (a weekly reading counts as 5 sessions, a monthly one
+    as 21) versus a sustained stretch.
   - It is checked against the current run's own peak, so a reading below
-    this run's high is never called "the highest since".
+    this run's high is never called "the highest since" or a record.
+  - "Has been here since X" is written only when the run is unbroken;
+    otherwise it reads "on N of the M sessions since X".
 - **"What came next" is measured from the start of each past stretch**, the
   real-time twin of today. It is never measured from the end, which is known
   only in hindsight and is often the day a crisis began. That end-anchoring
@@ -260,10 +266,21 @@ which change only at monthly review:
 - **Pairs use fixed percentile bands** (10/90 primary, 20/80 and 25/75 as
   robustness checks), never today's exact values: exact thresholds make
   "never before" happen by construction. Pairs are pre-registered in
-  `compute_state.HISTORY_PAIRS`. "Never before" is banned in prose.
+  `compute_state.HISTORY_PAIRS`. "Never before" is banned in prose. A pair
+  enters the History check only when its past-case count is the same at
+  every cut (`stable_prior`); otherwise the count depends on the cut, and no
+  track record is claimed.
 - **Curve inversions count cycles, not fragments.** Runs within a year
-  merge. A cycle that began inside a recession isn't counted, and unresolved
-  cycles are pending. Result: 4 of 5, not "14 of 18".
+  merge. A cycle that began inside a recession isn't counted, nor one
+  already under way when the data begins, and unresolved cycles are
+  pending. Result: 4 of 5, not "14 of 18". Every normal rate leaves out
+  months already inside a recession (as every track record does), and the
+  curve's covers the same years as its record (1976+ / 1981+).
+- **The one-glance label tests each lens on its own.** "Historically
+  extreme" needs the top or bottom fifth on both the all-time and 30-year
+  views; when only one is, both numbers are shown. "Lately" is never
+  claimed without a measured 6-month read (proxies get one from their own
+  files; a monthly series gets "no 6-month read").
 - **Short records get cross-checked.** TIPS start in 2003, so the
   Cleveland Fed's model real rate (1982+) is shown beside it, and prose must
   cite both when they disagree. The Kim-Wright term premium (1990+) lets the
@@ -279,6 +296,14 @@ which change only at monthly review:
     rate. Forecast verbs and "never before" are banned, and the history
     prose is capped at 300 words.
   - A regression test asserts that 2026-10-09's first edition fails it.
+  - Second verification pass, same day (v2.1): the linter also ties every
+    percentile to the series its sentence names, requires both percentiles
+    when they diverge, blocks "has been … since" for a broken run, "record"
+    for a series that isn't at one, "N-year high" and "above every … since"
+    superlatives below a run's peak, unattributed press framings, and
+    "will follow"-style forecasts. Tier 3 and Movers prose are linted too.
+    A decade framing ("if you remember the '80s") must come from
+    `long_history[key].by_decade`.
 - **Sources.**
   - Yahoo daily, same symbols as the live pull: S&P 500 1927+, Nasdaq
     1971+, DXY 1971+ (closes the DXY gap above), WTI and gold futures 2000+.

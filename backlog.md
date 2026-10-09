@@ -99,6 +99,27 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
     - Yahoo gold-futures history revised after a roll (the live series now
       overrides it)
     - SVG metadata leaking into the markdown twin
+- [x] **Second verification pass (v2.1), same day.** About 40 independent
+  checks found that v2's numbers reproduced, but some wording didn't match
+  them. All of the following were fixed before the re-issue merged, each
+  with a regression test:
+  - "quiet lately" printed for series never measured (mortgage rates had
+    jumped a point);
+  - one-lens percentiles where the two diverge (Cleveland real rate, the
+    '80s client line);
+  - "has been here since" for a run with dips;
+  - a pair's "twice before" that held only at one cutoff;
+  - "briefly" for 9 monthly readings;
+  - a record flag that ignored the run's own peak;
+  - normal rates that included months already in recession, and a curve
+    base rate from the wrong years;
+  - an email line that dropped its qualifier;
+  - causal links in Story/Movers/Tier 3 that the reporting doesn't make;
+  - an incomplete corrections note.
+- [ ] **Then-vs-now similarity in native units.** The pinned rule (within 15
+  percentile points on both views) calls the 30Y mortgage rate +0.66 points
+  "similar" (14.6 points apart on the 30-year view). The gap is now shown
+  in the cell, but consider a per-row unit tolerance at review.
 - [ ] **Monthly refresh now covers the Yahoo files and the new FRED reference
   series.** Run `build_long_history.py --refresh` at review. Between
   refreshes the live series fills recent days.

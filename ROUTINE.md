@@ -86,6 +86,14 @@ Run order:
    - Any "what came next" carries its count and the normal rate.
    - Never write "never before", "highest since" for a reading below its
      run's peak, or a model decomposition stated as fact.
+   - When a series' two percentiles diverge (†), cite both, everywhere
+     (dashboard and client lens too), never just one or a word like
+     "middle-of-the-pack".
+   - Write "has been here since X" only if the digest does (an unbroken
+     run); a decade framing only from `by_decade`; a pair's track record
+     only if the digest carries it.
+   - Interpret the History check box; don't restate it. No press framing
+     you can't attribute to a named outlet in data/raw/web_<today>.json.
    - Put the lead fact's year in the regime line or story too.
    On Fridays, put `[[CYCLE_MAP]]` in `tier3_html` (the Unit 7 map) next to
    `[[LIQUIDITY_SVG]]`.

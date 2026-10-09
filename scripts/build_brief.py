@@ -22,6 +22,8 @@ import json
 import re
 from pathlib import Path
 
+from history_context import ordinal, pct_ordinal, reading_units
+
 REPO = Path(__file__).resolve().parent.parent
 
 RECAP = [("S&P 500", "spx", "idx"), ("Nasdaq", "ndx", "idx"),
@@ -111,14 +113,20 @@ def pctile_cell(state, key):
     if ctx is None:
         return '<span style="color:#B9BEC7;">&mdash;</span>'
     if ctx.get("short_history"):
-        return f'{ctx["pct_rank_all_time"]:.0f}*'
+        return f'{_pct(ctx["pct_rank_all_time"])}*'
     modern = ctx.get("pct_rank_modern")
     if modern is None:
-        return f'{ctx["pct_rank_all_time"]:.0f}'
-    cell = f'{ctx["pct_rank_all_time"]:.0f}/{modern:.0f}'
+        return _pct(ctx["pct_rank_all_time"])
+    cell = f'{_pct(ctx["pct_rank_all_time"])}/{_pct(modern)}'
     if ctx.get("regime_divergence"):
         return f'<span style="font-weight:600;">{cell}&dagger;</span>'
     return cell
+
+
+def _pct(p):
+    """A percentile cell: whole numbers, but one decimal near the edges so
+    99.7 never reads as a record ('100')."""
+    return f"{p:.1f}" if (p >= 99 or p <= 1) else f"{p:.0f}"
 
 
 def recap_rows(state, spark_dir, color, row_date):
@@ -184,7 +192,7 @@ HIST_REF = [("UST 2Y", "ust_2y", "yld"), ("UST 10Y", "ust_10y", "yld"),
             ("10Y real (Cleveland model, monthly)", "real10_cleveland", "yld"),
             ("10Y breakeven", "bkeven_10y", "yld"),
             ("Term premium (Kim-Wright model)", "kw_tp10", "yld"),
-            ("SOFR (fed funds pre-2018)", "sofr", "yld"),
+            ("SOFR (vs. fed funds history)", "sofr", "yld"),
             ("2s10s", "s2s10", "bp"), ("3m10y", "s3m10y", "bp"),
             ("HY OAS", "hy_oas", "sprd"), ("IG OAS", "ig_oas", "sprd"),
             ("IG proxy: Baa − 10Y", "baa_10y_spread", "pp"),
@@ -200,6 +208,12 @@ def _mon_d_yr(d):
     import datetime as _dt
     x = _dt.date.fromisoformat(d)
     return f"{x.strftime('%b')} {x.day}, {x.year}"
+
+
+def _mon_d_rel(d, as_of):
+    """'Oct 5' in the as-of year, 'Dec 30, 2025' otherwise."""
+    full = _mon_d_yr(d)
+    return full[:-6] if d[:4] == as_of[:4] else full
 
 
 def _signed(v, nd=1, unit="%"):
@@ -219,7 +233,7 @@ def _ref_value(ctx, kind):
     return f"{v:.2f}%"
 
 
-def _last_time_cell(ctx):
+def _last_time_cell(ctx, as_of):
     lb = ctx.get("lookback") or {}
     if ctx.get("short_history"):
         return f'<span style="{MUTED}">only ~{ctx["years"]:.0f} yrs of data here*</span>'
@@ -228,22 +242,28 @@ def _last_time_cell(ctx):
     if lb.get("gap_sensitive"):
         return (f'<span style="{MUTED}">answer depends on how stretches are grouped '
                 f'&mdash; not claimed</span>')
+    hi = lb["side"] == "high"
     if lb.get("record"):
         return f'<strong>beyond every reading since {lb["history_start"][:4]}</strong>'
+    if lb.get("run_is_record"):
+        return (f'<strong>this run set a record</strong> <span style="{MUTED}">('
+                f'{"high" if hi else "low"} {lb["run_extreme"]:.2f}, {_mon_d_rel(lb["run_extreme_date"], as_of)}; '
+                f'today is {"below" if hi else "above"} it)</span>')
     lt, ls = lb.get("last_touch"), lb.get("last_sustained")
-    sym = "&ge;" if lb["side"] == "high" else "&le;"
+    sym = "&ge;" if hi else "&le;"
     if not lt:
         return f'<span style="{MUTED}">not before (data since {lb["history_start"][:4]})</span>'
+    cad = lb.get("cadence", "daily")
     cell = f'{sym} {_mon_yr(lt["end"])}'
-    if lt["n_obs"] < 20:
-        cell += f' <span style="{MUTED}">(briefly, {lt["n_obs"]} readings)</span>'
+    if lt.get("brief", lt["n_obs"] < 20):
+        cell += f' <span style="{MUTED}">(briefly, {reading_units(lt["n_obs"], cad)})</span>'
         if ls and ls["end"] != lt["end"]:
             cell += f'<br><span style="{MUTED} font-size:11px;">routinely until {_mon_yr(ls["end"])}</span>'
-    if lb.get("current_run_years", 0) and lb.get("current_run_years", 0) >= 1:
-        cell += f'<br><span style="{MUTED} font-size:11px;">here since {_mon_yr(lb["current_run_start"])}</span>'
+    if (lb.get("current_run_years") or 0) >= 1:
+        cell += f'<br><span style="{MUTED} font-size:11px;">this run began {_mon_yr(lb["current_run_start"])}</span>'
     if not lb.get("today_is_run_extreme", True) and lb.get("run_extreme_prior"):
-        cell += (f'<br><span style="{MUTED} font-size:11px;">run {"high" if lb["side"] == "high" else "low"} '
-                 f'{lb["run_extreme"]:.2f} ({_mon_d_yr(lb["run_extreme_date"])[:-6]}) last matched '
+        cell += (f'<br><span style="{MUTED} font-size:11px;">run {"high" if hi else "low"} '
+                 f'{lb["run_extreme"]:.2f} ({_mon_d_rel(lb["run_extreme_date"], as_of)}) last matched '
                  f'{_mon_yr(lb["run_extreme_prior"]["end"])}</span>')
     if ctx.get("exclude_note"):
         cell += f'<br><span style="{MUTED} font-size:11px;">2002&ndash;06 excluded (30Y bond suspended)</span>'
@@ -251,6 +271,11 @@ def _last_time_cell(ctx):
 
 
 def history_check_html(state):
+    if state.get("history_error"):
+        return ('    <p style="font-size:14px; margin:0 0 10px 0; color:#39404E;">History check: '
+                'the long-run history files failed to load today, so this brief makes no '
+                'historical comparisons (&sect;4). Logged: '
+                f'{html.escape(state["history_error"])}.</p>')
     facts = state.get("history_digest") or []
     if not facts:
         return ('    <p style="font-size:14px; margin:0 0 10px 0; color:#39404E;">History check: '
@@ -283,8 +308,13 @@ def then_now_html(state):
             if r["unit"] == "pctpt":
                 return _signed(v)
             return f"{v:.2f}%"
+        gap = ""
+        if r.get("gap") is not None:
+            g = r["gap"]
+            gap = {"bp": f"{g * 100:+.0f}bp", "pctpt": f"{g:+.1f} pts"}.get(r["unit"], f"{g:+.2f} pt")
+            gap = f' <span style="{MUTED}">({gap.replace("-", "&minus;")})</span>'
         call = ("&mdash;" if r["similar"] is None else
-                ("similar" if r["similar"] else '<strong>different</strong>'))
+                ("similar" if r["similar"] else '<strong>different</strong>')) + gap
         now_lag = (f' <span style="{MUTED} font-size:10px;">({r["now"]["date"][5:]})</span>'
                    if r["now"]["date"] != state["row_date"] else "")
         rows.append(
@@ -304,7 +334,8 @@ def then_now_html(state):
             '<td style="padding:4px 0 4px 6px; text-align:right; font-size:11px; font-weight:600; text-transform:uppercase;">Call</td></tr>\n'
             + "\n".join(rows) + '\n    </table>\n'
             f'    <p style="font-size:11.5px; {MUTED} margin:4px 0 0 0;">&ldquo;Similar&rdquo; = within '
-            '15 percentile points of each other on that measure\'s own history. Term premium is a '
+            '15 percentile points of each other on that measure\'s own history, both all-time and over '
+            'the last 30 years; the gap in brackets is now minus then. Term premium is a '
             'Fed Board model estimate (Kim-Wright); fed funds then vs. SOFR now.</p>')
 
 
@@ -322,7 +353,7 @@ def history_ref_rows(state, row_date):
             f'        <td style="padding:6px 0;">{label}{lag}</td>\n'
             f'        <td style="padding:6px 6px; text-align:right; {MONO} white-space:nowrap;">{_ref_value(ctx, kind)}</td>\n'
             f'        <td style="padding:6px 6px; font-size:12px;">{html.escape(ctx.get("label", ""))}</td>\n'
-            f'        <td style="padding:6px 0 6px 6px; font-size:12px;">{_last_time_cell(ctx)}</td>\n'
+            f'        <td style="padding:6px 0 6px 6px; font-size:12px;">{_last_time_cell(ctx, row_date)}</td>\n'
             f'      </tr>')
     return "\n".join(out)
 
@@ -337,7 +368,9 @@ def history_lines(state):
         pend = [x for x in c["cycles"] if x["status"] == "pending"]
         txt = (f"<strong>{name} inversions since {c['history_start'][:4]}:</strong> "
                f"{c['n_followed']} of {c['n_judged']} inversion cycles were followed by a recession "
-               f"within three years of starting (any three-year stretch since 1948: {c['base_rate_36m_pct']}%).")
+               f"within three years of starting (any three-year stretch since "
+               f"{c.get('base_rate_since', c['history_start'][:4])}, outside a recession: "
+               f"{c['base_rate_36m_pct']}%).")
         if miss:
             m = miss[-1]
             txt += (f" The miss: {_mon_yr(m['start'])}&ndash;{_mon_yr(m['end'])}, "
@@ -349,21 +382,44 @@ def history_lines(state):
         covid = [x for x in c["cycles"] if x["status"] == "followed"
                  and "COVID" in (x.get("recession") or "")]
         if covid:
-            txt += (f" One &ldquo;hit&rdquo; ({_mon_yr(covid[0]['start'])}) was followed by the "
-                    "COVID recession, a shock no curve could foresee.")
+            txt += (f" One hit ({_mon_yr(covid[0]['start'])}) counts the COVID recession, which began "
+                    f"{covid[0]['months_from_start']} months after that inversion started.")
         if c.get("n_began_in_recession"):
             txt += f" ({c['n_began_in_recession']} began inside a recession and isn't counted.)"
+        if c.get("n_start_unknown"):
+            txt += (f" ({c['n_start_unknown']} was already inverted when the data begins, so its "
+                    "start is unknown and it isn't counted.)")
+        hits = [x for x in c["cycles"] if x["status"] == "followed"
+                and not x.get("same_recession_as_earlier_cycle")]
+        after = [x["months_from_uninversion"] for x in hits if x["months_from_uninversion"] >= 0]
         if c.get("months_since_latest_cycle_end") is not None:
-            txt += f" Latest un-inversion: {c['months_since_latest_cycle_end']} months ago."
+            txt += f" The latest inversion ended {c['months_since_latest_cycle_end']} months ago."
+            if after:
+                txt += (f" In {len(after)} of the {len(hits)} hits, the recession began "
+                        + (f"{min(after)}&ndash;{max(after)} months" if min(after) != max(after)
+                           else f"{after[0]} months")
+                        + " after the curve stopped being inverted"
+                        + (f" (in the other{'s' if len(hits) - len(after) > 1 else ''}, while it "
+                           "was still inverted)" if len(after) < len(hits) else "")
+                        + ".")
         lines.append(txt)
     digest_ids = {f["id"] for f in state.get("history_digest") or []}
     for name, pr in (state.get("history_pairs") or {}).items():
         if f"pair:{name}" in digest_ids:
             continue
-        b = pr["bands"]["10"]
-        lines.append(f"<strong>Real yields vs. credit:</strong> in band today: "
-                     f"{'yes' if b['today_in_band'] else 'no'}; prior stretches since "
-                     f"{pr['shared_history_start'][:4]}: {b['n_prior_stretches']}.")
+        b, b20 = pr["bands"]["10"], pr["bands"]["20"]
+        txt = (f"<strong>High real yields with tight credit</strong> (both since "
+               f"{pr['shared_history_start'][:4]}): in its extreme band today: "
+               f"{'yes' if b['today_in_band'] else 'no'}. ")
+        if pr.get("stable_prior"):
+            txt += f"Prior stretches: {b['n_prior_stretches']}."
+        else:
+            txt += (f"Prior stretches: {b['n_prior_stretches']} at the strict top/bottom-tenth cut, "
+                    f"{b20['n_prior_stretches']} at a top/bottom-fifth cut"
+                    + (f" (where today's stretch reaches back to {_mon_yr(b20['current_run_start'])})"
+                       if b20.get("current_run_start") else "")
+                    + ". The count depends on the cut, so no track record is claimed.")
+        lines.append(txt)
     return "\n".join(f'    <p style="font-size:13px; margin:8px 0 0 0; color:#39404E;">{t}</p>'
                      for t in lines)
 
@@ -377,8 +433,10 @@ def shock_track_html(state):
     for t in sh["track"]:
         spx = t.get("spx_12m")
         rec = t["recession_24m"]
-        rec_txt = {"yes": f"yes ({rec.get('months_after')} mo)", "no": "no",
-                   "pending": "too recent", "in_progress": "began mid-recession"}[rec["status"]]
+        rec_txt = {"yes": f"yes ({rec.get('months_after')} mo"
+                          + (", same as above" if rec.get("same_recession_as_earlier") else "") + ")",
+                   "no": "no", "pending": "too recent",
+                   "in_progress": "began mid-recession"}[rec["status"]]
         rows.append(
             f'        <tr style="border-bottom:1px solid #EAE6DF;">'
             f'<td style="padding:4px 0;">{_mon_yr(t["entry"])}</td>'
@@ -388,14 +446,21 @@ def shock_track_html(state):
             f'<td style="padding:4px 0 4px 6px; text-align:right;">{rec_txt}</td></tr>')
     sm = sh["track_summary"]
     spx_b = base.get("spx_12m", {}).get("since_1962", {})
+    dd = spx_b.get("median_worst_drawdown_pct")
     rows.append(
         f'        <tr style="border-top:1.5px solid #1F2430;"><td style="padding:4px 0; font-weight:600;">Normal (any month since 1962)</td>'
-        f'<td></td><td style="padding:4px 6px; text-align:right; {MONO}">{_signed(spx_b.get("median_pct", 0))} median</td>'
-        f'<td style="padding:4px 6px; text-align:right; {MONO}">{spx_b.get("share_negative_pct")}% negative</td>'
-        f'<td style="padding:4px 0 4px 6px; text-align:right;">{base.get("recession_starts_within", {}).get("24m_since_1962")}% yes</td></tr>')
+        f'<td></td><td style="padding:4px 6px; text-align:right; {MONO}">{_signed(spx_b.get("median_pct", 0))} median'
+        f'<br><span style="{MUTED}">{spx_b.get("share_negative_pct")}% of 12-mo spans negative</span></td>'
+        f'<td style="padding:4px 6px; text-align:right; {MONO}">{(_signed(dd) + " median") if dd is not None else "&mdash;"}</td>'
+        f'<td style="padding:4px 0 4px 6px; text-align:right;">{base.get("recession_starts_within", {}).get("24m_since_1962")}% yes'
+        f'<br><span style="{MUTED}">outside recessions</span></td></tr>')
+    move = "rise" if sh["side"] == "high" else "fall"
+    n_brief = sh.get("n_briefer_excluded") or 0
+    title = (f'Every time before: the {sm["n"]} past 12-month {move}{"" if sm["n"] == 1 else "s"} in the 10Y '
+             f'of {abs(sh["change_12m_pp"]):.2f} points or more (since {sh["history_start"][:4]}'
+             + (f"; {n_brief} that lasted under 10 sessions not shown" if n_brief else "") + ")")
     return (f'    <details style="margin:12px 0 0 0;"><summary style="font-size:13px; font-weight:600; cursor:pointer;">'
-            f'Every time before: the {sm["n"]} past 12-month rises in the 10Y of '
-            f'{sh["change_12m_pp"]:+.2f} points or more (since {sh["history_start"][:4]})</summary>\n'
+            f'{title}</summary>\n'
             '      <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12px; margin-top:6px;">\n'
             '        <tr style="border-bottom:1.5px solid #1F2430;"><td style="padding:4px 0; font-size:10.5px; font-weight:600; text-transform:uppercase;">Started</td>'
             '<td style="padding:4px 6px; text-align:right; font-size:10.5px; font-weight:600; text-transform:uppercase;">10Y then</td>'
@@ -403,21 +468,23 @@ def shock_track_html(state):
             '<td style="padding:4px 6px; text-align:right; font-size:10.5px; font-weight:600; text-transform:uppercase;">Deepest drop in that year</td>'
             '<td style="padding:4px 0 4px 6px; text-align:right; font-size:10.5px; font-weight:600; text-transform:uppercase;">Recession &le;2 yrs</td></tr>\n'
             + "\n".join(rows) + '\n      </table>\n'
-            f'      <p style="font-size:11.5px; {MUTED} margin:4px 0 0 0;">Measured from the day each rise first '
+            f'      <p style="font-size:11.5px; {MUTED} margin:4px 0 0 0;">Measured from the day each {move} first '
             'reached this size (the real-time twin of today), never from when it ended. S&amp;P 500 price '
             'only, no dividends. Overlapping windows aren\'t independent: counts, not odds.</p>\n'
             '    </details>')
 
 
 def market_rows(state):
+    as_of = state["row_date"]
     rows = []
     for key, ctx in (state.get("market_history") or {}).items():
         mv, rec, ytd = ctx["move"], ctx["record"], ctx.get("ytd")
         word = "drop" if mv["direction"] == "down" else "gain"
         lb = mv.get("last_at_least_this_big")
-        often = (f'~{mv["per_year_recent"]:.0f} days/yr' if mv.get("per_year_recent") is not None else "&mdash;")
+        often = (f'{word}s this size: ~{mv["per_year_recent"]:.0f} days/yr'
+                 if mv.get("per_year_recent") is not None else "&mdash;")
         often += (f'<br><span style="{MUTED} font-size:11px;">{"since " + ctx["history_start"][:4] if mv["recent_window_years"] < 30 else "last 30 yrs"}'
-                  + (f'; last bigger {word} {_mon_d_yr(lb["date"])[:-6]}' if lb else "") + '</span>')
+                  + (f'; last bigger {word} {_mon_d_rel(lb["date"], as_of)}' if lb else "") + '</span>')
         if ytd:
             ytd_txt = (f'{_signed(ytd["change"])} <span style="{MUTED}">· {"#" + str(ytd["rank"])} '
                        f'{"best" if ytd["direction"] == "up" else "worst"} of {ytd["n_years"]} '
@@ -444,13 +511,15 @@ def pullback_line(state):
     if not pb or pb.get("this_year_worst_pct") is None:
         return ""
     a, b = pb["since_1929"], pb["since_1950"]
+    as_of = state["row_date"]
+    cmp_ = ("milder than" if pb["this_year_worst_pct"] > a["median_pct"] else "deeper than")
     return ('    <p style="font-size:13px; margin:8px 0 0 0; color:#39404E;"><strong>S&amp;P 500 pullbacks:</strong> '
             f'this year\'s worst drop so far is {_signed(pb["this_year_worst_pct"])} '
-            f'({_mon_d_yr(pb["peak_date"])[:-6]} to {_mon_d_yr(pb["trough_date"])[:-6]}). '
-            f'The typical full year since 1929 saw a worst drop of {_signed(a["median_pct"])}; '
-            f'{a["n_10pct_or_worse"]} of {a["n_years"]} years had a drop of 10% or more, and '
-            f'{a["n_20pct_or_worse"]} had 20% or more (since 1950: median {_signed(b["median_pct"])}, '
-            f'{b["n_10pct_or_worse"]} of {b["n_years"]}, {b["n_20pct_or_worse"]}). Price only.</p>')
+            f'({_mon_d_rel(pb["peak_date"], as_of)} to {_mon_d_rel(pb["trough_date"], as_of)}), '
+            f'{cmp_} a typical year: since 1929 the median year\'s worst drop was '
+            f'{_signed(a["median_pct"])}, and {a["n_10pct_or_worse"]} of {a["n_years"]} years saw a '
+            f'drop of 10% or more ({a["n_20pct_or_worse"]} saw 20% or more). Since 1950 the median '
+            f'is {_signed(b["median_pct"])}. Price only.</p>')
 
 
 def cycle_map_html(state):
@@ -460,7 +529,7 @@ def cycle_map_html(state):
     rows = []
     for g in cm["gauges"]:
         now = f'{g["value"]:.1f}%' + (" <strong>record</strong>" if g["is_record"] else
-                                     f' <span style="{MUTED}">({g["pct_rank_all_time"]:.0f}th %ile)</span>')
+                                     f' <span style="{MUTED}">({pct_ordinal(g["pct_rank_all_time"])} %ile)</span>')
         p00, p07 = g.get("peak_1997_2001"), g.get("peak_2005_2008")
         c00 = f'{p00["value"]:.1f}%' if p00 else "&mdash;"
         c07 = f'{p07["value"]:.1f}%' if p07 else "&mdash;"
@@ -476,7 +545,7 @@ def cycle_map_html(state):
         rows.append(
             f'      <tr style="border-bottom:1px solid #EAE6DF;"><td style="padding:5px 0;">{html.escape(r["label"])} 3-year price return</td>'
             f'<td style="padding:5px 6px; text-align:right; {MONO}">{_signed(r["three_year_return_pct"])} '
-            f'<span style="{MUTED}">({r["pct_rank_all_time"]:.0f}th %ile)</span></td>'
+            f'<span style="{MUTED}">({pct_ordinal(r["pct_rank_all_time"])} %ile)</span></td>'
             f'<td style="padding:5px 6px; text-align:right; {MONO}">{(_signed(pk["value"]) + " peak") if pk else "&mdash;"}</td>'
             f'<td style="padding:5px 0 5px 6px; text-align:right;">&mdash;</td></tr>')
     return ('    <p style="font-size:13px; font-weight:600; margin:14px 0 4px 0;">Financing-cycle map (Unit 7) &mdash; '
@@ -489,23 +558,28 @@ def cycle_map_html(state):
             + "\n".join(rows) + '\n    </table>\n'
             f'    <p style="font-size:11.5px; {MUTED} margin:4px 0 0 0;">Aggregates only (cycle level, &sect;8). Quarterly '
             'BEA/Fed data arrive about a quarter late and get revised; IT investment is nominal; '
-            'corporate debt here misses private credit and off-balance-sheet structures, where much '
-            'data-center financing sits. Equity/GDP has drifted up structurally &mdash; a map, not a timing signal.</p>')
+            'corporate debt is one aggregate of all nonfinancial corporate bonds and loans and doesn\'t '
+            'isolate data-center financing. Equity/GDP has drifted up structurally &mdash; a map, not a timing signal.</p>')
 
 
 HISTORY_NOTE = (
-    "How to read: <strong>Lately vs. history</strong> sets the 120-day flag against the "
-    "long-run record (&ldquo;historically extreme&rdquo; = top or bottom fifth on the all-time or "
-    "30-year view). <strong>Last time</strong> is shown only for those tail readings, and only "
-    "when the answer doesn't change with how readings are grouped into stretches: the last stretch "
-    "<em>before</em> the current one at least this high (&ge;) or low (&le;), with &ldquo;briefly&rdquo; when "
-    "it lasted under 20 sessions. Any &ldquo;what came next&rdquo; is measured from the day a past "
-    "stretch began, against the normal rate, and recessions too recent for NBER to date are "
-    "&ldquo;too recent to judge.&rdquo; Sources: FRED (Treasuries 1962+, TIPS/breakeven 2003+, fed funds "
-    "1954+, Moody's Baa 1986+, Cleveland Fed real rate 1982+, Kim-Wright term premium 1990+, "
-    "Freddie Mac mortgage 1971+, NBER recessions), Yahoo (S&amp;P 500 1928+, Nasdaq 1971+, DXY "
-    "1971+, WTI and gold futures 2000+). *HY/IG OAS: only ~3 years reachable here; the Baa&minus;10Y "
-    "row is the long-run investment-grade proxy (direction and timing only, never magnitude).")
+    "How to read: <strong>Lately vs. history</strong> puts two questions side by side. "
+    "&ldquo;Lately&rdquo; compares today with the past six months (&ldquo;unusual&rdquo; = a 120-day "
+    "z-score of 1.5 or more; &ldquo;no 6-month read&rdquo; = too few recent readings to say). "
+    "&ldquo;History&rdquo; checks the all-time and last-30-years percentiles separately: "
+    "&ldquo;historically extreme&rdquo; means top or bottom fifth on both; when only one view is "
+    "extreme, both numbers are shown. <strong>Last time</strong> appears only for readings in the "
+    "top or bottom fifth, and only when short dips in between don't change the answer: it is the "
+    "last stretch <em>before</em> this one at least this high (&ge;) or low (&le;), with "
+    "&ldquo;briefly&rdquo; when that stretch added up to under 20 trading days. Any &ldquo;what came "
+    "next&rdquo; is measured from the day a past stretch began, against the normal rate, and "
+    "recessions too recent for NBER to date are &ldquo;too recent to judge.&rdquo; Sources: FRED "
+    "(Treasuries: 10-year 1962+, 2-year 1976+, 30-year 1977+ with 2002&ndash;06 excluded, 3-month "
+    "1981+; TIPS/breakeven 2003+, fed funds 1954+, Moody's Baa 1986+, Cleveland Fed real rate "
+    "1982+, Kim-Wright term premium 1990+, Freddie Mac mortgage 1971+, NBER recessions), Yahoo "
+    "(S&amp;P 500 1928+, Nasdaq 1971+, DXY 1971+, WTI and gold futures 2000+). *HY/IG OAS: only "
+    "~3 years reachable here; the Baa&minus;10Y row is the long-run investment-grade proxy "
+    "(direction and timing only, never magnitude).")
 
 
 def history_markdown(state, row_date, prose_md=""):
@@ -521,7 +595,8 @@ def history_markdown(state, row_date, prose_md=""):
     tn = then_now_html(state)
     if tn:
         parts.append(f"**Then vs. now — {_mon_d_yr(state['then_vs_now']['then_date'])} vs. today**\n\n"
-                     + _md_table(["Measure", "Then", "Now", "Call"], tn))
+                     + _md_table(["Measure", "Then", "Now", "Call"], tn)
+                     + "\n\n" + _footnote_md(tn))
     parts.append(_md_table(["Series", "Today", "Lately vs. history", "Last time"],
                            history_ref_rows(state, row_date)))
     lines = history_lines(state)
@@ -531,7 +606,8 @@ def history_markdown(state, row_date, prose_md=""):
     if st:
         summary = re.search(r"<summary[^>]*>(.*?)</summary>", st, re.S).group(1)
         parts.append(f"**{html.unescape(re.sub(r'<[^>]+>', '', summary))}**\n\n"
-                     + _md_table(["Started", "10Y then", "S&P next 12 mo", "Deepest drop in that year", "Recession ≤2 yrs"], st))
+                     + _md_table(["Started", "10Y then", "S&P next 12 mo", "Deepest drop in that year", "Recession ≤2 yrs"], st)
+                     + "\n\n" + _footnote_md(st))
     parts.append(_md_table(["Market", "Today", "How often", "This year vs. past years", "From record"],
                            market_rows(state)))
     pb = pullback_line(state)
@@ -539,6 +615,13 @@ def history_markdown(state, row_date, prose_md=""):
         parts.append(_html_to_md(pb))
     parts.append(_html_to_md(HISTORY_NOTE))
     return "\n\n".join(parts)
+
+
+def _footnote_md(block_html):
+    """The caveat paragraph that follows a block's table, as markdown -- the
+    twin must carry the same caveats as the page."""
+    tail = block_html.rsplit("</table>", 1)[-1]
+    return _html_to_md(re.sub(r"</?details[^>]*>", "", tail))
 
 
 def _html_to_md(fragment):
@@ -604,7 +687,8 @@ def markdown_twin(content, state, spark_dir, row_date, ath_line, todays_events):
         .replace("[[CYCLE_MAP_MD]]",
                  "**Financing-cycle map (Unit 7) — today vs. the 2000 and 2007 peaks**\n\n"
                  + _md_table(["Gauge", "Now", "1997–2001 high", "2005–08 high"],
-                             cycle_map_html(state)) if state.get("cycle_map") else ""),
+                             cycle_map_html(state))
+                 + "\n\n" + _footnote_md(cycle_map_html(state)) if state.get("cycle_map") else ""),
         "## Today's calendar",
         "\n".join(f"- {e['date'][11:16]} ET — {e['title']}"
                   + (f" · cons {e['forecast']}" if e.get("forecast") else "")
@@ -748,7 +832,7 @@ def main():
     # one history line under the regime line: the first sentence of the top
     # digest fact, script-written (never typed by the model)
     digest = state.get("history_digest") or []
-    top = digest[0]["sentence"].split(". ")[0].rstrip(".") + "." if digest else ""
+    top = (digest[0].get("email") or digest[0]["sentence"]) if digest else ""
     history_email = (
         f'<p style="font-size:14px; line-height:1.5; margin:0 0 14px 0; '
         f'border-left:3px solid {color}; padding-left:10px;"><span style="font-family:Menlo,'

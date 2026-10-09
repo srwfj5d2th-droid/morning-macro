@@ -209,9 +209,10 @@ def main():
                                   / ath["value"], 3)}
 
     # long-run historical context (§4F) — supplementary, not fail-closed: if
-    # data/history/ hasn't been built yet, skip rather than fail the run
+    # data/history/ is missing or broken, skip it (and say so) rather than
+    # fail the run; never leave half the history keys behind
     if HIST_DIR.exists():
-        attach_history(state, rows, row_date)
+        attach_history_safe(state, rows, row_date)
 
     STATE_PATH.write_text(json.dumps(state, indent=2) + "\n")
 
@@ -243,6 +244,29 @@ def main():
     return 0
 
 
+def _label(ctx, z, thin):
+    return hc.lately_vs_history(z, thin, ctx["pct_rank_all_time"], ctx.get("pct_rank_modern"),
+                                ctx["start_date"][:4], ctx["short_history"])
+
+
+HISTORY_KEYS = ("long_history", "history_base_rates", "rate_pace", "history_pairs",
+                "curve_cycles", "market_history", "cycle_map", "then_vs_now",
+                "history_digest")
+
+
+def attach_history_safe(state, rows, row_date):
+    """attach_history, but a broken history file costs the history blocks,
+    never the brief: all of them are dropped (no half-written state) and the
+    error is recorded so the brief can say so."""
+    try:
+        attach_history(state, rows, row_date)
+    except Exception as e:
+        for k in HISTORY_KEYS:
+            state.pop(k, None)
+        state["history_error"] = f"{type(e).__name__}: {e}"
+        print(f"WARNING: long-run history skipped ({state['history_error']})", file=sys.stderr)
+
+
 def attach_history(state, rows, row_date):
     """§4F: where today sits against real history -- percentiles, the last
     time it was here, what came after (from the start, against the normal
@@ -272,16 +296,18 @@ def attach_history(state, rows, row_date):
             continue
         ctx["latest_value"] = value
         ctx["latest_date"] = s["last_date"]
-        ctx["label"] = hc.lately_vs_history(
-            s.get("z120"), s.get("z_thin"), ctx["lookback"]["ext"], ctx["short_history"])
+        ctx["label"] = _label(ctx, s.get("z120"), s.get("z_thin"))
         lh[key] = ctx
         if ctx.get("proxy_key") and ctx["proxy_key"] not in lh:
             try:
                 prow, _ = hc._series_for(ctx["proxy_key"])
+                prow = [x for x in prow if x[0] <= row_date]
                 pdate, pval = prow[-1]
                 pctx = hc.context_for(ctx["proxy_key"], pval, pdate, direction="high")
                 pctx["latest_value"], pctx["latest_date"] = pval, pdate
-                pctx["label"] = hc.lately_vs_history(None, True, pctx["lookback"]["ext"], False)
+                z, thin = hc.recent_z(prow, pdate)
+                pctx["lately_z"] = z
+                pctx["label"] = _label(pctx, z, thin)
                 lh[ctx["proxy_key"]] = pctx
             except (FileNotFoundError, IndexError):
                 pass
@@ -298,7 +324,9 @@ def attach_history(state, rows, row_date):
         if ctx:
             ctx["latest_value"], ctx["latest_date"] = v, d
             ctx["reference_series"] = True
-            ctx["label"] = hc.lately_vs_history(None, True, ctx["lookback"]["ext"], False)
+            z, thin = hc.recent_z(r, d)
+            ctx["lately_z"] = z
+            ctx["label"] = _label(ctx, z, thin)
             lh[key] = ctx
     # TIPS only reach back to 2003; flag when the Cleveland model's longer
     # record tells a different story, so prose cites both (§4F)

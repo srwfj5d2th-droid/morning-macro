@@ -20,6 +20,8 @@ Selection order (pinned; change at monthly review):
 
 import datetime as dt
 
+from history_context import level_word, ordinal, pct_ordinal, reading_units
+
 MAX_FACTS = 4
 
 # family -> series, anchor first. One fact per family.
@@ -43,14 +45,19 @@ def _mon_yr(d):
     return dt.date.fromisoformat(d).strftime("%b %Y")
 
 
-def _mon_d(d):
+def _mon_d(d, as_of=None):
+    """'Oct 5' within the as-of year, 'Dec 30, 2025' otherwise."""
     x = dt.date.fromisoformat(d)
-    return f"{x.strftime('%b')} {x.day}"
+    s = f"{x.strftime('%b')} {x.day}"
+    return s if as_of and d[:4] == as_of[:4] else f"{s}, {x.year}"
 
 
-def _ordinal(n):
-    suf = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
-    return f"{n}{suf}"
+def _span(start, end):
+    a, b = _mon_yr(start), _mon_yr(end)
+    return a if a == b else f"{a} and {b}"
+
+
+_ordinal = ordinal  # kept for callers that import it from here
 
 
 def _fmt(key, v):
@@ -63,17 +70,7 @@ def _fmt(key, v):
 
 
 def _bin(p):
-    if p >= 95:
-        return "near the top of its range"
-    if p >= 80:
-        return "high"
-    if p >= 61:
-        return "above average"
-    if p >= 40:
-        return "about average"
-    if p >= 21:
-        return "below average"
-    return "low"
+    return level_word(p)
 
 
 def two_lens(ctx):
@@ -94,43 +91,94 @@ def two_lens(ctx):
         return f"{word} than on {n_of_100(p_all)} of every 100 days of the ~{ctx['years']:.0f} years available"
     if p_30 is not None and ctx.get("regime_divergence"):
         return (f"{word} than on {n_of_100(p_30)} of every 100 days of the last 30 years, "
-                f"but {_bin(p_all)} ({_ordinal(round(p_all))} percentile) since {start}")
+                f"but {_bin(p_all)} ({pct_ordinal(p_all)} percentile) since {start}")
     return f"{word} than on {n_of_100(p_all)} of every 100 days since {start}"
 
 
-def _lookback_sentence(key, ctx, value):
+def _cleveland_clause(ctx):
+    """TIPS start in 2003; the Cleveland Fed's model real rate reaches back
+    to 1982. Worded from its two percentiles, whichever way they point."""
+    c_all, c_30 = ctx.get("cleveland_pct_all_time"), ctx.get("cleveland_pct_modern")
+    if c_all is None:
+        return ""
+    if c_30 is None:
+        return (f" But TIPS only exist since 2003: the Cleveland Fed's model real rate, "
+                f"back to 1982, puts real rates at the {pct_ordinal(c_all)} percentile since 1982 "
+                f"({level_word(c_all)}).")
+    tail = (f"{level_word(c_30)} on both views" if level_word(c_30) == level_word(c_all) else
+            f"{level_word(c_30)} against the last 30 years, {level_word(c_all)} since 1982")
+    return (f" But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to "
+            f"1982, puts real rates at the {pct_ordinal(c_30)} percentile of the last 30 years "
+            f"and the {pct_ordinal(c_all)} since 1982 — {tail}.")
+
+
+def _lookback_parts(key, ctx, value, as_of):
+    """[headline sentence, run-extreme sentence or '', two-lens sentence,
+    caveat or ''] -- the email keeps the first two."""
     lb = ctx["lookback"]
     lt, ls = lb.get("last_touch"), lb.get("last_sustained")
     side_word = "at or above" if lb["side"] == "high" else "at or below"
+    hi = lb["side"] == "high"
     label = LABELS.get(key, key)
+    cad = lb.get("cadence", "daily")
     if lb["record"]:
-        s = (f"The {label} ({_fmt(key, value)}) is {'above' if lb['side'] == 'high' else 'below'} "
-             f"every earlier reading since records begin in {lb['history_start'][:4]}.")
+        head = (f"The {label} ({_fmt(key, value)}) is {'above' if hi else 'below'} "
+                f"every earlier reading since records begin in {lb['history_start'][:4]}.")
+    elif lb.get("run_is_record"):
+        head = (f"The {label} is in a record run: this run's {'high' if hi else 'low'} of "
+                f"{_fmt(key, lb['run_extreme'])} on {_mon_d(lb['run_extreme_date'], as_of)} is "
+                f"{'above' if hi else 'below'} every earlier reading since records begin in "
+                f"{lb['history_start'][:4]}; today's {_fmt(key, value)} is below that high.")
     else:
-        brief = (lt["n_obs"] < 20)
-        s = (f"The {label} ({_fmt(key, value)}) has been {side_word} this level since "
-             f"{_mon_d(lb['current_run_start'])}; before this run, the last time was "
-             f"{_mon_yr(lt['end'])}"
-             + (f", and only briefly ({lt['n_obs']} readings)" if brief else "")
-             + (f"; it was last there routinely until {_mon_yr(ls['end'])}"
-                if ls and brief and ls["end"] != lt["end"] else "")
-             + ".")
-    if not lb.get("today_is_run_extreme", True):
+        start = _mon_d(lb["current_run_start"], as_of)
+        if lb.get("current_run_unbroken", True):
+            here = f"has been {side_word} this level since {start}"
+        else:
+            here = (f"first reached this level on {start} and has been there on "
+                    f"{lb['current_run_sessions']} of the "
+                    f"{reading_units(lb['current_run_total_sessions'], cad)} since")
+        brief = lt.get("brief", lt["n_obs"] < 20)
+        head = (f"The {label} ({_fmt(key, value)}) {here}; before this run, the last time was "
+                f"{_mon_yr(lt['end'])}"
+                + (f", and only briefly ({reading_units(lt['n_obs'], cad)} between "
+                   f"{_span(lt['start'], lt['end'])})" if brief and _mon_yr(lt['start']) != _mon_yr(lt['end'])
+                   else f", and only briefly ({reading_units(lt['n_obs'], cad)})" if brief else "")
+                + (f"; it was last there routinely until {_mon_yr(ls['end'])}"
+                   if ls and brief and ls["end"] != lt["end"] else "")
+                + ".")
+    runx = ""
+    if not lb.get("today_is_run_extreme", True) and not lb.get("run_is_record"):
         rp = lb.get("run_extreme_prior")
-        s += (f" This run's {'high' if lb['side'] == 'high' else 'low'} was "
-              f"{_fmt(key, lb['run_extreme'])} on {_mon_d(lb['run_extreme_date'])}"
-              + (f", last matched in {_mon_yr(rp['end'])}" if rp else "") + ".")
-    s += f" Today's reading is {two_lens(ctx)}."
-    if key == "tips_10y_real" and ctx.get("tips_window_divergence"):
-        s += (f" But TIPS only exist since 2003: the Cleveland Fed's model real rate, "
-              f"which reaches back to 1982, puts real rates at the "
-              f"{_ordinal(round(ctx['cleveland_pct_all_time']))} percentile since 1982 "
-              f"({_ordinal(round(ctx['cleveland_pct_modern']))} over the last 30 years) — "
-              f"high against the last two decades, not against the 1980s and '90s.")
-    return s
+        runx = (f"This run's {'high' if hi else 'low'} was "
+                f"{_fmt(key, lb['run_extreme'])} on {_mon_d(lb['run_extreme_date'], as_of)}"
+                + (f", last matched in {_mon_yr(rp['end'])}" if rp else "") + ".")
+    lens = f"Today's reading is {two_lens(ctx)}."
+    cav = _cleveland_clause(ctx).strip() if (key == "tips_10y_real"
+                                              and ctx.get("tips_window_divergence")) else ""
+    return [head, runx, lens, cav or _era_clause(key, ctx, value)]
 
 
-def _pair_sentence(p):
+def _era_clause(key, ctx, value):
+    """When the two lenses diverge, name the whole decades that sat entirely
+    beyond today's reading -- the data behind 'if you remember the '80s'."""
+    dec = ctx.get("by_decade") or {}
+    if not ctx.get("regime_divergence") or not dec:
+        return ""
+    hi = ctx["lookback"]["side"] == "high"
+    beyond = [k for k, d in dec.items() if d["complete"]
+              and d["share_at_or_above_pct"] == (100.0 if hi else 0.0)]
+    if not beyond:
+        return ""
+    names = " and ".join(beyond) if len(beyond) <= 2 else ", ".join(beyond[:-1]) + f" and {beyond[-1]}"
+    return (f"Every reading in the {names} was {'at or above' if hi else 'below'} "
+            f"today's {_fmt(key, value)}.")
+
+
+def _lookback_sentence(key, ctx, value, as_of=None):
+    return " ".join(p for p in _lookback_parts(key, ctx, value, as_of) if p)
+
+
+def _pair_parts(p, as_of):
     b = p["bands"]["10"]
     stretches = []
     for t in p["track"]:
@@ -144,55 +192,77 @@ def _pair_sentence(p):
                          + (f"; S&P 500 {spx['return_pct']:+.1f}% over the next 12 months"
                             if spx else "") + ")")
     n = len(stretches)
-    s = ("10-year real yields in their top tenth while the Baa credit spread sits in its "
-         f"bottom tenth (both measured since {p['shared_history_start'][:4]}, when TIPS data begins): "
-         f"true since {_mon_d(b['current_run_start'])}; it happened "
-         + {1: "once", 2: "twice"}.get(n, f"{n} times") + " before — " + "; ".join(stretches) + ".")
-    s += ({1: " One case is an anecdote, not a pattern.",
-           2: " Two cases are an anecdote, not a pattern."}.get(n, f" {n} cases are too few to call a pattern." if n < 5 else ""))
+    start = _mon_d(b["current_run_start"], as_of)
+    if b.get("streak_start") and b["streak_start"] != b["current_run_start"]:
+        when = (f"true on {b['run_n_obs']} of the {b['run_total_sessions']} sessions since "
+                f"{start} (unbroken since {_mon_d(b['streak_start'], as_of)})")
+    else:
+        when = f"true since {start}"
+    head = ("10-year real yields in their top tenth while the Baa credit spread sits in its "
+            f"bottom tenth (both measured since {p['shared_history_start'][:4]}, when TIPS data begins): "
+            f"{when}; it happened "
+            + {1: "once", 2: "twice"}.get(n, f"{n} times") + " before — " + "; ".join(stretches) + ".")
+    label = ({1: "One case is an anecdote, not a pattern.",
+              2: "Two cases are an anecdote, not a pattern."}.get(
+        n, f"{n} cases are too few to call a pattern." if n < 5 else ""))
     wider = p["bands"]["20"].get("current_run_start")
-    if wider and wider != b["current_run_start"]:
-        s += (f" At a looser top-fifth/bottom-fifth cut, today's stretch reaches back to "
-              f"{_mon_yr(wider)}.")
-    return s
+    extra = (f"At a looser top-fifth/bottom-fifth cut, the current stretch starts in {_mon_yr(wider)}."
+             if wider and wider != b["current_run_start"] else "")
+    return [head, label, extra]
 
 
-def _pace_sentence(key, yr, shock, base):
+def _pair_sentence(p, as_of=None):
+    return " ".join(x for x in _pair_parts(p, as_of) if x)
+
+
+def _pace_parts(key, yr, shock, base):
     label = LABELS.get(key, key)
     top = ", ".join(f"{y['year']} {y['change']:+.0f}bp" for y in yr["years_more_extreme"][:3])
-    s = (f"The {label} is {'up' if yr['change'] >= 0 else 'down'} {abs(yr['change']):.0f}bp this year — "
-         f"the {_ordinal(yr['rank'])}-{'largest rise' if yr['change'] >= 0 else 'largest fall'} "
-         f"through this date in {yr['n_years']} years" + (f" (bigger: {top}" + (", …" if len(yr['years_more_extreme']) > 3 else "") + ")" if top else "") + ".")
+    head = (f"The {label} is {'up' if yr['change'] >= 0 else 'down'} {abs(yr['change']):.0f}bp this year — "
+            f"the {ordinal(yr['rank'])}-{'largest rise' if yr['change'] >= 0 else 'largest fall'} "
+            f"through this date in {yr['n_years']} years" + (f" (bigger: {top}" + (", …" if len(yr['years_more_extreme']) > 3 else "") + ")" if top else "") + ".")
+    rest = ""
     if shock and shock["track_summary"]["n"] >= 5:
         t = shock["track_summary"]
         r24 = base["recession_starts_within"].get("24m_since_1962")
         spx = base["spx_12m"].get("since_1962", {})
         judged = t["n_recession_yes"] + t["n_recession_no"]
-        s += (f" A 12-month {'rise' if shock['change_12m_pp'] >= 0 else 'fall'} this big "
-              f"({shock['change_12m_pp']:+.2f} points) has started {t['n']} times since "
-              f"{shock['history_start'][:4]}. Measured from each start, the S&P 500 (price only) "
-              f"was lower a year later in {t['n_spx_negative']} of {t['n_spx_known']} "
-              f"(any 12-month stretch since 1962: {spx.get('share_negative_pct')}%), and a recession "
-              f"began within two years in {t['n_recession_yes']} of {judged}"
-              + f" (any two-year stretch since 1962: {r24}%"
-              + (f"; {t['n_recession_in_progress']} more began mid-recession"
-                 if t['n_recession_in_progress'] else "")
-              + ").")
-    return s
+        rise = "rise" if shock["change_12m_pp"] >= 0 else "fall"
+        n_brief = shock.get("n_briefer_excluded") or 0
+        dup = t["n_recession_yes"] - t.get("n_distinct_recessions", t["n_recession_yes"])
+        rest = (f"Over the last 12 months it is {'up' if shock['change_12m_pp'] >= 0 else 'down'} "
+                f"{abs(shock['change_12m_pp']):.2f} points; a 12-month {rise} at least that big has "
+                f"started {t['n']} times since {shock['history_start'][:4]}"
+                + (f" (not counting {n_brief} that lasted under 10 sessions)" if n_brief else "")
+                + f". Measured from each start, the S&P 500 (price only) was lower a year later in "
+                f"{t['n_spx_negative']} of {t['n_spx_known']} (any 12-month stretch since 1962: "
+                f"{spx.get('share_negative_pct')}%), and a recession began within two years in "
+                f"{t['n_recession_yes']} of {judged}"
+                + (f", covering {t['n_distinct_recessions']} different recessions" if dup > 0 else "")
+                + f" (any two-year stretch since 1962 outside a recession: {r24}%"
+                + (f"; {t['n_recession_in_progress']} more began mid-recession"
+                   if t['n_recession_in_progress'] else "")
+                + ").")
+    return [head, rest]
 
 
-def _move_sentence(mk):
+def _pace_sentence(key, yr, shock, base):
+    return " ".join(x for x in _pace_parts(key, yr, shock, base) if x)
+
+
+def _move_sentence(mk, as_of=None):
     mv = mk["move"]
     lb = mv.get("last_at_least_this_big")
     word = "drop" if mv["direction"] == "down" else "gain"
-    return (f"The {mk['label']}'s {mv['pct']:+.2f}% is a {word} that comes about "
+    return (f"The {mk['label']}'s {mv['pct']:+.2f}% is a {word} of a size that comes about "
             f"{mv['per_year_recent']:.0f} days a year (last {mv['recent_window_years']:.0f} years); "
-            f"it's the {_ordinal(mv['count_this_year_incl_today'])} this year"
-            + (f", and the last bigger one was {_mon_d(lb['date'])}" if lb else "") + ".")
+            f"it's the {ordinal(mv['count_this_year_incl_today'])} this year"
+            + (f", and the last bigger one was {_mon_d(lb['date'], as_of)}" if lb else "") + ".")
 
 
 def build_digest(state):
     lh = state.get("long_history", {})
+    as_of = state.get("row_date")
     facts = []
 
     def live_value(key):
@@ -214,23 +284,31 @@ def build_digest(state):
             lb = ctx["lookback"]
             if not lb["gated"] or lb["gap_sensitive"]:
                 continue
+            record = lb["record"] or lb.get("run_is_record")
             yrs = lb["last_touch"]["years_since"] if lb.get("last_touch") else None
-            if not lb["record"] and (yrs is None or yrs < 5):
+            if not record and (yrs is None or yrs < 5):
                 continue
             value = ctx.get("latest_value", live_value(key))
-            tier = 1 if (lb["record"] or yrs >= 10) else 4
+            tier = 1 if (record or yrs >= 10) else 4
+            parts = _lookback_parts(key, ctx, value, as_of)
             facts.append({"id": f"lookback:{key}", "family": fam, "tier": tier,
                           "years_since": yrs, "series": key,
-                          "sentence": _lookback_sentence(key, ctx, value),
+                          "sentence": " ".join(x for x in parts if x),
+                          # the email keeps the headline and any run-high
+                          # correction, never the headline alone
+                          "email": " ".join(x for x in parts[:2] if x),
                           "anchor_date": lb["last_touch"]["end"] if lb.get("last_touch") else None})
             break  # one per family: the first qualifying member
 
-    # 2: pre-registered pair, in band today with a stable prior
+    # 2: pre-registered pair, in band today with a stable prior (the count
+    # of past cases must not depend on which percentile cut is used)
     for name, p in (state.get("history_pairs") or {}).items():
         b = p["bands"]["10"]
-        if b["today_in_band"] and p["track"]:
+        if b["today_in_band"] and p["track"] and p.get("stable_prior"):
+            parts = _pair_parts(p, as_of)
             facts.append({"id": f"pair:{name}", "family": "pair", "tier": 2,
-                          "sentence": _pair_sentence(p),
+                          "sentence": " ".join(x for x in parts if x),
+                          "email": " ".join(x for x in parts[:2] if x),
                           "anchor_date": p["track"][0]["entry"]})
 
     # 3: pace of this year's rate move
@@ -239,16 +317,19 @@ def build_digest(state):
     for key in ("ust_10y", "ust_2y", "ust_30y"):
         yr = (pace.get(key) or {}).get("ytd")
         if yr and yr["rank"] <= 10:
+            parts = _pace_parts(key, yr, pace[key].get("shock"), base)
             facts.append({"id": f"pace:{key}", "family": "pace", "tier": 3,
-                          "sentence": _pace_sentence(key, yr, pace[key].get("shock"), base)})
+                          "sentence": " ".join(x for x in parts if x),
+                          "email": parts[0]})
             break
 
     # 5: a stock-index move in its tail
     for key in ("spx", "ndx"):
         mk = (state.get("market_history") or {}).get(key)
         if mk and mk["move"]["in_tail"]:
+            s_ = _move_sentence(mk, as_of)
             facts.append({"id": f"move:{key}", "family": "move", "tier": 5,
-                          "sentence": _move_sentence(mk)})
+                          "sentence": s_, "email": s_})
             break
 
     facts.sort(key=lambda f: (f["tier"], -(f.get("years_since") or 0)))

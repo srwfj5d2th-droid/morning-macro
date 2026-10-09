@@ -173,7 +173,8 @@ def _diff_series(a_key, b_key):
     a = dict(_load_raw(a_key))
     b = dict(_load_raw(b_key))
     dates = sorted(set(a) & set(b))
-    rows = [(d, a[d] - b[d]) for d in dates]
+    # rounded so float noise can't break ties (5.00 - 2.00 vs 3.0 exactly)
+    rows = [(d, round(a[d] - b[d], 6)) for d in dates]
     _cache[cache_key] = rows
     return rows
 
@@ -361,6 +362,12 @@ def context_for(key, today_value, today_date, direction="high", live_rows=None):
                                out["pct_rank_all_time"], out["pct_rank_modern"],
                                short=out["short_history"])
 
+    # by decade: what "if you remember the '80s" actually means for today's
+    # reading -- so any decade framing in prose comes from the data (§4C)
+    if not out["short_history"] and out["years"] >= 35:
+        out["by_decade"] = by_decade(rows[:-1] if rows[-1][0] == today_date else rows,
+                                     today_value)
+
     if "exclude_note" in src:
         out["exclude_note"] = src["exclude_note"]
     if "proxy_note" in src:
@@ -368,6 +375,26 @@ def context_for(key, today_value, today_date, direction="high", live_rows=None):
     if "proxy_key" in src:
         out["proxy_key"] = src["proxy_key"]
 
+    return out
+
+
+def by_decade(rows, value):
+    """{'1970s': {min, max, share_at_or_above_pct, n_obs, complete}, ...}:
+    each calendar decade's range, and the share of its readings at or above
+    today's value. 'complete' is False for a decade the data only partly
+    covers (the first and the current one)."""
+    dec = {}
+    for d, v in rows:
+        dec.setdefault(f"{d[:3]}0s", []).append((d, v))
+    out = {}
+    for k in sorted(dec):
+        vs = [v for _, v in dec[k]]
+        first, last = dec[k][0][0], dec[k][-1][0]
+        out[k] = {"min": round(min(vs), 4), "max": round(max(vs), 4),
+                  "share_at_or_above_pct": round(100.0 * sum(1 for v in vs if v >= value) / len(vs), 1),
+                  "n_obs": len(vs),
+                  "complete": first[:4].endswith("0") and first[5:7] == "01"
+                  and last[:4].endswith("9") and last[5:7] == "12"}
     return out
 
 
@@ -475,6 +502,43 @@ SMALL_N = 5
 
 def _qualifies(v, value, side):
     return v >= value if side == "high" else v <= value
+
+
+def _cadence(rows):
+    """('daily'|'weekly'|'monthly'|'quarterly', sessions per reading), from the
+    median gap between the last few hundred readings."""
+    tail = rows[-300:]
+    gaps = sorted((dt.date.fromisoformat(tail[i][0]) - dt.date.fromisoformat(tail[i - 1][0])).days
+                  for i in range(1, len(tail)))
+    g = gaps[len(gaps) // 2] if gaps else 1
+    if g <= 4:
+        return "daily", 1
+    if g <= 10:
+        return "weekly", 5
+    if g <= 45:
+        return "monthly", 21
+    return "quarterly", 63
+
+
+def ordinal(n):
+    n = int(round(n))
+    suf = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suf}"
+
+
+def pct_ordinal(p):
+    """'87th' -- but '99.7th' near the edges, where rounding would read as a
+    record (99.7 -> '100th')."""
+    if p >= 99 or p <= 1:
+        return f"{p:.1f}th"
+    return ordinal(p)
+
+
+def reading_units(n, cadence):
+    """'7 sessions' / '7 weeks' / '9 months' -- a count in the series' own units."""
+    unit = {"daily": "session", "weekly": "week", "monthly": "month",
+            "quarterly": "quarter"}.get(cadence, "reading")
+    return f"{n} {unit}{'' if n == 1 else 's'}"
 
 
 def group_episodes(rows, value, side, gap_days=EPISODE_GAP_DAYS):
@@ -678,45 +742,66 @@ def summarize_track(track):
     return s
 
 
+def recession_base_rate(since, window_months):
+    """Share of months from `since` (an ISO date) in which a recession began
+    within `window_months`. Months already inside a recession are left out:
+    every track record leaves out cases that began mid-recession, so the
+    normal rate has to as well, or it's inflated by the recessions
+    themselves."""
+    cut = _judgeable_through()
+    hits = n = 0
+    t = since[:7] + "-01"
+    while _add_months(t, window_months) <= cut:
+        if not _in_recession(t):
+            n += 1
+            if _recession_starting_in(t, _add_months(t, window_months), inclusive_lo=True):
+                hits += 1
+        t = _add_months(t, 1)
+    return round(100.0 * hits / n, 1) if n else None
+
+
 def base_rates(as_of):
     """Normal rates to set every track record against: the share of months
-    in which a recession began within W months, and the S&P 500's ordinary
-    12-month price return from a month-end."""
+    (outside recessions) in which a recession began within W months, and the
+    S&P 500's ordinary 12-month price return and deepest drop from a
+    month-end."""
     key = ("_base_rates", as_of)
     if key in _cache:
         return _cache[key]
     cut = _judgeable_through()
     out = {"recession_starts_within": {}, "spx_12m": {},
-           "judgeable_through": cut}
+           "judgeable_through": cut, "excludes_in_recession_months": True}
     for since in (1948, 1962, 1983):
         for w in (12, 24, 36):
-            hits = n = 0
-            t = f"{since}-01-01"
-            while _add_months(t, w) <= cut:
-                n += 1
-                if _recession_starting_in(t, _add_months(t, w), inclusive_lo=True):
-                    hits += 1
-                t = _add_months(t, 1)
             out["recession_starts_within"][f"{w}m_since_{since}"] = (
-                round(100.0 * hits / n, 1) if n else None)
+                recession_base_rate(f"{since}-01-01", w))
     try:
         rows = _spx_rows(as_of)
         month_end = {}
         for d, v in rows:
             month_end[d[:7]] = (d, v)
         ends = sorted(month_end.values())
+        idx = {d: i for i, (d, _) in enumerate(rows)}
         for since in (1928, 1962):
-            rets = []
+            rets, worsts = [], []
             for d, v in ends:
                 if int(d[:4]) < since or _add_months(d, 12) > as_of:
                     continue
                 fwd = _value_on_or_after(rows, _add_months(d, 12))
-                if fwd:
-                    rets.append(fwd[1] / v - 1.0)
+                if not fwd:
+                    continue
+                rets.append(fwd[1] / v - 1.0)
+                # deepest drop inside the window (same definition as spx_forward)
+                peak, worst = v, 0.0
+                for d2, v2 in rows[idx[d]:idx[fwd[0]] + 1]:
+                    peak = max(peak, v2)
+                    worst = min(worst, v2 / peak - 1.0)
+                worsts.append(worst)
             if rets:
                 out["spx_12m"][f"since_{since}"] = {
                     "median_pct": round(100.0 * statistics.median(rets), 1),
                     "share_negative_pct": round(100.0 * sum(1 for r in rets if r < 0) / len(rets), 1),
+                    "median_worst_drawdown_pct": round(100.0 * statistics.median(worsts), 1),
                     "n_months": len(rets)}
     except FileNotFoundError:
         pass
@@ -737,9 +822,11 @@ def lookback(rows, value, as_of, p_all, p_30=None, short=False):
     side = "high" if p_x >= 50 else "low"
     ext = round(max(ext_all, ext_30) + 50, 1)
     rows = [r for r in rows if r[0] < as_of] + [(as_of, value)]
+    cadence, per = _cadence(rows)
     out = {"ext": ext, "side": side, "gated": ext >= TAIL_GATE and not short,
            "short_history": short, "history_start": rows[0][0],
-           "history_years": _years_between(rows[0][0], as_of)}
+           "history_years": _years_between(rows[0][0], as_of),
+           "cadence": cadence, "sessions_per_reading": per}
 
     ends = {}
     for g in GAP_SENSITIVITY_DAYS:
@@ -763,6 +850,18 @@ def lookback(rows, value, as_of, p_all, p_30=None, short=False):
     rx_d, rx_v = pick(in_run, key=lambda r: r[1])
     out["current_run_start"] = cur["start"]
     out["current_run_sessions"] = cur["n_obs"]
+    # the run is gap-grouped (short dips stay inside it), so "has been here
+    # since X" is only true when it's also unbroken: count every reading
+    # since the start, and find where the unbroken streak begins
+    out["current_run_total_sessions"] = len(in_run)
+    streak = as_of
+    for d, v in reversed(rows):
+        if not _qualifies(v, value, side):
+            break
+        streak = d
+    out["current_streak_start"] = streak
+    out["current_run_unbroken"] = streak == cur["start"]
+    out["current_run_years"] = _years_between(cur["start"], as_of)
     out["run_extreme"] = round(rx_v, 4)
     out["run_extreme_date"] = rx_d
     out["today_is_run_extreme"] = (value >= rx_v - 1e-9) if side == "high" \
@@ -774,27 +873,35 @@ def lookback(rows, value, as_of, p_all, p_30=None, short=False):
                                      "years_since": _years_between(px["end"], as_of)}
                                     if px else None)
 
+    # thresholds are in sessions: a weekly reading stands for ~5 of them, a
+    # monthly one for ~21 (9 monthly readings are 9 months, not "briefly")
     if priors:
         p = priors[-1]
         out["last_touch"] = {
             "start": p["start"], "end": p["end"], "n_obs": p["n_obs"],
+            "brief": p["n_obs"] * per < SUSTAINED_MIN_OBS,
             "extreme": round(p["extreme"], 4), "extreme_date": p["extreme_date"],
             "years_since": _years_between(p["end"], as_of),
             "overlapping": [o["name"] for o in _overlapping_named(
                 max(p["start"], _add_months(p["end"], -12)), p["end"])]}
         sus = next((e for e in reversed(priors)
-                    if e["n_obs"] >= SUSTAINED_MIN_OBS), None)
+                    if e["n_obs"] * per >= SUSTAINED_MIN_OBS), None)
         out["last_sustained"] = ({"start": sus["start"], "end": sus["end"],
                                   "n_obs": sus["n_obs"],
                                   "years_since": _years_between(sus["end"], as_of)}
                                  if sus else None)
     else:
         out["last_touch"] = out["last_sustained"] = None
-    out["record"] = (not priors and not short and out["history_years"] >= 20)
+    # nothing before this run ever reached today's level. That makes today a
+    # record only if today is also the run's own extreme; otherwise the
+    # record belongs to the run's peak, and today sits below it
+    no_prior = not priors and not short and out["history_years"] >= 20
+    out["record"] = no_prior and out["today_is_run_extreme"]
+    out["run_is_record"] = no_prior and not out["today_is_run_extreme"]
 
     track, n_blips, n_regimes = [], 0, 0
     for e in priors:
-        if e["n_obs"] < TRACK_MIN_OBS:
+        if e["n_obs"] * per < TRACK_MIN_OBS:
             n_blips += 1
             continue
         if _years_between(e["start"], e["end"]) > TRACK_MAX_YEARS:
@@ -813,16 +920,23 @@ def lookback(rows, value, as_of, p_all, p_30=None, short=False):
 
 # ---- the speed of a move: rate shocks and year-to-date pace ---------------
 
+MAX_BASE_LAG_DAYS = 10
+
+
 def _change_series(rows, days=365):
-    """[(date, value - value at the last obs on or before date - days)]."""
+    """[(date, value - value at the last obs on or before date - days)].
+    A date is skipped when that base observation is more than
+    MAX_BASE_LAG_DAYS before the target -- across a data hole (the excluded
+    2002-06 30Y window) the "12-month change" would really be a 4-year one."""
     out, j = [], 0
     dates = [d for d, _ in rows]
     for i, (d, v) in enumerate(rows):
-        target = (dt.date.fromisoformat(d) - dt.timedelta(days=days)).isoformat()
+        t = dt.date.fromisoformat(d) - dt.timedelta(days=days)
+        target = t.isoformat()
         while j + 1 < len(rows) and dates[j + 1] <= target:
             j += 1
-        if dates[j] <= target:
-            out.append((d, v - rows[j][1]))
+        if dates[j] <= target and (t - dt.date.fromisoformat(dates[j])).days <= MAX_BASE_LAG_DAYS:
+            out.append((d, round(v - rows[j][1], 6)))
     return out
 
 
@@ -841,20 +955,31 @@ def rate_shock(key, live_value, as_of):
     hist = ch[:-1]
     share = 100.0 * sum(1 for _, c in hist if _qualifies(c, c_today, side)) / len(hist)
     eps = group_episodes(ch, c_today, side, EPISODE_GAP_DAYS)
-    cur, priors = eps[-1], [e for e in eps[:-1] if e["n_obs"] >= TRACK_MIN_OBS]
-    track = []
+    cur = eps[-1]
+    priors = [e for e in eps[:-1] if e["n_obs"] >= TRACK_MIN_OBS]
+    briefer = [e for e in eps[:-1] if e["n_obs"] < TRACK_MIN_OBS]
+    track, used = [], set()
     for e in priors:
         t = outcomes_from(e["start"], as_of)
         lvl = _value_on_or_before(rows, e["start"])
+        rec = t["recession_24m"]
+        if rec["status"] == "yes":
+            # two shocks leading into one recession are one outcome, not two
+            rec["same_recession_as_earlier"] = rec["recession"] in used
+            used.add(rec["recession"])
         t.update({"end": e["end"], "n_obs": e["n_obs"],
                   "change_at_extreme_pp": round(e["extreme"], 2),
                   "level_at_entry": round(lvl[1], 2) if lvl else None,
                   "overlapping": [o["name"] for o in _overlapping_named(e["start"], e["end"])]})
         track.append(t)
+    summary = summarize_track(track)
+    summary["n_distinct_recessions"] = len(used)
     return {"change_12m_pp": round(c_today, 2), "side": side,
             "share_of_days_pct": round(share, 1),
             "history_start": ch[0][0], "current_run_start": cur["start"],
-            "track": track, "track_summary": summarize_track(track)}
+            "n_briefer_excluded": len(briefer),
+            "briefer_excluded_starts": [e["start"] for e in briefer],
+            "track": track, "track_summary": summary}
 
 
 def ytd_rank(rows, live_value, as_of, mode):
@@ -987,6 +1112,12 @@ def pair_bands(a, side_a, b, side_b, as_of, latest=None):
         priors = [e for e in eps if e is not cur and e["n_obs"] >= SUSTAINED_MIN_OBS]
         share = len(q) / len(dates)
         exp = (len(qa) / len(dates)) * (len(qb) / len(dates))
+        qs = set(q)
+        streak = None
+        for d in reversed(dates):
+            if d not in qs:
+                break
+            streak = d
         out["bands"][str(band)] = {
             "threshold_a": round(thr_a, 4), "threshold_b": round(thr_b, 4),
             "share_pct": round(100.0 * share, 2),
@@ -994,6 +1125,10 @@ def pair_bands(a, side_a, b, side_b, as_of, latest=None):
             "ratio_vs_unrelated": round(share / exp, 2) if exp else None,
             "today_in_band": as_of in q,
             "current_run_start": cur["start"] if cur else None,
+            # gap-grouped like every stretch: report how unbroken it is
+            "run_n_obs": cur["n_obs"] if cur else None,
+            "run_total_sessions": sum(1 for d in dates if cur and d >= cur["start"]) if cur else None,
+            "streak_start": streak,
             "n_prior_stretches": len(priors),
             "prior": ({"start": priors[-1]["start"], "end": priors[-1]["end"],
                        "n_obs": priors[-1]["n_obs"],
@@ -1064,7 +1199,10 @@ def inversion_cycles(key, as_of):
         s = c["start"]
         rec_now = _in_recession(s)
         rec = _recession_starting_in(s, _add_months(s, INVERSION_WINDOW_MONTHS))
-        if rec_now:
+        if s == rows[0][0]:
+            # already inverted on the data's first day: the real start is unknown
+            status = "start_unknown"
+        elif rec_now:
             status = "began_in_recession"
         elif rec:
             status = "followed"
@@ -1092,7 +1230,10 @@ def inversion_cycles(key, as_of):
         "n_not_followed": sum(1 for c in counted if c["status"] == "not_followed"),
         "n_pending": sum(1 for c in out if c["status"] == "pending"),
         "n_began_in_recession": sum(1 for c in out if c["status"] == "began_in_recession"),
-        "base_rate_36m_pct": base_rates(as_of)["recession_starts_within"]["36m_since_1948"],
+        "n_start_unknown": sum(1 for c in out if c["status"] == "start_unknown"),
+        # the normal rate over the same years the record covers
+        "base_rate_36m_pct": recession_base_rate(rows[0][0], INVERSION_WINDOW_MONTHS),
+        "base_rate_since": rows[0][0][:4],
         "latest_cycle_end": latest["end"] if latest else None,
         "months_since_latest_cycle_end": (_months_between(latest["end"], as_of)
                                           if latest and not latest["ongoing"] else None),
@@ -1243,12 +1384,23 @@ def then_vs_now(then_date, as_of, now_values):
         now = now_values.get(key) or (rows[-1][0], rows[-1][1])
         pct_then = _percentile_rank(rows, then[1]) if then else None
         pct_now = _percentile_rank(rows, now[1])
+        # "similar" has to hold on both lenses: on the pooled record alone a
+        # 0.66-point mortgage-rate gap reads as similar (§4F)
+        w30 = _window_rows(rows, as_of, MODERN_WINDOW_YEARS)
+        has_30 = _years_covered(rows) >= MODERN_WINDOW_YEARS + 5 and bool(w30)
+        p30_then = _percentile_rank(w30, then[1]) if (then and has_30) else None
+        p30_now = _percentile_rank(w30, now[1]) if has_30 else None
+        similar = None
+        if pct_then is not None:
+            similar = abs(pct_then - pct_now) <= SIMILAR_PCT_PTS and (
+                p30_then is None or abs(p30_then - p30_now) <= SIMILAR_PCT_PTS)
         out.append({"key": key, "label": label, "unit": unit,
                     "then": ({"date": then[0], "value": round(then[1], 4)} if then else None),
                     "now": {"date": now[0], "value": round(now[1], 4)},
+                    "gap": round(now[1] - then[1], 4) if then else None,
                     "pct_then": pct_then, "pct_now": pct_now,
-                    "similar": (abs(pct_then - pct_now) <= SIMILAR_PCT_PTS
-                                if pct_then is not None else None)})
+                    "pct30_then": p30_then, "pct30_now": p30_now,
+                    "similar": similar})
     return {"then_date": then_date, "rows": out}
 
 
@@ -1278,9 +1430,9 @@ def _window_peak(rows, lo, hi):
 def cycle_map(as_of, live=None):
     """Aggregate gauges for locating the AI capex cycle against the 2000 and
     2007 peaks -- cycle level only (§8). Quarterly series arrive about a
-    quarter late and are revised; nonfinancial corporate debt misses private
-    credit and off-balance-sheet structures, where much data-center
-    financing sits."""
+    quarter late and are revised; nonfinancial corporate debt is one
+    aggregate of all corporate bonds and loans -- it doesn't isolate
+    data-center financing."""
     live = live or {}
     out = {"gauges": [], "returns_3y": []}
     specs = [("it_capex_share_gdp", "IT equipment + software investment, % of GDP",
@@ -1334,17 +1486,67 @@ def cycle_map(as_of, live=None):
 
 # ---- one-glance label ------------------------------------------------------
 
-def lately_vs_history(z120, z_thin, ext, short):
+def level_word(p):
+    if p >= 95:
+        return "near the top of its range"
+    if p >= 80:
+        return "high"
+    if p >= 61:
+        return "above average"
+    if p >= 40:
+        return "about average"
+    if p >= 21:
+        return "below average"
+    if p > 5:
+        return "low"
+    return "near the bottom of its range"
+
+
+def recent_z(rows, as_of, days=183, min_obs=20):
+    """A 'lately' read for series with no live 120-day z (proxies and
+    reference series): today's reading vs. the prior ~6 months of the
+    series' own file. (None, True) when there aren't enough readings
+    (a monthly series) -- never a guess."""
+    rows = [r for r in rows if r[0] <= as_of]
+    if len(rows) < 2:
+        return None, True
+    d, v = rows[-1]
+    cut = (dt.date.fromisoformat(d) - dt.timedelta(days=days)).isoformat()
+    prior = [x for dd, x in rows[:-1] if dd >= cut]
+    if len(prior) < min_obs:
+        return None, True
+    sd = statistics.stdev(prior)
+    return (round((v - statistics.mean(prior)) / sd, 2) if sd > 0 else 0.0), False
+
+
+def lately_vs_history(z120, z_thin, p_all, p_30, start_year, short):
     """Script words for 'is this flag this year's noise or a decades-level
-    reading?' -- never typed by the model."""
+    reading?' -- never typed by the model. Each lens is tested on its own:
+    when only one is in its tail, both are shown (§4F), and 'lately' is
+    never claimed without a measured read."""
+    if z120 is None or z_thin:
+        lately = "no 6-month read"
+    elif abs(z120) >= 1.5:
+        lately = "unusual lately"
+    else:
+        lately = "quiet lately"
     if short:
-        return "3-yr record only"
-    loud = (z120 is not None) and (not z_thin) and abs(z120) >= 1.5
-    tail = ext is not None and ext >= TAIL_GATE
-    if loud and tail:
-        return "unusual lately and historically"
-    if loud:
-        return "unusual lately, ordinary historically"
-    if tail:
-        return "quiet lately, historically extreme"
-    return "ordinary"
+        return f"{lately}; 3-yr record only"
+
+    def tail(p):
+        return p is not None and abs(p - 50) + 50 >= TAIL_GATE
+
+    def side(p):
+        return "high" if p >= 50 else "low"
+    t_all, t_30 = tail(p_all), tail(p_30)
+    if t_all and (p_30 is None or t_30):
+        hist = "historically extreme"
+    elif t_30:
+        hist = (f"{side(p_30)} vs. last 30 yrs ({pct_ordinal(p_30)}), "
+                f"{level_word(p_all)} since {start_year} ({pct_ordinal(p_all)})")
+    elif t_all:
+        hist = (f"{side(p_all)} since {start_year} ({pct_ordinal(p_all)}), "
+                f"not vs. last 30 yrs ({pct_ordinal(p_30)})")
+    else:
+        hist = "ordinary historically"
+    return f"{lately}; {hist}"

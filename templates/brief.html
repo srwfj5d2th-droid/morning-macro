@@ -79,7 +79,10 @@
 {{HISTORY_CHECK}}
 {{HISTORY_HTML}}
 {{THEN_NOW}}
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:16px;">
+    <!-- the reference blocks fold, so the visible section stays a few-minute
+         read; the markdown twin carries them in full -->
+    <details style="margin:16px 0 0 0;"><summary style="font-size:13px; font-weight:600; cursor:pointer;">The numbers behind this &mdash; every series, curve inversions, past rate shocks, stock markets (script-written)</summary>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:10px;">
       <tr style="border-bottom:1.5px solid #1F2430;">
         <td style="padding:5px 0; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Series</td>
         <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">Today</td>
@@ -102,6 +105,7 @@
     </table>
 {{PULLBACK_LINE}}
     <p style="font-size:11.5px; color:#8A8F99; margin:8px 0 0 0;">{{HISTORY_NOTE}}</p>
+    </details>
 
     <!-- ============ 6 · movers ============ -->
     <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Movers</h2>
