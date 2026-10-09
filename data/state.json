@@ -1,5 +1,5 @@
 {
-  "computed_at_utc": "2026-10-09T18:52:26.845332Z",
+  "computed_at_utc": "2026-10-09T19:38:04.344577Z",
   "row_date": "2026-10-08",
   "trading_rows": 212,
   "seasoned": true,
@@ -1354,21 +1354,9 @@
         "max": 3.15
       },
       "short_history": false,
-      "modern_window_years_requested": 30,
-      "modern_years": 23.8,
-      "modern_start_date": "2003-01-02",
-      "pct_rank_modern": 99.7,
-      "percentiles_modern": {
-        "min": -1.19,
-        "p10": -0.57,
-        "p25": 0.31,
-        "median": 1.06,
-        "p75": 1.89,
-        "p90": 2.22,
-        "max": 3.15
-      },
-      "regime_divergence_pts": 0.0,
+      "pct_rank_modern": null,
       "regime_divergence": false,
+      "regime_divergence_pts": null,
       "most_recent_comparable": {
         "date": "2026-10-05",
         "value": 2.95,
@@ -1470,7 +1458,7 @@
       },
       "latest_value": 2.92,
       "latest_date": "2026-10-07",
-      "label": "unusual lately; historically extreme",
+      "label": "unusual lately; extreme since 2003 (short record); Cleveland model since 1982: about average (54th)",
       "tips_window_divergence": true,
       "cleveland_pct_all_time": 54.0,
       "cleveland_pct_modern": 80.3
@@ -1491,21 +1479,9 @@
         "max": 3.02
       },
       "short_history": false,
-      "modern_window_years_requested": 30,
-      "modern_years": 23.8,
-      "modern_start_date": "2003-01-02",
-      "pct_rank_modern": 75.2,
-      "percentiles_modern": {
-        "min": 0.04,
-        "p10": 1.6,
-        "p25": 1.87,
-        "median": 2.23,
-        "p75": 2.36,
-        "p90": 2.5,
-        "max": 3.02
-      },
-      "regime_divergence_pts": 0.0,
+      "pct_rank_modern": null,
       "regime_divergence": false,
+      "regime_divergence_pts": null,
       "most_recent_comparable": {
         "date": "2026-10-06",
         "value": 2.36,
@@ -1634,7 +1610,7 @@
       },
       "latest_value": 2.36,
       "latest_date": "2026-10-07",
-      "label": "quiet lately; ordinary historically"
+      "label": "quiet lately; ordinary since 2003 (short record)"
     },
     "sofr": {
       "start_date": "1954-07-01",
@@ -5242,6 +5218,7 @@
         "share_days_at_least_this_big_all_pct": 24.45,
         "share_days_at_least_this_big_recent_pct": 25.4,
         "per_year_recent": 63.9,
+        "n_recent": 1917,
         "recent_window_years": 30,
         "in_tail": false,
         "count_this_year_incl_today": 43,
@@ -5329,6 +5306,7 @@
         "share_days_at_least_this_big_all_pct": 10.49,
         "share_days_at_least_this_big_recent_pct": 14.8,
         "per_year_recent": 37.2,
+        "n_recent": 1117,
         "recent_window_years": 30,
         "in_tail": true,
         "count_this_year_incl_today": 24,
@@ -5399,6 +5377,7 @@
         "share_days_at_least_this_big_all_pct": 5.32,
         "share_days_at_least_this_big_recent_pct": 5.32,
         "per_year_recent": 13.4,
+        "n_recent": 349,
         "recent_window_years": 26.1,
         "in_tail": true,
         "count_this_year_incl_today": 31,
@@ -5449,6 +5428,7 @@
         "share_days_at_least_this_big_all_pct": 34.0,
         "share_days_at_least_this_big_recent_pct": 34.0,
         "per_year_recent": 85.3,
+        "n_recent": 2227,
         "recent_window_years": 26.1,
         "in_tail": false,
         "count_this_year_incl_today": 76,
@@ -5786,8 +5766,8 @@
       "tier": 1,
       "years_since": 19.3,
       "series": "ust_10y",
-      "sentence": "The 10-year Treasury yield (5.22%) has been at or above this level since Sep 28; before this run, the last time was Jun 2007, and only briefly (7 sessions between Jun 2006 and Jun 2007); it was last there routinely until May 2002. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is higher than on 87 of every 100 days of the last 30 years, but about average (49th percentile) since 1962. Every reading in the 1970s and 1980s was at or above today's 5.22%.",
-      "email": "The 10-year Treasury yield (5.22%) has been at or above this level since Sep 28; before this run, the last time was Jun 2007, and only briefly (7 sessions between Jun 2006 and Jun 2007); it was last there routinely until May 2002. This run's high was 5.31% on Oct 5, last matched in May 2002.",
+      "sentence": "The 10-year Treasury yield (5.22%) has been at or above this level since Sep 28; before this run, the last time was Jun 2007, and only briefly (7 sessions between Jun 2006 and Jun 2007); it was last there routinely until May 2002. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 87 of every 100 days of the last 30 years, but about average (49th percentile) since 1962. Every reading in the 1970s and 1980s was at or above today's 5.22%.",
+      "email": "The 10-year Treasury yield (5.22%) has been at or above this level since Sep 28; before this run, the last time was Jun 2007, and only briefly (7 sessions between Jun 2006 and Jun 2007); it was last there routinely until May 2002. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 87 of every 100 days of the last 30 years, but about average (49th percentile) since 1962.",
       "anchor_date": "2007-06-14"
     },
     {
@@ -5796,8 +5776,8 @@
       "tier": 1,
       "years_since": 17.9,
       "series": "tips_10y_real",
-      "sentence": "The 10-year TIPS real yield (2.92%) first reached this level on Sep 30 and has been there on 4 of the 6 sessions since; before this run, the last time was Nov 2008, and only briefly (17 sessions between Oct 2008 and Nov 2008). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is higher than on 99.7 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
-      "email": "The 10-year TIPS real yield (2.92%) first reached this level on Sep 30 and has been there on 4 of the 6 sessions since; before this run, the last time was Nov 2008, and only briefly (17 sessions between Oct 2008 and Nov 2008). This run's high was 2.95% on Oct 5, last matched in Nov 2008.",
+      "sentence": "The 10-year TIPS real yield (2.92%) first reached this level on Sep 30 and has been there on 4 of the 6 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis), and only briefly (17 sessions between Oct 2008 and Nov 2008). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.7 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
+      "email": "The 10-year TIPS real yield (2.92%) first reached this level on Sep 30 and has been there on 4 of the 6 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis), and only briefly (17 sessions between Oct 2008 and Nov 2008). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.7 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
       "anchor_date": "2008-11-24"
     },
     {

@@ -106,9 +106,10 @@ def pctile_cell(state, key):
     pooling 60+ years of history can itself mask a regime shift (Jacob,
     2026-10-08) -- a reading can look unremarkable against the full pool
     while running hot against the last 30 years, or vice versa. '—' for
-    series with no long-history source (Fed balance sheet, TGA, ON RRP,
-    DXY); '*' flags the two series with only ~3 years available (no
-    separate modern window to show, so a single number)."""
+    series with no long-history source (Fed balance sheet, TGA, ON RRP);
+    '*' flags the two series with only ~3 years available; a plain single
+    number is a record under ~35 years (TIPS, breakeven), too short for a
+    separate 30-year view."""
     ctx = state.get("long_history", {}).get(key)
     if ctx is None:
         return '<span style="color:#B9BEC7;">&mdash;</span>'
@@ -150,6 +151,15 @@ def recap_rows(state, spark_dir, color, row_date):
     return "\n".join(rows)
 
 
+WEEKLY_KEYS = ("fed_bs", "tga")
+
+
+def _wk(key, span):
+    """Weekly series: the 1D/5D columns hold one- and five-week changes."""
+    return (f' <span style="color:#8A8F99; font-size:10px;">{span}</span>'
+            if key in WEEKLY_KEYS else "")
+
+
 def dash_rows(state, spark_dir, color, row_date):
     rows = []
     for label, key, kind in DASH:
@@ -167,9 +177,9 @@ def dash_rows(state, spark_dir, color, row_date):
             f'        <td style="padding:6px 6px; text-align:right; {MONO}">'
             f'{fnum(s["last"], kind)}</td>\n'
             f'        <td style="padding:6px 6px; text-align:right; {MONO}">'
-            f'{fdelta(s, s["d1"], kind)}</td>\n'
+            f'{fdelta(s, s["d1"], kind)}{_wk(key, "1w")}</td>\n'
             f'        <td style="padding:6px 6px; text-align:right; {MONO}">'
-            f'{fdelta(s, s["d5"], kind)}</td>\n'
+            f'{fdelta(s, s["d5"], kind)}{_wk(key, "5w")}</td>\n'
             f'        <td style="padding:6px 6px; text-align:right; {MONO} '
             f'{"font-weight:600; color:" + color + ";" if flagged else ""}">'
             f'{z_cell(s)}</td>\n'
@@ -278,9 +288,15 @@ def history_check_html(state):
                 f'{html.escape(state["history_error"])}.</p>')
     facts = state.get("history_digest") or []
     if not facts:
+        gated = [k for k, c in (state.get("long_history") or {}).items()
+                 if (c.get("lookback") or {}).get("gated")]
+        msg = ("no long-run fact cleared this box's bar today: the readings in a historical tail "
+               "were last this far out within the past five years, or the answer depends on how "
+               "readings are grouped (see the table below)." if gated else
+               "nothing in today's data sits in a historical tail &mdash; every tracked series is "
+               "mid-range against its own long-run record.")
         return ('    <p style="font-size:14px; margin:0 0 10px 0; color:#39404E;">History check: '
-                'nothing in today\'s data sits in a historical tail &mdash; every tracked '
-                'series is mid-range against its own long-run record.</p>')
+                f'{msg}</p>')
     items = "\n".join(f'        <li style="margin-bottom:7px;">{html.escape(f["sentence"])}</li>'
                       for f in facts)
     return ('    <div style="background:#F7F5F1; border-left:3px solid #46586B; padding:10px 14px 4px 14px; margin:0 0 14px 0;">\n'
@@ -309,8 +325,10 @@ def then_now_html(state):
                 return _signed(v)
             return f"{v:.2f}%"
         gap = ""
-        if r.get("gap") is not None:
-            g = r["gap"]
+        if r.get("gap") is not None and r.get("then"):
+            # from the values as displayed, so the bracket always reconciles
+            nd = 1 if r["unit"] == "pctpt" else 2
+            g = round(r["now"]["value"], nd) - round(r["then"]["value"], nd)
             gap = {"bp": f"{g * 100:+.0f}bp", "pctpt": f"{g:+.1f} pts"}.get(r["unit"], f"{g:+.2f} pt")
             gap = f' <span style="{MUTED}">({gap.replace("-", "&minus;")})</span>'
         call = ("&mdash;" if r["similar"] is None else
@@ -391,7 +409,9 @@ def history_lines(state):
                     "start is unknown and it isn't counted.)")
         hits = [x for x in c["cycles"] if x["status"] == "followed"
                 and not x.get("same_recession_as_earlier_cycle")]
-        after = [x["months_from_uninversion"] for x in hits if x["months_from_uninversion"] >= 0]
+        after = [x["months_from_uninversion"] for x in hits if x["months_from_uninversion"] > 0]
+        same = sum(1 for x in hits if x["months_from_uninversion"] == 0)
+        rest = len(hits) - len(after) - same
         if c.get("months_since_latest_cycle_end") is not None:
             txt += f" The latest inversion ended {c['months_since_latest_cycle_end']} months ago."
             if after:
@@ -399,8 +419,8 @@ def history_lines(state):
                         + (f"{min(after)}&ndash;{max(after)} months" if min(after) != max(after)
                            else f"{after[0]} months")
                         + " after the curve stopped being inverted"
-                        + (f" (in the other{'s' if len(hits) - len(after) > 1 else ''}, while it "
-                           "was still inverted)" if len(after) < len(hits) else "")
+                        + (f"; in {same}, the same month it stopped" if same else "")
+                        + (f"; in {rest}, while it was still inverted" if rest else "")
                         + ".")
         lines.append(txt)
     digest_ids = {f["id"] for f in state.get("history_digest") or []}
@@ -481,8 +501,10 @@ def market_rows(state):
         mv, rec, ytd = ctx["move"], ctx["record"], ctx.get("ytd")
         word = "drop" if mv["direction"] == "down" else "gain"
         lb = mv.get("last_at_least_this_big")
-        often = (f'{word}s this size: ~{mv["per_year_recent"]:.0f} days/yr'
-                 if mv.get("per_year_recent") is not None else "&mdash;")
+        py, n_r = mv.get("per_year_recent"), mv.get("n_recent")
+        often = ("&mdash;" if py is None else
+                 f'{word}s this size: ~{py:.0f} days/yr' if py >= 1 else
+                 f'{word}s this size: {n_r} in {mv["recent_window_years"]:.0f} yrs')
         often += (f'<br><span style="{MUTED} font-size:11px;">{"since " + ctx["history_start"][:4] if mv["recent_window_years"] < 30 else "last 30 yrs"}'
                   + (f'; last bigger {word} {_mon_d_rel(lb["date"], as_of)}' if lb else "") + '</span>')
         if ytd:
@@ -513,9 +535,12 @@ def pullback_line(state):
     a, b = pb["since_1929"], pb["since_1950"]
     as_of = state["row_date"]
     cmp_ = ("milder than" if pb["this_year_worst_pct"] > a["median_pct"] else "deeper than")
+    # early in a year the index may not have closed below its running high yet
+    span = ("no close below its running high yet" if pb.get("peak_date") is None else
+            f'{_mon_d_rel(pb["peak_date"], as_of)} to {_mon_d_rel(pb["trough_date"], as_of)}')
     return ('    <p style="font-size:13px; margin:8px 0 0 0; color:#39404E;"><strong>S&amp;P 500 pullbacks:</strong> '
             f'this year\'s worst drop so far is {_signed(pb["this_year_worst_pct"])} '
-            f'({_mon_d_rel(pb["peak_date"], as_of)} to {_mon_d_rel(pb["trough_date"], as_of)}), '
+            f'({span}), '
             f'{cmp_} a typical year: since 1929 the median year\'s worst drop was '
             f'{_signed(a["median_pct"])}, and {a["n_10pct_or_worse"]} of {a["n_years"]} years saw a '
             f'drop of 10% or more ({a["n_20pct_or_worse"]} saw 20% or more). Since 1950 the median '
@@ -586,6 +611,11 @@ def history_markdown(state, row_date, prose_md=""):
     """The same history blocks as markdown, for the twin (briefs/<date>.md),
     in the page's order: History check, prose, then the reference blocks."""
     parts = []
+    if state.get("history_error"):
+        parts.append(_html_to_md(history_check_html(state)))
+        if prose_md:
+            parts.append(prose_md)
+        return "\n\n".join(parts)
     facts = state.get("history_digest") or []
     if facts:
         parts.append("**History check** (script-written from the data):\n\n"
@@ -673,7 +703,7 @@ def markdown_twin(content, state, spark_dir, row_date, ath_line, todays_events):
         _html_to_md(content["dashboard_lag_note"]),
         _html_to_md(content["dashboard_interp_html"]),
     ]
-    if state.get("long_history"):
+    if state.get("long_history") or state.get("history_error"):
         parts += ["## Today in history",
                   history_markdown(state, row_date, _html_to_md(content.get("history_html", "")))]
     parts += [

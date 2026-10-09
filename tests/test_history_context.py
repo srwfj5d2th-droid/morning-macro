@@ -469,9 +469,11 @@ def test_lately_vs_history_labels():
 
 
 def test_recent_z_measures_proxies_and_declines_monthly():
-    weekly = _days("2026-01-01", [6.5] * 25 + [7.4], step=7)
+    weekly = _days("2026-01-01", [6.5 + 0.05 * (i % 3) for i in range(25)] + [7.4], step=7)
     z, thin = hc.recent_z(weekly, weekly[-1][0])
-    assert thin is False and z > 0 or z == 0.0
+    assert thin is False and z > 0
+    flat = _days("2026-01-01", [6.5] * 25 + [7.4], step=7)
+    assert hc.recent_z(flat, flat[-1][0]) == (None, True)  # no scale -> no claim
     monthly = _days("2026-01-01", [2.0, 2.1, 2.2, 2.3, 2.4, 2.5], step=30)
     assert hc.recent_z(monthly, monthly[-1][0]) == (None, True)
 
@@ -669,3 +671,113 @@ def test_lint_catches_the_v2_verification_findings():
                    "later in 5 of 14. Normally that's about one in four.</p>")
     errors, _ = lint.lint({"history_html": good, "regime_line": "2007"}, state)
     assert errors == []
+
+
+# --- v2.1 verification round 2 (2026-10-09) ---------------------------------
+
+def test_lately_label_never_calls_a_short_record_historical():
+    """TIPS (2003+) at 99.7 read 'historically extreme' while the Cleveland
+    record since 1982 said 'about average'."""
+    lv = hc.lately_vs_history
+    assert lv(2.3, False, 99.7, None, "2003", False, years=23.8) == \
+        "unusual lately; extreme since 2003 (short record)"
+    assert lv(0.2, False, 60.0, None, "2003", False, years=23.8) == \
+        "quiet lately; ordinary since 2003 (short record)"
+
+
+def test_no_modern_window_for_a_series_under_35_years(tmp_path, monkeypatch):
+    _fixture_world(tmp_path, monkeypatch)
+    rows = _days("2003-01-02", [1.0 + (i % 50) / 10 for i in range(8000)])
+    _write_series(tmp_path, "dfii10", rows)
+    ctx = hc.context_for("tips_10y_real", 2.9, rows[-1][0])
+    assert ctx["pct_rank_modern"] is None and ctx["regime_divergence"] is False
+
+
+def test_record_run_wording_follows_the_side():
+    import history_digest as hd
+    lb = {"side": "low", "record": False, "run_is_record": True, "run_extreme": 0.92,
+          "run_extreme_date": "2026-11-03", "history_start": "1986-01-02",
+          "today_is_run_extreme": False, "last_touch": None, "last_sustained": None}
+    ctx = {"lookback": lb, "pct_rank_all_time": 2.0, "pct_rank_modern": 3.0,
+           "start_date": "1986-01-02", "short_history": False}
+    s = hd._lookback_sentence("baa_10y_spread", ctx, 1.10, "2026-11-10")
+    assert "above that low" in s and "below that high" not in s
+
+
+def test_pullback_line_survives_a_year_with_no_drop_yet():
+    import build_brief as bb
+    state = {"row_date": "2026-01-02", "market_history": {"spx": {"pullback": {
+        "this_year_worst_pct": 0.0, "peak_date": None, "trough_date": None,
+        "since_1929": {"median_pct": -13.2, "n_10pct_or_worse": 61, "n_years": 97, "n_20pct_or_worse": 25},
+        "since_1950": {"median_pct": -10.5, "n_10pct_or_worse": 40, "n_years": 76, "n_20pct_or_worse": 10}}}}}
+    assert "no close below its running high yet" in bb.pullback_line(state)
+
+
+def test_rare_move_is_counted_not_rounded_to_zero():
+    import history_digest as hd
+    mk = {"label": "S&P 500", "move": {"pct": -6.0, "direction": "down", "per_year_recent": 0.4,
+                                      "n_recent": 12, "recent_window_years": 30,
+                                      "count_this_year_incl_today": 1, "last_at_least_this_big": None}}
+    s = hd._move_sentence(mk, "2026-10-08")
+    assert "12 times in the last 30 years" in s and "0 days a year" not in s
+
+
+def test_email_line_carries_both_lenses():
+    import history_digest as hd
+    lb = {"side": "high", "gated": True, "gap_sensitive": False, "record": False,
+          "run_is_record": False, "current_run_start": "2026-09-28", "current_run_unbroken": True,
+          "current_run_sessions": 9, "current_run_total_sessions": 9, "today_is_run_extreme": False,
+          "run_extreme": 5.31, "run_extreme_date": "2026-10-05",
+          "run_extreme_prior": {"end": "2002-05-31"}, "cadence": "daily",
+          "last_touch": {"start": "2006-06-01", "end": "2007-06-14", "n_obs": 7, "brief": True,
+                         "years_since": 19.3, "overlapping": []},
+          "last_sustained": {"end": "2002-05-31"}, "history_start": "1962-01-02"}
+    state = {"row_date": "2026-10-08", "series": {}, "derived": {},
+             "long_history": {"ust_10y": {"lookback": lb, "pct_rank_all_time": 48.7,
+                                          "pct_rank_modern": 86.6, "regime_divergence": True,
+                                          "start_date": "1962-01-02", "latest_value": 5.22}}}
+    f = hd.build_digest(state)[0]
+    assert "87 of every 100 days" in f["email"] and "49th percentile" in f["email"]
+
+
+def test_lint_round2_rules():
+    state = _lint_state()
+    lh = state["long_history"]
+    lh["ust_10y"].update({"regime_divergence": True, "latest_value": 5.22, "lookback": {
+        "side": "high", "today_is_run_extreme": False, "run_extreme": 5.31,
+        "run_extreme_date": "2026-10-05", "current_run_unbroken": True,
+        "current_run_start": "2026-09-28", "current_run_total_sessions": 9,
+        "last_touch": {"end": "2007-06-14"}, "last_sustained": {"end": "2002-05-31"},
+        "run_extreme_prior": {"end": "2002-05-31"}}})
+    base = "<p>The 10-year was last here briefly in 2007, at the 87th percentile of the last 30 years and the 49th since 1962.</p>"
+
+    def errs(extra):
+        return lint.lint({"history_html": base + extra, "regime_line": "2007"}, state)[0]
+    # the 10-09 regime line: "last reached in 2007" on day nine of the run
+    assert errs("<p>The 10-year eased to 5.22%, a level it last reached, briefly, in June 2007.</p>")
+    assert not errs("<p>The 10-year has held there since Sep 28; before this run it last reached that level briefly in June 2007.</p>")
+    # 'peaked' anywhere in the sentence no longer excuses a below-peak superlative
+    assert errs("<p>The 10-year peaked Monday, yet today's 5.22% is still its highest level since 2007.</p>")
+    # a 'since YEAR' the lookback never found
+    lh["ust_10y"]["lookback"]["today_is_run_extreme"] = True
+    assert errs("<p>The 10-year is at its highest level since 1990.</p>")
+    lh["ust_10y"]["lookback"]["today_is_run_extreme"] = False
+    # the script's own two-lens wording counts as citing both lenses; one alone doesn't
+    assert not errs("<p>The 10-year is at or above the reading on 87 of every 100 days of the last 30 years, but about average (49th percentile) since 1962.</p>")
+    assert errs("<p>The 10-year is at or above the reading on 87 of every 100 days of the last 30 years.</p>")
+    # decade shares under a 'pct' key are not percentiles
+    lh["ust_10y"]["by_decade"] = {"1990s": {"share_at_or_above_pct": 94.0}}
+    assert errs("<p>The 10-year is at the 94th percentile since 1962 and the 87th over 30 years.</p>")
+    # a record for a different subject in the same sentence isn't flagged
+    assert not errs("<p>With the 10-year steady, stocks set a record high.</p>")
+
+
+def test_lint_on_a_history_outage_still_bans_overclaims():
+    state = {"row_date": "2026-10-08", "history_error": "FileNotFoundError: usrec.csv"}
+    bad = {"history_html": "<p>An inverted curve predicts a recession; the 10-year is at the 87th percentile.</p>"}
+    errors, _ = lint.lint(bad, state)
+    joined = " | ".join(errors)
+    assert "predicts" in joined and "87th percentile" in joined and "failed to load" in joined
+    ok = {"history_html": "<p>The long-run history files failed to load today, so no historical comparison is made.</p>"}
+    assert lint.lint(ok, state)[0] == []
+

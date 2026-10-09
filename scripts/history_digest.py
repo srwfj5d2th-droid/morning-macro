@@ -80,7 +80,9 @@ def two_lens(ctx):
     p_all, p_30 = ctx["pct_rank_all_time"], ctx.get("pct_rank_modern")
     start = ctx["start_date"][:4]
     side_hi = ctx["lookback"]["side"] == "high"
-    word = "higher" if side_hi else "lower"
+    # the rank counts readings at or below today (ties included), so the high
+    # side is "at or above"; the low side (100 - rank) is strictly higher
+    word = "at or above the reading" if side_hi else "lower than the reading"
 
     def n_of_100(p):
         x = p if side_hi else 100 - p
@@ -88,11 +90,11 @@ def two_lens(ctx):
         # ("100 of every 100 days" when it's 99.7)
         return f"{x:.1f}" if (x >= 99 or x <= 1) else f"{round(x)}"
     if ctx.get("short_history"):
-        return f"{word} than on {n_of_100(p_all)} of every 100 days of the ~{ctx['years']:.0f} years available"
+        return f"{word} on {n_of_100(p_all)} of every 100 days of the ~{ctx['years']:.0f} years available"
     if p_30 is not None and ctx.get("regime_divergence"):
-        return (f"{word} than on {n_of_100(p_30)} of every 100 days of the last 30 years, "
+        return (f"{word} on {n_of_100(p_30)} of every 100 days of the last 30 years, "
                 f"but {_bin(p_all)} ({pct_ordinal(p_all)} percentile) since {start}")
-    return f"{word} than on {n_of_100(p_all)} of every 100 days since {start}"
+    return f"{word} on {n_of_100(p_all)} of every 100 days since {start}"
 
 
 def _cleveland_clause(ctx):
@@ -128,7 +130,7 @@ def _lookback_parts(key, ctx, value, as_of):
         head = (f"The {label} is in a record run: this run's {'high' if hi else 'low'} of "
                 f"{_fmt(key, lb['run_extreme'])} on {_mon_d(lb['run_extreme_date'], as_of)} is "
                 f"{'above' if hi else 'below'} every earlier reading since records begin in "
-                f"{lb['history_start'][:4]}; today's {_fmt(key, value)} is below that high.")
+                f"{lb['history_start'][:4]}; today's {_fmt(key, value)} is {'below' if hi else 'above'} that {'high' if hi else 'low'}.")
     else:
         start = _mon_d(lb["current_run_start"], as_of)
         if lb.get("current_run_unbroken", True):
@@ -138,8 +140,9 @@ def _lookback_parts(key, ctx, value, as_of):
                     f"{lb['current_run_sessions']} of the "
                     f"{reading_units(lb['current_run_total_sessions'], cad)} since")
         brief = lt.get("brief", lt["n_obs"] < 20)
+        during = (f" (during the {' and '.join(lt['overlapping'])})" if lt.get("overlapping") else "")
         head = (f"The {label} ({_fmt(key, value)}) {here}; before this run, the last time was "
-                f"{_mon_yr(lt['end'])}"
+                f"{_mon_yr(lt['end'])}{during}"
                 + (f", and only briefly ({reading_units(lt['n_obs'], cad)} between "
                    f"{_span(lt['start'], lt['end'])})" if brief and _mon_yr(lt['start']) != _mon_yr(lt['end'])
                    else f", and only briefly ({reading_units(lt['n_obs'], cad)})" if brief else "")
@@ -254,8 +257,11 @@ def _move_sentence(mk, as_of=None):
     mv = mk["move"]
     lb = mv.get("last_at_least_this_big")
     word = "drop" if mv["direction"] == "down" else "gain"
-    return (f"The {mk['label']}'s {mv['pct']:+.2f}% is a {word} of a size that comes about "
-            f"{mv['per_year_recent']:.0f} days a year (last {mv['recent_window_years']:.0f} years); "
+    py, n, win = mv["per_year_recent"], mv.get("n_recent"), mv["recent_window_years"]
+    often = (f"about {py:.0f} days a year (last {win:.0f} years)" if py >= 1 else
+             f"{n} time{'s' if n != 1 else ''} in the last {win:.0f} years" if n else
+             f"no day this big in the last {win:.0f} years")
+    return (f"The {mk['label']}'s {mv['pct']:+.2f}% is a {word} of a size that comes {often}; "
             f"it's the {ordinal(mv['count_this_year_incl_today'])} this year"
             + (f", and the last bigger one was {_mon_d(lb['date'], as_of)}" if lb else "") + ".")
 
@@ -294,9 +300,10 @@ def build_digest(state):
             facts.append({"id": f"lookback:{key}", "family": fam, "tier": tier,
                           "years_since": yrs, "series": key,
                           "sentence": " ".join(x for x in parts if x),
-                          # the email keeps the headline and any run-high
-                          # correction, never the headline alone
-                          "email": " ".join(x for x in parts[:2] if x),
+                          # the email keeps the headline, any run-high
+                          # correction, and both percentile lenses (§4F)
+                          "email": " ".join(x for x in (parts[:3] + ([parts[3]] if key == "tips_10y_real" else []))
+                                            if x),
                           "anchor_date": lb["last_touch"]["end"] if lb.get("last_touch") else None})
             break  # one per family: the first qualifying member
 

@@ -116,6 +116,24 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   - an email line that dropped its qualifier;
   - causal links in Story/Movers/Tier 3 that the reporting doesn't make;
   - an incomplete corrections note.
+- [x] **Third verification pass (v2.1, round 2), same day.** 8 independent
+  checks (numbers, code, rules, reader) confirmed 41 findings, all fixed
+  with tests before merge. The weightiest:
+  - the brief used the 10-07 high-yield print to say credit "didn't confirm"
+    the 10-08 selloff;
+  - the regime line called 5.22% "a level last reached in June 2007" on the
+    run's ninth session;
+  - TIPS's 23-year record was labeled "historically extreme";
+  - the email's history line carried a "highest since 2002" with no
+    percentiles;
+  - oil and energy causes were stated in the brief's own voice;
+  - the NR routing flag was missing;
+  - three claim-grading closes had no source file (now
+    `data/raw/claims_check_2026-10-09.json`);
+  - a crash on the first sessions of a year;
+  - linter gaps (a since-year the data never found, decade shares
+    accepted as percentiles, the history-outage path skipping every
+    rule).
 - [ ] **Then-vs-now similarity in native units.** The pinned rule (within 15
   percentile points on both views) calls the 30Y mortgage rate +0.66 points
   "similar" (14.6 points apart on the 30-year view). The gap is now shown

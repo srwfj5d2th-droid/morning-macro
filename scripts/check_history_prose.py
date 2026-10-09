@@ -62,8 +62,9 @@ BASE_RE = re.compile(r"\bnormal(?:ly)?\b|\bbase rate\b|\bany (?:\d+-month|12-mon
                      r"two-year|three-year) stretch\b|\btypical\b", re.I)
 OUTCOME_RE = re.compile(r"\bfollowed\b|\ba year later\b|\bnext (?:12 months|year)\b|"
                         r"\bover the following year\b|\bwhat came (?:next|after)\b|"
-                        r"\b\d+ months (?:later|after)\b|\bbegan within\b|"
-                        r"\bwithin (?:one|two|three|\d+) years?\b", re.I)
+                        r"\b\d+ months after (?:it|each|that|the (?:stretch|inversion|shock|start)) (?:started|began)\b|"
+                        r"\b(?:recession|S&P 500|stocks)\b[^.]{0,60}\b\d+ months (?:later|after)\b|"
+                        r"\bbegan within\b|\brecessions?\b[^.]{0,40}\bwithin (?:one|two|three|\d+) years?\b", re.I)
 MAX_HISTORY_WORDS = 300
 
 
@@ -100,20 +101,64 @@ def _named(text, lh):
     return [k for k, pat in SERIES_PATS.items() if k in lh and re.search(pat, text)]
 
 
+LEAD_PCT_KEYS = ("pct_rank_all_time", "pct_rank_modern",
+                 "cleveland_pct_all_time", "cleveland_pct_modern")
+# a sentence that names one series is checked against that series' own
+# percentile ranks only (not every number under a "pct" key -- decade shares
+# and returns would let invented percentiles through)
+OUTAGE_RE = re.compile(r"fail|unavailable|no historical comparison", re.I)
+# the series' names for superlative / since / record rules
+NAMES = {"ust_10y": SERIES_PATS["ust_10y"], "ust_30y": r"30-year|30Y", "ust_2y": r"2-year|2Y",
+         "tips_10y_real": r"[Rr]eal yield|TIPS", "dxy": r"[Dd]ollar|DXY",
+         "mortgage30": r"[Mm]ortgage", "baa_10y_spread": r"Baa|[Cc]redit spread"}
+
+
+def _sup_for(lb):
+    """Superlatives on the series' own side: "highest since" for a high-side
+    reading, "lowest since" for a low-side one."""
+    hi = lb.get("side", "high") == "high"
+    w, lvl, ab = ("highest|widest", "high", "above") if hi else ("lowest|tightest", "low", "below")
+    return re.compile(rf"\b(?:{w})\s+(?:level\s+)?(?:since|in \d+ years)\b|\bat its (?:{w})\b|"
+                      rf"\b\d+-year {lvl}\b|\b{ab} (?:every|all|any)\b(?:[^.;]|\.\d){{0,80}}?\bsince\b",
+                      re.I)
+
+
+def _clauses(sent):
+    return re.split(r";|,\s+(?:yet|but|while|though|and today)\b", sent)
+
+
 def lint(content, state):
     errors, notes = [], []
     as_of_year = int(state["row_date"][:4])
+    fields = {f: _text(content.get(f, "")) for f in CHECKED_FIELDS}
+    hist = fields["history_html"]
+
+    # 4. banned overclaims and forecast verbs -- these need no history data
+    for field, text in fields.items():
+        for pat in BANNED:
+            for m in re.finditer(pat, text, re.I):
+                errors.append(f"{field}: banned phrase '{m.group(0)}' (§4C/§4F)")
+
     blocks = {k: state.get(k) for k in HISTORY_BLOCKS if state.get(k) is not None}
     if not blocks:
-        notes.append("no history blocks in state.json (data/history missing?) — "
-                      "history rules skipped")
+        if state.get("history_error"):
+            # the history files failed to load: no long-run number can be checked,
+            # so none may appear, and the section must say why it's thin
+            for field, text in fields.items():
+                for m in re.finditer(r"\d{1,3}(?:\.\d)?(?:st|nd|rd|th) percentile|"
+                                     r"\d{1,3}(?:\.\d)? of every 100 days", text):
+                    errors.append(f"{field}: '{m.group(0)}' cites long-run history on a day it "
+                                  f"failed to load ({state['history_error']})")
+            if hist and not OUTAGE_RE.search(hist):
+                errors.append("history_html must say the long-run history failed to load today")
+        else:
+            notes.append("no history blocks in state.json (data/history missing?) — "
+                         "history rules skipped")
         return errors, notes
     corpus = json.dumps(blocks)
     pct_values = _numbers_under_pct_keys(blocks, [])
     lh = state.get("long_history") or {}
-
-    fields = {f: _text(content.get(f, "")) for f in CHECKED_FIELDS}
-    hist = fields["history_html"]
+    tvn = {r["key"]: r for r in (state.get("then_vs_now") or {}).get("rows", [])}
 
     # 1. the section exists and stays short
     if not hist:
@@ -135,8 +180,14 @@ def lint(content, state):
         #    percentile -- of the series the sentence names, when it names one
         for sent in _sentences(text):
             named = _named(sent, lh)
-            allowed = (_numbers_under_pct_keys([lh[k] for k in named], []) if named
-                       else pct_values)
+            if named:
+                allowed = ([float(lh[k][f]) for k in named for f in LEAD_PCT_KEYS
+                            if isinstance(lh[k].get(f), (int, float))]
+                           + [float(tvn[k][f]) for k in named if k in tvn
+                              for f in ("pct_then", "pct_now", "pct30_then", "pct30_now")
+                              if isinstance(tvn[k].get(f), (int, float))])
+            else:
+                allowed = pct_values
             for m in re.finditer(r"(\d{1,3}(?:\.\d)?)(?:st|nd|rd|th) percentile", sent):
                 v = float(m.group(1))
                 if not any(abs(v - p) <= 0.6 for p in allowed):
@@ -146,10 +197,6 @@ def lint(content, state):
                 v = float(m.group(1))
                 if not any(abs(v - p) <= 0.6 or abs(v - (100 - p)) <= 0.6 for p in allowed):
                     errors.append(f"{field}: '{m.group(0)}' doesn't match a stored percentile")
-        # 4. banned overclaims and forecast verbs
-        for pat in BANNED:
-            for m in re.finditer(pat, text, re.I):
-                errors.append(f"{field}: banned phrase '{m.group(0)}' (§4C/§4F)")
         # 5. any 'what came next' sentence carries its count and the normal rate
         sents = _sentences(text)
         for i, sent in enumerate(sents):
@@ -170,26 +217,35 @@ def lint(content, state):
                 errors.append(f"{field}: HY/IG OAS percentile without the ~3-year label: "
                               f"“{sent[:120]}…”")
 
-    # 7. never "highest/lowest since" for a reading that isn't its own run's
-    #    extreme (5.22% on a day the run had peaked at 5.31% is not "the
-    #    highest since 2007") -- unless the sentence is about the peak itself
-    names = {"ust_10y": SERIES_PATS["ust_10y"], "ust_30y": r"30-year|30Y", "ust_2y": r"2-year|2Y",
-             "tips_10y_real": r"[Rr]eal yield|TIPS", "dxy": r"[Dd]ollar|DXY",
-             "mortgage30": r"[Mm]ortgage", "baa_10y_spread": r"Baa|[Cc]redit spread"}
-    sup = re.compile(r"\b(highest|lowest|widest|tightest)\s+(level\s+)?(since|in \d+ years)\b|"
-                     r"\bat its (highest|lowest)\b|\b\d+-year (high|low)\b|"
-                     r"\b(above|below) (every|all|any)\b(?:[^.;]|\.\d){0,80}?\bsince\b", re.I)
-    for key, pat in names.items():
+    # 7. superlatives on the series' own side:
+    #    (a) never "highest since" for a reading below its own run's peak
+    #        (5.22% on a day the run had peaked at 5.31% is not "the highest
+    #        since 2007") -- unless that clause is about the peak itself;
+    #    (b) a year after "since" must be one the lookback actually found
+    for key, pat in NAMES.items():
         lb = (lh.get(key) or {}).get("lookback") or {}
-        if lb.get("today_is_run_extreme", True):
+        if not lb:
             continue
+        sup = _sup_for(lb)
+        peak_ref = re.compile(rf"{lb.get('run_extreme', 0):.2f}|\bthis run'?s? (?:high|low|peak)|"
+                              r"\bthis run peaked\b|\brun (?:high|low|peak)\b", re.I)
+        ok_years = {(lb.get(x) or {}).get("end", "")[:4]
+                    for x in ("last_touch", "last_sustained", "run_extreme_prior")} - {""}
         for field, text in fields.items():
             for sent in _sentences(text):
-                if sup.search(sent) and re.search(pat, sent) and not re.search(
-                        r"\bpeak(ed)?\b|\brun'?s? high\b|\bhigh of\b|\bthis run's\b", sent, re.I):
+                if not re.search(pat, sent):
+                    continue
+                if not lb.get("today_is_run_extreme", True) and any(
+                        sup.search(c) and not peak_ref.search(c) for c in _clauses(sent)):
                     errors.append(f"{field}: “highest/lowest since” for {key}, but today isn't "
                                   f"this run's extreme ({lb.get('run_extreme')} on "
                                   f"{lb.get('run_extreme_date')}): “{sent[:120]}…”")
+                for c in _clauses(sent):
+                    m = sup.search(c)
+                    y = re.search(r"\bsince (?:\w+ )?((?:19|20)\d\d)\b", c[m.start():]) if m else None
+                    if y and ok_years and y.group(1) not in ok_years:
+                        errors.append(f"{field}: “… since {y.group(1)}” for {key}, but the "
+                                      f"lookback found {', '.join(sorted(ok_years))}: “{sent[:120]}…”")
 
     # 8. the lead 'last time' fact must be used, not skipped
     for f in state.get("history_digest") or []:
@@ -204,7 +260,7 @@ def lint(content, state):
             break
 
     # 9. TIPS-window caveat when the Cleveland record disagrees
-    tips = (state.get("long_history") or {}).get("tips_10y_real") or {}
+    tips = lh.get("tips_10y_real") or {}
     if tips.get("tips_window_divergence") and re.search(r"real yield|TIPS", hist) \
             and re.search(r"\b2008\b|\b2003\b|percentile", hist) \
             and not re.search(r"Cleveland|1982", hist):
@@ -212,10 +268,13 @@ def lint(content, state):
                       "cross-check (tips_window_divergence is true)")
 
     # 10. when a series' two percentiles diverge, a paragraph that cites one
-    #     (or calls it 'middle-of-the-pack') must cite both (§4F)
+    #     (or calls it 'middle-of-the-pack') must cite both (§4F). The
+    #     script's own "N of every 100 days" wording counts as a citation.
     for field in CHECKED_FIELDS:
         for para in _paragraphs(content.get(field, "")):
             ords = [float(x) for x in ORD_RE.findall(para)]
+            for x in re.findall(r"(\d{1,3}(?:\.\d)?) of every 100 days", para):
+                ords += [float(x), 100.0 - float(x)]
             for key in _named(para, lh):
                 e = lh[key]
                 if not e.get("regime_divergence") or e.get("pct_rank_modern") is None:
@@ -232,36 +291,67 @@ def lint(content, state):
                                   f"diverge ({a:.0f} all-time vs {m:.0f} over 30 years); show both "
                                   f"(§4F): “{para[:120]}…”")
 
-    # 11. "has been above X since <date>" only for an unbroken run
+    # 11. "has been above <today's level> since <date>" only for an unbroken
+    #     run (a lower level, or the digest's "there on N of the M", is fine)
     since_re = re.compile(r"\b(?:has|have) (?:been|stayed|held|remained) (?:at or )?"
                           r"(?:above|below|over|under|there|here)\b(?:[^.;]|\.\d){0,60}\bsince\b", re.I)
-    for key, pat in names.items():
-        lb = (lh.get(key) or {}).get("lookback") or {}
+    for key, pat in NAMES.items():
+        e = lh.get(key) or {}
+        lb = e.get("lookback") or {}
         if lb.get("current_run_unbroken", True):
             continue
+        today = e.get("latest_value")
         for field, text in fields.items():
             for sent in _sentences(text):
-                if since_re.search(sent) and re.search(pat, sent):
+                m_ = since_re.search(sent)
+                if not m_ or not re.search(pat, sent) or re.search(r"\bthere on \d+ of the \d+\b", sent):
+                    continue
+                lvls = [float(x) for x in re.findall(r"(?<![\d.])(\d+(?:\.\d+)?)", m_.group(0))]
+                if not lvls or today is None or any(abs(x - today) <= 0.05 for x in lvls):
                     errors.append(f"{field}: “has been … since” for {key}, but its current run has "
                                   f"dips ({lb.get('current_run_sessions')} of "
                                   f"{lb.get('current_run_total_sessions')} sessions): “{sent[:120]}…”")
 
     # 12. "record" for a Tier 1 series only when the data says so
     rec_re = re.compile(r"\b(?:a|an|new|fresh) record\b|\ball-time (?:high|low)\b|\brecord (?:high|low)\b", re.I)
-    for key, pat in names.items():
+    for key, pat in NAMES.items():
         lb = (lh.get(key) or {}).get("lookback") or {}
-        if not lb or lb.get("record") or lb.get("run_is_record"):
+        if not lb or lb.get("record"):
             continue
+        run_ref = re.compile(rf"{lb.get('run_extreme', 0):.2f}|\bthis run\b|\brecord run\b", re.I)
         for field, text in fields.items():
             for sent in _sentences(text):
                 if re.search(r"\bnot a record\b|\bno record\b", sent, re.I):
                     continue
+                if lb.get("run_is_record") and run_ref.search(sent):
+                    continue  # the run's peak is the record, and the sentence says so
                 for m in rec_re.finditer(sent):
-                    # the series has to be the record's subject: named just before it
-                    if re.search(pat, sent[max(0, m.start() - 30):m.start()]):
+                    # the series has to be the record's subject: named just
+                    # before it, in the same clause
+                    pre = sent[:m.start()].split(",")[-1]
+                    if re.search(pat, pre[-40:]):
                         errors.append(f"{field}: “record” for {key}, but it isn't one: "
                                       f"“{sent[:120]}…”")
                         break
+
+    # 13. "last reached in <year>" for a series already in a multi-session run
+    #     must say "before this run" (on 10-09 the 10-year had been at or above
+    #     5.22% for eight sessions; "a level last reached in June 2007" read
+    #     as if today were the first time back)
+    last_re = re.compile(r"\blast (?:reached|touched|seen|hit|there|at)\b[^.;]{0,40}?\b(?:19|20)\d\d\b", re.I)
+    for key, pat in NAMES.items():
+        lb = (lh.get(key) or {}).get("lookback") or {}
+        if (lb.get("current_run_total_sessions") or 1) <= 1:
+            continue
+        for field, text in fields.items():
+            for sent in _sentences(text):
+                if re.search(pat, sent) and any(
+                        last_re.search(c) and not re.search(r"before this run|\bthis run'?s? (?:high|low|peak)\b|"
+                                                             r"\bthis run peaked\b|\brun (?:high|low|peak)\b", c, re.I)
+                        for c in _clauses(sent)):
+                    errors.append(f"{field}: “last reached in …” for {key} without “before this "
+                                  f"run” (it has been there since {lb.get('current_run_start')}): "
+                                  f"“{sent[:120]}…”")
     return errors, notes
 
 

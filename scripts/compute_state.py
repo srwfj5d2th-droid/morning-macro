@@ -246,7 +246,7 @@ def main():
 
 def _label(ctx, z, thin):
     return hc.lately_vs_history(z, thin, ctx["pct_rank_all_time"], ctx.get("pct_rank_modern"),
-                                ctx["start_date"][:4], ctx["short_history"])
+                                ctx["start_date"][:4], ctx["short_history"], ctx.get("years"))
 
 
 HISTORY_KEYS = ("long_history", "history_base_rates", "rate_pace", "history_pairs",
@@ -336,6 +336,9 @@ def attach_history(state, rows, row_date):
         lh["tips_10y_real"]["tips_window_divergence"] = abs(a - b) >= hc.REGIME_DIVERGENCE_PTS
         lh["tips_10y_real"]["cleveland_pct_all_time"] = b
         lh["tips_10y_real"]["cleveland_pct_modern"] = lh["real10_cleveland"]["pct_rank_modern"]
+        if lh["tips_10y_real"]["tips_window_divergence"]:
+            lh["tips_10y_real"]["label"] += (f"; Cleveland model since 1982: "
+                                             f"{hc.level_word(b)} ({hc.pct_ordinal(b)})")
 
     state["history_base_rates"] = hc.base_rates(row_date)
 

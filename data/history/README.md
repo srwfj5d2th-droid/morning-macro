@@ -214,7 +214,10 @@ change only at monthly review:
   reference series get a z from their own file via `recent_z`; a monthly
   series can't). History, each lens tested on its own: "historically
   extreme" (both), "high vs. last 30 yrs (87th), about average since 1962
-  (49th)" (one), "ordinary historically", or "3-yr record only".
+  (49th)" (one), "ordinary historically", or "3-yr record only". A record
+  under 30 years (TIPS, breakeven: no separate 30-year view by
+  construction) reads "extreme since 2003 (short record)" instead of
+  "historically"; TIPS also carries the Cleveland model's reading.
 - **`by_decade`** (series with 35+ years) gives each decade's range and the
   share of its readings at or above today's. It is the only source for a
   decade framing in prose.

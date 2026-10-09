@@ -304,6 +304,15 @@ which change only at monthly review:
     "will follow"-style forecasts. Tier 3 and Movers prose are linted too.
     A decade framing ("if you remember the '80s") must come from
     `long_history[key].by_decade`.
+  - Third pass, same day (v2.1, round 2): series under ~35 years (TIPS,
+    breakeven) get no separate 30-year percentile and are labeled
+    "extreme/ordinary since 2003 (short record)", with the Cleveland
+    reading beside TIPS; the email's history line carries both percentile
+    lenses; "last reached in <year>" for a series already in a multi-session
+    run must say "before this run" (the 10-09 regime line didn't); a
+    superlative's "since <year>" must be a year the lookback found; and a
+    lagged print (e.g. HY OAS dated the day before) may not grade a later
+    day's market move.
 - **Sources.**
   - Yahoo daily, same symbols as the live pull: S&P 500 1927+, Nasdaq
     1971+, DXY 1971+ (closes the DXY gap above), WTI and gold futures 2000+.

@@ -322,7 +322,9 @@ def context_for(key, today_value, today_date, direction="high", live_rows=None):
     # window is the whole series already (hy_oas/ig_oas, ~3yr) or there's
     # no deep pool to pool incomparable regimes from in the first place.
     window_rows = _window_rows(rows, today_date, MODERN_WINDOW_YEARS)
-    if window_rows and not out["short_history"]:
+    # a separate 30-year lens only exists when there's an older regime to
+    # set it against (~35+ years); TIPS/breakeven (2003+) get none (§4F)
+    if window_rows and not out["short_history"] and out["years"] >= MODERN_WINDOW_YEARS + 5:
         modern_pct = _percentile_rank(window_rows, today_value)
         out["modern_window_years_requested"] = MODERN_WINDOW_YEARS
         out["modern_years"] = _years_covered(window_rows)
@@ -1294,6 +1296,7 @@ def market_context(key, as_of, live_rows=None):
             "share_days_at_least_this_big_all_pct": round(100.0 * sum(1 for _, r in hist if big(r)) / len(hist), 2),
             "share_days_at_least_this_big_recent_pct": round(share_30, 2) if share_30 is not None else None,
             "per_year_recent": round(n_30 / win, 1) if hist_30 else None,
+            "n_recent": n_30 if hist_30 else None,
             "recent_window_years": win,
             # gate: only a move in the most extreme ~15% of same-direction
             # days over the recent window earns a sentence in prose
@@ -1516,10 +1519,12 @@ def recent_z(rows, as_of, days=183, min_obs=20):
     if len(prior) < min_obs:
         return None, True
     sd = statistics.stdev(prior)
-    return (round((v - statistics.mean(prior)) / sd, 2) if sd > 0 else 0.0), False
+    if sd <= 0:
+        return None, True  # a flat six months gives no scale to measure a move against
+    return round((v - statistics.mean(prior)) / sd, 2), False
 
 
-def lately_vs_history(z120, z_thin, p_all, p_30, start_year, short):
+def lately_vs_history(z120, z_thin, p_all, p_30, start_year, short, years=None):
     """Script words for 'is this flag this year's noise or a decades-level
     reading?' -- never typed by the model. Each lens is tested on its own:
     when only one is in its tail, both are shown (§4F), and 'lately' is
@@ -1539,7 +1544,10 @@ def lately_vs_history(z120, z_thin, p_all, p_30, start_year, short):
     def side(p):
         return "high" if p >= 50 else "low"
     t_all, t_30 = tail(p_all), tail(p_30)
-    if t_all and (p_30 is None or t_30):
+    short_rec = years is not None and years < MODERN_WINDOW_YEARS
+    if t_all and short_rec:
+        hist = f"extreme since {start_year} (short record)"
+    elif t_all and (p_30 is None or t_30):
         hist = "historically extreme"
     elif t_30:
         hist = (f"{side(p_30)} vs. last 30 yrs ({pct_ordinal(p_30)}), "
@@ -1548,5 +1556,5 @@ def lately_vs_history(z120, z_thin, p_all, p_30, start_year, short):
         hist = (f"{side(p_all)} since {start_year} ({pct_ordinal(p_all)}), "
                 f"not vs. last 30 yrs ({pct_ordinal(p_30)})")
     else:
-        hist = "ordinary historically"
+        hist = f"ordinary since {start_year} (short record)" if short_rec else "ordinary historically"
     return f"{lately}; {hist}"
