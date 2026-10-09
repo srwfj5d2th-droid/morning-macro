@@ -217,50 +217,80 @@ one real overclaim (HY OAS called "the widest ... ever recorded" on
 
 ### §4F amendment (2026-10-09, Jacob — "I still didn't see a deeper connection to historical context like I've been asking for")
 
-The 10-08 layer told the reader where a reading *ranks*. It was used only
-defensively (to stop an overclaim), never to connect today to a real era.
-The standing fix makes history a section of its own, with the content
-generated from data and the section impossible to skip:
+The 10-08 layer said where a reading *ranks*, but the brief used it only
+defensively, to stop an overclaim. This amendment makes history a section of
+its own. The section's facts are generated from data, and the section can't
+be skipped. Its method was set by an independent three-lens review (advisor,
+statistician, historian) of a same-day first draft. That review caught
+biases which are now pinned in code (`history_context.py` constants), and
+which change only at monthly review:
 
 - **"Today in history" is fixed furniture** (§6 item 5b, after the
-  dashboard). It is prose written by the model, followed by three tables
-  rendered mechanically by `build_brief.py` from `state.json`:
-  - *Series:* for every Tier 1 rate/credit series plus DXY, **the last time
-    before the current run** it was at least this high (or low). Readings
-    less than a year apart count as one stretch, so this is the last
-    genuinely separate era, not last month. Each row also gives *back then*:
-    the named episodes in that stretch's final year, any recession that
-    began then or within 24 months, the fed funds rate and its 12-month
-    change (was the Fed hiking or cutting?), and the S&P 500 over the
-    following year.
-  - *Together:* standing cross-series combinations
-    (`compute_state.JOINT_CONFIGS`) and when they were last true at the
-    same time.
-  - *Markets:* S&P 500, Nasdaq, WTI, gold. These get return-based context,
-    because a level percentile is meaningless for a trending price: how
-    often a move this big happens, the last bigger one, distance from the
-    record, and YTD rank against every prior year through the same date.
-- **The prose must** lead with the day's deepest historical anchor (a
-  "first time since…", or a combination with no precedent); say what the
-  backdrop was then and how today differs; give at least one "what came
-  next, that time" with the explicit caveat that one episode is not a
-  pattern and not a forecast; include a counter-example when the data has
-  one (history's patterns can skip a turn); and translate it into a
-  client-ready "are we in unusual territory?" answer. Every number comes
-  from `long_history` / `joint_history` / `market_history` /
-  `curve_inversions`; nothing is recalled.
-- **One-line `history_headline`** goes into the email under the regime
-  line. That's how the notification layer carries history too.
-- **Enforced in code.** `build_brief.py` refuses to build when long-run
-  history is available but `history_html` or `history_headline` is empty.
-  It also now generates the markdown twin from the same content and state,
-  so the twin can't drift from the page or drop the history tables.
-- **New sources** (Yahoo daily, same symbols as the live pull): S&P 500
-  1927+, Nasdaq Composite 1971+, DXY 1971+ (closes the DXY gap above), WTI
-  and gold futures 2000+. **Data-integrity exclusion:** this environment's
-  30Y file carries values for 2002-02 to 2006-02, when Treasury had
-  suspended the 30-year bond. They are excluded from every calculation.
-  Details are in `data/history/README.md`.
+  dashboard), every day, quiet or loud. In order:
+  - a **History check** box of at most 4 script-written facts
+    (`history_digest`, ranked and deduplicated by family);
+  - the model's interpretation (`history_html`, ≤300 words, ending in a
+    client-ready line);
+  - a **then-vs-now** panel for the lead "last time" fact, when it is 10+
+    years back;
+  - a reference table: *lately vs. history* label and *last time* for each
+    series;
+  - the curve-inversion and pair lines;
+  - an **"every time before"** table of past 10Y rate shocks;
+  - the markets table and the S&P pullback line.
+
+  Every cell and every History-check sentence is rendered from `state.json`.
+- **"Last time" is honest by construction.**
+  - It is claimed only for a reading in a tail: top or bottom fifth on the
+    all-time or 30-year view (`TAIL_GATE`).
+  - It is claimed only when the answer survives different ways of grouping
+    readings into stretches (`gap_sensitive`).
+  - "Briefly" is separated from "routinely": a touch under 20 readings
+    versus a sustained stretch.
+  - It is checked against the current run's own peak, so a reading below
+    this run's high is never called "the highest since".
+- **"What came next" is measured from the start of each past stretch**, the
+  real-time twin of today. It is never measured from the end, which is known
+  only in hindsight and is often the day a crisis began. That end-anchoring
+  is what turned "S&P near a record" into "stocks fell every time" (median
+  next-12m +14% from the start vs. −16% from the end). Every outcome is
+  shown next to the normal rate for any comparable stretch. Windows too
+  recent for NBER to date are "too recent to judge", never "no recession".
+  Counts under 5 are labeled anecdotes.
+- **Pairs use fixed percentile bands** (10/90 primary, 20/80 and 25/75 as
+  robustness checks), never today's exact values: exact thresholds make
+  "never before" happen by construction. Pairs are pre-registered in
+  `compute_state.HISTORY_PAIRS`. "Never before" is banned in prose.
+- **Curve inversions count cycles, not fragments.** Runs within a year
+  merge. A cycle that began inside a recession isn't counted, and unresolved
+  cycles are pending. Result: 4 of 5, not "14 of 18".
+- **Short records get cross-checked.** TIPS start in 2003, so the
+  Cleveland Fed's model real rate (1982+) is shown beside it, and prose must
+  cite both when they disagree. The Kim-Wright term premium (1990+) lets the
+  brief compare, rather than assert, what's driving a yield.
+- **Enforced in code.**
+  - `build_brief.py` refuses to build without `history_html`, writes the
+    email's history line from the top digest fact, and generates the
+    markdown twin from the same content and state.
+  - `scripts/check_history_prose.py` must pass before commit. Every past
+    year and every "Nth percentile" in prose must exist in the history data,
+    and the lead "last time" fact must appear in the prose *and* in the
+    regime line or story. Outcome sentences need a count and the normal
+    rate. Forecast verbs and "never before" are banned, and the history
+    prose is capped at 300 words.
+  - A regression test asserts that 2026-10-09's first edition fails it.
+- **Sources.**
+  - Yahoo daily, same symbols as the live pull: S&P 500 1927+, Nasdaq
+    1971+, DXY 1971+ (closes the DXY gap above), WTI and gold futures 2000+.
+  - FRED: the Cleveland real rate, Kim-Wright term premium, Freddie Mac
+    mortgage rate, and Unit 7's financing-cycle aggregates (IT investment,
+    nonfinancial corporate equity and debt, all relative to GDP), which feed
+    a Friday Tier 3 map.
+  - The live series overrides history files wherever both have a date, and
+    Yahoo's in-progress bar is never stored.
+  - The 30Y file's values for 2002-02 to 2006-02 (when Treasury had
+    suspended the bond) are excluded as unverifiable. See
+    `data/history/README.md`.
 
 ---
 

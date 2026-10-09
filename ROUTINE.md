@@ -69,22 +69,28 @@ Run order:
    structure of the existing content_*.json files), then
    `python3 scripts/build_brief.py --content <that file>
     --sparks briefs/assets/<today> --date <today>`.
-   The content must include `history_html` (the "Today in history" prose)
-   and `history_headline` (one sentence for the email). `build_brief.py`
-   refuses to build without them. It also writes the markdown twin
-   briefs/<today>.md itself, so don't hand-write it.
-   **Writing `history_html`** (CLAUDE.md §4F amendment, 2026-10-09): read
-   `long_history[*].prior_episode`, `joint_history`, `market_history`, and
-   `curve_inversions` in data/state.json first. Lead with the day's
-   deepest anchor: a "first time since <month year>" for a flagged series,
-   or a combination with no precedent. Say what the backdrop was then (fed
-   funds, named episodes) and how today differs. Give at least one "what
-   came next, that time", always labeled as one past instance, not a
-   pattern or forecast. Add a counter-example where the data has one.
-   Cite both percentiles when they diverge. End with a "why this matters"
-   that answers a client's "are we in unusual territory?" Do not cite
-   `most_recent_comparable`; it lands inside the current run ("days ago")
-   and isn't history.
+   The content must include `history_html`, the "Today in history"
+   interpretation. `build_brief.py` refuses to build without it, and it
+   writes the markdown twin briefs/<today>.md itself, so don't hand-write
+   the twin.
+   **Writing `history_html`** (CLAUDE.md §4F amendment, 2026-10-09):
+   - Read `history_digest` in data/state.json first. Those are the day's
+     script-written facts, and the page shows them verbatim in the History
+     check box above your prose.
+   - Interpret them in ≤300 words: what's genuinely unusual, the then-vs-now
+     panel's similarities *and* differences, and the speed vs. the level.
+     End with a client-ready line.
+   - Every number must come from `history_digest`, `long_history`,
+     `then_vs_now`, `rate_pace`, `curve_cycles`, `history_pairs`,
+     `market_history` or `cycle_map`.
+   - Any "what came next" carries its count and the normal rate.
+   - Never write "never before", "highest since" for a reading below its
+     run's peak, or a model decomposition stated as fact.
+   - Put the lead fact's year in the regime line or story too.
+   On Fridays, put `[[CYCLE_MAP]]` in `tier3_html` (the Unit 7 map) next to
+   `[[LIQUIDITY_SVG]]`.
+   Then run `python3 scripts/check_history_prose.py --content <that file>`.
+   A failure blocks the commit: fix the prose, rebuild, and re-lint.
 9. Log any new conditional claims to the ledger (id sequence CL-XXXX).
    Teach the next curriculum segment (curriculum/tracker.md says where you
    are); update the tracker.

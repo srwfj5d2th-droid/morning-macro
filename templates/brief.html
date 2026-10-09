@@ -71,39 +71,36 @@
 {{DASHBOARD_INTERP}}
 
     <!-- ============ 5b · today in history (§4F) ============
-         Prose from the morning session; every table cell rendered by
-         build_brief.py from state.json (long_history / joint_history /
-         market_history), never written by the model. -->
+         Everything except HISTORY_HTML is rendered by build_brief.py from
+         state.json (history_digest, then_vs_now, long_history, curve_cycles,
+         history_pairs, rate_pace, market_history) -- never written by the
+         model. HISTORY_HTML is the model's interpretation. -->
     <h2 style="font-family:Fraunces, Georgia, serif; font-size:21px; font-weight:700; margin:34px 0 10px 0;">Today in history</h2>
+{{HISTORY_CHECK}}
 {{HISTORY_HTML}}
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:12px;">
+{{THEN_NOW}}
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:16px;">
       <tr style="border-bottom:1.5px solid #1F2430;">
         <td style="padding:5px 0; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Series</td>
         <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">Today</td>
-        <td style="padding:5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Last time</td>
-        <td style="padding:5px 0 5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Back then</td>
+        <td style="padding:5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Lately vs. history</td>
+        <td style="padding:5px 0 5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Last time</td>
       </tr>
-{{HISTORY_ROWS}}
+{{HISTORY_REF_ROWS}}
     </table>
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:16px;">
-      <tr style="border-bottom:1.5px solid #1F2430;">
-        <td style="padding:5px 0; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Together</td>
-        <td style="padding:5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Last time</td>
-        <td style="padding:5px 0 5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Back then</td>
-      </tr>
-{{JOINT_ROWS}}
-    </table>
+{{HISTORY_LINES}}
+{{SHOCK_TRACK}}
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; font-size:12.5px; margin-top:16px;">
       <tr style="border-bottom:1.5px solid #1F2430;">
         <td style="padding:5px 0; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">Market</td>
         <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">Today</td>
-        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">Days/yr this big</td>
-        <td style="padding:5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">Last move this big</td>
-        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">YTD vs. past years</td>
+        <td style="padding:5px 6px; font-weight:600; font-size:11px; text-transform:uppercase;">How often</td>
+        <td style="padding:5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">This year vs. past years</td>
         <td style="padding:5px 0 5px 6px; text-align:right; font-weight:600; font-size:11px; text-transform:uppercase;">From record</td>
       </tr>
 {{MARKET_ROWS}}
     </table>
+{{PULLBACK_LINE}}
     <p style="font-size:11.5px; color:#8A8F99; margin:8px 0 0 0;">{{HISTORY_NOTE}}</p>
 
     <!-- ============ 6 · movers ============ -->

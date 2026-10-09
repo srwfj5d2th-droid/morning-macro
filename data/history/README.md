@@ -136,34 +136,76 @@ under roughly 35 years (TIPS real yield and breakeven, 2003+) — get
 `pct_rank_modern: null` and `regime_divergence: false` by construction:
 there isn't a distinct older era available to disagree with the recent one.
 
-## "First time since", combinations, and market context (added 2026-10-09)
+## History v2: "last time", what came next, pace, pairs, cycles (2026-10-09)
 
 Jacob, again, 2026-10-09: the brief still didn't connect today to real
-history. The 10-08 layer said where a reading *ranks*; it couldn't say when
-it was last like this, what was going on then, or what came next.
-`history_context.py` now adds, and `compute_state.py` attaches:
+history. A same-day first draft added "first time since" lookups, but an
+independent three-lens review (advisor, statistician, historian) found biases
+in it. The shipped version, in `history_context.py`, is built around those
+findings. Its thresholds are pinned constants at the top of the v2 block and
+change only at monthly review:
 
-- **`long_history[key].prior_episode`** — the most recent stretch *before*
-  the current one when the series was at/beyond today's reading
-  (`group_episodes`: qualifying readings more than `EPISODE_GAP_DAYS = 365`
-  apart start a new stretch, so a dip-and-recover inside today's run never
-  counts as "last time"). Side (≥ or ≤) follows the trailing-30y percentile.
-  Carries the overlapping named episodes, any recession that began during
-  it or within 24 months after, the fed funds rate at its end (and its
-  12-month change — was the Fed hiking or cutting?), and the S&P 500's
-  return and worst drawdown over the 12 months after. The old
-  `most_recent_comparable` field is kept but is nearly always "days ago"
-  during a run; don't cite it as history.
-- **`joint_history`** — the standing combinations in
-  `compute_state.JOINT_CONFIGS`, each asking when its conditions were last
-  true *together*, using today's live readings (lagged components carry
-  their own `obs_date`).
-- **`market_history`** — S&P 500, Nasdaq, WTI, gold. Level percentiles are
-  meaningless for these (equity indexes trend up for a century; nominal oil
-  and gold aren't inflation-adjusted), so the context is return-based: how
-  often a one-day move this big happens, the last time a bigger one did,
-  distance from the record close, and year-to-date rank against every prior
-  year through the same calendar date.
+- **`lookback`** (in each `long_history[key]`). This is the last stretch
+  *before* the current run at least this high or low.
+  - It is only `gated` for a tail reading: top or bottom fifth on either the
+    all-time or the 30-year view.
+  - It is flagged `gap_sensitive` when the answer changes across 90-, 180-
+    and 365-day grouping gaps. Prose may not use it then.
+  - `last_touch` and `last_sustained` (20+ readings) are reported
+    separately.
+  - The current run's own extreme is checked, so a reading below this run's
+    peak is never called "the highest since".
+  - The `track` measures outcomes from each past stretch's **start**. Blips
+    (<10 readings) and regimes (>5 years) are excluded.
+  - `most_recent_comparable` is kept for audit only. It lands inside the
+    current run ("days ago") and must not be cited.
+- **`outcomes_from` / `base_rates`.** These give the S&P 500's next-12-month
+  price return and deepest drop, and whether a recession began within 24
+  months: `yes`, `no`, `in_progress`, or `pending` when the window ends
+  after NBER can date it (USREC's last month minus 12). Each comes with the
+  **normal rate** over every month since 1948, 1962 or 1983.
+- **`rate_shock` / `ytd_rank`** (`state.rate_pace`).
+  - `rate_shock` covers 12-month moves at least this big: every past
+    episode, measured from its start, against the normal rate. This is the
+    honest track record for a rate move, where a level's own track is
+    usually 1–2 cases.
+  - `ytd_rank` ranks this year's change through today's date against every
+    prior year. It works in bp mode for rates (negative bases kept) and %
+    mode for prices. Years with data holes are skipped, and early-January
+    years that hadn't traded yet count as unchanged.
+- **`pair_bands`** (`state.history_pairs`). This checks pre-registered pairs
+  on fixed percentile bands, never today's exact values. It reports the
+  joint share against the share expected if the series were unrelated, and
+  whether the prior stretch is stable across bands. `never_before_allowed`
+  is almost never true, by design.
+- **`inversion_cycles`** (`state.curve_cycles`). Runs within 365 days merge
+  into one cycle. A cycle is material at 10+ sessions *and* a trough of
+  −10bp or deeper. Cycles are classified `followed`, `not_followed`,
+  `pending`, or `began_in_recession`, against the 36-month normal rate. This
+  replaces the fragment counts of `summarize_inversions`, which is kept but
+  no longer used.
+- **`market_context`** covers S&P 500, Nasdaq, WTI and gold. It is
+  return-based: move frequency with a tail gate, the last bigger move,
+  count this year, distance from record (flagged `stale` when the record is
+  over 10 years old), and YTD rank. For the S&P it adds this year's worst
+  pullback vs. every full year. The live series overrides the file wherever
+  both have a date.
+- **`then_vs_now`** is a fixed panel for the lead fact's date vs. today. It
+  marks each row similar or different (within 15 percentile points of that
+  measure's own history).
+- **`cycle_map`** is Unit 7's aggregate gauges vs. the 2000 and 2007 peaks,
+  cycle level only (§8).
+- **`lately_vs_history`** is the script-written label: "unusual lately and
+  historically", "unusual lately, ordinary historically", "quiet lately,
+  historically extreme", "ordinary", or "3-yr record only".
 
-Honesty rules for all three: each "back then" is **one past instance**, not
-a track record and never a forecast; small counts are stated as counts.
+`scripts/history_digest.py` picks at most four facts a day and writes their
+sentences. `scripts/check_history_prose.py` lints the model's prose against
+all of the above.
+
+Honesty rules for every block:
+- Each "what came next" is a count against a normal rate, measured from the
+  start.
+- Small counts are called anecdotes.
+- Proxies are always named: DFF for SOFR, Baa−10Y for IG OAS, the Cleveland
+  model next to TIPS, futures (not spot) for WTI.

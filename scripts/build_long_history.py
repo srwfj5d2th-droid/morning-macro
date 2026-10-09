@@ -113,6 +113,34 @@ YAHOO_PERIOD2 = 2524608000    # 2050-01-01, i.e. "through today"
 SERIES["wti_spot"] = "DCOILWTICO"
 COSD["wti_spot"] = "1983-01-01"
 
+# Added 2026-10-09 (design panel on Jacob's history ask), all FRED, verified
+# reachable the same day:
+#   REAINTRATREARAT10Y  1982-01+ monthly  Cleveland Fed model 10Y real rate --
+#                       a long-run cross-check on the TIPS window (2003+),
+#                       never spliced into DFII10
+#   THREEFYTP10         1990-01+ daily    Kim-Wright 10Y term premium (Fed
+#                       Board model estimate) -- lets the brief test, not
+#                       assert, "the extra yield is term premium"
+#   MORTGAGE30US        1971-04+ weekly   Freddie Mac 30Y mortgage rate
+#   A679RC1Q027SBEA     1947Q1+  qtrly    private fixed investment, info
+#                       processing equipment + software ($bn SAAR)
+#   GDP                 1947Q1+  qtrly    nominal GDP ($bn SAAR)
+#   NCBEILQ027S         1945Q4+  qtrly    nonfinancial corporate equities,
+#                       market value ($mn)
+#   BCNSDODNS           1945Q4+  qtrly    nonfinancial corporate debt
+#                       securities + loans ($mn)
+# The last four build Unit 7's financing-cycle map (aggregate ratios only --
+# cycle level, never position level, §8).
+for _k, _id, _cosd in [("real10_cleveland", "REAINTRATREARAT10Y", "1980-01-01"),
+                       ("kw_tp10", "THREEFYTP10", "1985-01-01"),
+                       ("mortgage30", "MORTGAGE30US", "1970-01-01"),
+                       ("it_invest", "A679RC1Q027SBEA", "1940-01-01"),
+                       ("gdp", "GDP", "1940-01-01"),
+                       ("nfc_equity", "NCBEILQ027S", "1940-01-01"),
+                       ("nfc_debt", "BCNSDODNS", "1940-01-01")]:
+    SERIES[_k] = _id
+    COSD[_k] = _cosd
+
 
 def _get(url, retries=3, timeout=45):
     """Same UA quirk as pull_data.py: FRED wants curl's default UA."""
@@ -159,6 +187,13 @@ def fetch_yahoo_daily(symbol):
            f"&period2={YAHOO_PERIOD2}&interval=1d")
     data = json.loads(yahoo_get(url).decode("utf-8", "replace"))
     closes = parse_yahoo_chart(data)
+    # Yahoo returns an in-progress bar for the current session (verified
+    # 2026-10-09: a 10-09 "close" while the market was open). Reference data
+    # must hold finished closes only; the daily pipeline supplies recent days
+    # from the live series instead.
+    import datetime as _dt
+    today = _dt.datetime.now(_dt.timezone.utc).date().isoformat()
+    closes = {d: v for d, v in closes.items() if d < today}
     return [(d, f"{closes[d]:.6f}".rstrip("0").rstrip(".")) for d in sorted(closes)], url
 
 

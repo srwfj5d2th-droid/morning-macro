@@ -49,25 +49,21 @@ LONG_HISTORY_KEYS = {
     "dxy": {},
 }
 
-# Price series: return-based long-run context (a level percentile of an
-# equity index or nominal oil price is meaningless). §4F, 2026-10-09.
+# History v2 (§4F amendment, 2026-10-09 -- Jacob: "I still didn't see a
+# deeper connection to historical context"). Reference series quoted on
+# their own latest observation (not Tier 1; never fail-closed).
+REFERENCE_KEYS = ["real10_cleveland", "kw_tp10", "mortgage30"]
+# rate series that get a "pace" view: YTD change ranked against every year,
+# and the 12-month rate-shock track record measured from each shock's start
+RATE_PACE_KEYS = ["ust_2y", "ust_10y", "ust_30y", "tips_10y_real"]
+# price series: return-based context (a level percentile of a trending
+# price is meaningless)
 MARKET_HISTORY_KEYS = ["spx", "ndx", "wti", "gold"]
-
-# Standing cross-series configurations (§4F, 2026-10-09): "when were these
-# last true at the same time?" Each is a tension the brief has been
-# narrating day to day; history says whether it is ordinary or rare.
-JOINT_CONFIGS = {
-    "real_rates_high_credit_tight": {
-        "label": "10Y real yield this high AND investment-grade credit "
-                 "spread proxy (Baa minus 10Y) this tight",
-        "conditions": [("tips_10y_real", "high"), ("baa_10y_spread", "low")]},
-    "long_rates_high_stocks_near_record": {
-        "label": "10Y Treasury yield this high AND the S&P 500 this close "
-                 "to its record close",
-        "conditions": [("ust_10y", "high"), ("spx_dd", "high")]},
-    "long_rates_high_dollar_strong": {
-        "label": "10Y Treasury yield this high AND the dollar (DXY) this strong",
-        "conditions": [("ust_10y", "high"), ("dxy", "high")]},
+# Pre-registered cross-series pairs, fixed percentile bands. Small on
+# purpose: every extra pair is another lottery ticket for a spurious
+# "only other time". Change only at monthly review.
+HISTORY_PAIRS = {
+    "real_rates_vs_credit": ("tips_10y_real", "high", "baa_10y_spread", "low"),
 }
 
 SEASONING_MIN = 60      # §4: no z asserted below this many prior observations
@@ -202,73 +198,6 @@ def main():
     derived_curve("s2s10", "ust_10y", "ust_2y")
     derived_curve("s3m10y", "ust_10y", "ust_3m")
 
-    # long-run historical context (§4F) — supplementary, not fail-closed:
-    # if data/history/ hasn't been built/refreshed yet, skip quietly rather
-    # than failing the whole run over reference data.
-    if HIST_DIR.exists():
-        state["long_history"] = {}
-        for key, opts in LONG_HISTORY_KEYS.items():
-            s = state["series"].get(key) or state["derived"].get(key)
-            if s is None or key not in hc.SOURCES:
-                continue
-            value = s["last"] / 100.0 if opts.get("bp_to_pct") else s["last"]
-            try:
-                ctx = hc.context_for(key, value, s["last_date"], direction="high")
-            except FileNotFoundError:
-                continue
-            if ctx:
-                state["long_history"][key] = ctx
-                if ctx.get("proxy_key"):
-                    prow = state["series"].get(key) or {}
-                    try:
-                        proxy_rows, _ = hc._series_for(ctx["proxy_key"])
-                        pdate, pval = proxy_rows[-1]
-                        state["long_history"][ctx["proxy_key"]] = hc.context_for(
-                            ctx["proxy_key"], pval, pdate, direction="high")
-                    except (FileNotFoundError, IndexError):
-                        pass
-        try:
-            state["curve_inversions"] = {
-                "s2s10": hc.summarize_inversions("s2s10"),
-                "s3m10y": hc.summarize_inversions("s3m10y"),
-            }
-        except FileNotFoundError:
-            pass
-
-        state["market_history"] = {}
-        for key in MARKET_HISTORY_KEYS:
-            try:
-                ctx = hc.market_context(key, row_date)
-            except FileNotFoundError:
-                continue
-            if ctx:
-                state["market_history"][key] = ctx
-
-        # live readings the brief quotes, so a joint config describes today,
-        # not the last date every history file happens to share
-        latest = {}
-        for key in ("ust_10y", "tips_10y_real", "dxy"):
-            s = state["series"].get(key)
-            if s:
-                latest[key] = (s["last_date"], s["last"])
-        spx = state["series"].get("spx")
-        if spx and ATH_PATH.exists():
-            ath_val = json.loads(ATH_PATH.read_text()).get("value")
-            if ath_val:
-                latest["spx_dd"] = (spx["last_date"],
-                                    round(100.0 * (spx["last"] / ath_val - 1.0), 4))
-        state["joint_history"] = {}
-        for name, cfg in JOINT_CONFIGS.items():
-            try:
-                ctx = hc.joint_context(cfg["conditions"], row_date,
-                                       latest={k: v for k, v in latest.items()
-                                               if k in dict(cfg["conditions"])})
-            except FileNotFoundError:
-                continue
-            if ctx:
-                ctx["label"] = cfg["label"]
-                state["joint_history"][name] = ctx
-
     if ATH_PATH.exists():
         ath = json.loads(ATH_PATH.read_text())
         spx = state["series"].get("spx")
@@ -278,6 +207,11 @@ def main():
                 "basis": ath.get("basis", "close"),
                 "dist_pct": round(100.0 * (spx["last"] - ath["value"])
                                   / ath["value"], 3)}
+
+    # long-run historical context (§4F) — supplementary, not fail-closed: if
+    # data/history/ hasn't been built yet, skip rather than fail the run
+    if HIST_DIR.exists():
+        attach_history(state, rows, row_date)
 
     STATE_PATH.write_text(json.dumps(state, indent=2) + "\n")
 
@@ -307,6 +241,141 @@ def main():
     else:
         print("\nno z-flags — nothing outside normal ranges")
     return 0
+
+
+def attach_history(state, rows, row_date):
+    """§4F: where today sits against real history -- percentiles, the last
+    time it was here, what came after (from the start, against the normal
+    rate), pace, pairs, curve cycles, markets, then-vs-now, the financing-
+    cycle map, and the digest the brief leads with. history_context.py does
+    the math; this only wires live readings in."""
+    import history_digest
+
+    lh = state["long_history"] = {}
+    for key, opts in LONG_HISTORY_KEYS.items():
+        s = state["series"].get(key) or state["derived"].get(key)
+        if s is None or key not in hc.SOURCES:
+            continue
+        value = s["last"] / 100.0 if opts.get("bp_to_pct") else s["last"]
+        try:
+            ctx = hc.context_for(key, value, s["last_date"], direction="high")
+        except FileNotFoundError:
+            continue
+        if not ctx:
+            continue
+        ctx["latest_value"] = value
+        ctx["latest_date"] = s["last_date"]
+        ctx["label"] = hc.lately_vs_history(
+            s.get("z120"), s.get("z_thin"), ctx["lookback"]["ext"], ctx["short_history"])
+        lh[key] = ctx
+        if ctx.get("proxy_key") and ctx["proxy_key"] not in lh:
+            try:
+                prow, _ = hc._series_for(ctx["proxy_key"])
+                pdate, pval = prow[-1]
+                pctx = hc.context_for(ctx["proxy_key"], pval, pdate, direction="high")
+                pctx["latest_value"], pctx["latest_date"] = pval, pdate
+                pctx["label"] = hc.lately_vs_history(None, True, pctx["lookback"]["ext"], False)
+                lh[ctx["proxy_key"]] = pctx
+            except (FileNotFoundError, IndexError):
+                pass
+    for key in REFERENCE_KEYS:
+        try:
+            r, _ = hc._series_for(key)
+        except FileNotFoundError:
+            continue
+        r = [x for x in r if x[0] <= row_date]
+        if not r:
+            continue
+        d, v = r[-1]
+        ctx = hc.context_for(key, v, d, direction="high")
+        if ctx:
+            ctx["latest_value"], ctx["latest_date"] = v, d
+            ctx["reference_series"] = True
+            ctx["label"] = hc.lately_vs_history(None, True, ctx["lookback"]["ext"], False)
+            lh[key] = ctx
+    # TIPS only reach back to 2003; flag when the Cleveland model's longer
+    # record tells a different story, so prose cites both (§4F)
+    if "tips_10y_real" in lh and "real10_cleveland" in lh:
+        a = lh["tips_10y_real"]["pct_rank_all_time"]
+        b = lh["real10_cleveland"]["pct_rank_all_time"]
+        lh["tips_10y_real"]["tips_window_divergence"] = abs(a - b) >= hc.REGIME_DIVERGENCE_PTS
+        lh["tips_10y_real"]["cleveland_pct_all_time"] = b
+        lh["tips_10y_real"]["cleveland_pct_modern"] = lh["real10_cleveland"]["pct_rank_modern"]
+
+    state["history_base_rates"] = hc.base_rates(row_date)
+
+    pace = state["rate_pace"] = {}
+    for key in RATE_PACE_KEYS:
+        s = state["series"].get(key)
+        if not s:
+            continue
+        hrows, _ = hc._series_for(key)
+        entry = {"ytd": hc.ytd_rank(hrows, s["last"], s["last_date"], "bp"),
+                 "shock": hc.rate_shock(key, s["last"], s["last_date"])}
+        if key == "ust_10y":
+            entry["daily_move"] = hc.daily_change_rank(hrows, s["d1"], s["last_date"])
+        pace[key] = entry
+
+    latest = {}
+    for key in ("tips_10y_real", "ust_10y", "dxy"):
+        s = state["series"].get(key)
+        if s:
+            latest[key] = (s["last_date"], s["last"])
+    state["history_pairs"] = {}
+    for name, (a, sa, b, sb) in HISTORY_PAIRS.items():
+        try:
+            ctx = hc.pair_bands(a, sa, b, sb, row_date,
+                                latest={k: v for k, v in latest.items() if k in (a, b)})
+        except FileNotFoundError:
+            continue
+        if ctx:
+            state["history_pairs"][name] = ctx
+
+    state["curve_cycles"] = {}
+    for key in ("s2s10", "s3m10y"):
+        try:
+            state["curve_cycles"][key] = hc.inversion_cycles(key, row_date)
+        except FileNotFoundError:
+            pass
+
+    live = {k: series_obs(rows, k) for k in MARKET_HISTORY_KEYS}
+    state["market_history"] = {}
+    for key in MARKET_HISTORY_KEYS:
+        try:
+            ctx = hc.market_context(key, row_date, live_rows=live.get(key))
+        except FileNotFoundError:
+            continue
+        if ctx:
+            state["market_history"][key] = ctx
+
+    try:
+        state["cycle_map"] = hc.cycle_map(row_date, live={k: live[k] for k in ("spx", "ndx")})
+    except FileNotFoundError:
+        pass
+
+    digest = history_digest.build_digest(state)
+    # then-vs-now panel for the lead "last time" fact, when it's 10+ years back
+    lead = next((f for f in digest if f["id"].startswith("lookback:")
+                 and (f.get("years_since") or 0) >= 10), None)
+    if lead:
+        now_vals = {}
+        for key in ("ust_10y", "tips_10y_real", "bkeven_10y"):
+            s = state["series"].get(key)
+            if s:
+                now_vals[key] = (s["last_date"], s["last"])
+        sofr = state["series"].get("sofr")
+        if sofr:
+            now_vals["dff"] = (sofr["last_date"], sofr["last"])
+        for key in ("s2s10", "s3m10y"):
+            s = state["derived"].get(key)
+            if s:
+                now_vals[key] = (s["last_date"], s["last"] / 100.0)
+        ath = state["derived"].get("spx_ath")
+        if ath:
+            now_vals["spx_dd"] = (state["series"]["spx"]["last_date"], ath["dist_pct"])
+        state["then_vs_now"] = hc.then_vs_now(lead["anchor_date"], row_date, now_vals)
+        state["then_vs_now"]["fact_id"] = lead["id"]
+    state["history_digest"] = digest
 
 
 if __name__ == "__main__":

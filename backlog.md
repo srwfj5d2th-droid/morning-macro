@@ -75,22 +75,47 @@ Opened 2026-10-05 (Jacob flagged live, same morning as the 2026-10-05 brief):
 
 Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deeper connection to historical context like I've been asking for"):
 
-- [x] **History as a section, not a guardrail.** The 10-08 layer was used
-  only defensively. Today's first edition cited 120-day z-scores and one
-  percentile, and missed findings that were already in `state.json`: the
-  10Y at its highest since June 2007, a real yield matched only in the
-  2008 crisis, and real rates this high alongside credit this tight with no
-  precedent since 2003. Shipped the same day, re-issued as today's second
-  edition. Shipped: "first time since" episodes with backdrop (fed funds,
-  S&P next year), standing cross-series combinations, return-based context
-  for S&P/Nasdaq/WTI/gold, and DXY long history (gap closed). Also: a
-  mechanical "Today in history" section, a one-line email headline, a
-  build-time refusal when the section is missing, and a generated markdown
-  twin. Data-integrity catch along the way: unverifiable 2002-06 30Y values
-  are excluded (README).
-- [ ] **Monthly refresh now covers Yahoo files too.** Run
-  `build_long_history.py --refresh` at review. Between refreshes, live
-  closes from `macro_series.csv` fill the gap (see `compute_state.py`).
-- [ ] **Candidate additional combinations** for review (keep the standing
-  set small so each one stays meaningful): e.g. oil YTD strength plus
-  breakevens, curve slope plus credit.
+- [x] **History as a section, not a guardrail.** Shipped the same day as a
+  re-issue of the 2026-10-09 brief.
+  - *What the first edition missed.* It cited 120-day z-scores and one
+    defensive percentile. It missed the 10Y at a level last reached (briefly)
+    in June 2007, this run's 5.31% peak last matched in May 2002, and this
+    year's 9th-fastest 10Y rise since 1963.
+  - *What the first draft got wrong.* It was rushed and overclaimed. An
+    independent advisor/statistician/historian design review and a separate
+    verification pass both caught the same biases:
+    - outcomes measured from the end of past episodes
+    - "never before" produced by exact-value thresholds
+    - "highest since 2007" for a reading below its own run's peak
+    - a TIPS-only real-yield record
+    - curve inversions counted by fragment (18/14 instead of 5 cycles/4)
+    - an untested term-premium attribution
+  - *What shipped.* History v2 (see CLAUDE.md §4F amendment and
+    `data/history/README.md`), with a digest, a prose linter, and a
+    regression test that the first edition fails it.
+  - *Data-integrity catches along the way:*
+    - unverifiable 2002–06 30Y values (excluded)
+    - Yahoo partial intraday bars (no longer stored)
+    - Yahoo gold-futures history revised after a roll (the live series now
+      overrides it)
+    - SVG metadata leaking into the markdown twin
+- [ ] **Monthly refresh now covers the Yahoo files and the new FRED reference
+  series.** Run `build_long_history.py --refresh` at review. Between
+  refreshes the live series fills recent days.
+- [ ] **Ratify the pinned history thresholds** (the `history_context.py` v2
+  constants): the 80/20 tail gate, 365-day stretch gap, 20-reading
+  "sustained", 10-reading minimum, 5-year regime cap, 10/20/25 pair bands,
+  and 15-point then-vs-now similarity.
+- [ ] **Deferred from the design review, computed but not shipped.** Each
+  needs ratification so the system doesn't add analogs ad hoc.
+  - *Bond-holder pain rank.* Modeled 10Y constant-maturity total return
+    YTD: about −4.7%, 9th-worst of 64 years.
+  - *Nearest-neighbour era finder.* It points to the late 1990s; outcomes
+    split from −10% to +38%. Pre-register its features first.
+  - *Inflation-adjusted oil level.* Needs CPIAUCSL: WTI spot was the 92nd
+    percentile nominal vs. the 74th real.
+  - *Long-run mini-chart* for the chart of the day.
+  - *Analog-overlay chart.*
+  - *Mortgage rate in the digest's rates family* (the mortgage row is only
+    in the table today).
+  - *Further pre-registered pairs.*
