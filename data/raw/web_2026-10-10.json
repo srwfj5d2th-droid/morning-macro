@@ -1,0 +1,151 @@
+{
+  "_README": "Web-sourced (named-outlet) facts used in the 2026-10-10 brief (covering Friday 2026-10-09), recorded per CLAUDE.md §14 so every attribution in prose traces to a file. Gathered by a research pass and then re-checked by an independent fact-check pass on 2026-10-10 (UTC). In this sandbox article pages could not be opened (proxy/DNS), so each fact was confirmed from search-result titles, URLs and snippets that showed the outlet, the date and the claim; 'unconfirmed_details' lists what was NOT confirmed and must not be quoted. Where these conflict with the state file, the state file wins (§4C): closing prices and percentage moves come from data/macro_series.csv, data/raw/movers_2026-10-09.json, data/raw/claims_check_2026-10-10.json and data/raw/dividends_2026-10-09.json, not from press snippets.",
+  "retrieved_utc": "2026-10-10",
+  "items": [
+    {
+      "id": "T1",
+      "topic": "Telecom selloff trigger (Movers, Story)",
+      "supported": true,
+      "outlet": "CNBC (primary); Reuters only via syndicated wire copy",
+      "url": "https://www.cnbc.com/2026/10/09/verizon-att-tmobile-stocks-spacex-network.html (also https://www.cnbc.com/2026/10/08/spacex-spectrum-license-att-verizon-tmobile.html; Reuters syndicated copy at https://whbl.com/2026/10/08/spacex-to-acquire-spectrum-that-enables-starlink-mobile-services/)",
+      "date_seen": "2026-10-09 (CNBC Friday article URL path); 2026-10-08 (CNBC Thursday article and Reuters wire copy)",
+      "wording_seen": "CNBC 10-09 headline: \"Verizon, AT&T and T-Mobile sell off on SpaceX U.S. network plans\". CNBC 10-08 headline: \"SpaceX deal to acquire spectrum license hammers shares of AT&T, Verizon and T-Mobile\". CNBC described the deal as a \"license portfolio of up to 14 megahertz of paired spectrum in the 800 MHz band\" from Grain Management, which needs FCC approval. The search summary of CNBC's 10-09 piece gave Friday closes: Verizon -8.75% (\"worst day since July 2002\"), T-Mobile -13.27% (worst since 2013), AT&T -9.81% (worst since 2000). Reuters wire copy, syndicated on radio-station sites and dated 10-08: the three carriers \"fell more than 5% in extended trading\"; the price was not disclosed; the deal is subject to FCC approval.",
+      "unconfirmed_details": "(1) No reuters.com page was seen. The search tool blocks reuters.com and WebFetch failed, so the Reuters wording comes only from syndicated copies, and those cover Thursday after-hours moves (more than 5%), not Friday's close. (2) The exact Friday closing percentages (VZ -8.75%, TMUS -13.27%, T -9.81%) and the 'worst day since' comparisons came from the search engine's summary of the CNBC results, not from a verbatim snippet. Cross-check them against the system's own price data before use. (3) The roughly $8B price is attributed to the WSJ only by secondary sites (wirelessestimator, tikr/Yahoo). SpaceX did not disclose a price. (4) Reports of the after-hours drop vary: more than 5% (Reuters copy), more than 6% (Quiver citing Bloomberg), about 7% (Stocktwits)."
+    },
+    {
+      "id": "T2",
+      "topic": "Tower REIT rally (Movers)",
+      "supported": true,
+      "outlet": "CNBC (article + video); Bernstein 'best beneficiary' quote also via Stocktwits/Yahoo Finance",
+      "url": "https://www.cnbc.com/2026/10/09/spacex-wireless-plans-lifts-tower-stocks.html (Stocktwits: https://stocktwits.com/news-articles/markets/equity/spcx-wireless-spectrum-deal-cci-best-beneficiary-tower-stocks/cZxTFDvRBnA)",
+      "date_seen": "2026-10-09",
+      "wording_seen": "CNBC 10-09 headline: \"SpaceX makes big move into wireless. These once 'obsolete' tech stocks could benefit\" (also indexed as \"SpaceX wireless plans lifts tower stocks\"). CNBC: \"American Tower, Crown Castle and SBA Communications were all trading at least 6% higher Friday morning with Crown Castle leading the way.\" CNBC video title: \"Bernstein's Madison Rezaei: SpaceX plan to buy spectrum portfolio is good for tower operators\". Stocktwits/Yahoo headline: \"SpaceX's Wireless Ambitions Could Be A Windfall For CCI — Bernstein Analyst Calls It The 'Best Beneficiary'\". The search summary reported Rezaei telling CNBC \"Crown is the best beneficiary today\", reasoning that Crown is U.S.-only while AMT and SBAC have large international operations.",
+      "unconfirmed_details": "(1) The verbatim quote \"Crown is the best beneficiary today\" and the 'told CNBC' framing came from a search-engine synthesis across the Stocktwits, Yahoo and CNBC results. No CNBC snippet showing that sentence verbatim was seen. The CNBC video title confirms only that Rezaei said the deal is 'good for tower operators'. (2) Friday closing percentages for the tower REITs were not confirmed. Intraday figures from secondary sources: CCI about +13-14% (tikr/Yahoo, gokhshtein), AMT more than +8%, SBAC more than +6% (wirelessestimator). CNBC confirms only 'at least 6% higher Friday morning'. (3) The '10%-15% increase in recurring revenue' estimate attributed to Rezaei is secondhand. (4) The 'SpaceX as tower tenant' rationale is clearly reported (new fourth carrier-type tenant), but no lease is signed. Wirelessestimator's headline notes 'a tenant that hasn't signed a lease'."
+    },
+    {
+      "id": "T3",
+      "topic": "Analyst caution on carriers (Movers)",
+      "supported": true,
+      "outlet": "CNBC (JPMorgan note quoted)",
+      "url": "https://www.cnbc.com/2026/10/09/verizon-att-tmobile-stocks-spacex-network.html",
+      "date_seen": "2026-10-09",
+      "wording_seen": "CNBC 10-09 quoted JPMorgan saying the acquisition made Starlink Mobile's long-term opportunity \"more credible\", then: \"That said, we continue to see limited near-term risk to U.S. wireless incumbents given the time, infrastructure and capital required to build a competitive terrestrial network,\" analysts added in a Friday note. JPMorgan also said SpaceX would likely need to deploy a terrestrial network using large cell towers unless it secures an MVNO agreement. Separately, TF Associates' Tim Farrar said it is \"still a very limited amount of spectrum\" and that for reliable building penetration in urban areas SpaceX would have to deploy towers on the ground.",
+      "unconfirmed_details": "(1) The exact phrase 'spectrum alone is not a network' was not found in any source. Use the JPMorgan quote, or Farrar's 'very limited amount of spectrum ... deploy towers on the ground' point, instead. (2) Which outlet carried the Farrar quote is unclear: it appeared in the CNBC search summary and in Stocktwits' 10-08 after-hours piece, and no verbatim CNBC snippet was seen. (3) For balance: Scotiabank cut price targets on VZ, TMUS and T, citing a higher risk of long-term disruption (Stocktwits via TradingView). Evercore ISI was described by CNBC as calling SpaceX's plan a real network outline. Not every analyst framed the threat as purely long-term."
+    },
+    {
+      "id": "M1",
+      "topic": "Humana +11.56% (Movers)",
+      "supported": true,
+      "outlet": "Humana (company statement), as carried by Investing.com and StockTitan; dated by CiberCuba (English) with a 2026-10-09 URL; TIKR blog for the stock move",
+      "url": "https://en.cibercuba.com/noticias/2026-10-09-u1-e13-s27061-nid342435-humana-mejora-medicare-advantage-95-afiliados-planes (also https://www.investing.com/news/company-news/humana-reports-95-of-medicare-members-in-4starplus-plans-93CH-4940643 ; https://www.stocktitan.net/news/HUM/humana-announces-improved-cms-star-ratings-with-95-percent-of-1ue2lkh2lgdj.html ; https://www.tikr.com/blog/humana-soars-15-on-medicare-star-ratings-95-of-members-in-four-star-plans)",
+      "date_seen": "2026-10-09 (CiberCuba URL path). The Investing.com, StockTitan and TIKR results showed no date.",
+      "wording_seen": "Headlines: Investing.com, 'Humana reports 95% of Medicare members in 4-star-plus plans'; StockTitan, 'Humana 2027 ratings: 95% of members in 4+ star plans' (the press-release slug reads 'humana-announces-improved-cms-star-ratings-with-95-percent-of...'); CiberCuba, 'Humana improvement in Medicare Advantage: 95% of members in plans rated four stars or higher by 2027'; TIKR, 'Humana Soars 15% on Medicare Star Ratings: \"95% of Members in Four-Star Plans\"'. The search summary said Humana stated 95% of its MA members are in plans rated 4.0 stars or higher for 2027, with 42% in 4.5-star plans, up from 20% a year ago. It also said shares were 'up about 15% in the morning session, trading at about $447'. The CMS ratings were released 2026-10-08 and Humana announced on 10-09.",
+      "unconfirmed_details": "No CNBC or Reuters article was found; one search aimed at them returned nothing for 10-09. The company release was seen only through secondary carriers (Investing.com, StockTitan), and their dates were not visible. WebFetch of StockTitan failed with a DNS error. The size of Friday's closing gain is not confirmed. TIKR said about +15% in the morning session (date not shown). A German outlet (goldesel.de) said +16% after hours to $450.02, which suggests part of the move may have started after Thursday 10-08's close. Treat any figure for the Friday close as unverified."
+    },
+    {
+      "id": "M2",
+      "topic": "Moderna +14.21% (Movers header)",
+      "supported": true,
+      "outlet": "The Motley Fool (14% gain plus the cancer-research initiative); Nasdaq press release via GlobeNewswire / ir.nasdaq.com (Nasdaq-100 inclusion replacing WBD)",
+      "url": "https://www.fool.com/investing/2026/10/09/why-moderna-stock-surged-today/ ; https://ir.nasdaq.com/node/111076 (also https://www.streetinsider.com/Globe+Newswire/22884300.html)",
+      "date_seen": "Motley Fool: 2026-10-09 (URL path). Nasdaq release: dated 2026-10-01 8:00 PM ('Oct 1, 2026 08:00PM' on StreetInsider), effective before the open on 2026-10-09.",
+      "wording_seen": "Motley Fool, 'Why Moderna Stock Surged Today': shares 'jumped more than 14% on Friday, following reports of a major new cancer research initiative'. Nasdaq release headline: 'Moderna, Inc. to Join the Nasdaq-100 Index® Beginning October 9, 2026'; the summary said it 'will replace Warner Bros. Discovery in the Nasdaq-100 Index', effective before the market open on October 9. Related results: Yahoo Finance, 'Moderna stock hits 4-year high on planned national cancer vaccine effort' and 'MRNA Stock Sets New 52-Week High As Nasdaq-100 Reentry Meets NIH Cancer-Vaccine Push'; MarketScreener, 'Moderna, Other Vaccine Developer Stocks Rise as NIH Plans to Expedite Cancer Vaccines'. The search summary credited the cancer-push news to a New York Times report: an NIH / Foundation for the NIH / NCI effort starting in December.",
+      "unconfirmed_details": "Benzinga attribution is NOT confirmed. Two searches turned up benzinga.com/node/62060175 with no visible content, and no Benzinga snippet mentioned the NYT or NIH. The Yahoo article that pairs Nasdaq-100 re-entry with the NIH push had no visible outlet or byline. Which outlet named the New York Times is unconfirmed: the Fool snippet seen says only 'reports of a major new cancer research initiative', and the NYT credit came from the search summary, not an outlet snippet. The NYT article itself was not seen. On size, the Fool's 'more than 14%' is the only figure, and Karmactive put the gain at about 9% (likely intraday timing), so ~14% as a close is unverified against price data. Nasdaq's announcement is dated 10-01, not 10-09; only its effective date is 10-09. No outlet seen on 10-09 explicitly called the inclusion a reason for Friday's move."
+    },
+    {
+      "id": "M3",
+      "topic": "HP Inc -6.91% (not used as a mover)",
+      "supported": true,
+      "outlet": "TradingKey (market-movers page) for the stock drop and its stated reason; IDC data as reported by 9to5Mac, Hardware Busters and others",
+      "url": "https://www.tradingkey.com/news/market-movers/262209175-market-movers-hpq-20261009 (IDC data: https://9to5mac.com/2026/10/08/idc-mac-shipments-drop-11-in-q3-as-global-pc-market-slides-20/ ; https://hwbusters.com/news/pc-shipments-fall-20-in-q3-and-hp-loses-almost-a-third-of-its-volume/)",
+      "date_seen": "TradingKey: 2026-10-09 (URL path 'hpq-20261009' and headline 'on Oct 9'). IDC preliminary data: 2026-10-08 (9to5Mac URL path).",
+      "wording_seen": "TradingKey headline: 'HP Inc Stock (HPQ) Moved Down by 7.08% on Oct 9: Drivers Behind the Movement'. The summary credited the drop to 'dismal preliminary third-quarter global personal computer shipment reports published by industry research firms IDC and Omdia'. On IDC, results said 'HP shipments dropped 30.9 percent compared with Q3 2025' and the worldwide market fell 20.1% YoY to 62.7M units. Omdia put HP's decline at about 31%. Hardware Busters headline: 'PC Shipments Fall 20% in Q3, and HP Loses Almost a Third of Its Volume'.",
+      "unconfirmed_details": "The link between the drop and the IDC data comes from one secondary source only, TradingKey, an automated market-movers page. No CNBC, Reuters or other mainstream story tying HPQ's 10-09 decline to the data was found. The 7.08% figure appears only on TradingKey. TradingKey cites both IDC and Omdia, not IDC alone. The IDC data came out 2026-10-08, the day before the move. IDC's exact figure is -30.9% (about 31%); Omdia's estimate is about 31%."
+    },
+    {
+      "id": "U1",
+      "topic": "UMich preliminary October sentiment (Story, Calendar)",
+      "supported": true,
+      "outlet": "Bloomberg (primary). Corroborated by Reuters (syndicated at lufkindailynews.com, news_reuters path), Benzinga, The Spokesman-Review, and Yahoo Finance",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-09/us-consumer-sentiment-falls-to-five-month-low-in-october",
+      "date_seen": "2026-10-09 (in Bloomberg's URL path; also spokesman.com/stories/2026/oct/09/..., benzinga.com/news/26/10/...)",
+      "wording_seen": "Bloomberg title: \"US Consumer Sentiment Falls to Five-Month Low in October\". Search summary of that story: the preliminary reading was 46.3, the lowest since May, and below the 47.6 median forecast in Bloomberg's economist survey; views of current conditions hit an all-time low. Benzinga title: \"Consumer Sentiment Falls To 46.3, Second-Lowest Ever\" (URL slug ...inflation-expectations-4-7-percent). Spokesman/other summaries: the index fell to 46.3 from 48.1 in September; the current conditions gauge fell to 44.7 (down from 50.9 in September), the lowest on record; year-ahead inflation expectations rose to 4.7% from 4.6%; long-run expectations rose to 3.5% from 3.4%. Reuters headline (Lufkin syndication): \"US consumer sentiment near record low as frustration over economy mounts\".",
+      "unconfirmed_details": "(1) Sources disagree on the consensus. Bloomberg's survey median was 47.6, but Investing.com had 47.5, Yahoo Finance 47.3, and another outlet 47.8. Credit 47.6 to Bloomberg's survey; it is not a universal consensus. (2) The 44.7 current-conditions figure and the 3.4% to 3.5% long-run move appeared only in search-tool summaries of Reuters-carried, Spokesman, Mishtalk and TipRanks coverage and the UMich release. No Bloomberg snippet showed them verbatim, and I couldn't open any article: WebFetch failed with DNS ENOTFOUND. (3) The 10am ET release time was not confirmed on a dated source. (4) Outlets call current conditions a record or all-time low, which is a superlative. The brief has to treat that under its long-run-history rule (§4F), not repeat it on the press's word alone."
+    },
+    {
+      "id": "U2",
+      "topic": "UMich September base (Story)",
+      "supported": true,
+      "outlet": "The Spokesman-Review and Yahoo Finance, dated 10-09 (the 48.1 September base). Quartz, Advisor Perspectives (dshort) and MTS Insights, dated 2026-09-25 (the revision from 47.8)",
+      "url": "https://www.spokesman.com/stories/2026/oct/09/us-consumer-sentiment-falls-to-five-month-low-in-o/ ; https://www.advisorperspectives.com/dshort/updates/2026/09/25/consumer-sentiment-falls-again-in-september",
+      "date_seen": "2026-10-09 for the 48.1 base in October coverage; 2026-09-25 for the September final revision",
+      "wording_seen": "October coverage: the index fell to 46.3 \"from 48.1 in September\". Yahoo Finance: \"down 1.8 points from September's reading of 48.1\". September-final coverage: the final reading was 48.1, \"a small upward revision from the preliminary 47.8\"; current conditions were 50.9 and expectations 46.3; year-ahead inflation expectations were 4.6% and five-year expectations 3.4%. Movewithmomentum title for the preliminary: \"Consumer Sentiment Falls to 47.8, Price Fears Jump\".",
+      "unconfirmed_details": "No 10-09 or 10-10 dated source showed the 47.8 preliminary. That revision is confirmed only by sources dated 2026-09-25, the September-final release date, which is the right date for that fact. The 48.1 September base is confirmed on 10-09 sources, and Yahoo's 1.8-point drop matches 48.1 minus 46.3."
+    },
+    {
+      "id": "P1",
+      "topic": "AP close story framing (Story)",
+      "supported": true,
+      "outlet": "AP wire story, carried by The Washington Post, Toledo Blade, DTN/Progressive Farmer, CP24 and Gorge News Center",
+      "url": "https://www.washingtonpost.com/business/2026/10/09/stocks-markets-oil-ai-bonds/7489b76e-c39d-11f1-8170-681419af1cc9_story.html",
+      "date_seen": "2026-10-09 (URL path on washingtonpost.com, toledoblade.com, dtnpf.com, cp24.com, gorgenewscenter.com)",
+      "wording_seen": "Headline: \"Wall Street finishes its record-setting week with gains\". Search summary: \"The S&P 500 gained 0.6%, its first advance since its all-time high three days earlier\". The S&P closed at 7,811.54, the Dow rose about 0.8% and the Nasdaq gained 0.6%. A second summary of the Post's copy: the index \"climbed 0.6% for its first gain since setting its all-time high three days earlier\".",
+      "unconfirmed_details": "The Stan Choe byline and the 'AP' label came only from the search tool's own summary. No title or snippet showed them, and I couldn't open the pages. The same headline at the Post, Toledo Blade, DTN and others fits AP wire syndication, but the byline is not confirmed word for word. An earlier version of the story was headlined \"U.S. stocks rise toward the finish of a record-breaking week\" (Columbian), and the Washington Times had \"U.S. stocks tiptoe toward the finish of a record-breaking week\"."
+    },
+    {
+      "id": "P2",
+      "topic": "CNBC close story framing (Story)",
+      "supported": true,
+      "outlet": "CNBC (live-updates blog)",
+      "url": "https://www.cnbc.com/2026/10/08/stock-market-today-live-updates.html",
+      "date_seen": "The URL path says 2026/10/08, but the headline says 'on Friday' and the closing figures match the Friday 2026-10-09 session",
+      "wording_seen": "Title: \"Dow rises 400 points on Friday as Wall Street scores winning week: Live updates\". Summary of the page: the Dow added 423.31 points, or 0.83%, to close at 51,654.95; the S&P 500 rose 0.59% to 7,811.54; the Nasdaq rose 0.64% to 27,366.17; all three major averages headed for a winning week after long-dated Treasury yields hit 24-year highs during the week.",
+      "unconfirmed_details": "The URL is dated 2026/10/08, not 10-09. CNBC usually opens its live blog the evening before the session, and the search summary wrongly called it 'Friday, October 8' (10-08 was a Thursday). It is identified as the 10-09 story by 'on Friday' in the headline and by closing numbers that match other 10-09 outlets (TheStreet: Dow 51,655.01, +423.37). It is a live blog, not a standalone article. Also unverified: the summary's line that stocks got a lift because the Russian president agreed to supply diesel. Treat that as CNBC's framing, not something confirmed."
+    },
+    {
+      "id": "O1",
+      "topic": "Oil settle and stated drivers (Story)",
+      "supported": true,
+      "outlet": "Reuters (syndicated via Yahoo Finance / The Daily Star / Euronext); corroborated by CNBC",
+      "url": "https://finance.yahoo.com/news/oil-falls-trump-comments-iran-022757245.html (Reuters); https://www.cnbc.com/2026/10/09/oil-falls-as-trump-comments-on-iran-talks-ease-supply-concerns.html (CNBC)",
+      "date_seen": "2026-10-09",
+      "wording_seen": "Reuters headline: \"Oil prices settle higher as more production shut ahead of hurricane\". Search summary of the Reuters story, given as dated Oct 9, 2026: \"Brent crude futures settled at $104.72, up 44 cents or 0.42 percent. US West Texas Intermediate crude futures finished at $91.85 a barrel, up 36 cents, or 0.39 percent.\" Also: \"Producers in the Gulf of Mexico have shut in about 1.3 million barrels per day, or 62.9%, of current oil production as of Thursday, according to the US Marine Minerals Administration.\" Also: \"Gains were pared after President Trump said Washington was holding productive talks with Iran and pledged no attack before the November 3 midterm elections.\" CNBC (dated in URL 2026/10/09) headline: \"Oil little changed as Trump comments on Iran talks ease supply concerns\".",
+      "unconfirmed_details": "1) Shut-in share: Reuters gives 62.9% (about 1.3M bpd) as of Thursday. The 'over 70%' upper end appears only in an undated BigGo Finance headline ('Hurricane Shuts Down Over 70% of U.S. Gulf of Mexico Production'), so it is unconfirmed. Safer wording is 'about 63% as of Thursday'. 2) Brent level conflicts. CNBC's version reportedly had Brent finishing at $104.47 and described a fall. Reuters has $104.72, +44 cents. WTI $91.85 matches in both. 3) The Reuters URL has no date in its path. The Oct 9 date comes from the search summary. The CNBC URL does carry 2026/10/09."
+    },
+    {
+      "id": "A1",
+      "topic": "OpenAI revenue report (Tier 3, Story)",
+      "supported": true,
+      "outlet": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-09/openai-expects-70-billion-in-annualized-revenue-by-end-of-2026",
+      "date_seen": "2026-10-09",
+      "wording_seen": "Bloomberg headline: \"OpenAI Expects $70 Billion in Annualized Revenue by End of 2026\" (URL dated 2026-10-09; also syndicated on Yahoo Finance). Search summary: OpenAI \"expects annualized revenue of at least $70 billion by the end of 2026, citing people familiar with the matter. The figure was about $50 billion at the end of September, and the company shared these numbers with investors during fundraising talks.\" Snippet text: \"The Financial Times reported Thursday that the discrepancy came from OpenAI's investors attempting to calculate OpenAI's annualized revenue using the same methods as rival Anthropic PBC.\" Taipei Times (2026/10/10) carried it too: \"OpenAI expects US$70bn in annualized revenue\".",
+      "unconfirmed_details": "The FT detail is only partly confirmed. I saw Bloomberg say that the FT reported on Thursday about the gap between the $50B and $70B figures, attributing it to investors using Anthropic-style revenue methods. I did not see the FT article itself, its URL or its date. In what I saw, the 'about $50 billion at end-September' figure comes from Bloomberg's own report. The only source tying the FT to 'closer to 50' is a Yahoo video transcript. The framing 'below what had been signaled' is not directly confirmed. Context: Axios reported on Sept 29 that the run rate was 'nearing $70 billion', which may be the earlier signal."
+    },
+    {
+      "id": "A2",
+      "topic": "Lumentum CEO on capacity (Tier 3)",
+      "supported": true,
+      "outlet": "Bloomberg (Bloomberg Television video); corroborated by Benzinga/TradingView, Invezz, Alphastreet",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-09/lumentum-ceo-opto-parts-capacity-sold-out-to-2029-video",
+      "date_seen": "2026-10-09",
+      "wording_seen": "Bloomberg video title: \"Watch Lumentum CEO: Opto-Parts Capacity Sold Out to 2029 - Bloomberg\" (URL dated 2026-10-09). Benzinga/TradingView: \"Lumentum Stock Rises After CEO Says AI Demand Has the Company Sold Out Through Early 2029\". Tiger Brokers: \"Optical Communications Stocks Rally as Lumentum CEO Says AI Demand Has the Company Sold Out Through Early 2029\". Peer moves in the summary: \"Applied Optoelectronics rose 7%; Lumentum rose 4%; Coherent and Photonics & Optics ETF rose 2%; Nokia, Ciena, Amphenol, Credo Technology, and Corning rose 1%.\" Alphastreet: \"Coherent Shares Jumping 7.3% on Optics Stocks Rally...\" Invezz (2026/10/09): \"Coherent stock forms bullish pattern as Lumentum projects strong optics demand\".",
+      "unconfirmed_details": "1) 'Early 2029': Bloomberg's own title says 'Sold Out to 2029'. 'Early 2029' is Benzinga/TradingView wording, and other outlets say 'nearly 2029'. 2) The peer moves (Ciena about +1%, Coherent +2% to +7%, Lumentum +4% to +6%) are premarket or early-trading figures and differ by source. Friday closing moves for Ciena and Lumentum are not confirmed. Ciena's gain was small (about 1%). 3) CEO Michael Hurlston reportedly spoke from Tokyo. Bloomberg Television as the venue is supported by the video URL and the search summary."
+    },
+    {
+      "id": "A3",
+      "topic": "Firmus IPO withdrawn (Tier 3)",
+      "supported": true,
+      "outlet": "Reuters (syndicated via Lufkin Daily News news_reuters feed); corroborated by CNBC and Technode",
+      "url": "https://lufkindailynews.com/news_reuters/business/nvidia-backed-firmus-scraps-5-billion-australia-ipo-amid-growing-ai-scrutiny/article_1b8da9f4-1c20-5751-bdf5-35a49897f017.html (Reuters); https://www.cnbc.com/2026/10/09/nvidia-ai-firmus-ipo-.html (CNBC); https://technode.global/2026/10/09/firmus-scraps-australian-ipo/",
+      "date_seen": "2026-10-09",
+      "wording_seen": "Reuters headline: \"Nvidia-backed Firmus scraps $5 billion Australia IPO amid growing AI scrutiny\". Search summary: \"Reuters reported on October 9, 2026 that Firmus shelved its $5 billion IPO on Friday. The company said it would raise money privately instead, and a person involved in the transaction said that would be followed by a Nasdaq listing.\" Firmus cited \"recent market volatility and prevailing market conditions\". CNBC (2026/10/09): \"Nvidia-backed Aussie AI firm Firmus withdraws historic IPO, citing market volatility\". Technode (2026/10/09): \"Firmus scraps A$7 billion Australian IPO\".",
+      "unconfirmed_details": "1) The Reuters syndication URL has no date in its path. The Oct 9 date comes from the search summary and from the dated CNBC and Technode URLs. 2) Deal size differs by source: US$5B (Reuters), A$7B (Technode/RTTNews), and up to US$5.5B including over-allotment in earlier coverage. 3) A follow-on Nasdaq listing rests on one unnamed person involved in the deal, and the company declined to comment on it."
+    }
+  ],
+  "not_found": [
+    "Boston Fed President Collins' Friday 10-09 remarks: a speech was scheduled (calendar cache), but no coverage of what she said was found.",
+    "A major-outlet explanation for why chip stocks lagged on Friday (SMH -0.65%): none found.",
+    "WSJ/MarketWatch/Barron's Friday framing: those domains were unreachable from this sandbox."
+  ]
+}

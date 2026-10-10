@@ -142,6 +142,12 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   move adjusts the prior close. Consider fetching Yahoo `events=div` in the
   scan and reporting the adjusted move (it can also change which names clear
   the 4% screen). Until then, the brief states the basis when it matters.
+- [ ] **Then-vs-now anchor is one day, and fragile** (found 2026-10-10). The
+  panel compares today with the last day before this run that the series was
+  at today's level. A 2bp change in today's level moved the anchor from
+  2007-06-14 to 2007-06-12, and that alone flipped two calls (S&P 500 -1.1%
+  vs -3.0% from its record; a different mortgage week). Consider anchoring on
+  the whole prior stretch (its median, or start and end) instead of one day.
 - [ ] **Then-vs-now similarity in native units.** The pinned rule (within 15
   percentile points on both views) calls the 30Y mortgage rate +0.66 points
   "similar" (14.6 points apart on the 30-year view). The gap is now shown
