@@ -180,4 +180,7 @@ convenient — the disagreement itself is the finding (§4F). Every brief carrie
 
 Market holiday: if pull_data shows no new market close (row_date unchanged
 from the last brief), commit a one-line "markets closed" note instead of a
-brief.
+brief. Compare against the last **weekday** brief only: an on-demand weekend
+edition (e.g. Saturday 2026-10-10, which covered Friday's close) doesn't
+count, so Monday's run still writes its full "since Friday's close" edition
+(§4E) even though the row date matches that weekend edition's.
