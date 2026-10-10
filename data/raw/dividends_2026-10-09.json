@@ -1,0 +1,19 @@
+{
+  "_source": "Yahoo v8 chart with events=div (scripts/pull_data._get), retrieved 2026-10-10. Both went ex-dividend on 2026-10-09, so the movers scan's raw prior-close % (VZ -10.14%, T -10.82%) includes the dividend; the exchange's dividend-adjusted moves are VZ -8.75%, T -9.81% (what CNBC printed).",
+  "VZ": {
+    "ex_dividend_date": "2026-10-09",
+    "amount": 0.708,
+    "close_2026-10-08": 46.35,
+    "close_2026-10-09": 41.65,
+    "pct_raw": -10.14,
+    "pct_dividend_adjusted": -8.75
+  },
+  "T": {
+    "ex_dividend_date": "2026-10-09",
+    "amount": 0.278,
+    "close_2026-10-08": 24.87,
+    "close_2026-10-09": 22.18,
+    "pct_raw": -10.82,
+    "pct_dividend_adjusted": -9.81
+  }
+}

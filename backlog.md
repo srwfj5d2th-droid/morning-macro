@@ -134,6 +134,14 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   - linter gaps (a since-year the data never found, decade shares
     accepted as percentiles, the history-outage path skipping every
     rule).
+- [ ] **Movers scan: ex-dividend days overstate declines** (found 2026-10-10).
+  `scan_movers.py` measures the 1-day move against the raw prior close. On an
+  ex-dividend date that counts the dividend as a price drop: Verizon
+  -10.14% raw vs. -8.75% adjusted, AT&T -10.82% vs. -9.81% (both went ex on
+  2026-10-09; `data/raw/dividends_2026-10-09.json`). The exchange-reported
+  move adjusts the prior close. Consider fetching Yahoo `events=div` in the
+  scan and reporting the adjusted move (it can also change which names clear
+  the 4% screen). Until then, the brief states the basis when it matters.
 - [ ] **Then-vs-now similarity in native units.** The pinned rule (within 15
   percentile points on both views) calls the 30Y mortgage rate +0.66 points
   "similar" (14.6 points apart on the 30-year view). The gap is now shown
