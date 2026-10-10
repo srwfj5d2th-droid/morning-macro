@@ -781,3 +781,140 @@ def test_lint_on_a_history_outage_still_bans_overclaims():
     ok = {"history_html": "<p>The long-run history files failed to load today, so no historical comparison is made.</p>"}
     assert lint.lint(ok, state)[0] == []
 
+
+
+# --- round 3 (2026-10-10 verification): gaps the finished Saturday draft exposed
+
+def _csv_repo(tmp_path, monkeypatch, rows):
+    """A throwaway repo root whose data/macro_series.csv holds `rows`."""
+    (tmp_path / "data").mkdir()
+    cols = sorted({k for r in rows for k in r if k != "date"})
+    with open(tmp_path / "data" / "macro_series.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, ["date"] + cols)
+        w.writeheader()
+        w.writerows(rows)
+    monkeypatch.setattr(lint, "REPO", tmp_path)
+
+
+def _r3_state():
+    state = _lint_state()
+    state["row_date"] = "2026-10-09"
+    state["long_history"]["hy_oas"] = {"pct_rank_all_time": 64.0, "short_history": True,
+                                       "start_date": "2023-10-09"}
+    state["long_history"]["dxy"] = {"pct_rank_all_time": 71.6, "pct_rank_modern": 81.0,
+                                    "start_date": "1971-01-04"}
+    state["series"] = {"hy_oas": {"last_date": "2026-10-08"}}
+    return state
+
+
+def _r3_errs(state, field, html):
+    return lint.lint({"history_html": "<p>The 10-year was last here briefly in 2007.</p>",
+                      "regime_line": "2007", field: html}, state)[0]
+
+
+def test_lint_lagged_print_cannot_grade_the_row_dates_weekday(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-10-08", "hy_oas": "3.15"}])
+    state = _r3_state()
+    assert _r3_errs(state, "story_html", "<p>Junk-bond spreads widened to 3.15% on Friday.</p>")
+    assert not _r3_errs(state, "story_html", "<p>Junk-bond spreads widened to 3.15% on Thursday.</p>")
+    assert not _r3_errs(state, "story_html", "<p>Junk-bond spreads (dated 10-08) widened while stocks rose Friday.</p>")
+
+
+def test_lint_short_record_superlatives_and_junk_bond_names(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-10-08", "hy_oas": "3.15"}])
+    state = _r3_state()
+    assert _r3_errs(state, "story_html", "<p>Junk spreads are the widest in six months.</p>")
+    assert _r3_errs(state, "dashboard_interp_html", "<p>High-yield spreads hit a 3-year wide.</p>")
+    assert not _r3_errs(state, "story_html", "<p>Junk spreads widened 6bp to 3.15% on Thursday.</p>")
+
+
+def test_lint_six_month_range_claims_are_checked(monkeypatch, tmp_path):
+    rows = [{"date": f"2026-{m:02d}-{d:02d}", "hy_oas": "2.90"} for m in range(5, 10) for d in (1, 15)]
+    rows += [{"date": "2026-10-01", "hy_oas": "3.24"}, {"date": "2026-10-08", "hy_oas": "3.15"}]
+    _csv_repo(tmp_path, monkeypatch, rows)
+    state = _r3_state()
+    # the Saturday draft's line: Oct 1's 3.24% sat above it
+    assert _r3_errs(state, "dashboard_interp_html",
+                    "<p>HY OAS (dated 10-08) widened to 3.15%, far outside its six-month range.</p>")
+    assert not _r3_errs(state, "dashboard_interp_html",
+                        "<p>HY OAS (dated 10-08) was higher than on all but one day in the past six months.</p>")
+    assert _r3_errs(state, "dashboard_interp_html",
+                    "<p>HY OAS (dated 10-08) was higher than on every day in the past six months.</p>")
+
+
+def test_lint_level_since_date_must_hold_for_every_reading(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-09-28", "ust_10y": "5.25"},
+                                      {"date": "2026-10-08", "ust_10y": "5.18"},
+                                      {"date": "2026-10-09", "ust_10y": "5.24"}])
+    state = _r3_state()
+    assert _r3_errs(state, "story_html", "<p>The 10-year has been above 5.2% since Sep 28.</p>")
+    assert not _r3_errs(state, "story_html", "<p>The 10-year has been above 5.1% since Sep 28.</p>")
+
+
+def test_lint_decade_claims_need_by_decade(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-10-09", "ust_10y": "5.24"}])
+    state = _r3_state()
+    state["long_history"]["ust_10y"]["by_decade"] = {
+        "1980s": {"complete": True, "share_at_or_above_pct": 100.0},
+        "1990s": {"complete": True, "share_at_or_above_pct": 58.0}}
+    assert not _r3_errs(state, "client_lens_html", "<p>The 10-year was higher on every day of the '80s.</p>")
+    assert _r3_errs(state, "client_lens_html", "<p>The 10-year was higher on every day of the 1990s.</p>")
+
+
+def test_lint_unstable_pair_claims_no_track_record(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-10-09", "ust_10y": "5.24"}])
+    state = _r3_state()
+    state["history_pairs"] = {"real_rates_vs_credit": {"stable_prior": False}}
+    assert _r3_errs(state, "story_html", "<p>High real yields with tight credit spreads happened three times before.</p>")
+    assert not _r3_errs(state, "story_html", "<p>High real yields with tight credit spreads: the count depends on the cutoff.</p>")
+
+
+def test_lint_percentile_belongs_to_the_series_it_follows(monkeypatch, tmp_path):
+    _csv_repo(tmp_path, monkeypatch, [{"date": "2026-10-09", "ust_10y": "5.24"}])
+    state = _r3_state()
+    # a sentence that names no series takes its paragraph's series (the dollar)
+    assert _r3_errs(state, "dashboard_interp_html", "<p>The dollar edged up. That is the 87th percentile.</p>")
+    # two series in one sentence: each percentile is checked against the nearer name
+    assert not _r3_errs(state, "dashboard_interp_html",
+                        "<p>The 10-year is at the 87th percentile of the last 30 years and the 49th since 1962, "
+                        "while the dollar is at the 72nd percentile since 1971 and the 81st over 30 years.</p>")
+    assert _r3_errs(state, "dashboard_interp_html",
+                    "<p>The 10-year rose while the dollar sits at the 87th percentile over 30 years and the 49th since 1971.</p>")
+
+
+def test_lint_outcomes_looking_back_need_a_count():
+    state = _lint_state()
+    assert lint.lint({"history_html": "<p>The 10-year was last here briefly in 2007. When rates rose this "
+                                      "fast before, stocks were lower a year later.</p>",
+                      "regime_line": "2007"}, state)[0]
+    assert lint.lint({"history_html": "<p>The 10-year was last here briefly in 2007. History suggests "
+                                      "caution.</p>", "regime_line": "2007"}, state)[0]
+
+
+def test_lint_tips_cross_check_applies_outside_the_history_section():
+    state = _lint_state()
+    state["long_history"]["tips_10y_real"] = {"pct_rank_all_time": 99.6, "tips_window_divergence": True,
+                                              "start_date": "2003-01-02"}
+    state["long_history"]["real10_cleveland"] = {"pct_rank_all_time": 54.0, "start_date": "1982-01-15"}
+    base = {"history_html": "<p>The 10-year was last here briefly in 2007.</p>", "regime_line": "2007"}
+    assert lint.lint({**base, "dashboard_interp_html": "<p>Real yields are higher than on 99.6 of every 100 days since 2003.</p>"}, state)[0]
+    assert not lint.lint({**base, "dashboard_interp_html": "<p>Real yields are higher than on 99.6 of every 100 days "
+                                                           "since 2003; the Cleveland Fed's record since 1982 puts them near average.</p>"}, state)[0]
+
+
+def test_ytd_rank_reports_ties_without_float_noise():
+    rows = [("1979-12-31", 10.00), ("1980-10-09", 11.06),
+            ("2025-12-31", 4.18), ("2026-10-08", 5.22)]
+    r = hc.ytd_rank(rows, 5.24, "2026-10-09", "bp")
+    assert r["change"] == 106 and r["rank"] == 1 and r["tied_with"] == [1980]
+
+
+def test_digest_dates_a_lagged_print():
+    import history_digest as hd
+    ctx = {"pct_rank_all_time": 64.0, "short_history": True, "years": 3, "start_date": "2023-10-09",
+           "latest_date": "2026-10-08",
+           "lookback": {"side": "high", "record": True, "history_start": "2023-10-09"}}
+    head = hd._lookback_parts("hy_oas", ctx, 3.15, "2026-10-09")[0]
+    assert "dated 10-08" in head
+    ctx["latest_date"] = "2026-10-09"
+    assert "dated" not in hd._lookback_parts("hy_oas", ctx, 3.15, "2026-10-09")[0]

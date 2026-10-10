@@ -1018,9 +1018,9 @@ def ytd_rank(rows, live_value, as_of, mode):
         if mode == "pct":
             if base <= 0:
                 continue
-            changes[y] = 100.0 * (v / base - 1.0)
+            changes[y] = round(100.0 * (v / base - 1.0), 6)
         else:
-            changes[y] = 100.0 * (v - base)  # basis points
+            changes[y] = round(100.0 * (v - base), 6)  # basis points; rounded so float noise can't split a tie
     this_y = int(as_of[:4])
     if this_y not in changes:
         return None
@@ -1034,6 +1034,7 @@ def ytd_rank(rows, live_value, as_of, mode):
             "rank": 1 + len(beyond), "n_years": len(prior) + 1,
             "first_year": min(changes),
             "median_prior": round(statistics.median(prior.values()), 2) if prior else None,
+            "tied_with": sorted(y for y, c in prior.items() if c == today),
             "years_more_extreme": [{"year": y, "change": round(c, 2 if mode == "pct" else 0)}
                                    for y, c in beyond[:8]]}
 

@@ -123,8 +123,12 @@ def _lookback_parts(key, ctx, value, as_of):
     hi = lb["side"] == "high"
     label = LABELS.get(key, key)
     cad = lb.get("cadence", "daily")
+    # a lagged print (OAS, TIPS, SOFR) carries its own date, so it can't be
+    # read as the row date's move (§4F v2.1 round 2)
+    dated = (f", dated {ctx['latest_date'][5:]}" if ctx.get("latest_date") and as_of
+             and ctx["latest_date"] != as_of else "")
     if lb["record"]:
-        head = (f"The {label} ({_fmt(key, value)}) is {'above' if hi else 'below'} "
+        head = (f"The {label} ({_fmt(key, value)}{dated}) is {'above' if hi else 'below'} "
                 f"every earlier reading since records begin in {lb['history_start'][:4]}.")
     elif lb.get("run_is_record"):
         head = (f"The {label} is in a record run: this run's {'high' if hi else 'low'} of "
@@ -141,7 +145,7 @@ def _lookback_parts(key, ctx, value, as_of):
                     f"{reading_units(lb['current_run_total_sessions'], cad)} since")
         brief = lt.get("brief", lt["n_obs"] < 20)
         during = (f" (during the {' and '.join(lt['overlapping'])})" if lt.get("overlapping") else "")
-        head = (f"The {label} ({_fmt(key, value)}) {here}; before this run, the last time was "
+        head = (f"The {label} ({_fmt(key, value)}{dated}) {here}; before this run, the last time was "
                 f"{_mon_yr(lt['end'])}{during}"
                 + (f", and only briefly ({reading_units(lt['n_obs'], cad)} between "
                    f"{_span(lt['start'], lt['end'])})" if brief and _mon_yr(lt['start']) != _mon_yr(lt['end'])
@@ -223,7 +227,9 @@ def _pace_parts(key, yr, shock, base):
     top = ", ".join(f"{y['year']} {y['change']:+.0f}bp" for y in yr["years_more_extreme"][:3])
     head = (f"The {label} is {'up' if yr['change'] >= 0 else 'down'} {abs(yr['change']):.0f}bp this year — "
             f"the {ordinal(yr['rank'])}-{'largest rise' if yr['change'] >= 0 else 'largest fall'} "
-            f"through this date in {yr['n_years']} years" + (f" (bigger: {top}" + (", …" if len(yr['years_more_extreme']) > 3 else "") + ")" if top else "") + ".")
+            f"through this date in {yr['n_years']} years"
+            + (f" (tied with {', '.join(str(y) for y in yr['tied_with'])})" if yr.get("tied_with") else "")
+            + (f" (bigger: {top}" + (", …" if len(yr['years_more_extreme']) > 3 else "") + ")" if top else "") + ".")
     rest = ""
     if shock and shock["track_summary"]["n"] >= 5:
         t = shock["track_summary"]

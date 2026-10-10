@@ -337,8 +337,12 @@ def attach_history(state, rows, row_date):
         lh["tips_10y_real"]["cleveland_pct_all_time"] = b
         lh["tips_10y_real"]["cleveland_pct_modern"] = lh["real10_cleveland"]["pct_rank_modern"]
         if lh["tips_10y_real"]["tips_window_divergence"]:
-            lh["tips_10y_real"]["label"] += (f"; Cleveland model since 1982: "
-                                             f"{hc.level_word(b)} ({hc.pct_ordinal(b)})")
+            # both Cleveland lenses, like every other two-lens label (§4F)
+            c30 = lh["real10_cleveland"]["pct_rank_modern"]
+            lh["tips_10y_real"]["label"] += (
+                f"; Cleveland model: {hc.level_word(c30)} vs. last 30 yrs ({hc.pct_ordinal(c30)}), "
+                f"{hc.level_word(b)} since 1982 ({hc.pct_ordinal(b)})" if c30 is not None else
+                f"; Cleveland model since 1982: {hc.level_word(b)} ({hc.pct_ordinal(b)})")
 
     state["history_base_rates"] = hc.base_rates(row_date)
 

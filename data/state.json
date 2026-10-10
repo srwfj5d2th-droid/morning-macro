@@ -1,5 +1,5 @@
 {
-  "computed_at_utc": "2026-10-10T12:18:51.846065Z",
+  "computed_at_utc": "2026-10-10T13:33:46.518199Z",
   "row_date": "2026-10-09",
   "trading_rows": 213,
   "seasoned": true,
@@ -1475,7 +1475,7 @@
       },
       "latest_value": 2.87,
       "latest_date": "2026-10-08",
-      "label": "unusual lately; extreme since 2003 (short record); Cleveland model since 1982: about average (54th)",
+      "label": "unusual lately; extreme since 2003 (short record); Cleveland model: high vs. last 30 yrs (80th), about average since 1982 (54th)",
       "tips_window_divergence": true,
       "cleveland_pct_all_time": 54.0,
       "cleveland_pct_modern": 80.3
@@ -4080,6 +4080,7 @@
         "n_years": 50,
         "first_year": 1977,
         "median_prior": 7.0,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2022,
@@ -4295,6 +4296,9 @@
         "n_years": 64,
         "first_year": 1963,
         "median_prior": 5.0,
+        "tied_with": [
+          1980
+        ],
         "years_more_extreme": [
           {
             "year": 1987,
@@ -4643,6 +4647,7 @@
         "n_years": 44,
         "first_year": 1978,
         "median_prior": 4.0,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 1987,
@@ -4887,6 +4892,7 @@
         "n_years": 23,
         "first_year": 2004,
         "median_prior": -3.5,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2022,
@@ -5320,6 +5326,7 @@
         "n_years": 99,
         "first_year": 1928,
         "median_prior": 7.64,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 1933,
@@ -5408,6 +5415,7 @@
         "n_years": 55,
         "first_year": 1972,
         "median_prior": 12.76,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2003,
@@ -5479,6 +5487,7 @@
         "n_years": 26,
         "first_year": 2001,
         "median_prior": 4.16,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2004,
@@ -5530,6 +5539,7 @@
         "n_years": 26,
         "first_year": 2001,
         "median_prior": 11.46,
+        "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2013,
@@ -5854,16 +5864,16 @@
       "tier": 1,
       "years_since": 17.9,
       "series": "tips_10y_real",
-      "sentence": "The 10-year TIPS real yield (2.87%) has been at or above this level since Sep 28; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.6 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
-      "email": "The 10-year TIPS real yield (2.87%) has been at or above this level since Sep 28; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.6 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
+      "sentence": "The 10-year TIPS real yield (2.87%, dated 10-08) has been at or above this level since Sep 28; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.6 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
+      "email": "The 10-year TIPS real yield (2.87%, dated 10-08) has been at or above this level since Sep 28; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99.6 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
       "anchor_date": "2008-11-24"
     },
     {
       "id": "pace:ust_10y",
       "family": "pace",
       "tier": 3,
-      "sentence": "The 10-year Treasury yield is up 106bp this year \u2014 the 8th-largest rise through this date in 64 years (bigger: 1987 +271bp, 2022 +237bp, 1981 +230bp, \u2026). Over the last 12 months it is up 1.10 points; a 12-month rise at least that big has started 14 times since 1963 (not counting 2 that lasted under 10 sessions). Measured from each start, the S&P 500 (price only) was lower a year later in 5 of 14 (any 12-month stretch since 1962: 24.4%), and a recession began within two years in 6 of 13, covering 5 different recessions (any two-year stretch since 1962 outside a recession: 27.4%; 1 more began mid-recession).",
-      "email": "The 10-year Treasury yield is up 106bp this year \u2014 the 8th-largest rise through this date in 64 years (bigger: 1987 +271bp, 2022 +237bp, 1981 +230bp, \u2026)."
+      "sentence": "The 10-year Treasury yield is up 106bp this year \u2014 the 8th-largest rise through this date in 64 years (tied with 1980) (bigger: 1987 +271bp, 2022 +237bp, 1981 +230bp, \u2026). Over the last 12 months it is up 1.10 points; a 12-month rise at least that big has started 14 times since 1963 (not counting 2 that lasted under 10 sessions). Measured from each start, the S&P 500 (price only) was lower a year later in 5 of 14 (any 12-month stretch since 1962: 24.4%), and a recession began within two years in 6 of 13, covering 5 different recessions (any two-year stretch since 1962 outside a recession: 27.4%; 1 more began mid-recession).",
+      "email": "The 10-year Treasury yield is up 106bp this year \u2014 the 8th-largest rise through this date in 64 years (tied with 1980) (bigger: 1987 +271bp, 2022 +237bp, 1981 +230bp, \u2026)."
     }
   ]
 }

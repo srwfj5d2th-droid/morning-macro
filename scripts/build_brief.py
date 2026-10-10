@@ -853,8 +853,9 @@ def main():
     email_rows = []
     for label, key, kind in RECAP:
         s = get(state, key)
+        lag = f' ({s["last_date"][5:]})' if s["last_date"] != row_date else ""
         email_rows.append(
-            f'<tr><td style="padding:3px 12px 3px 0;">{label}</td>'
+            f'<tr><td style="padding:3px 12px 3px 0;">{label}{lag}</td>'
             f'<td style="padding:3px 8px; text-align:right; font-family:Menlo,'
             f'monospace;">{fnum(s["last"], kind)}</td>'
             f'<td style="padding:3px 0; text-align:right; font-family:Menlo,'
