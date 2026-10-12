@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 5, The dollar cycle — segment 4 taught 2026-10-10 (on-demand Saturday edition).**
+Current position: **Unit 5, The dollar cycle — segment 5 (capstone) taught 2026-10-12. Unit 6 (positioning & sentiment vs. fundamentals) begins next weekday edition.**
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -40,6 +40,7 @@ Current position: **Unit 5, The dollar cycle — segment 4 taught 2026-10-10 (on
 | 2026-10-08 | 5 | 2 | Carry and rate differentials — why money chases the currency paying more: global cash moves toward whichever safe, liquid currency pays the most to hold it, so U.S. short rates sitting well above other major economies' own short rates attracts capital on yield alone, and that demand for dollars is itself what pushes the dollar's exchange value up | DXY rose 0.40% to a new high in this system's own data (z +2.16) the same day the 30-year Treasury yield also made a new high — the hawkish FOMC-minutes read (CL-0034, confirmed) raising U.S. carry, attracting capital, and strengthening the dollar, a reinforcing loop with segment 1's transmission channel |
 | 2026-10-09 | 5 | 3 | Global transmission — why a strong dollar is itself exported tightening: non-U.S. dollar borrowers owe more in local-currency terms as the dollar strengthens, and dollar-priced commodities (oil, gold, copper) get more expensive for the rest of the world, squeezing global growth without a single Fed move | DXY eased −0.10% today alongside easing Treasury yields even as a separate story (Oracle/OpenAI-driven AI-capex selloff, Story/Movers) dominated the day — used to show the dollar-tightening channel and the day's dominant narrative don't always move together |
 | 2026-10-10 | 5 | 4 | The dollar moves in long waves — two yardsticks for two questions: the 120-day z-score says "strong lately," the long record (DXY since 1971) says where that sits in a multi-year cycle; strong by recent memory can still be inside the long range | Friday's DXY 102.21 (z +2.04): 72nd percentile since 1971, 81st over 30 years; at or above that level on 57.7% of 1980s days but 1.6% of 1990s and 0.6% of 2010s days; latest peak 114.11 (Sep 2022) — the first concept segment built on the new long-run history layer (§4F) |
+| 2026-10-12 | 5 | 5 (capstone) | Putting the dollar cycle together — a four-question checklist for any DXY move (size against which yardstick; carry vs. safe-haven; who feels it first; does the rest of the data agree), assembling segments 1-4 into one working tool rather than teaching a new idea | Monday's DXY unchanged from Friday at 102.21 (bond markets shut for Columbus Day; FX and equities still trading) — used to show the checklist still applies on a day most Tier 1 series can't print; closes Unit 5 |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -80,3 +81,4 @@ Current position: **Unit 5, The dollar cycle — segment 4 taught 2026-10-10 (on
 | Carry and rate differentials — money chases the currency paying more, reinforcing the dollar-strength transmission loop | 2026-10-08 |
 | Global transmission — a strong dollar as exported tightening via dollar debt and dollar-priced commodities | 2026-10-09 |
 | The dollar's long cycle — z-score vs. the long record; strong lately vs. extreme historically | 2026-10-10 |
+| The dollar-cycle checklist (Unit 5 capstone) — size/yardstick, carry vs. safe-haven, who feels it first, does the rest of the data agree | 2026-10-12 |

@@ -1,0 +1,61 @@
+{
+  "_README": "Web-sourced (named-outlet) facts used in the 2026-10-12 brief (Monday, covering Friday 2026-10-09's close, no new trading day over the weekend), recorded per CLAUDE.md §14. This sandbox's search results for this future date skew toward stale, conflated, or low-tier aggregator coverage; every item below notes that explicitly. Where a search returned nothing credible and specifically dated, that is recorded as a negative result, not papered over.",
+  "retrieved_utc": "2026-10-12",
+  "items": [
+    {
+      "id": "W1",
+      "topic": "SpaceX/Grain spectrum deal still pending FCC approval (Story, Movers)",
+      "supported": true,
+      "outlet": "Multiple secondary/aggregator sources (ibtimes.co.uk, broadbandbreakfast.com, roic.ai); no primary FCC or company statement of approval found",
+      "url": "https://www.ibtimes.co.uk/spacex-spectrum-deal-mobile-coverage-1824656 ; https://broadbandbreakfast.com/spacex-acquiring-grain-spectrum-to-support-mobile-ambitions/ ; https://www.roic.ai/news/spacex-shares-rise-on-8-billion-spectrum-deal-to-challenge-mobile-carriers-10-09-2026",
+      "date_seen": "Articles dated around 2026-10-08/09; no dated source found reporting any weekend (10-10/11) development or FCC action.",
+      "wording_seen": "Every source describes the Grain Management spectrum purchase as 'subject to regulatory approval by the FCC' / 'pending'. No source reports approval, denial, or a filing update after Friday 10-09.",
+      "unconfirmed_details": "A separate, unrelated FCC approval (SpaceX's 15,000-satellite direct-to-device constellation waiver) exists in search results but is explicitly a different approval, not the Grain deal; not used in the brief."
+    },
+    {
+      "id": "W2",
+      "topic": "HP Inc -6.91% stated reason (Movers)",
+      "supported": true,
+      "outlet": "TradingKey (automated market-movers page); IDC/Omdia preliminary Q3 PC shipment data via 9to5Mac and Hardware Busters",
+      "url": "https://www.tradingkey.com/news/market-movers/262209175-market-movers-hpq-20261009 ; https://9to5mac.com/2026/10/08/idc-mac-shipments-drop-11-in-q3-as-global-pc-market-slides-20/ ; https://hwbusters.com/news/pc-shipments-fall-20-in-q3-and-hp-loses-almost-a-third-of-its-volume/",
+      "date_seen": "TradingKey dated 2026-10-09 (URL path); IDC data dated 2026-10-08",
+      "wording_seen": "TradingKey ties HPQ's decline to 'dismal preliminary third-quarter global personal computer shipment reports' from IDC and Omdia; IDC put HP's shipment decline at -30.9% YoY vs. a market down 20.1% YoY.",
+      "unconfirmed_details": "Only one secondary source (TradingKey) links the IDC/Omdia data to HPQ's specific price move; no CNBC/Reuters corroboration found. Carried over unchanged from the 2026-10-10 research pass (not used that day due to the 3-name cap)."
+    },
+    {
+      "id": "W3",
+      "topic": "Big-bank Q3 earnings calendar (Story, Calendar)",
+      "supported": true,
+      "outlet": "24/7 Wall St. earnings calendar",
+      "url": "https://247wallst.com/cards/q3-earnings-season-front-loads-everything-into-two-mornings-unh-earnings-calendar-01m4gswtqct7fbk8xh1qmb2pkm",
+      "date_seen": "Undated in the snippet seen; referenced in a search-engine summary, not a verbatim article read (WebFetch unavailable for this domain in this sandbox).",
+      "wording_seen": "Lists JPMorgan, Citigroup, Goldman Sachs and Wells Fargo reporting Tuesday, Oct. 13 before the market open, with Bank of America and Morgan Stanley following Wednesday, Oct. 14.",
+      "unconfirmed_details": "Single-sourced; not cross-checked against a second outlet or the banks' own IR calendars. Treated as a secondary-source calendar fact, flagged as such in prose."
+    },
+    {
+      "id": "W4",
+      "topic": "September CPI release date (Calendar)",
+      "supported": true,
+      "outlet": "fedratecalc.com and a CPI-preview aggregator (admiralmarkets.com); corroborated internally by this system's own calendar_cache.json (ForexFactory-sourced)",
+      "url": "https://fedratecalc.com/cpi-release-date/ ; https://admiralmarkets.com/analytics/traders-blog/us-cpi-preview-september-2026-forecasts-and-the-core-cpi-outlook",
+      "date_seen": "Not dated in the snippets seen.",
+      "wording_seen": "September 2026 CPI scheduled for release Wednesday, Oct. 14, 2026 at 8:30am ET.",
+      "unconfirmed_details": "Matches this system's own calendar_cache.json exactly (CPI m/m, CPI y/y, Core CPI entries dated 2026-10-14T08:30-04:00), so treated with higher confidence than a single external source alone would warrant."
+    },
+    {
+      "id": "NF1",
+      "topic": "Weekend (Oct 10-11) market/geopolitical news — negative result",
+      "supported": false,
+      "outlet": "N/A",
+      "url": "N/A",
+      "date_seen": "N/A",
+      "wording_seen": "Multiple searches (general weekend market news, Iran/Russia/Ukraine/Gaza, China tariffs, Sunday-evening futures, Monday-morning press leads) returned no result from a named outlet specifically dated to 2026-10-10 or 2026-10-11. Results were either stale (2017-2025), about unrelated earlier events, or undated aggregator pages.",
+      "unconfirmed_details": "Recorded as a negative result per CLAUDE.md §4C/§5: nothing credible surfaced, so nothing is claimed in the brief about weekend developments beyond this note."
+    }
+  ],
+  "not_found": [
+    "Any named-outlet report of weekend (10-10/10-11) developments in markets, geopolitics, or the SpaceX/FCC spectrum deal.",
+    "Sunday-evening futures levels for the Monday 2026-10-12 open.",
+    "A specific Monday-morning press lead/headline (CNBC/WSJ/Bloomberg) for 2026-10-12, since the session had not yet opened at the time of this morning's research pass."
+  ]
+}
