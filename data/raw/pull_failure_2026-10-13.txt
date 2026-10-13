@@ -1,0 +1,52 @@
+Data pull incomplete (tips_10y_real, bkeven_10y); no brief generated.
+
+pull_data.py --daily ran cleanly (exit 2, the designed fail-closed exit --
+not a crash) and pulled row_date=2026-10-12 (Monday's close). Every other
+Tier 1 series filled within its allowed lag:
+
+  - UST 3m/2y/10y/30y, DXY, SPX/NDX/RUT/SPY/RSP/SMH, WTI/gold/copper:
+    within their allowed lag of row_date 2026-10-12 (the CSV already
+    carries 2026-10-09 prints for the rate columns from an earlier fill).
+  - HY OAS / IG OAS (BAMLH0A0HYM2 / BAMLC0A0CM), SOFR: latest FRED obs
+    2026-10-08/2026-10-09 respectively, inside their allowed lag.
+
+Two series exceeded their allowed lag:
+
+  - tips_10y_real (FRED DFII10): latest published obs is still 2026-10-08,
+    2 trading days stale against row_date 2026-10-12 (max allowed lag 1).
+  - bkeven_10y (derived = DGS10 - DFII10): stale for the same reason --
+    downstream of DFII10, not fetched independently.
+
+Confirmed via direct curl this is a genuine FRED publication gap, not a
+blocked host: FRED responded normally (curl, default UA, per the fetcher-
+quirks note) and returned real data through 2026-10-08 for DFII10 and no
+further -- the same series stalled on 2026-09-09 (see
+data/raw/pull_failure_2026-09-09.txt), also against the T10YIE cross-check
+running ahead of it. Today the pattern repeats: the T10YIE cross-check
+(used only to sanity-check the derived breakeven, not the Tier 1 source
+per §5/§14) already shows a 2026-10-09 print (2.33), while DFII10 itself
+has not posted anything for 2026-10-09 through 2026-10-12 as of this
+morning's pull. Not substituting T10YIE for DFII10 as a workaround: that
+would change the source map decision in §5/§14 without re-verification,
+which is outside this run's scope ("do not redesign anything"). Flagging
+for monthly review: DFII10 has now stalled relative to T10YIE at least
+twice (2026-09-09, 2026-10-13) -- worth checking whether this FRED mirror's
+DFII10 series has a structurally slower cadence than its sibling series.
+
+Fail-closed per §4: no analysis, no narrative, no claims-ledger
+reconciliation performed today. CL-0032 and CL-0033 were due exactly
+today (2026-10-13) and roll forward one extra day through no fault of
+their own tests; CL-0035/0037/0038/0039/0040/0041 remain open and unaffected
+(deadlines later this week). All will be reconciled against today's state
+once it exists, on the next successful run.
+
+Committed alongside this notice: macro_series.csv received its normal
+append-only fill for the 2026-10-12 row (equities, DXY, commodities --
+everything that did clear validation). tips_10y_real, bkeven_10y, hy_oas,
+ig_oas, sofr, fed_bs, on_rrp, and tga on the 2026-10-12 row remain blank
+pending their normal publication lag and will fill on a later run, per
+§14's "a fill, never an overwrite" rule. This is routine data-pipeline
+behavior, independent of today's fail-closed decision.
+
+Next run should retry the pull; if DFII10 has posted by then, the brief
+resumes normally.
