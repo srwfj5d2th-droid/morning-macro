@@ -1,0 +1,42 @@
+Data pull incomplete (tips_10y_real, bkeven_10y); no brief generated.
+
+pull_data.py --daily ran cleanly (exit 2, the designed fail-closed exit --
+not a crash) and pulled row_date=2026-10-13 (Tuesday's close). Every other
+Tier 1 series filled within its allowed lag.
+
+Two series exceeded their allowed lag:
+
+  - tips_10y_real (FRED DFII10): latest published obs is still 2026-10-09,
+    2 trading days stale against row_date 2026-10-13 (max allowed lag 1).
+  - bkeven_10y (derived = DGS10 - DFII10): stale for the same reason --
+    downstream of DFII10, not fetched independently.
+
+Confirmed via direct curl (fredgraph.csv?id=DFII10) this is a genuine FRED
+publication gap, not a blocked host: FRED responded normally and returned
+real data through 2026-10-09 for DFII10 and no further. This is the same
+stall this system already flagged twice (2026-09-09, 2026-10-13) -- DFII10
+has now stalled at the identical cutoff (2026-10-09) across both of
+yesterday's and today's runs, i.e. zero new DFII10 observations have
+posted in the 24 hours since yesterday's failure. This is now a
+third-occurrence pattern (2026-09-09, 2026-10-13, 2026-10-14) and is
+flagged for monthly review as a recurring DFII10 publication-cadence issue
+on this environment's FRED mirror, not a one-off.
+
+Fail-closed per §4: no analysis, no narrative, no claims-ledger
+reconciliation performed today. CL-0032 and CL-0033 (already rolled
+forward one day by yesterday's failure) roll forward again through no
+fault of their own tests. CL-0037 (due 2026-10-15), CL-0038/0039 (due
+2026-10-16), CL-0040/0041 (due 2026-10-19) remain open and unaffected.
+All will be reconciled against today's state once it exists, on the next
+successful run.
+
+Committed alongside this notice: macro_series.csv received its normal
+append-only fill for the 2026-10-13 row (equities, DXY, commodities --
+everything that cleared validation). tips_10y_real, bkeven_10y, hy_oas,
+ig_oas, sofr, fed_bs, on_rrp, and tga on the 2026-10-13 row remain blank
+pending their normal publication lag and will fill on a later run, per
+§14's "a fill, never an overwrite" rule. This is routine data-pipeline
+behavior, independent of today's fail-closed decision.
+
+Next run should retry the pull; if DFII10 has posted by then, the brief
+resumes normally.
