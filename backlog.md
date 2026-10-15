@@ -173,3 +173,21 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   - *Mortgage rate in the digest's rates family* (the mortgage row is only
     in the table today).
   - *Further pre-registered pairs.*
+- [ ] **Blank S&P/Russell cells in `macro_series.csv`** (found 2026-10-15).
+  The `spx` and `rut` columns are empty on 2026-07-21, 2026-07-22 and
+  2026-07-31 while `ndx` has values; `data/history/spx.csv` has closes for
+  all three days. A daily-file count of sessions since the last 1% drop came
+  up one short of Bloomberg's 53 (the long-run file agrees with Bloomberg).
+  Backfill the cells from the history files (a fill, never an overwrite) and
+  check other Yahoo columns for the same gap.
+- [ ] **FRED DFII10 stalls recur** (2026-09-09, 2026-10-13, 2026-10-14). The
+  10Y TIPS real yield lagged its sibling series by 2+ trading days three
+  times, failing the run closed each time while T10YIE had posted. Review
+  whether its freshness contract (`TIER1_MAX_LAG`) or source needs changing;
+  do not change it silently.
+- [ ] **Event-day claims on 8:30am releases can be pre-settled** (found
+  2026-10-15). The run publishes around 6:30am ET using the prior day's
+  close, so an overnight move can decide a close-to-close test before the
+  release. CL-0044 was withdrawn for this reason. Consider a test design
+  that doesn't depend on the overnight move, or log event claims the evening
+  before.
