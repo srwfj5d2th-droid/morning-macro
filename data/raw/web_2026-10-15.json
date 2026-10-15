@@ -1,0 +1,362 @@
+{
+ "_README": "Web-sourced (named-outlet) facts used in the 2026-10-15 brief (covering Wednesday 2026-10-14's close), recorded per CLAUDE.md \u00a714 so every attribution in prose traces to a file. Method: a first research pass (six topic researchers) gathered candidate items, but it exhausted the session's shared 200-search budget, so its fact-check stage could not re-search and returned mostly 'unconfirmed'. A second, independent verification pass (new budget, capped per agent) re-searched every item the brief cites; its verdicts, evidence, URLs and safe wording are the 'items' below, and the brief's wording follows each item's safe_wording. Article pages could not be opened in this sandbox (WebFetch DNS failures, proxy 403), so evidence is search-result titles, URLs and snippets showing outlet, date and wording. Where press numbers conflict with the state file, the state file wins (\u00a74C): closes and percentage moves come from data/macro_series.csv, data/raw/movers_2026-10-14.json and data/raw/claims_check_2026-10-15.json. Item ids: P = press framing, M = macro/Fed data, V = movers, T = Tier 3 AI financing, C = claims context.",
+ "retrieved_utc": "2026-10-15",
+ "items": [
+  {
+   "id": "P1",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://www.local10.com/news/2026/10/14/us-stocks-drop-toward-their-worst-day-since-july-as-inflation-worsens/",
+   "evidence": "The AP headline is confirmed on syndicated copies dated 2026-10-14 (local10.com/news/2026/10/14/..., krcgtv.com, nvdaily.com). The nvdaily slug reads 'drop-toward', an earlier intraday version. A snippet quotes the AP text exactly: 'The S&P 500 fell 1.1% Wednesday for its fifth loss in the six days since setting its all-time high.' Snippets say AI names were the biggest drag (Dell -11.3%, Oracle -8.8%, Marvell -8.7%, chip index -4.3%). The exact phrase 'AI-industry stocks led the way lower' was not found. The Stan Choe byline was not seen on any 10-14 copy. apnews.com is blocked to search.",
+   "safe_wording": "AP led with \"US stocks drop to their worst day since July as inflation worsens,\" noting the S&P 500's 1.1% fall was \"its fifth loss in the six days since setting its all-time high,\" with AI-related stocks among the biggest drags. Attribute to AP, not to a named byline."
+  },
+  {
+   "id": "P2",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-dow-futures-inch-115448878.html",
+   "evidence": "The Reuters 'US STOCKS-' headline is confirmed verbatim on syndicated copies (Yahoo Finance, Virginia Business, Metrobank Wealth Insights, inkl, rallies.ai). Reuters body: Nasdaq -1.88% to 26,692.87, 'its biggest daily drop since July 23'; Oct hike odds 37% vs 22% Tuesday. The Barclays downgrades did happen on 10-14: analyst Tim Long cut Dell, HPE and NetApp to Equal Weight from Overweight (FX Leaders 2026/10/14, Seeking Alpha, Yahoo Finance). Two searches did not show that line in the Reuters text itself.",
+   "safe_wording": "Reuters' close: \"Nasdaq ends sharply lower as hot inflation data stirs rate-hike worries.\" Separately, Barclays downgraded Dell, HPE and NetApp to equal-weight from overweight (reported by Seeking Alpha / FX Leaders). Credit the downgrade to those outlets, not to Reuters, unless the Reuters text is checked."
+  },
+  {
+   "id": "P3",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.swissinfo.ch/eng/asian-stocks-bounce-as-tech-rebounds-from-selloff%3A-markets-wrap/92211728?lang=ur",
+   "evidence": "Bloomberg's Markets Wrap headline is seen on syndicated copies: swissinfo.ch 'Stocks Fall on Inflation Woes as Chip Rout Deepens: Markets Wrap' and Yahoo SG 'US stocks fall on inflation woes as chip rout deepens'. Content matches 10-14: September CPI 3.7%, chip gauge -4.3%/-4.5%, Russell 2000 in correction, CoreWeave bonds at distressed levels. Bloomberg also ran a 2026-10-14 newsletter, 'US Stocks Tumble as Chip Rout Deepens'. The headline changed through the day.",
+   "safe_wording": "Bloomberg's markets wrap: \"Stocks Fall on Inflation Woes as Chip Rout Deepens.\""
+  },
+  {
+   "id": "P4",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html",
+   "evidence": "The headline is confirmed exactly at cnbc.com/2026/10/13/stock-market-today-live-updates-.html. That is the live blog for the Oct 14 session, also titled 'Stock market news for Oct. 14, 2026'. Two cnbc.com-filtered searches give the line as paraphrase: worries about tech companies outside the 'Magnificent Seven' using too much debt to fuel the AI boom 'came to the fore'. The exact sentence 'Investors also worried about...' was not seen. An exact-phrase search found no verbatim hit.",
+   "safe_wording": "CNBC's wrap: \"S&P 500 drops 1%, dragged down by hot inflation data and sell-off in AI-related stocks.\" CNBC said worries about tech companies outside the \"Magnificent Seven\" taking on too much debt to fund the AI boom came to the fore. Paraphrase this; do not quote the full sentence."
+  },
+  {
+   "id": "P5",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnn.com/2026/10/14/investing/us-stocks-ai-chipmakers",
+   "evidence": "The CNN headline is confirmed at cnn.com/2026/10/14/investing/us-stocks-ai-chipmakers, with a KESQ syndication. A cnn.com-filtered search summary says CNN reported that higher bond yields and sticky inflation pushed up the cost of financing data center construction. A snippet gives near-verbatim text: 'Higher bond yields and sticky inflation have led to elevated borrowing costs, making the data center buildout more expensive.' The same CNN piece put FedWatch October hike odds at 49%, up from 22%.",
+   "safe_wording": "CNN: \"AI stocks drop after hot inflation report bolsters bets for Fed rate hikes.\" CNN said higher bond yields and sticky inflation are making the data-center buildout more expensive to finance."
+  },
+  {
+   "id": "P6",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-futures-dive-1-ai-082517898.html",
+   "evidence": "The Reuters 10-15 pre-market headline is confirmed verbatim on Yahoo Finance, devdiscourse ('US STOCKS-Nasdaq futures dive 1% as AI rout deepens on debt concerns'), 1027wbow.com/2026/10/15 and freedom969. A later version reads 'Nasdaq futures fall 1%'. The story cites CME FedWatch at 27% for an October hike and 67% for December. It also says CoreWeave and Oracle bonds sold off.",
+   "safe_wording": "Reuters this morning: \"Nasdaq futures dive 1% as AI rout deepens on debt concerns.\""
+  },
+  {
+   "id": "P7",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.ajupress.com/view/20261015165925041",
+   "evidence": "Korea's 10-15 session is confirmed by the Korea Herald ('Kospi crashes 8% as Samsung, SK hynix sink over 10%'), Aju Press (ajupress.com/view/20261015..., 'KOSPI plunge over 7% as chip rout triggers trading halts') and AP via KSAT (2026/10/15). The Kospi closed -7.57% at 5,554.22. A circuit breaker halted trading for 20 minutes around 12:30-12:38pm KST, and the Kosdaq was halted too. A Korea JoongAng Daily article for 10-15 was not found; its halt articles in results were from earlier dates.",
+   "safe_wording": "South Korea's Kospi fell about 7.6% on Thursday (10-15) and a circuit breaker halted trading for 20 minutes (Korea Herald / Aju Press / AP). Cite Korea Herald or Aju Press, not JoongAng Daily."
+  },
+  {
+   "id": "P8",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.bloomberg.com/news/articles/2026-10-14/russell-2000-sinks-11-from-peak-hits-correction-as-rates-rise",
+   "evidence": "The Bloomberg headline is confirmed exactly at bloomberg.com/news/articles/2026-10-14/russell-2000-sinks-11-from-peak-hits-correction-as-rates-rise. The article says the index is about 11% below its August high after a 1.9% drop Wednesday. AP gave -2.2% for the day, so use the state file for the number.",
+   "safe_wording": "Bloomberg: \"Russell 2000 Index Hits Correction After Broad Selloff on Rising Interest Rates.\""
+  },
+  {
+   "id": "P9",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.nbcnews.com/business/energy/oil-prices-trump-energy-ceasefire-fails-rcna603031",
+   "evidence": "The CNBC headline is exact at cnbc.com/2026/10/11/stock-market-today-live-updates.html (Monday 10-12 session): S&P -0.06% to 7,807.24, WTI +2.06% to $93.74, Brent +1.84%. CNBC tied Micron's -3.9% to CXMT's chip-structure news. The NBC headline is exact at nbcnews.com/business/energy/oil-prices-trump-energy-ceasefire-fails-rcna603031. NBC: the Kremlin 'neither confirmed nor denied' the deal and Zelenskyy said Ukraine learned of it from media reports. Caveat: oil first fell in early Monday Asian trade on ceasefire hopes (Euronews, ARY) before rising.",
+   "safe_wording": "CNBC's Monday wrap: \"S&P 500 closes near flat, pressured by higher oil prices and memory chip stock losses.\" NBC News: \"Energy prices rise after Trump's 'energy ceasefire' fails to move Russia or Ukraine.\" Say the Kremlin neither confirmed nor denied the deal, rather than 'disputed'."
+  },
+  {
+   "id": "P10",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/12/stock-market-today-live-updates.html",
+   "evidence": "The CNBC headline is exact at cnbc.com/2026/10/12/stock-market-today-live-updates.html (Tuesday 10-13 session: S&P -0.02% to 7,805.45). A cnbc.com-filtered search snippet of that page says Hock Tan compared part of the money flowing into AI to 'casino gambling'. It also says memory stocks slid on worries about Chinese competition, with the Kospi -5.5%. Tan's words at the DBS conference in Singapore on 10-12, per other outlets: '...it's almost like they are in a casino.' So 'casino gambling' is CNBC's wording, not a verbatim Tan quote. CXMT announced 4F2 DRAM progress.",
+   "safe_wording": "CNBC's Tuesday wrap: \"S&P 500 closes near flat after big banks post earnings and memory chip stocks decline.\" CNBC pointed to Broadcom CEO Hock Tan likening some AI investment to casino gambling, and to worries about Chinese memory competition (CXMT). Do not put 'casino gambling' in quotes as Tan's words."
+  },
+  {
+   "id": "P11",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.devdiscourse.com/article/international/3991561-wrapup-2-imf-flags-risks-to-global-economy-from-ai-market-correction-war-and-debt",
+   "evidence": "The Reuters WRAPUP headline 'IMF flags risks to global economy from AI market correction, war and debt' is confirmed on devdiscourse (WRAPUP 1 and 2) and GMA News, dated 10-13 at the Bangkok meetings. It covers both the WEO (3.1% 2026 growth) and the GFSR, which said 22% of global banking assets could end up weak in a severe AI-led correction.",
+   "safe_wording": "Reuters (10-13): \"IMF flags risks to global economy from AI market correction, war and debt.\" The IMF's Global Financial Stability Report warned that a severe AI-led correction could leave a large share of bank assets weak."
+  },
+  {
+   "id": "P12",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/oil-rises-amid-growing-tensions-between-saudis-and-iran-backed-houthis.html",
+   "evidence": "The CNBC headline is exact at cnbc.com/2026/10/14/oil-rises-amid-growing-tensions-between-saudis-and-iran-backed-houthis.html: Brent +0.35% to $106.06, WTI +1.01% to $95.09. The Saudi energy ministry said a Houthi attack hit an administrative building at Aramco's Dhahran headquarters and caused a limited fire, not production facilities (Nation Thailand, Invezz 2026/10/14, Korea Times).",
+   "safe_wording": "CNBC: \"Oil prices rise after IEA warns on market constraints; Saudi officials say Aramco facilities attacked.\" Saudi Arabia's energy ministry said an administrative building at Aramco's Dhahran headquarters was hit."
+  },
+  {
+   "id": "M1",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/cpi-inflation-report-september-2026.html",
+   "evidence": "CNBC (cnbc.com/2026/10/14/cpi-inflation-report-september-2026.html): headline CPI +0.6% m/m and 3.7% y/y vs Dow Jones estimates of 0.6% and 3.6%. Core was 2.6% y/y vs estimates of 0.2% m/m and 2.5% y/y. Core +0.3% m/m is confirmed via Kiplinger and CNBC snippets. One correction: CNBC says gasoline's +9.1% accounted for 'more than half' of the monthly increase, not 'about half'.",
+   "safe_wording": "September CPI rose 0.6% m/m (in line) and 3.7% y/y vs 3.6% expected. Core rose 0.3% m/m and 2.6% y/y vs 0.2%/2.5% expected (CNBC, citing Dow Jones consensus). Gasoline rose 9.1%, more than half of the monthly gain."
+  },
+  {
+   "id": "M2",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://finance.yahoo.com/economy/policy/articles/traders-warsh-42-chance-doing-082651946.html",
+   "evidence": "The 22% pre-CPI figure is confirmed (Reuters; CNBC 22.1%; Yahoo). Post-CPI readings depend on the time of day. Intraday peaks: Yahoo Finance 41.5% at 12:20pm ET and CNN 49%. By the close: Reuters 37%, CNBC ~35%, AP ~35%, Yahoo afternoon 35%. Reuters' Thursday 10-15 pre-market story put it at 27% for October and 67% for December. Reuters never reported 40-50%, so attributing that range to Reuters is wrong. The Oct 27-28 FOMC is confirmed, with the decision on Oct 28.",
+   "safe_wording": "CME FedWatch put October hike odds near 22% before CPI. They briefly ran as high as roughly 41-49% intraday (Yahoo Finance, CNN), ended Wednesday around 35-37% (CNBC, Reuters), and eased to about 27% by Thursday morning (Reuters). Next FOMC: Oct 27-28."
+  },
+  {
+   "id": "M3",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/us-treasury-yields-cpi-inflation-report.html",
+   "evidence": "The headline is exact at cnbc.com/2026/10/14/us-treasury-yields-cpi-inflation-report.html. Body per snippet: the 10Y slid more than 2bp to 5.19% after an early post-CPI jump. The reversal coincided with the S&P 500 falling more than 1%, which prompted some investors to move into Treasuries. The exact quoted sentence ('...rotate back into the relative safety of the bond market') was not found verbatim. Related: a CNBC 10-15 piece says the 10Y fell 9bp to 5.099% Thursday morning.",
+   "safe_wording": "CNBC: \"10-year Treasury yield dips as traders look ahead to Thursday economic reports.\" Yields rose after CPI, then reversed lower as the S&P 500's 1%+ drop sent some investors toward bonds. Paraphrase; do not quote the sentence."
+  },
+  {
+   "id": "M4",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.federalreserve.gov/monetarypolicy/files/BeigeBook_20261014.pdf",
+   "evidence": "A federalreserve.gov-filtered search of the October 2026 Beige Book (BeigeBook_20261014.pdf / beigebook202610-summary.htm) returned extracted text. It includes: 'Higher oil prices permeated all District reports.' It also includes: 'Five Districts reported that some firms had either reduced staffing levels (through attrition), delayed hiring, or anticipated less job creation after increasing productivity by investing in AI.' Seoul Economic Daily (2026/10/15) corroborates the oil point. The quotes came from the search tool's extraction, not a direct page fetch.",
+   "safe_wording": "The Fed's Beige Book (10-14) said \"Higher oil prices permeated all District reports,\" and five Districts reported firms reducing staffing, delaying hiring, or expecting less job creation after investing in AI."
+  },
+  {
+   "id": "M5",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.fxstreet.com/news/feds-barkin-says-cpi-ran-too-hot-keeps-october-decision-open-202610141846",
+   "evidence": "FXStreet, 2026-10-14 (URL stamp 202610141846): 'Fed's Barkin says CPI ran too hot, keeps October decision open.' Quotes: 'The CPI report was higher than I would have hoped.' 'Tomorrow's producer price data is going to help inform my inflation outlook.' 'I do not want to project the outcome of the October FOMC meeting.' Barkin is a 2027 voter, not a 2026 voter.",
+   "safe_wording": "Richmond Fed's Barkin (via FXStreet) said the CPI report \"was higher than I would have hoped\" and that the PPI data would help inform his inflation outlook. He is not a 2026 voter."
+  },
+  {
+   "id": "M6",
+   "pass": "verify:press-macro",
+   "verdict": "partially_confirmed",
+   "url": "https://www.roic.ai/news/fed-chairman-warsh-to-speak-at-imf-meetings-in-bangkok-on-october-16-10-08-2026",
+   "evidence": "The event and time are confirmed: a fireside chat between Fed Chair Warsh and IMF MD Georgieva at the IMF-World Bank Annual Meetings in Bangkok, 10:30-11:00am Bangkok time on Oct 16, which is 11:30pm-midnight ET on Oct 15 (roic.ai item dated 10-08; Reuters preview via Yahoo/USNews/Kitco; IMF agenda). The Fed's own calendar page was not seen.",
+   "safe_wording": "Fed Chair Warsh holds a fireside chat with IMF Managing Director Georgieva at the IMF-World Bank meetings in Bangkok at 11:30pm ET tonight (Oct 16 local time). Source it to the IMF agenda and press reports."
+  },
+  {
+   "id": "M7",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/us-treasury-yields-cpi-inflation-report.html",
+   "evidence": "A cnbc.com-filtered search returned: 'Economists polled by Dow Jones are expecting a 0.6% rise on the month and a 5.5% gain on the year' for September PPI, due Thursday 10-15 at 8:30am ET. The exact CNBC page carrying the line was not pinned; it is one of the 10-14 CNBC market/Treasury pieces.",
+   "safe_wording": "September PPI (8:30am ET today): Dow Jones consensus +0.6% m/m, +5.5% y/y (via CNBC)."
+  },
+  {
+   "id": "M8",
+   "pass": "verify:press-macro",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html",
+   "evidence": "CNBC on 2026-09-16: 'Fed rate decision September 2026: Rates rise to 3.75%-4%'. The vote was 12-0 for a quarter point, the first hike since July 2023. A Reuters preview of the Bangkok meetings also says the Fed raised to 3.75%-4% in September.",
+   "safe_wording": "The Fed raised its target range by a quarter point to 3.75%-4.00% on Sept. 16 (CNBC), its first hike since 2023."
+  },
+  {
+   "id": "V1",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/dell-stock-barclays-enterprise-ai.html",
+   "evidence": "The CNBC URL cnbc.com/2026/10/14/dell-stock-barclays-enterprise-ai.html carries the exact headline: \"Dell stock plunges 11%, leading data center sell-off as fears mount about 'enterprise AI timing'\". Several outlets (Yahoo Finance, Stocktwits, tradersagency, foreignpolicyjournal 2026/10/15) say Barclays analyst Tim Long cut Dell, HPE and NetApp to Equal Weight from Overweight on Oct 14, 2026. The quoted rationale is \"we don't see a meaningful AI inflection yet\": recent revenue strength reflects memory-price pass-through, not enterprise AI demand. Barclays also cited valuation (the group trades near 21x 2027 EPS against a 15x five-year average). Dell's reported move ranges from about 11% to 12%. HPE and NetApp fell about 5-8%. One search summary paraphrased CNBC as 'to hold from buy'; the formal Barclays rating is Equal Weight.",
+   "safe_wording": "CNBC reported Dell fell about 11% on Wednesday, leading a data-center hardware sell-off, after Barclays downgraded Dell, HPE and NetApp to equal weight (its neutral rating) from overweight. Barclays said it does not yet see a meaningful enterprise-AI inflection and that recent revenue strength reflects higher memory prices."
+  },
+  {
+   "id": "V2",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.benzinga.com/trading-ideas/movers/26/10/62358714/oracle-stock-tumbles-whats-going-on",
+   "evidence": "Benzinga's 'Oracle Stock Tumbles: What's Going On?' (URL benzinga.com/trading-ideas/movers/26/10/62358714) says Oracle fell Wednesday, reversing Tuesday's gains, amid uncertainty over approval of the gas pipeline for Project Jupiter in New Mexico. It says Oracle 'sent a letter to FERC asking for a fast ruling'. Bloomberg (bloomberg.com/news/articles/2026-10-13/oracle-asks-regulators-to-expedite-gas-pipeline-for-data-center) confirms the letter, dated Oct 13, 2026. It was signed by Oracle SVP Josh Pitcock, who wrote 'Time remains of the essence'. The pipeline is the 17.8-mile Green Chile line, operated by an Energy Transfer subsidiary, now targeting February 2027. CAVEAT: Oracle closed down about 8.8% at $130.55, and other outlets attribute the drop differently. Motley Fool/Yahoo lead with 'Oracle Tumbles on Hotter CPI Data Lifting Treasury Yields'. CNBC and SiliconANGLE frame it as contagion from CoreWeave and AI-debt concerns. The pipeline is one stated reason among several, not the only one.",
+   "safe_wording": "Oracle fell about 9%. Benzinga tied the move to approval uncertainty for the gas pipeline serving its Project Jupiter data center in New Mexico: in an Oct. 13 letter, reported by Bloomberg, Oracle asked FERC for a fast ruling. Other outlets attributed the drop to the hot CPI print and to AI-debt contagion from CoreWeave. Present it as several reported reasons, not a single cause."
+  },
+  {
+   "id": "V3",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/bank-of-america-bac-q3-2026-earnings.html",
+   "evidence": "The CNBC URL cnbc.com/2026/10/14/bank-of-america-bac-q3-2026-earnings.html carries the exact headline. The AMP version reads 'Bank of America shares drop 8% after...', where 8% was the early-trading move. Q3 revenue missed by about $570M, mostly on trading. Regulators fined the bank $1.2B late Tuesday over anti-money-laundering failures; Treasury said it failed to report more than $5B in suspicious transactions. Reported EPS was $0.91, or $1.08 adjusted. Motley Fool reports BAC closed at $51.39, down 4.76%, after being down nearly 10% early. Reuters' later edition had BAC down 5.3%.",
+   "safe_wording": "CNBC: Bank of America shares dropped after a third-quarter revenue miss and a $1.2 billion regulatory penalty over anti-money-laundering failures. Use the script-verified close (roughly -5%), not the 8% early-trading figure in one CNBC headline version."
+  },
+  {
+   "id": "V4",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.foxbusiness.com/markets/skydance-shares-plunge-after-company-distributes-nearly-471m-warrants",
+   "evidence": "The Fox Business headline is exact: 'Skydance stock sinks 22% after company distributes nearly 471M warrants'. Variety (variety.com/2026/biz/news/...1236911580) ran 'Skydance Shares Skid Down 22% After Company Issues 471 Million Stock Warrants to Paramount Investors'. The stock closed down 22.2% at $7.06 on Oct 14. Other measures: Motley Fool says -23.84%; TipRanks and TheWrap cite 25% (intraday). Deadline framed it as 'Skydance Stock Tumbles In Technical Adjustment'. TICKER: Yes, SKYD is the former Paramount Skydance (PSKY). After the WBD acquisition closed Oct 6, 2026, the company was renamed Skydance, moved from Nasdaq to NYSE and changed its Class B ticker from PSKY to SKYD (NBC News, CNBC 10-06, SEC 8-K). Holders of record on Oct 5 received 470,746,773 warrants with a $12 strike, trading as SKYD WS from Oct 13; the warrants closed at $2.20 that day. NYSE ADJUSTMENT: Yes, but small. The NYSE cut the Oct 13 official close by $0.19368, from about $9.27 to about $9.07, using the $2.20 warrant close pro-rated to the roughly 471M of about 5B shares (about 9%) entitled to warrants. This comes from the Skydance press release, the SEC FWP and Yahoo. The ~22% drop is therefore measured from the already-adjusted $9.07 reference. The adjustment accounts for only about 2 points of it.",
+   "safe_wording": "Skydance (SKYD, the former Paramount Skydance/PSKY, renamed after the Warner Bros. Discovery deal closed Oct. 6) fell about 22% after distributing nearly 471 million warrants ($12 strike) to some Class B holders. Fox Business and Variety reported the drop. The NYSE adjusted the prior close down only about $0.19, to about $9.07, because only about 9% of shares received warrants, so the drop is measured after that adjustment. Do not call it purely technical without that caveat; Deadline called it a 'technical adjustment'."
+  },
+  {
+   "id": "V5",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-state-street-tops-q3-2026-eps-view-but-shares-fall-93CH-4949775",
+   "evidence": "Investing.com has transcript-article titles 'Earnings call transcript: Morgan Stanley beats Q3 2026 estimates, shares fall' and 'Earnings call transcript: State Street tops Q3 2026 EPS view but shares fall'. Morgan Stanley reported EPS of $3.03 vs $2.91 (LSEG) and revenue of $20.34B; the stock fell about 2.9% premarket. CNBC's Morgan Stanley story is dated 2026/10/14. State Street reported adjusted EPS of $3.69 vs $3.67, but revenue of about $4.0B missed the roughly $4.03B consensus. Its shares fell about 6.5-7.8% in reports. Benzinga's State Street piece is in its 26/10 URL path. The State Street day is October 2026; Oct 14 is not stated explicitly in what I saw, but is consistent with it.",
+   "safe_wording": "Investing.com: Morgan Stanley beat Q3 estimates (EPS $3.03 vs $2.91) but shares fell. State Street topped the EPS view ($3.69 vs $3.67), but revenue slightly missed and shares fell. Use script-verified closing moves."
+  },
+  {
+   "id": "V6",
+   "pass": "verify:movers-tier3",
+   "verdict": "partially_confirmed",
+   "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N4600XE:0-wall-st-slides-as-hot-cpi-data-fuels-rate-hike-bets-chips-banks-weigh/",
+   "evidence": "The Reuters midday headline 'Wall St slides as hot CPI data fuels rate-hike bets; chips, banks weigh' is confirmed via TradingView (reuters.com,2026:newsml_L6N4600XE) and Investing.com. Search summaries of that piece put consumer staples up 0.9% and healthcare up 1.7% midday. Closing figures from Xinhua and other wraps: Health Care +2.44% and Consumer Staples +2.21-2.38%, two of only three S&P sectors higher. REASON: I found no named major outlet (Reuters, AP, CNBC, Bloomberg, WSJ) explicitly explaining the outperformance. A search summary implied that Xinhua (english.news.cn, 2026-10-15) described a rotation into defensive names, but I could not verify that wording. Smaller sites (ts2.tech 'Defensives Lead', tradersagency) use 'defensives' framing. Company-specific items exist: MarketBeat ties Bristol-Myers' ~4% gain to positive Phase 3 results, and TradingKey ties Merck's gain to ESMO late-breaker news. Large drugmakers led (AZN, MRK, BMY, ABBV, LLY, PFE each up about 3.9-4.3% midday per TheStreet).",
+   "safe_wording": "Health care and consumer staples rose while the S&P 500 fell (Reuters midday: health care +1.7%, staples +0.9%). Report the move as mechanical fact only. No major outlet stated a reason, so do not attribute one. If needed, logged as a hypothesis: 'defensive rotation on rate-hike bets', with a test."
+  },
+  {
+   "id": "V7",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.tipranks.com/news/t-mobile-stock-tmus-rises-as-raymond-james-upgrades-to-buy-calls-spacex-competition-fears-overblown",
+   "evidence": "TipRanks: 'T-Mobile Stock (TMUS) Rises as Raymond James Upgrades to Buy, Calls SpaceX Competition Fears \"Overblown\"'. The formal rating per Investing.com, Seeking Alpha and others is Outperform from Market Perform, with a $170 target, by analyst Frank Louthan on Oct 12, 2026. Louthan called the fears 'overblown, as they are 3+ years away'. The upgrade followed a 13.3% TMUS plunge on Friday Oct 9 after SpaceX agreed to buy spectrum from Grain Management. CNBC 'The SpaceX threat to telecom is real. How it could play out' is confirmed at cnbc.com/2026/10/13/spacex-wireless-telecom-threat.html; it cites a Pivotal Research estimate that Starlink could take up to 13% of the US wireless market over ten years. I found no T-Mobile-specific news dated Oct 14. Q3 earnings are due Oct 28.",
+   "safe_wording": "T-Mobile has rebounded since Raymond James upgraded it on Oct. 12 (to Outperform, which TipRanks reported as 'Buy'), calling SpaceX competition fears 'overblown'. CNBC on Oct. 13 argued the SpaceX threat to telecom is real. I found no new T-Mobile-specific news on Oct. 14."
+  },
+  {
+   "id": "T1",
+   "pass": "verify:movers-tier3",
+   "verdict": "partially_confirmed",
+   "url": "https://www.cnbc.com/2026/10/14/coreweave-stock-bond-yields-ai-debt.html",
+   "evidence": "The CNBC URL cnbc.com/2026/10/14/coreweave-stock-bond-yields-ai-debt.html appears with the title 'CoreWeave stock sinks as bond yields surge near 15%' and, in another listing, 'CoreWeave shares tumble as bond yields near 15% on concern about AI borrowing binge'. CNBC's own figures are a yield to maturity of 14.8% on the 9.625% notes due 2032 and about 14.9% on the 9.75% notes due 2031. CRWV closed down about 15.5% at $65.78. CEO Mike Intrator's memo called the market 'irrational'. NOT CONFIRMED: that CNBC cited Bloomberg for the bond prices. The yield figures appear as CNBC's own. Bloomberg separately reported the 2032 notes trading below 80 cents on the dollar, and the FT separately reported yields near 15%.",
+   "safe_wording": "CNBC: CoreWeave stock sank (about 15%) as yields on its bonds neared 15%, citing a 14.8% yield to maturity on its 9.625% 2032 notes. Drop the 'citing Bloomberg' attribution, or attribute separately: 'Bloomberg reported the 2032 notes below 80 cents on the dollar'."
+  },
+  {
+   "id": "T2",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.investing.com/news/stock-market-news/ai-credit-default-swap-spreads-widen-sharply-4950549",
+   "evidence": "The Reuters story 'Cost of AI default insurance spikes as data centre confidence wobbles' is dated Oct 15, 2026. Evidence for the date: the TradingView ID reuters.com,2026:newsml_L1N46104Z; the syndicated copy at 933thedrive.com/2026/10/15/...; Investing.com ('By Reuters', ID 4950549); AOL; and The Standard HK. Content per search summaries: Oracle 5-year CDS widened 26bp overnight to a record 288bp per S&P Global Market Intelligence. Amazon, Alphabet, Meta and Nvidia spreads also hit record wides, though far below Oracle's. SoftBank rose 24bp to 424bp. CoreWeave CDS is past 1,000bp per LSEG, and its 2032 bonds traded at 77 cents. This is not a stale lookalike: the Oracle CDS record in July 2026 was about 198bp. A related Reuters-based report noted the tech CDS market is thin, with Oracle about a third of trades; I did not confirm that caveat is in this specific article.",
+   "safe_wording": "Reuters (Oct. 15, via Investing.com): Oracle's 5-year CDS widened 26bp overnight to a record 288bp, per S&P Global Market Intelligence. CDS on Amazon, Alphabet, Meta and Nvidia also hit record wides, though far below Oracle's."
+  },
+  {
+   "id": "T3",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html",
+   "evidence": "The CNBC URL cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html carries the exact headline. The remarks were made at the DBS Asia Future Forward conference in Singapore. Broadcom's Hock Tan said financing could become a bigger obstacle than chip, memory or power shortages. Intel's Lip-Bu Tan said: 'If there's any challenge in the front, it's capital and the cost of capital... people want to see the ROI.' Benzinga, Quartz and Inc. corroborate.",
+   "safe_wording": "CNBC (Oct. 12): the Intel and Broadcom CEOs warned that capital and the cost of capital could become the AI buildout's biggest bottleneck, ahead of chip or power shortages."
+  },
+  {
+   "id": "T4",
+   "pass": "verify:movers-tier3",
+   "verdict": "confirmed",
+   "url": "https://www.bloomberg.com/news/articles/2026-10-15/blue-owl-s-stack-eyes-6-billion-loan-as-selloff-hits-ai-sector",
+   "evidence": "Bloomberg URL bloomberg.com/news/articles/2026-10-15/blue-owl-s-stack-eyes-6-billion-loan-as-selloff-hits-ai-sector, title 'Stack Infrastructure Seeks $6 Billion Loan as AI Debt Concerns Grow'. Stack, owned by Blue Owl, is seeking an A$8.6B (about US$6B) five-year loan for its Melbourne data center project. It mandated lead arrangers this week, per a person familiar. Bloomberg framed the deal as a test of investor sentiment toward AI debt. CONTEXT: Bloomberg reported a similar A$8.5B (US$5.9B) Stack Melbourne loan on 2026-07-30, so this is a mandate milestone for a known financing, not a new or closed deal.",
+   "safe_wording": "Bloomberg (Oct. 15): Blue Owl's Stack Infrastructure is seeking about A$8.6 billion (~US$6 billion) in a five-year loan for a Melbourne data center and has mandated arrangers. The loan is not yet closed. Bloomberg first reported it in July."
+  },
+  {
+   "id": "T5",
+   "pass": "verify:movers-tier3",
+   "verdict": "partially_confirmed",
+   "url": "https://www.semafor.com/article/10/13/2026/voltas-5-billion-debt-deal-is-a-pulse-check-on-the-ai-financing-boom",
+   "evidence": "IN WINDOW: (1) Semafor exclusive, Oct 13, 2026 (semafor.com/article/10/13/2026/...): Volta's roughly $5B debt deal for a Norway AI data center, with Anthropic as end customer. JPMorgan and Goldman are marketing it at a yield of at least 11%, anchored by a $1.5B Apollo order. Commitments were due Oct 14, and some investors pushed back. Final pricing is NOT confirmed. (2) Bloomberg (news.bgov.com), Oct 9, 2026: Nvidia-backed Firmus is exploring a $2-3B private round after shelving its roughly $5B Australian IPO on Oct 8. The original Bloomberg piece 'Nvidia-Backed IPO's Cratering Demand Sends Warning on AI Funding' is dated 2026-10-08, one day before the window. (3) Investing.com and FT, as relayed: CreditSights' Jordan Chalfin attributed the CoreWeave selloff to a mismatch between long data-center leases and shorter customer contracts. OUT OF WINDOW, do not present as new: CoreWeave's $3.5B euro/dollar junk bond (about June 2026); Lambda's $1.008B delayed-draw loan (Oct 1); the Meta-linked $12B Texas data-center bond (late Sept, Reuters via Daily Caller). I found no in-window hyperscaler (AMZN/GOOGL/META/MSFT/ORCL) bond deal.",
+   "safe_wording": "Semafor (Oct. 13) reported that Volta, an AI data-center developer with Anthropic as its customer, was marketing about $5 billion of debt for a Norway site at yields of at least 11%, anchored by Apollo; final pricing is unconfirmed. Bloomberg (Oct. 8-9) reported Nvidia-backed Firmus pulled its roughly $5 billion IPO and is exploring a $2-3 billion private round. No in-window hyperscaler bond deal found."
+  },
+  {
+   "id": "C1",
+   "pass": "research:claims-context",
+   "verdict": "confirmed",
+   "url": "https://www.bloomberg.com/news/articles/2026-10-14/caterpillar-shares-eye-30-slump-as-oil-bites-ai-rally-stalls",
+   "evidence": "Wed 10-14 move. Bloomberg article, URL dated 2026-10-14 (bloomberg.com/news/articles/2026-10-14/caterpillar-shares-eye-30-slump-as-oil-bites-ai-rally-stalls). Search title: 'Caterpillar Shares Drop 30% From Record as Oil Prices, AI Stocks Weigh'. The snippet says 'Concerns about oil prices, bond yields and the future of the artificial intelligence trade roil the industrial sector' and puts the record close at $1,064.90 in late June. Quartz (qz.com, slug '...-101426') ran 'Caterpillar stock sits 30% below record on oil, rate and AI worries'. MarketBeat's 2026-10-14 alert is headlined 'Caterpillar (NYSE:CAT) Stock Falls 3.3% After Analyst Downgrade', but its body describes Oppenheimer cutting the price target from $1,118 to $1,009 and keeping Outperform. That is a target cut, not a rating downgrade. GuruFocus ran 'Caterpillar (CAT) Shares Fall Amid Inflation Concerns and AI Sector Weakness'. Tue 10-13 move. MarketBeat's 2026-10-13 alert ('shares down 3.4%') matches the system data: prior close $799.37, intraday low $755.31, last $772.42. Search summaries gave conflicting accounts of the reason it cites, so that wording is not confirmed. Cryptonomist (2026-10-14) covered the 10-13 close at 772.78 in technical terms only. Background outside the window: Truist cut its target from $1,225 to $1,100 on 10-07 (XTB 10-07). A Citi cut to $950 appeared on ad-hoc-news, date not verified.",
+   "safe_wording": "Bloomberg (Oct 14) framed Caterpillar's slide as oil prices, bond yields and doubts about the AI trade weighing on industrials. Separately, MarketBeat reported Oppenheimer cut its price target to $1,009 from $1,118 while keeping an Outperform rating. Do not call it a 'downgrade'. For Tuesday's move, say no single named catalyst was found. Do not cite the Citi $950 cut or the Truist cut as this week's reasons. Compute any 'below record' figure from the system's own data, not from press."
+  },
+  {
+   "id": "C2",
+   "pass": "research:claims-context",
+   "verdict": "confirmed",
+   "url": "https://markets.financialcontent.com/stocks/article/stockstory-2026-10-13-seagate-and-western-digital-shares-plummet-what-you-need-to-know",
+   "evidence": "CNBC, URL dated 2026-10-13 (cnbc.com/2026/10/13/sk-hynix-softbank-samsung-electronics-shares-tech-stocks-fall.html): 'Micron sinks, other memory-linked names dip for a second day'. StockStory, syndicated by FinancialContent with slug 'stockstory-2026-10-13-seagate-and-western-digital-shares-plummet-what-you-need-to-know', ties the storage drop to China's CXMT plans for 4F-square DDR5 server modules, 'which prompted a reassessment of tight memory supply'. TradingKey's 10-14 market wrap ('Nasdaq Plunges 500 Points as Fed Rate Hike Expectations Rise; AI Hardware and Tech Stocks Lead Losses') says September CPI came in hotter than expected and fueled Fed hike expectations. It lists Seagate -4.50% and Western Digital -4.36%, which exactly matches the system's 10-14 data (STX 747.20 to 713.54; WDC 380.71 to 364.10). Benzinga (10/26 path) ran 'Western Digital Stock Under Pressure as Rising Asian Production Raises Supply Concerns' and cites a UBS price-target cut. Boerse-express (German) gives that cut as $525 to $470, Neutral, but its exact date is unconfirmed. Tradingpedia (2026-10-15) ran 'Western Digital Drops as Storage Sector Jitters Deepen'. Background outside the window: on 10-02 a Nikkei report said Toshiba plans to double HDD capacity (24/7 Wall St and Motley Fool, both 2026-10-02).",
+   "safe_wording": "StockStory (Oct 13) tied the storage-stock drop to China's CXMT announcing denser DDR5 server-memory plans, which prompted a reassessment of tight memory supply. CNBC (Oct 13) reported memory-linked names falling for a second day. On Oct 14, TradingKey's market wrap grouped Seagate and Western Digital with memory stocks that fell after the hotter-than-expected September CPI revived Fed rate-hike bets. As background, an Oct 2 Nikkei report said Toshiba plans to double HDD capacity. CXMT makes DRAM, not hard drives, so label the read-through as group selling or sentiment rather than a direct competitive hit. Mention the UBS cut only as 'Benzinga cited a UBS price-target cut', without the $470 figure or a date."
+  },
+  {
+   "id": "C3",
+   "pass": "research:claims-context",
+   "verdict": "confirmed",
+   "url": "https://www.gurufocus.com/news/9124173/ciena-corporation-cien-shares-drop-1019-amid-sector-weakness-on-october-14-2026",
+   "evidence": "10-12. TIKR, also syndicated on Yahoo Finance, ran 'Coherent Stock Falls Nearly 8% as Ciena and Lumentum Drop About 10%'. It says COHR closed at $288.02, down 7.87%, on Oct 12 (matches the system), with CIEN -9.95% and LITE -9.78% in the same session. It says no confirmed catalyst drove the drop and cites profit-taking after a long run. PrimeXBT and an AOL-syndicated piece ('Applied Optoelectronics Dives 9% as AI Funding Fears Hit Optical Stocks'; my searches did not establish its date) link the Oct 12 selloff to Broadcom CEO Hock Tan saying access to capital may constrain AI expansion more than chip shortages. I saw that quote only in search summaries, so treat it as partially confirmed. 10-14. GuruFocus ran 'Ciena Corporation (CIEN) Shares Drop 10.19% Amid Sector Weakness on October 14, 2026', closing at $359.60, the third straight losing session. This exactly matches the system. A Pluang snapshot taken during the 10-14 session (COHR -8.02% at 266.72, LITE -7.42% at 914.69) is consistent with the system's prior closes and is framed around AI-funding concerns. The Motley Fool's 2026-10-14 wrap ran 'Stock Market Today, Oct. 14: Oracle Tumbles on Hotter CPI Data Lifting Treasury Yields', with the AI trade broadly lower. MarketBeat's 10-14 Ciena alert ('Down 10.4% Following Insider Selling') is a template headline, not a stated reason. The 24/7 Wall St 2026-10-08 optics headline (AAOI -9%, COHR -5%, LITE -4%, profit-taking) is a different session and must not be reused.",
+   "safe_wording": "For Oct 12: TIKR reported no confirmed catalyst for the optics selloff, with analysts pointing to profit-taking after a long run. Some coverage linked it to Broadcom CEO Hock Tan's comment that capital is becoming the main constraint on AI buildout; attribute this as 'some coverage linked'. For Oct 14: GuruFocus described Ciena's 10.19% drop, its third straight decline, as coming 'amid sector weakness'. It came on a day the Motley Fool's market wrap led with Oracle tumbling as hotter CPI data lifted Treasury yields. Do not say CPI caused the optics moves. Do not cite insider selling as a reason. Do not use the 24/7 Wall St Oct 8 headline."
+  },
+  {
+   "id": "C4",
+   "pass": "research:claims-context",
+   "verdict": "unconfirmed",
+   "url": "https://eplocalnews.org/2026/10/06/c-h-robinson-to-acquire-rxo-in-5-8-billion-deal/",
+   "evidence": "C.H. Robinson / RXO. Nothing new found from named outlets dated 10-06 to 10-15. Every result covers the 10-05 deal announcement: BusinessWire/FinancialContent 2026-10-5, Eden Prairie Local News 2026-10-06, FreightWaves, TT, InsideArbitrage 2026/10. Deal terms: about $5.8B; $17.25 cash plus 0.0856 CHRW shares, implied $30.25 per RXO share; close expected 1H 2027; MFN (about 17%) agreed to vote for it and Orbis is supportive. No antitrust or regulatory developments found. Lennar. The only in-window item is rallies.ai ('XLY News'), a low-credibility aggregator: 'US homebuilders hit 18-month low as hot CPI lifts rate-hike bets'. Per search summary, it reports the PHLX Housing index -2.1% and LEN -3.36% on 10-14. No primary outlet confirmed this. Investing.com 'Lennar Corporation stock hits 52-week low at 73.4 USD' appears in three versions with different article IDs, a stale lookalike/template risk. The 'Fitch shifts Lennar outlook to negative' item was summarized as 10-13, but its investing.com article ID (4502731) is far older than known October 2026 IDs (about 4939543), so it is likely wrong_date.",
+   "safe_wording": "C.H. Robinson/RXO: no new named-outlet news since the Oct 5 deal announcement. Lennar: no credible named-outlet reason found for Oct 12-14. Do not use the rallies.ai homebuilder item, the investing.com 52-week-low item, or the Fitch negative-outlook item, whose date is unverified and likely stale."
+  }
+ ],
+ "not_found": [
+  "[first pass, press] Wall Street Journal's own coverage or front-page lead for 10-14 or the morning of 10-15: web search refuses wsj.com. The only WSJ headline seen comes through a personal blog (see wsj_wed_secondhand), so the claim 'the Journal is leading with X' cannot be sourced this morning.",
+  "[first pass, press] Financial Times coverage of the 10-14 session or the 10-15 morning: web search refuses ft.com and no FT reprint surfaced.",
+  "[first pass, press] New York Times markets or economy coverage for 10-12 through 10-15: no NYT article surfaced in any search.",
+  "[first pass, press] MarketWatch coverage for 10-12 through 10-15: no MarketWatch article surfaced.",
+  "[first pass, press] Barron's coverage for 10-12 through 10-15: none surfaced.",
+  "[first pass, press] AP's full narrative story and headline for Tue 10-13: only the 'How major US stock indexes fared' box surfaced.",
+  "[first pass, press] Stated reason from a named outlet for Health Care (+2.53%) and Consumer Staples (+2.22%) outperforming on 10-14: nothing credible surfaced. The 'defensive rotation' wording appeared only on low-tier aggregators.",
+  "[first pass, press] TSMC's actual Q3 2026 results (due 10-15): only the 10-08 revenue release and pre-results estimates surfaced. A 'record profit' mention in a Reuters search summary could not be confirmed.",
+  "[first pass, press] Tariff or trade actions dated 10-12..10-15 that outlets tied to market moves: none found. Tariff items seen were from 10-07 or were opinion and politics pieces not tied to markets.",
+  "[first pass, press] Government funding, shutdown or fiscal news dated 10-12..10-15 tied to markets: none found. Search results returned only the 2025 shutdown.",
+  "[first pass, press] Fed officials' on-record remarks after the CPI release on 10-14: none surfaced. The only Fed-speak in the window is Williams' Bloomberg interview on 10-13.",
+  "[first pass, press] Full article text for every item: WebFetch failed with DNS errors (ENOTFOUND) on every domain tried (cnbc.com, finance.yahoo.com, washingtontimes.com, tradingeconomics.com, crhoy.com), so all wording comes from search-result titles and snippets.",
+  "[first pass, macro_data] Direct read of the BLS CPI release and the Fed Beige Book page: WebFetch failed with DNS errors on bls.gov, federalreserve.gov, cnbc.com and ksl.com, and curl got a proxy 403. All items rest on search-result snippets and titles.",
+  "[first pass, macro_data] Any Oct 14 remark by Chicago Fed's Goolsbee calling CPI 'discouraging': it appeared only in a search summary and could not be tied to a dated article. The results instead surfaced a Jan 2025 FXStreet item with similar wording (a stale-year trap).",
+  "[first pass, macro_data] Direct primary-source coverage of SF Fed President Daly's Oct 14 remarks: only Reuters' dollar-story summary and an FXStreet snippet mention them.",
+  "[first pass, macro_data] A single authoritative end-of-day Oct 14 CME FedWatch reading for an October hike: outlet snapshots range from about 32% to 50%. December-hike odds conflict (FXStreet about 95% vs another source's 70.6%).",
+  "[first pass, macro_data] A named major-outlet consensus for the Philly Fed index matching the system's 26.5: only Investing.com's calendar (28.2) was found.",
+  "[first pass, macro_data] A named-outlet consensus for core retail sales (ex-autos) of 0.5%: only FactSet ex-autos-and-fuel (+0.2%) via Investing.com was found.",
+  "[first pass, macro_data] A major news outlet (Reuters/Bloomberg/CNBC) confirming the 195K jobless-claims consensus: only the investingLive calendar (195K) and Trading Economics (200K), via an Admiral Markets preview.",
+  "[first pass, macro_data] Topic or subject of Warsh's Bangkok fireside chat with Georgieva: the IMF agenda reportedly does not specify one.",
+  "[first pass, macro_data] An outlet giving a stated reason specifically for the 2-year yield's +3bp close on Oct 14, beyond general rate-hike bets and Bloomberg's intraday 'Treasuries slump' framing.",
+  "[first pass, macro_data] Verbatim Bloomberg text of Bowman's Oct 14 quote: the quote came via a search summary of the Bloomberg video/article and was not seen verbatim.",
+  "[first pass, ai_selloff] Jabil (-7.54%): no stated reason found for 10-14; the only Jabil items surfaced were months old.",
+  "[first pass, ai_selloff] Flex (-9.50%) on 10-14 specifically: no stated reason found; only a 10-13 TradingKey item (Axiom spin-off financing).",
+  "[first pass, ai_selloff] Constellation Energy (-5.49%) and NRG (-5.91%): no same-day stated reason from any outlet. Background PJM/FERC reliability-backstop items date from 9-30 and 10-07 and weren't tied to 10-14.",
+  "[first pass, ai_selloff] Corning (-5.15%): no company-specific or 10-14 attribution found.",
+  "[first pass, ai_selloff] NetApp: no reporting beyond being one of the three Barclays downgrades (CNBC, Yahoo Finance) on 10-14.",
+  "[first pass, ai_selloff] AMD (-5.73%), Nvidia (-3.16%), Broadcom (-3.10%): no company-specific 10-14 news. They appear only inside CNN/Reuters CPI and chip-rout framing (AMD/Nvidia moves seen only in aggregator snippets).",
+  "[first pass, ai_selloff] Meta (-3.27%): no stock-specific 10-14 news. The only item is Reuters (10-15) saying Meta's CDS reached a record wide.",
+  "[first pass, ai_selloff] Hyperscaler capex-cut report on 10-13/10-14: none found; the most recent capex items were August 2026 and pointed to increases.",
+  "[first pass, ai_selloff] A Dell-specific event (analyst day, guidance change, filing) on 10-14: none found beyond the Barclays downgrade.",
+  "[first pass, ai_selloff] A major-outlet (WSJ/Bloomberg/Reuters/CNBC/AP) explanation for Oracle's +4.2% on 10-13: none found. Only MarketBeat, Invezz, heygotrade and The Fly via TipRanks, plus Oracle's own 10-13 press release.",
+  "[first pass, ai_selloff] A major-outlet statement that the power/utility AI names (Vistra, Constellation, NRG, GE Vernova, Vertiv) fell on the same catalyst as AI hardware: none found. Low-tier outlets cite price-target trims, yields/valuation or profit-taking.",
+  "[first pass, ai_selloff] WSJ, FT, Barron's and MarketWatch framing of the 10-14 selloff: those domains are blocked from search in this sandbox, and reuters.com is also blocked. Reuters was seen only via Investing.com/inkl syndication. All article bodies were unreadable (WebFetch DNS failures/403), so the evidence above is titles and search snippets only.",
+  "[first pass, other_movers] Whether SKYD (Skydance) and P (Everpure) are current S&P 500 constituents: no outlet confirmed membership.",
+  "[first pass, other_movers] A company-specific reason for Everpure's 10-14 drop: no company announcement, guidance change or analyst action found. Only the StockStory/Yahoo macro recap (hot CPI, higher yields, semis selloff).",
+  "[first pass, other_movers] A reason for Dollar Tree DLTR +4.71% on 10-14: the only 'Dollar Tree rises 7%' coverage is from October 15, 2025 (stale year).",
+  "[first pass, other_movers] A reason for Moderna MRNA +4.65% on 10-14: only earlier items turned up (Nasdaq-100 inclusion around Oct 9, and an undated Science Day rally).",
+  "[first pass, other_movers] A reason for Bristol-Myers BMY +4.61% and Merck MRK +3.80% on 10-14: only quote pages, no dated catalyst.",
+  "[first pass, other_movers] A Lilly-specific catalyst on 10-14: CNBC says only that Lilly 'led the gains' in health care.",
+  "[first pass, other_movers] Any health-care policy catalyst on 10-14 (drug pricing, tariff, deal): searched, nothing dated 10-14 found.",
+  "[first pass, other_movers] Reasons for Walmart WMT +3.46%, Philip Morris PM +3.16% and Costco COST +2.87% on 10-14: no name-specific coverage found beyond the sector-level defensive move.",
+  "[first pass, other_movers] Energy XLE +0.64% sector reason: not researched specifically. Some recaps mention oil rattling markets, but no named-outlet attribution was gathered.",
+  "[first pass, other_movers] A named-outlet reason for State Street's reaction beyond 'tops EPS view but shares fall' / 'muted market response'.",
+  "[first pass, other_movers] A confirmed dated driver for Coinbase on 10-14 other than the bitcoin/CPI backdrop. The TipRanks quantum-warning attribution is undated.",
+  "[first pass, other_movers] News specific to T-Mobile/AT&T/Verizon on 10-14 itself, including any FCC action on the SpaceX-Grain 800 MHz deal. The last search was refused because the shared web-search budget (200 calls per turn) was used up, so this was not checked further.",
+  "[first pass, other_movers] Full article text for every item. WebFetch failed with DNS errors (ENOTFOUND) and curl was blocked by the agent proxy (403), so all evidence comes from search-result titles, URLs and snippets or summaries.",
+  "[first pass, tier3] New hyperscaler bond issuance priced 2026-10-08 to 10-15 (Meta, Oracle, Alphabet, Amazon, Microsoft): none surfaced. The latest hyperscaler deal found was Meta's $12.5B El Paso JV bond in July 2026, outside the window.",
+  "[first pass, tier3] Neocloud or AI-lab debt deals in the window (CoreWeave, xAI, OpenAI, Nebius): no dated in-window deal found. A CoreWeave $3.55B dual-currency high-yield deal surfaced with no date or named outlet.",
+  "[first pass, tier3] Vendor-financing or circular deals in the window (a chipmaker investing in a customer that buys its chips): nothing found.",
+  "[first pass, tier3] Data-centre ABS/CMBS deals in the window: nothing found. A Blackstone QTS bond 'at 7.2% yield' surfaced only via BigGo Finance, undated and not a named outlet.",
+  "[first pass, tier3] Hyperscaler capex guidance changes, pullbacks or increases reported this week: nothing found.",
+  "[first pass, tier3] The CNBC 2026-10-09 OpenAI revenue report the prior brief logged: not located in this pass. Only the FT-sourced story of 10-08, via Axios and TechCrunch, was found.",
+  "[first pass, tier3] A dated, in-window Reuters or Bloomberg piece confirming Oracle 5Y CDS at a record (about 288bp): the claim surfaced but its date and level could not be confirmed.",
+  "[first pass, tier3] A named outlet and URL for the Firmus listing withdrawal and the CoreWeave bond price drop: not confirmed.",
+  "[first pass, tier3] Process limits: WebFetch failed with DNS errors (ENOTFOUND) on every domain tried (investing.com, gurufocus.com, fourweekmba.com, techcrunch.com, axios.com, finance.yahoo.com), so no article text was read. The turn's shared web-search budget (200 calls across all agents) ran out after this agent's 6th search, so the follow-up searches planned to date-confirm the Oracle CDS, Firmus/CoreWeave and 10-14 Reuters items could not run. All 'wording_seen' beyond verbatim result titles is search-tool paraphrase. A follow-up research run could close these gaps.",
+  "[first pass, claims_context] ALL TOPICS: no searches were run. The shared web-search budget for this turn (200 WebSearch calls across all agents) was already used up before this agent's first query, so the search tool refused every call. Per the tool's instruction, I did not work around the limit with curl/wget, other search engines, or reader/proxy/archive services, and I did not guess article URLs for WebFetch. Nothing below was sourced, and none of it should be treated as checked-and-absent. Each item needs a follow-up run after the budget resets.",
+  "[first pass, claims_context] 1. Caterpillar (CAT) declines Tue 10-13 (799.37 -> 772.78) and Wed 10-14 (-> 748.98): no reason found because no search was run.",
+  "[first pass, claims_context] 2. Seagate (STX 783 -> 713.54) and Western Digital (WDC 397.28 -> 364.10) declines 10-12 through 10-14: no reason found because no search was run. The Toshiba HDD-capacity, AI-storage and analyst-note angles were not checked.",
+  "[first pass, claims_context] 3. C.H. Robinson (CHRW) / RXO acquisition news since 10-06 (deal financing, analyst reactions, shareholder pushback): not searched.",
+  "[first pass, claims_context] 4. Lennar (LEN) news since 10-06: not searched.",
+  "[first pass, claims_context] 5. Coherent (COHR) declines 10-12 (312.62 -> 288.02) and 10-14 (-> 263.32): no reason found because no search was run.",
+  "[first pass, claims_context] 6. Oil (WTI 93.74 on 10-12, 94.14 on 10-13, 95.09 on 10-14) and gold's 10-14 drop (4,177 -> 4,108): no press explanation found because no search was run. Per \u00a74C the brief should report these moves as plain price facts with no stated reason until a named-outlet source is found.",
+  "[verification pass] Wall Street Journal and Financial Times coverage: wsj.com and ft.com are refused by web search in this sandbox, so neither paper's framing is reported.",
+  "[verification pass] No named major outlet gave a reason for Health Care / Consumer Staples outperforming on 10-14.",
+  "[verification pass] Lennar: no credible named-outlet reason for 10-12..10-14; C.H. Robinson/RXO: no news since the 10-05 announcement."
+ ]
+}
