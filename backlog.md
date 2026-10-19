@@ -191,3 +191,24 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   release. CL-0044 was withdrawn for this reason. Consider a test design
   that doesn't depend on the overnight move, or log event claims the evening
   before.
+- [ ] **`scripts/refresh_universe.py` has no quarterly gate on megacap50**
+  (found 2026-10-19). ROUTINE.md step 4 says "constituents only; megacap50
+  is quarterly," but the script always rewrites both files when run — it
+  refreshed megacap50 again this Monday (10-19), one week after it also
+  refreshed on 10-12, with no code check against a stored last-refresh date.
+  Either add a real quarterly gate to the script, or correct ROUTINE.md if
+  weekly megacap50 refreshes turn out to be harmless/intended. Not blocking
+  (the weights it produced are presumably still accurate — the 10-19 run
+  used them as-is), but worth settling at monthly review rather than
+  repeating the drift silently.
+- [ ] **Branch-safety recurrence** (found 2026-10-19, first flagged in
+  ROUTINE.md step 10 after a 2026-10-15/16 incident). Six commits
+  (2026-10-14 through 2026-10-16, two full briefs) sat on a detached HEAD
+  for three calendar days; `main`/`origin/main` never advanced and GitHub
+  Pages was silently stuck on the 2026-10-13 failure notice the whole time.
+  The 2026-10-19 run found and repaired it (fast-forward + push, verified)
+  before building that day's brief, per ROUTINE.md step 0's existing
+  instructions — but this is the second time the cloud checkout has left
+  HEAD detached across a run boundary. Worth a monthly-review look at
+  whether the scheduled task's checkout step can be made to land on `main`
+  directly, rather than relying on each run's own step-0 check to catch it.

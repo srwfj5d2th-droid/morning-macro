@@ -1,0 +1,88 @@
+{
+  "_README": "Web-sourced (named-outlet) facts used in the 2026-10-19 brief (Monday edition, covering since Friday 2026-10-16's close, §4E). Method: single-session WebSearch calls (no sub-agent fan-out this run), each logged below with outlet, url, date and what was used vs. rejected. No WebFetch succeeded (DNS failures on cnn.com, investinglive.com, implicator.ai from this sandbox), so evidence is search-result titles/snippets, consistent with prior editions' sandbox constraint. Where press figures could conflict with the state file, the state file wins (§4C): closes and moves come from data/macro_series.csv and data/raw/movers_2026-10-16.json.",
+  "retrieved_utc": "2026-10-19T12:05:00Z-2026-10-19T12:12:00Z",
+  "used": [
+    {
+      "id": "coreweave-cnbc-bonds",
+      "outlet": "CNBC",
+      "title": "CoreWeave shares tumble as bond yields near 15% on concern about AI borrowing binge",
+      "url": "https://www.cnbc.com/2026/10/14/coreweave-stock-bond-yields-ai-debt.html",
+      "date": "2026-10-14",
+      "used_for": "story_html, tier3_html: CoreWeave bond yields near 15%, AI-borrowing-binge framing"
+    },
+    {
+      "id": "cnn-nasdaq-ai-debt",
+      "outlet": "CNN",
+      "title": "Nasdaq sinks more than 2% as investors raise questions about AI debt",
+      "url": "https://www.cnn.com/2026/10/16/investing/tech-stocks-ai-coreweave",
+      "date": "2026-10-16",
+      "used_for": "story_html: Friday close framing, worst week since June; D.A. Davidson's Gil Luria quote on CoreWeave's ability to repay; CoreWeave CEO Mike Intrator's backlog quote",
+      "caveat": "Search-summary figures for the Nasdaq close and CoreWeave's Friday move varied slightly across outlets (NBC Palm Springs syndication gave different percentages); this system's own SPX/NDX/SMH percentages in the brief come from macro_series.csv, not these press figures."
+    },
+    {
+      "id": "reuters-cds-record-highs",
+      "outlet": "Reuters (via businessday.co.za, by Tom Westbrook and Amanda Cooper)",
+      "title": "AI credit fears push tech default insurance to record highs",
+      "url": "https://www.businessday.co.za/world/international-companies/2026-10-15-ai-credit-fears-push-tech-default-insurance-to-record-highs/",
+      "date": "2026-10-15",
+      "used_for": "story_html, tier3_html, client_lens_html: CoreWeave 5Y CDS above 1,000bp (first time reported here); Oracle 5Y CDS record 288bp, up from 260bp a week earlier; Amazon/Alphabet/Meta/Nvidia CDS at record highs but far below Oracle's, noted as thinly-traded contracts"
+    },
+    {
+      "id": "usnews-coreweave-weekly-plunge",
+      "outlet": "US News (Reuters wire)",
+      "title": "CoreWeave Stock, Bond Set for Weekly Plunge as Rate-Hike Fears Hit AI Bet",
+      "url": "https://money.usnews.com/investing/news/articles/2026-10-16/coreweave-shares-bonds-headed-for-steep-weekly-losses-as-ai-borrowing-concerns-mount",
+      "date": "2026-10-16",
+      "used_for": "tier3_html: confirms the AI-financing story continued into Friday, not just Wednesday/Thursday"
+    },
+    {
+      "id": "capitalstreetfx-fri-close",
+      "outlet": "Capital Street FX market note",
+      "title": "(market wrap, Friday close)",
+      "url": "https://www.capitalstreetfx.com/?p=2668722",
+      "date": "2026-10-16",
+      "used_for": "story_html: Nasdaq 100 -2.52% to 29,181.66, S&P 500 -1.11% to 7,658.04 (cross-checks closely with this system's own SPX -1.09% to 7,659.44), 'worries over the financing of AI data centres hit chip makers for another session', Fed Chair Warsh comment that he does not prejudge meetings",
+      "caveat": "This note's index levels are intraday/close-of-day estimates from a secondary aggregator; the brief's own SPX/NDX numbers come from macro_series.csv, used only as corroboration."
+    },
+    {
+      "id": "quiverquant-twlo",
+      "outlet": "Quiver Quant",
+      "title": "Twilio Slides as Valuation Concerns and Tech Weakness Pressure Shares",
+      "url": "https://www.quiverquant.com/news/Twilio+Slides+as+Valuation+Concerns+and+Tech+Weakness+Pressure+Shares",
+      "date": "undated; cites Twilio's Q3 2026 results as scheduled for 2026-10-29, consistent with current",
+      "used_for": "movers_html: TWLO's stated reason (valuation pressure, weak AI/tech sentiment after a prior run-up)"
+    },
+    {
+      "id": "capitalstreetfx-ai-financing-chipmakers",
+      "outlet": "Capital Street FX (same note as above)",
+      "used_for": "movers_html: SMCI's stated reason (no single-name catalyst; sector-wide AI-financing framing)"
+    }
+  ],
+  "checked_but_not_used": [
+    {
+      "id": "sona-3point6-trillion",
+      "claim": "\"Oracle, CoreWeave Dump on AI's $3.6 Trillion Financing Bill\" (Benzinga/Webull), citing Sona Asset Management counting $3.6T of AI financing across 176 deals, ~120 flagged as circular",
+      "reason_excluded": "A second, independent search for Sona Asset Management's own reporting found no match for this figure or report; §4C requires a verifiable source, and this could not be corroborated. Not used anywhere in the brief."
+    },
+    {
+      "id": "panw-phillip-securities-downgrade",
+      "claim": "Palo Alto Networks -4.7% on a Phillip Securities downgrade to Neutral, valuation-driven",
+      "reason_excluded": "Search tool could not confirm the date (labeled '3d ago' with no reliable anchor); PANW was dropped from the final 3 movers picks rather than risk an unconfirmed single-day attribution."
+    },
+    {
+      "id": "mrna-alternate-dates",
+      "claim": "Moderna items found in search (COO appointment -6.68%; norovirus trial setback -5.2%, dated July 24)",
+      "reason_excluded": "Neither matches 2026-10-16; MRNA is reported in the brief as having no credible same-day reporting, per §5's instruction to say so rather than infer."
+    },
+    {
+      "id": "wti-jump-reason",
+      "claim": "WTI +3.51% Friday",
+      "reason_excluded": "No dated, named-source explanation found for the Friday move specifically; reported in the brief as unexplained."
+    },
+    {
+      "id": "weekend-oct17-18",
+      "claim": "Weekend-specific (Sat/Sun Oct 17-18) market or geopolitical news",
+      "reason_excluded": "Multiple searches (futures, geopolitics, CoreWeave/Oracle follow-up) surfaced nothing dated to the weekend itself; reported in story_html as a genuine absence, per §4E."
+    }
+  ]
+}
