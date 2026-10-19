@@ -37,5 +37,14 @@
   "2026-10-13": 3.16,
   "2026-10-14": 3.25,
   "2026-10-15": 3.23
+ },
+ "T10YIE_fred": {
+  "_source": "FRED T10YIE (10-year breakeven inflation rate, FRED's own series; this system's stored bkeven_10y is derived DGS10 - DFII10), fetched via curl 2026-10-19 ~12:50 UTC; context for CL-0047",
+  "2026-10-08": 2.35,
+  "2026-10-09": 2.33,
+  "2026-10-13": 2.33,
+  "2026-10-14": 2.35,
+  "2026-10-15": 2.32,
+  "2026-10-16": 2.35
  }
 }

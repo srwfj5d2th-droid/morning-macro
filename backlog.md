@@ -191,3 +191,16 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   release. CL-0044 was withdrawn for this reason. Consider a test design
   that doesn't depend on the overnight move, or log event claims the evening
   before.
+- [ ] **No long-run level percentile for WTI** (found 2026-10-19). The
+  10-19 draft called $101 oil "not an unusually high price" from its
+  distance to the 2008 record. The review caught that: `data/history/wti_fut.csv`
+  puts $101.41 near the 92nd percentile of front-month closes since 2000.
+  `market_history.wti` has move, YTD and record blocks but no level
+  percentile, so the brief can't state where oil's price sits. Consider
+  adding one (both lenses, as for Tier 1) in `history_context.py`.
+- [ ] **Scheduled run stalled waiting for approval** (2026-10-19). The
+  routine fired at 10:32 UTC, but its session went to "requires action"
+  with zero tokens used and published nothing. The edition was run on
+  request instead, and the stalled session was interrupted. If it recurs,
+  find out which approval the session waits on (open it in the Claude app)
+  before the next morning.
