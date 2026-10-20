@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment 3 taught 2026-10-19.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment 4 taught 2026-10-20.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -44,6 +44,7 @@ Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment
 | 2026-10-15 | 6 | 1 | Breadth — the index vs. the average stock: a cap-weighted index can fall hard while the equal-weight average barely moves, which says the selling sat in the biggest, most popular names (fits a crowded trade unwinding) rather than across most companies (fits a broad growth scare); breadth says where the selling was, not why | Wednesday's hot-CPI, AI-rout session: SPY −1.08% vs. equal-weight RSP −0.57%; since Oct 7, RSP +0.71% vs. SPY −0.98%; SMH −3.98% while health care +2.53% and staples +2.22% — complicated by the Russell 2000's −1.93% close below its six-month range; credit's verdict on the day pending (CL-0043) |
 | 2026-10-16 | 6 | 2 | Rotation or retreat — two days of breadth: when the cap-weighted index and the equal-weight average move in opposite directions over two sessions, money is moving between groups of stocks (rotation), not leaving stocks (retreat); a retreat shows up as most stocks falling together and credit widening, so check credit before calling it a rotation | Wed–Thu 10-14/10-15: SPY −1.08% then +0.28%, RSP −0.57% then +1.37% (two days SPY −0.80%, RSP +0.80%); SMH down eight straight sessions; HY OAS +9bp on the selloff day (CL-0043 confirmed) — mostly rotation, with a credit warning where the debt is |
 | 2026-10-19 | 6 | 3 | Priced in, or still getting worse? — the test isn't how a stock feels, it's whether the thing actually driving it is still moving; a one-time repricing that then holds flat looks like "priced in," a cost that keeps climbing week over week looks like "still worsening" | Oracle's 5Y CDS widened to a record 288bp (from 260bp a week earlier) and CoreWeave's broke 1,000bp for the first time reported here, alongside SMH's ninth straight down session — still-rising credit cost, not a settled repricing; CL-0042 and CL-0046 are the live tests |
+| 2026-10-20 | 6 | 4 | A rally can be just as narrow as a selloff — the same breadth tool (index vs. average) applied to a green day: a cap-weighted index can rise while the equal-weight average falls, meaning the gains sat in a few giant stocks, not across most companies | Monday: SPY +0.42% vs. RSP -0.32% (a 0.74-point gap) the same day the movers list was almost entirely large AI-adjacent names (WDC, SNDK, AMZN, MRVL) — a narrow, concentrated bounce, not a broad one, reinforcing segments 1-2's tool in the opposite direction |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -88,3 +89,5 @@ Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment
 | Breadth — cap-weighted index vs. equal-weight average; concentrated vs. broad selling | 2026-10-15 |
 | Rotation vs. retreat — opposite index/average moves across days; credit as the tie-breaker | 2026-10-16 |
 | Priced in vs. still worsening — whether the underlying driver (here, the cost of credit) is still moving, not how the price feels | 2026-10-19 |
+| Breadth, applied to an up day — a narrow rally (index vs. average) is the opposite-direction case of segments 1-2's concentrated-selling tool | 2026-10-20 |
+| OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-20 (R) |

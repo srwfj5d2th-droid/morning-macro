@@ -1,0 +1,66 @@
+{
+ "_README": "Web-sourced (named-outlet) facts used in the 2026-10-20 brief (covering Monday 2026-10-19's close), recorded per CLAUDE.md §14 so every attribution in prose traces to a file. Method: this session ran a series of standard WebSearch queries (no article-page fetch available) covering the day's market recap, each of today's movers, and sector-note context, then cross-checked press figures against this system's own macro_series.csv/state.json/movers_2026-10-19.json per §4C. Where a press number matched this system's own data closely, it is cited as corroboration; where it conflicted (the 24/7 Wall St./TheStreet 'easing yields and oil' framing vs. this system's own rising closes), the conflict is reported in Story and Flags rather than silently resolved either way. No article pages were fetched (search results are titles/snippets/summaries only), so every item below is sourced to what the search tool returned, not to the full article text.",
+ "retrieved_utc": "2026-10-20",
+ "items": [
+  {
+   "id": "press_macro:monday-close-recap",
+   "topic": "Monday 10-19 session close",
+   "outlet": "TheStreet; 24/7 Wall St.; tradingnews.com",
+   "finding": "Stocks rallied Monday as chip/tech names rebounded from the prior week's selloff. Figures vary by outlet: Nasdaq +1.1% to +1.35%, S&P 500 +0.41% to +0.66%, Dow roughly flat. tradingnews.com's headline cites Nasdaq +1.67%, S&P 500 +0.85%, Dow +0.20%, with 'INTC +5.9%, AMZN +4.9%' as named movers.",
+   "used_as": "Story (press framing + corroboration of AMZN's move); this system's own closes (SPX +0.41%, NDX +1.11%) are reported as this system's own figures, not the press's, per §4C.",
+   "caveat": "Press outlets disagree with each other on the exact S&P/Nasdaq percentage move; none was adopted as this system's own number."
+  },
+  {
+   "id": "press_macro:easing-yields-oil-claim",
+   "topic": "Stated reason for the chip rebound",
+   "outlet": "24/7 Wall St.",
+   "finding": "Analysts tied the chip bounce to 'easing Treasury yields and oil prices, plus Nvidia's announcement on memory and tech standardization.'",
+   "used_as": "Story and Flags, reported explicitly as the outlet's framing and checked against this system's own close-to-close data, which shows the 10-year up 6bp and WTI up $2.25 the same day — the opposite of 'easing.' Not adopted as this system's own read (§4C/§4D)."
+  },
+  {
+   "id": "movers:wdc-sndk-background",
+   "topic": "Western Digital / SanDisk background",
+   "outlet": "Fool.com (dated 2026-10-14); Yahoo Finance / Fool.com (citing a report on the week ending 2026-10-16)",
+   "finding": "Fool.com (10-14) reported AI-datacenter demand has driven NAND and DRAM contract prices sharply higher this year, citing TrendForce data, with SanDisk's fiscal Q1 report due Oct 29. A second item reported SanDisk fell about 18% (from $1,582 at the Oct 9 close to $1,299 on Friday Oct 16) and Western Digital slid about 5% on Oct 15, after China's CXMT said it would launch denser server DRAM; several analysts were quoted calling the selloff disproportionate since CXMT competes in DRAM, not the NAND SanDisk sells or the hard drives Western Digital sells.",
+   "used_as": "Movers (background context for Monday's rebound, explicitly not cited as Monday's own stated reason, since no outlet found gave one).",
+   "caveat": "No dated reporting found explaining Monday 10-19's specific rebound itself; this is prior-week context only."
+  },
+  {
+   "id": "movers:amzn-background",
+   "topic": "Amazon background (capex)",
+   "outlet": "Let's Data Science, citing the Associated Press (undated within the search result, reported as 'this year')",
+   "finding": "Amazon raised its 2026 cash capital-spending plan to about $220 billion (from an earlier ~$200B plan), citing higher memory costs among the drivers; management said AWS capacity remains sold out through 2027.",
+   "used_as": "Movers (background/read-through only, not Monday's stated reason).",
+   "caveat": "No outlet found gave a same-day reason for Monday's +4.98% move specifically."
+  },
+  {
+   "id": "movers:mrvl-background",
+   "topic": "Marvell background (OCP Summit)",
+   "outlet": "Marvell investor-relations press releases; Let's Data Science; Briefglance (dated items referencing Oct 12-13, 2026)",
+   "finding": "Marvell presented at the OCP Global Summit (San Jose, Oct 12-15), launching a second-generation Structera X memory product (Oct 12) and announcing a data-center-hardware-security working group with Microsoft and Oracle (Oct 13).",
+   "used_as": "Movers (background/read-through only).",
+   "caveat": "No outlet found tied Monday 10-19's price move to either announcement specifically; these are dated to the prior week."
+  },
+  {
+   "id": "movers:excluded-no-reason",
+   "topic": "Other qualifying movers with no found reason",
+   "outlet": "n/a — searched, nothing credible found",
+   "finding": "DDOG, TWLO, PLTR, MRNA, MOS, NRG, AMP all cleared the movers screen; no outlet search surfaced a same-day, dated reason for any of them.",
+   "used_as": "Movers intro (named as left out, with no reported catalyst, per the routine's instruction to say so rather than infer)."
+  },
+  {
+   "id": "sector:xlu-xlre-no-reason",
+   "topic": "Utilities/Real Estate sector divergence",
+   "outlet": "n/a — searched, nothing credible found",
+   "finding": "No outlet search surfaced a same-day explanation for Utilities' and Real Estate's underperformance Monday.",
+   "used_as": "Movers sector note; the rate-sensitivity read is offered as this system's own hypothesis (logged as CL-0047), not as a press-attributed reason."
+  },
+  {
+   "id": "macro:fed-context",
+   "topic": "Fed policy backdrop",
+   "outlet": "FXStreet (dated items referencing September 2026)",
+   "finding": "The Fed delivered its first hike in three years on Sept 16, 2026, taking the target range to 3.75-4.00% under new Chair Kevin Warsh; markets have been pricing rising odds of a further hike at the Oct 27-28 meeting since September's inflation report.",
+   "used_as": "Calendar note / client lens background on the Oct 27-28 meeting; consistent with prior editions' framing, not newly verified today."
+  }
+ ]
+}

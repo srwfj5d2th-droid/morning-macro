@@ -1,0 +1,30 @@
+{
+ "_source": "Closes from data/macro_series.csv (Yahoo daily / FRED via scripts/pull_data.py), retrieved 2026-10-20 ~10:40 UTC. Used to track CL-0042 (SMH), CL-0045 (RSP vs SPY), CL-0046 (HY OAS); none of the three hit their deadline or an early confirm/refute trigger today. CL-0047 opened today.",
+ "HY_OAS_prints": {
+  "2026-10-13": 3.16,
+  "2026-10-14": 3.25,
+  "2026-10-15": 3.23,
+  "2026-10-16": 3.31
+ },
+ "SMH": {
+  "2026-10-13": 588.119995,
+  "2026-10-14": 564.73999,
+  "2026-10-15": 558.840027,
+  "2026-10-16": 539.789978,
+  "2026-10-19": 548.460022
+ },
+ "SPY": {
+  "2026-10-15": 771.789978,
+  "2026-10-16": 763.25,
+  "2026-10-19": 766.47998
+ },
+ "RSP": {
+  "2026-10-15": 215.0,
+  "2026-10-16": 214.089996,
+  "2026-10-19": 213.399994
+ },
+ "CL-0042_status": "open: SMH 548.46 (10-19) remains between the confirm line ($564.74) and refute line ($588.12); resolves at Wednesday 10-21's close.",
+ "CL-0045_status": "open: cumulative from 10-15 close, SPY -0.688% vs RSP -0.744% as of 10-19 (SPY now ahead by ~0.06pp, reversing Friday's RSP lead of ~0.68pp); nowhere near the 1.0pp refute line.",
+ "CL-0046_status": "open: latest print (10-16, 3.31%) still above the 3.16% confirm floor; Monday's print (due Wednesday run) is the next test.",
+ "XLU_XLRE_2026-10-19": {"XLU_1d_pct": -2.01, "XLRE_1d_pct": -1.16, "SPY_1d_pct": 0.42}
+}
