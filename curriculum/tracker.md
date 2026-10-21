@@ -91,3 +91,4 @@ Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment
 | Priced in vs. still worsening — whether the underlying driver (here, the cost of credit) is still moving, not how the price feels | 2026-10-19 |
 | Breadth, applied to an up day — a narrow rally (index vs. average) is the opposite-direction case of segments 1-2's concentrated-selling tool | 2026-10-20 |
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-20 (R) |
+| A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | 2026-10-21 |

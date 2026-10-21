@@ -1,0 +1,38 @@
+{
+  "row_date": "2026-10-20",
+  "searched_at_utc": "2026-10-21T11:00:00Z",
+  "sources": [
+    {
+      "topic": "Equifax (EFX) +11.33% mover",
+      "finding": "Equifax Q3 2026 SEC 8-K, dated 2026-10-20: revenue $1.693B, up 10% YoY; U.S. Mortgage revenue +15%; $158M returned to shareholders.",
+      "outlets": ["SEC EDGAR (Equifax 8-K exhibit, 2026-10-20)"]
+    },
+    {
+      "topic": "Hasbro (HAS) +11.20% mover",
+      "finding": "Hasbro Q3 2026 SEC 8-K, dated 2026-10-20: revenue +15% YoY led by Wizards of the Coast/Digital Gaming (+31%); adjusted EPS $2.90 vs ~$1.86 consensus; ~$55M of the gain from one-time tariff refunds.",
+      "outlets": ["SEC EDGAR (Hasbro 8-K exhibit, 2026-10-20)"]
+    },
+    {
+      "topic": "General Motors (GM) -6.84% mover",
+      "finding": "GM Q3 2026 beat estimates (adj. EPS $3.70 vs ~$3.63-3.69 consensus; revenue ~$50.0B slightly above forecast; new $20B buyback) but shares fell ~5-7% intraday; analysts tied the drop to narrowed 2026 guidance (midpoint of operating-profit outlook not raised) and concern about 2027 cost pressures/pricing durability, not the reported quarter.",
+      "outlets": ["CNBC (2026-10-20, general-motors-gm-earnings-q3-2026)", "Investing.com (earnings call transcript, 'GM beats Q3 2026 estimates but shares fall 5%')"]
+    },
+    {
+      "topic": "Health Care (XLV) sector divergence, +2.04pp vs SPY",
+      "finding": "No outlet found gave a same-day, sector-specific catalyst for 2026-10-20. Background-only: a 2025-10-01 Pfizer-Trump drug-pricing deal lifted health care previously, not applicable to today. Treated as an unconfirmed, idiosyncratic move; logged as CL-0048.",
+      "outlets": ["none found for 2026-10-20"]
+    },
+    {
+      "topic": "Market close 2026-10-20",
+      "finding": "Dow +529.85 (+1.02%) to 52,495.88; S&P 500 +0.28% to 7,712.57; Nasdaq Composite roughly flat; Russell 2000 +1.65% to 2,773.41; 10Y Treasury yield down ~2bp to 5.115%; 30Y down ~4bp to 5.426%; 2Y up ~2bp to 4.785%; WTI crude fell 1.8% to $101.79; Brent fell 0.7% to $108.79. Matches this system's own close-to-close figures.",
+      "outlets": ["CNBC (stock-market-today-live-updates, 2026-10-20)", "CNBC (us-treasury-yields-investors-economy, 2026-10-20)"]
+    },
+    {
+      "topic": "AI-financing-cycle credit stress (Tier 3)",
+      "finding": "CoreWeave's 2032 notes traded at yields near 15% (up from ~13.4% in early October), a level typically signaling credit distress; 2031 notes yield reported above 16% briefly; credit-default-swap pricing implied a greater than 50-60% chance of default within five years. CoreWeave's CEO called the market reaction irrational, citing a ~$104.2B revenue backlog.",
+      "outlets": ["Reuters (via multiple aggregators)", "Barron's (via kucoin.com republication)", "Taipei Times (2026-10-18)", "investinglive.com"]
+    }
+  ],
+  "no_paid_services_used": true,
+  "note": "Bigdata.com and all other paid services excluded per the 2026-08-21 no-paid-services decision, consistent with every prior run."
+}

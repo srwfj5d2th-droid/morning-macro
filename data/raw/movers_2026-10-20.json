@@ -1,0 +1,235 @@
+{
+ "row_date": "2026-10-20",
+ "scanned_at_utc": "2026-10-21T10:41:29.952256Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "EFX",
+   "pct_1d": 11.333,
+   "close": 176.54,
+   "prev_close": 158.57,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "HAS",
+   "pct_1d": 11.199,
+   "close": 109.52,
+   "prev_close": 98.49,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "GM",
+   "pct_1d": -6.84,
+   "close": 77.09,
+   "prev_close": 82.75,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRNA",
+   "pct_1d": 6.695,
+   "close": 242.08,
+   "prev_close": 226.89,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "DVA",
+   "pct_1d": -6.23,
+   "close": 175.35,
+   "prev_close": 187.0,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MMM",
+   "pct_1d": 5.777,
+   "close": 171.37,
+   "prev_close": 162.01,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "IT",
+   "pct_1d": 5.738,
+   "close": 219.64,
+   "prev_close": 207.72,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CRL",
+   "pct_1d": 5.143,
+   "close": 315.45,
+   "prev_close": 300.02,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "GPC",
+   "pct_1d": -5.116,
+   "close": 123.52,
+   "prev_close": 130.18,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MSCI",
+   "pct_1d": 5.005,
+   "close": 591.69,
+   "prev_close": 563.49,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ARE",
+   "pct_1d": 4.972,
+   "close": 42.65,
+   "prev_close": 40.63,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BMY",
+   "pct_1d": 4.844,
+   "close": 61.68,
+   "prev_close": 58.83,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "TYL",
+   "pct_1d": 4.743,
+   "close": 377.17,
+   "prev_close": 360.09,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FIX",
+   "pct_1d": -4.575,
+   "close": 1397.09,
+   "prev_close": 1464.07,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NOC",
+   "pct_1d": 4.573,
+   "close": 534.0,
+   "prev_close": 510.65,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "WDAY",
+   "pct_1d": 4.498,
+   "close": 203.98,
+   "prev_close": 195.2,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "KEY",
+   "pct_1d": 4.468,
+   "close": 20.81,
+   "prev_close": 19.92,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SKYD",
+   "pct_1d": 4.412,
+   "close": 7.1,
+   "prev_close": 6.8,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BIIB",
+   "pct_1d": 4.12,
+   "close": 243.1,
+   "prev_close": 233.48,
+   "close_date": "2026-10-20",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "GE",
+   "pct_1d": -3.666,
+   "close": 299.87,
+   "prev_close": 311.28,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "LLY",
+   "pct_1d": 3.493,
+   "close": 1283.66,
+   "prev_close": 1240.34,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "AMGN",
+   "pct_1d": 3.295,
+   "close": 438.94,
+   "prev_close": 424.94,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "MRK",
+   "pct_1d": 3.251,
+   "close": 148.3,
+   "prev_close": 143.63,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "LRCX",
+   "pct_1d": -3.215,
+   "close": 263.45,
+   "prev_close": 272.2,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "UNH",
+   "pct_1d": 3.043,
+   "close": 419.26,
+   "prev_close": 406.88,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "KLAC",
+   "pct_1d": -2.8,
+   "close": 161.74,
+   "prev_close": 166.4,
+   "close_date": "2026-10-20",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": [
+  {
+   "etf": "XLV",
+   "sector": "Health Care",
+   "pct_1d": 2.374,
+   "spy_pct_1d": 0.335,
+   "divergence_pp": 2.039
+  }
+ ]
+}

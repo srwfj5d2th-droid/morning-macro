@@ -1,0 +1,40 @@
+{
+ "_source": "Closes from data/macro_series.csv (Yahoo daily / FRED via scripts/pull_data.py) plus direct Yahoo pulls for XLU/XLRE/XLV (not part of the daily series), retrieved 2026-10-21 ~10:50-11:05 UTC. Used to track CL-0042 (SMH), CL-0045 (RSP vs SPY), CL-0046 (HY OAS), CL-0047 (XLU/XLRE vs 10Y). None hit their deadline or an early confirm/refute trigger today. CL-0048 opened today.",
+ "HY_OAS_prints": {
+  "2026-10-13": 3.16,
+  "2026-10-14": 3.25,
+  "2026-10-15": 3.23,
+  "2026-10-16": 3.31,
+  "2026-10-19": 3.29
+ },
+ "SMH": {
+  "2026-10-15": 558.840027,
+  "2026-10-16": 539.789978,
+  "2026-10-19": 548.460022,
+  "2026-10-20": 546.359985
+ },
+ "SPY": {
+  "2026-10-15": 771.789978,
+  "2026-10-16": 763.25,
+  "2026-10-19": 766.47998,
+  "2026-10-20": 769.049988
+ },
+ "RSP": {
+  "2026-10-15": 215.0,
+  "2026-10-16": 214.089996,
+  "2026-10-19": 213.399994,
+  "2026-10-20": 215.860001
+ },
+ "SPX": {
+  "2026-10-19": 7690.72998,
+  "2026-10-20": 7712.569824
+ },
+ "XLU": {"2026-10-19": 41.360001, "2026-10-20": 41.880001},
+ "XLRE": {"2026-10-19": 41.669998, "2026-10-20": 42.380001},
+ "XLV": {"2026-10-19": 175.649994, "2026-10-20": 179.820007},
+ "CL-0042_status": "open: SMH 546.36 (10-20) remains between the confirm line ($564.74) and refute line ($588.12); the test itself is today's close (Wed 10-21), so it resolves in tomorrow's run.",
+ "CL-0045_status": "open: cumulative from 10-15 close, SPY -0.36% vs RSP +0.40% as of 10-20 (RSP back ahead by ~0.76pp, reversing 10-19's SPY lead of ~0.06pp); nowhere near the 1.0pp refute line; due 10-22.",
+ "CL-0046_status": "open: latest print (10-19, 3.29%) still above the 3.16% confirm floor and nowhere near the 3.11% refute line; Tuesday's print (due Thursday's run) is the next test; due 10-23.",
+ "CL-0047_status": "open: 10Y fell below Monday's 5.15% baseline to 5.12%; XLU +0.97pp and XLRE +1.42pp AHEAD of SPX cumulatively from 10-19's close (not underperforming) -- unwinds the move the claim tests, satisfying neither the confirm nor refute branch; single check is at Monday 10-26's close.",
+ "CL-0048_opened": "Tuesday 10-20's XLV +2.37% vs SPY +0.34% (+2.04pp) divergence, no catalyst found; test is XLV vs SPY cumulative from 10-20 closes (XLV $179.82, SPY $769.05) over the next 5 sessions, deadline 2026-10-28."
+}
