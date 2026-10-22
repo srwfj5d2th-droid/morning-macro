@@ -1,0 +1,42 @@
+{
+  "_source": "Closes from data/macro_series.csv (Yahoo daily / FRED via scripts/pull_data.py) plus direct Yahoo pulls for XLU/XLRE/XLV/XLC (not part of the daily series), retrieved 2026-10-22 ~10:55-11:10 UTC. Used to track CL-0042 (SMH), CL-0045 (RSP vs SPY), CL-0046 (HY OAS), CL-0047 (XLU/XLRE vs 10Y), CL-0048 (XLV vs SPY). CL-0042 hit its deadline and resolved. No new claims opened today.",
+  "HY_OAS_prints": {
+    "2026-10-15": 3.23,
+    "2026-10-16": 3.31,
+    "2026-10-19": 3.29,
+    "2026-10-20": 3.33
+  },
+  "SMH": {
+    "2026-10-13": 588.119995,
+    "2026-10-14": 564.73999,
+    "2026-10-15": 558.840027,
+    "2026-10-16": 539.789978,
+    "2026-10-19": 548.460022,
+    "2026-10-20": 546.359985,
+    "2026-10-21": 556.700012
+  },
+  "SPY": {
+    "2026-10-15": 771.789978,
+    "2026-10-20": 769.049988,
+    "2026-10-21": 773.090027
+  },
+  "RSP": {
+    "2026-10-15": 215.0,
+    "2026-10-20": 215.860001,
+    "2026-10-21": 216.639999
+  },
+  "SPX": {
+    "2026-10-19": 7690.72998,
+    "2026-10-21": 7757.169922
+  },
+  "XLU": {"2026-10-19": 41.36, "2026-10-21": 42.0},
+  "XLRE": {"2026-10-19": 41.67, "2026-10-21": 42.06},
+  "XLV": {"2026-10-20": 179.82, "2026-10-21": 178.94},
+  "SPY_for_CL0048": {"2026-10-20": 769.049988, "2026-10-21": 773.090027},
+  "XLC": {"2026-10-20": 110.19, "2026-10-21": 108.97},
+  "CL-0042_resolution": "CONFIRMED: SMH closed Wed 2026-10-21 at $556.70, below the $564.74 confirm line, and never closed at or above the $588.12 refute line on any session from 10-15 through 10-21 (highs in that window: $558.84, $556.70, $548.46, $546.36, $539.79). Durable repricing confirmed.",
+  "CL-0045_status": "open: cumulative from 10-15 close, SPY +0.17% vs RSP +0.76% as of 10-21 (RSP ahead by ~0.59pp); inside the +/-1.0pp band; due 10-22 (tomorrow's run).",
+  "CL-0046_status": "open: latest print (10-20, 3.33%) still above the 3.16% confirm floor and nowhere near the 3.11% refute line; Wednesday's print (due Friday's run) is the next data point; due 10-23.",
+  "CL-0047_status": "open: 10Y at 5.13%, still below Monday's 5.15% baseline; XLU +1.55pp and XLRE +0.94pp cumulative from 10-19's close, both still AHEAD of SPX (+0.86pp) -- not underperforming, so neither the confirm nor refute branch is satisfied; single check is at Monday 10-26's close.",
+  "CL-0048_status": "open: one session in, XLV -0.49% cumulative from Tuesday's $179.82 close vs SPY +0.52% from $769.05 -- XLV now trailing SPY by ~1.01pp, a sharp one-day reversal of the divergence the claim tests; four sessions remain before the 2026-10-28 deadline."
+}

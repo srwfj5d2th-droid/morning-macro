@@ -1,0 +1,60 @@
+{
+  "pulled_at_utc": "2026-10-22T10:55:00Z",
+  "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+  "items": [
+    {
+      "topic": "AT&T Q3 2026 results and stock reaction",
+      "sources": [
+        "https://www.schaeffersresearch.com/content/news/2026/10/21/at-t-stock-sinks-despite-q3-beat-and-raise",
+        "https://invezz.com/news/2026/10/21/att-stock-falls-6-despite-earnings-beat-spacex-is-the-reason/",
+        "https://www.benzinga.com/markets/earnings/26/10/62499297/atts-iphone-18-promotions-fail-to-deliver-expected-subscriber-growth",
+        "https://www.fxleaders.com/news/2026/10/21/t-stock-heads-to-20-as-wireless-subscriber-growth-misses-expectations-as-aatt-beats-third-quarter-earnings-and-revenue-estimates/",
+        "https://www.gurufocus.com/news/9134344/att-stocks-sink-59-as-subscriber-growth-trails-earnings-beat",
+        "https://moneycheck.com/att-t-stock-drops-5-even-after-beating-earnings-and-raising-guidance/"
+      ],
+      "facts": "AT&T beat Q3 estimates and raised 2026 adjusted EPS outlook to ~$2.40 (from $2.25-2.35); added 379,000 postpaid phone subscribers vs ~379,300 expected, down from 432,000 prior quarter; stock fell ~6% (worst performer in S&P 500 that session); commentary cites SpaceX Starlink Mobile competition; Verizon -2.48%, T-Mobile -3% same day.",
+      "caveat": "Minor cross-source variance on exact close (-5.9% to -6.23% reported across outlets vs this system's own close of -6.45% to $21.91); this system's own script-verified close is used for magnitude, press cited only for stated reason, per §4C."
+    },
+    {
+      "topic": "Netflix Q3 2026 results and stock reaction",
+      "sources": [
+        "https://deadline.com/2026/10/netflix-q3-2026-earnings-layoffs-streaming-1237168825/",
+        "https://variety.com/2026/tv/news/netflix-stock-falls-two-year-low-after-earnings-report-1236918535/",
+        "https://finance.yahoo.com/markets/stocks/articles/netflix-nflx-stock-price-falls-021632719.html",
+        "https://www.stocktitan.net/articles/netflix-q3-2026-earnings-results",
+        "https://www.techi.com/netflix-q3-2026-earnings-underlying-profit-ad-cut/",
+        "https://www.investing.com/news/transcripts/earnings-call-transcript-netflix-beats-q3-2026-estimates-but-shares-fall-after-hours-93CH-4961240"
+      ],
+      "facts": "Q3 EPS $0.87 beat estimates (vs $0.59 Q3'25); revenue $12.87B +12% y/y, in line; cut 2026 ad-revenue forecast to $2.7B from $3B citing slower ad-product rollout; guided Q4 EPS $0.67 vs ~$0.73 consensus; stock closed -5.3% to $65.04, a two-year low.",
+      "caveat": "This system's own close (-5.31% to $65.04) matches Yahoo Finance reporting almost exactly."
+    },
+    {
+      "topic": "Super Micro Computer (SMCI) preliminary guidance raise",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/0001375365/000137536526000025/smcifirstquarterfy2027busi.htm",
+        "https://www.itiger.com/news/2581767476",
+        "https://www.tipranks.com/news/super-micro-smci-rises-as-analysts-react-to-bold-revenue-forecast"
+      ],
+      "facts": "SEC 8-K dated 2026-10-20: preliminary FQ1 2027 (ended 2026-09-30) revenue estimate $18.5-19.5B vs prior guidance $14.5-15.5B; gross margin 12.0-12.5% vs prior 10.4-10.8%; attributed to AI-platform demand; earnings call scheduled Nov 3.",
+      "caveat": "No same-day (10-21) stock-reaction article found; this system's own scan (+9.55% on 10-21, the session after the filing) used for the move itself."
+    },
+    {
+      "topic": "WTI crude oil -4.56% one-day move",
+      "sources": [],
+      "facts": "No credible, dated reporting found attributing a specific cause to Wednesday 10-21's move. A weekly Crude Oil Inventories report was scheduled per this system's own calendar (data/calendar_cache.json) for 2026-10-21 10:30am ET, but no print or dated news coverage was found confirming a causal link.",
+      "caveat": "Reported as an unexplained mechanical move per §4C/§5; no reason asserted."
+    },
+    {
+      "topic": "AI-infrastructure/power-stock cluster (CEG, GNRC, VRT, GEV)",
+      "sources": [],
+      "facts": "Several AI-infrastructure-adjacent power names rose together on 10-21 (CEG +4.60%, GNRC +4.39%, VRT +4.22%, GEV +4.00%, from data/raw/movers_2026-10-21.json). No same-day, named-source catalyst found tying them together.",
+      "caveat": "Reported as a mechanical pattern only in Tier 3/Flags, not asserted as a single causal story, per §4C."
+    },
+    {
+      "topic": "Broad market wrap / financial press framing for 10-21",
+      "sources": [],
+      "facts": "No credible same-day market-wrap headline was found via web search for 2026-10-21 (searches returned stale/mismatched-year results). Story section instead uses the AT&T/Netflix beat-vs-guide pattern, which is well-sourced and dated, as the day's dominant attributable narrative.",
+      "caveat": "No broad press framing asserted beyond what is sourced above."
+    }
+  ]
+}
