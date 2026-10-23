@@ -1,0 +1,37 @@
+{
+  "_source": "Closes from data/macro_series.csv (Yahoo daily / FRED via scripts/pull_data.py) plus direct Yahoo pulls for XLU/XLRE/XLV/XLC (not part of the daily series), retrieved 2026-10-23 ~11:10-11:25 UTC via scripts/pull_data.py's fetch_yahoo(). Used to resolve CL-0045 (RSP vs SPY) and CL-0046 (HY OAS), both due today, and to track CL-0047 (XLU/XLRE vs 10Y) and CL-0048 (XLV vs SPY). No new claims opened today.",
+  "HY_OAS_prints": {
+    "2026-10-15": 3.23,
+    "2026-10-16": 3.31,
+    "2026-10-19": 3.29,
+    "2026-10-20": 3.33,
+    "2026-10-21": 3.27
+  },
+  "SPY": {
+    "2026-10-15": 771.789978,
+    "2026-10-19": 769.049988,
+    "2026-10-20": 769.049988,
+    "2026-10-21": 773.090027,
+    "2026-10-22": 763.960022
+  },
+  "RSP": {
+    "2026-10-15": 215.0,
+    "2026-10-20": 215.860001,
+    "2026-10-21": 216.639999,
+    "2026-10-22": 218.220001
+  },
+  "SPX": {
+    "2026-10-19": 7690.72998,
+    "2026-10-21": 7757.169922,
+    "2026-10-22": 7663.430176
+  },
+  "XLU": {"2026-10-19": 41.360001, "2026-10-21": 42.0, "2026-10-22": 42.869999},
+  "XLRE": {"2026-10-19": 41.669998, "2026-10-21": 42.060001, "2026-10-22": 42.52},
+  "XLV": {"2026-10-20": 179.820007, "2026-10-21": 178.940002, "2026-10-22": 181.300003},
+  "XLC": {"2026-10-21": 108.970001, "2026-10-22": 107.419998},
+  "ust_10y": {"2026-10-19": 5.15, "2026-10-22": 4.96},
+  "CL-0045_resolution": "CONFIRMED: from the 10-15 close (SPY $771.79, RSP $215.00) to the 10-22 close (SPY $763.96, RSP $218.22), SPY is down 1.01% cumulative while RSP is up 1.50% cumulative -- RSP ahead by about 2.51 points, clearing the 1.0-point confirm bar.",
+  "CL-0046_resolution": "CONFIRMED: every HY OAS print dated 10-15 through 10-21 (3.23, 3.31, 3.29, 3.33, 3.27) stayed at or above the 3.16% confirm floor and never approached the 3.11% refute line.",
+  "CL-0047_status": "open: 10Y now 4.96%, well below Monday 10-19's 5.15% baseline. XLU is up 3.65% cumulative from 10-19's close ($41.36 -> $42.87) and XLRE is up 2.04% ($41.67 -> $42.52), while the S&P 500 is down 0.35% cumulative over the same span ($7690.73 -> $7663.43) -- XLU and XLRE are AHEAD of the S&P by about 4.0pp and 2.4pp respectively, the opposite of underperformance. Neither the confirm branch (10Y above 5.15 AND XLU underperforming) nor the refute branch (10Y below 5.15 AND XLU still underperforming) is satisfied -- XLU isn't underperforming at all. Three sessions remain before Monday 2026-10-26's close.",
+  "CL-0048_status": "open: from Tuesday 10-20's close ($179.82 XLV / $769.05 SPY) to 10-22's close ($181.30 XLV / $763.96 SPY), XLV is up 0.82% cumulative while SPY is down 0.66% -- XLV now AHEAD of SPY by about 1.49 points, reversing the one-session dip reported yesterday. If this gap holds to the deadline it would confirm, but the test is a single check at 2026-10-28's close, three sessions away, so this is a tracking read, not the verdict."
+}

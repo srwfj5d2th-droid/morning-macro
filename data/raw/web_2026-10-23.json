@@ -1,0 +1,45 @@
+{
+  "pulled_at_utc": "2026-10-23T11:05:00Z",
+  "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+  "items": [
+    {
+      "topic": "Lam Research (LRCX) Q1 FY2027 results and stock reaction",
+      "sources": [
+        "https://247wallst.com/investing/2026/10/22/lam-research-sinks-9-as-supply-constraints-cap-outlook-applied-materials-drops-6-asml-holding-falls-4/",
+        "https://invezz.com/news/2026/10/22/lam-research-stock-falls-9-despite-record-results-this-analyst-sees-stock-doubling/",
+        "https://www.benzinga.com/trading-ideas/movers/26/10/62520150/lam-research-says-supply-bottlenecks-are-holding-back-revenue",
+        "https://www.marketbeat.com/articles/lam-researchs-earnings-beat-wasnt-the-real-storyits-2027-outlook-was/",
+        "https://stocktwits.com/news-articles/markets/equity/lrcx-stock-sinks-as-analysts-trim-targets-see-supply-constraints-but-longer-term-bull-case-remains/cZxwBbwRBww",
+        "https://finance.yahoo.com/markets/article/chip-stocks-fall-as-equipment-maker-lam-research-cites-supply-chain-constraints-130648719.html"
+      ],
+      "facts": "Lam Research reported record quarterly revenue of $8.22B and adjusted EPS of $2.20, both ahead of Street estimates. December-quarter revenue guide of $8.2-9.0B came in below the $8.53B consensus; the CFO said guidance 'would have been a bit higher if not for some near-term supply chain constraints.' Lam raised its 2026-2027 wafer-fab-equipment spending forecast, expecting the industry to spend over $200B in 2027. Stock fell ~9-12% depending on the report (this system's own close: -11.76% to $230.15). Applied Materials fell ~6-8% and ASML fell ~4% the same session on the same read-through.",
+      "caveat": "This system's own script-verified close (-11.76%) is used for magnitude; third-party outlets reported a range (-8% to -12%) depending on measurement time. Press cited only for the stated reason, per §4C."
+    },
+    {
+      "topic": "Chip-equipment and AI-optical complex selloff, same session",
+      "sources": [
+        "https://247wallst.com/investing/2026/10/22/lam-research-sinks-9-as-supply-constraints-cap-outlook-applied-materials-drops-6-asml-holding-falls-4/"
+      ],
+      "facts": "The 24/7 Wall St report names Applied Materials and ASML as falling alongside Lam Research on the same guidance/supply-constraint read-through. This system's own scan additionally shows KLA, Teradyne, Coherent, Lumentum, Ciena, Marvell, Micron, Western Digital and SanDisk all down >4-13% the same session (data/raw/movers_2026-10-22.json).",
+      "caveat": "No dated, named-source reporting was found tying KLA, Teradyne, Coherent, Lumentum, Ciena, Marvell, Micron, Western Digital or SanDisk specifically to Lam's guidance or to any distinct news of their own; reported as a sector-wide pattern, not individually attributed causes, per §4C/§5."
+    },
+    {
+      "topic": "Moderna (MRNA) -17.57% one-day move",
+      "sources": [],
+      "facts": "No credible, dated reporting was found attributing today's drop to any specific news (earnings, FDA action, trial result, or otherwise) despite multiple named-source searches.",
+      "caveat": "Reported as an unexplained mechanical move per §4C/§5; no reason asserted."
+    },
+    {
+      "topic": "GE Vernova, Vistra and other AI-power-adjacent decliners",
+      "sources": [],
+      "facts": "GE Vernova (-10.64%), Vistra (-9.80%) and Bloom Energy (-8.70%) all fell the same session (data/raw/movers_2026-10-22.json). GE Vernova's own next earnings report is confirmed for 2026-10-28, so today's move is not an earnings reaction for that name.",
+      "caveat": "No same-day, named-source catalyst found tying these three together; reported as a mechanical pattern only in Tier 3, not asserted as a single causal story, per §4C."
+    },
+    {
+      "topic": "Broad market wrap / financial press framing for 10-22",
+      "sources": [],
+      "facts": "No credible same-day market-wrap headline naming a single unifying cause for the day's broad dispersion (160 S&P 500 names moving >4%) was found via web search; the scale is consistent with this week sitting deep in Q3 earnings season (Honeywell and Lam Research both reported this week, among many others) rather than one shared catalyst.",
+      "caveat": "No broad press framing asserted beyond what is sourced above; the story section instead uses the well-sourced, dated Lam Research guidance story as the day's dominant attributable narrative."
+    }
+  ]
+}

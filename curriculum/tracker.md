@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment 6 taught 2026-10-22.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment 7 (capstone) taught 2026-10-23; Unit 7, Financing cycles & reflexivity, begins next session.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -47,6 +47,7 @@ Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment
 | 2026-10-20 | 6 | 4 | A rally can be just as narrow as a selloff — the same breadth tool (index vs. average) applied to a green day: a cap-weighted index can rise while the equal-weight average falls, meaning the gains sat in a few giant stocks, not across most companies | Monday: SPY +0.42% vs. RSP -0.32% (a 0.74-point gap) the same day the movers list was almost entirely large AI-adjacent names (WDC, SNDK, AMZN, MRVL) — a narrow, concentrated bounce, not a broad one, reinforcing segments 1-2's tool in the opposite direction |
 | 2026-10-21 | 6 | 5 | A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | General Motors beat Q3 EPS, revenue and announced a $20B buyback, and still fell 6.84% on narrowed 2026 guidance that didn't raise the profit midpoint — the clean textbook case, used as today's concept |
 | 2026-10-22 | 6 | 6 | Sympathy selling — when one company's news moves peers that didn't report; the test is whether the news is actually about the whole group (a shared risk) or just sentiment latching onto an unrelated name | AT&T's 6.45% subscriber-miss/Starlink-competition selloff dragged Verizon (-2.48%) and T-Mobile (-3%) even though neither reported — a real, shared competitive risk, contrasted against CL-0048's Health Care rally (no shared news found, already reversing after one session) |
+| 2026-10-23 | 6 | 7 (capstone) | Breadth, completed — when the index and the average don't just disagree on magnitude, they disagree on direction entirely; assembling segments 1 (concentrated selloff), 2 (rotation vs. retreat) and 4 (narrow rally) into the full breadth toolkit before moving on | S&P 500 -1.21% and Nasdaq -2.60% (led by SMH's 5.99% drop) while the equal-weight RSP rose 0.73% and the Russell 2000 rose 0.11% — the first session this run where the average moved opposite the index, not just by less; Consumer Staples/Utilities/Health Care all rallied the same day, confirming a rotation (chip-equipment/AI-optical only), not a broad retreat |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -95,3 +96,4 @@ Current position: **Unit 6, Positioning & sentiment vs. fundamentals — segment
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-20 (R) |
 | A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | 2026-10-21 |
 | Sympathy selling — one company's news moving peers that didn't report; check whether the news is about the whole group or just sentiment | 2026-10-22 |
+| The breadth toolkit (Unit 6 capstone) — index vs. average can disagree on magnitude or on direction entirely; check whether selling/buying is concentrated or broad before calling the market's move | 2026-10-23 |
