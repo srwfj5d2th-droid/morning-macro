@@ -1,0 +1,14 @@
+{
+  "retrieved_at_utc": "2026-10-26T11:40:00Z",
+  "method": "web search with named-source attribution (standing source since 2026-08-21; no Bigdata.com or other paid service used)",
+  "sources": [
+    {"topic": "Bloom Energy Q3 2026 results, cash flow, guidance raise", "outlets": ["SEC 8-K (investor.bloomenergy.com / sec.gov)", "Investing.com", "Yahoo Finance", "Motley Fool earnings call transcript", "Panabee (third-party review)"]},
+    {"topic": "Comfort Systems USA Q3 2026 results, backlog, margin commentary", "outlets": ["Investing.com", "24/7 Wall St", "GuruFocus", "financialcontent.com (BusinessWire release)"]},
+    {"topic": "SpaceX ~80,000 cell-site report; AT&T/T-Mobile/Verizon reaction; Crown Castle/American Tower reaction", "outlets": ["24/7 Wall St", "Yahoo Finance (Bloomberg-sourced)", "Invezz", "GuruFocus"]},
+    {"topic": "Friday 2026-10-23 market close wrap and breadth", "outlets": ["CNBC", "Spokesman-Review (AP wire)"]},
+    {"topic": "Weekend / Monday pre-market tone, oil, Fed-week framing", "outlets": ["CNBC", "FX Leaders", "Investing.com (five things to watch)"]},
+    {"topic": "AI-datacenter credit stress (CoreWeave bonds, data-center bonds)", "outlets": ["Morningstar (2026-10-16)"]}
+  ],
+  "no_catalyst_found": ["Globe Life (GL) -8.09% on 2026-10-23 -- no dated, named-source reporting found tying the move to any specific news; left out of the 3-name movers cap rather than pursued further"],
+  "excluded_sources": ["Bigdata.com and all other paid services, per the 2026-08-21 no-paid-services decision"]
+}
