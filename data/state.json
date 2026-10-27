@@ -1,17 +1,17 @@
 {
-  "computed_at_utc": "2026-10-26T10:39:48.024442Z",
-  "row_date": "2026-10-23",
-  "trading_rows": 223,
+  "computed_at_utc": "2026-10-27T10:40:02.405963Z",
+  "row_date": "2026-10-26",
+  "trading_rows": 224,
   "seasoned": true,
   "series": {
     "ust_3m": {
       "last": 4.22,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
       "d1": 0.0,
-      "d5": -0.04,
+      "d5": -0.05,
       "trend20": "down",
-      "z120": 1.665,
+      "z120": 1.633,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
@@ -19,27 +19,27 @@
       "ytd_pct": 14.986
     },
     "ust_2y": {
-      "last": 4.69,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 0.04,
-      "d5": -0.05,
+      "last": 4.68,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": -0.01,
+      "d5": -0.09,
       "trend20": "down",
-      "z120": 1.312,
+      "z120": 1.257,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
-      "ytd_abs": 1.22,
-      "ytd_pct": 35.159
+      "ytd_abs": 1.21,
+      "ytd_pct": 34.87
     },
     "ust_10y": {
       "last": 5.0,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 0.04,
-      "d5": -0.09,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 0.0,
+      "d5": -0.15,
       "trend20": "down",
-      "z120": 1.067,
+      "z120": 1.049,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
@@ -47,102 +47,102 @@
       "ytd_pct": 19.617
     },
     "ust_30y": {
-      "last": 5.33,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 0.04,
-      "d5": -0.1,
+      "last": 5.31,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": -0.02,
+      "d5": -0.17,
       "trend20": "down",
-      "z120": 0.707,
+      "z120": 0.598,
       "z_thin": false,
       "flag": false,
       "unit": "pct",
-      "ytd_abs": 0.49,
-      "ytd_pct": 10.124
+      "ytd_abs": 0.47,
+      "ytd_pct": 9.711
     },
     "tips_10y_real": {
-      "last": 2.64,
-      "last_date": "2026-10-22",
-      "n_obs": 225,
-      "d1": -0.12,
-      "d5": -0.14,
-      "trend20": "down",
-      "z120": 0.941,
-      "z_thin": false,
-      "flag": false,
-      "unit": "pct",
-      "ytd_abs": 0.71,
-      "ytd_pct": 36.788
-    },
-    "bkeven_10y": {
-      "last": 2.32,
-      "last_date": "2026-10-22",
-      "n_obs": 225,
-      "d1": -0.05,
-      "d5": 0.0,
-      "trend20": "down",
-      "z120": -0.088,
-      "z_thin": false,
-      "flag": false,
-      "unit": "pct",
-      "ytd_abs": 0.07,
-      "ytd_pct": 3.111
-    },
-    "hy_oas": {
-      "last": 3.4,
-      "last_date": "2026-10-22",
-      "n_obs": 235,
-      "d1": 0.13,
-      "d5": 0.17,
-      "trend20": "up",
-      "z120": 3.552,
-      "z_thin": false,
-      "flag": true,
-      "unit": "pct",
-      "ytd_abs": 0.59,
-      "ytd_pct": 20.996
-    },
-    "ig_oas": {
-      "last": 0.89,
-      "last_date": "2026-10-22",
-      "n_obs": 235,
-      "d1": 0.01,
-      "d5": 0.05,
-      "trend20": "up",
-      "z120": 3.009,
-      "z_thin": false,
-      "flag": true,
-      "unit": "pct",
-      "ytd_abs": 0.1,
-      "ytd_pct": 12.658
-    },
-    "dxy": {
-      "last": 101.809998,
+      "last": 2.66,
       "last_date": "2026-10-23",
       "n_obs": 226,
-      "d1": 0.199997,
-      "d5": -0.029998,
+      "d1": 0.02,
+      "d5": -0.08,
+      "trend20": "down",
+      "z120": 1.001,
+      "z_thin": false,
+      "flag": false,
+      "unit": "pct",
+      "ytd_abs": 0.73,
+      "ytd_pct": 37.824
+    },
+    "bkeven_10y": {
+      "last": 2.34,
+      "last_date": "2026-10-23",
+      "n_obs": 226,
+      "d1": 0.02,
+      "d5": -0.01,
       "trend20": "up",
-      "z120": 1.357,
+      "z120": 0.193,
+      "z_thin": false,
+      "flag": false,
+      "unit": "pct",
+      "ytd_abs": 0.09,
+      "ytd_pct": 4.0
+    },
+    "hy_oas": {
+      "last": 3.38,
+      "last_date": "2026-10-23",
+      "n_obs": 236,
+      "d1": -0.02,
+      "d5": 0.07,
+      "trend20": "up",
+      "z120": 3.24,
+      "z_thin": false,
+      "flag": true,
+      "unit": "pct",
+      "ytd_abs": 0.57,
+      "ytd_pct": 20.285
+    },
+    "ig_oas": {
+      "last": 0.91,
+      "last_date": "2026-10-23",
+      "n_obs": 236,
+      "d1": 0.02,
+      "d5": 0.06,
+      "trend20": "up",
+      "z120": 3.428,
+      "z_thin": false,
+      "flag": true,
+      "unit": "pct",
+      "ytd_abs": 0.12,
+      "ytd_pct": 15.19
+    },
+    "dxy": {
+      "last": 101.959999,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 0.150001,
+      "d5": -0.020004,
+      "trend20": "up",
+      "z120": 1.464,
       "z_thin": false,
       "flag": false,
       "unit": "level",
-      "ytd_abs": 3.529999,
-      "ytd_pct": 3.592
+      "ytd_abs": 3.68,
+      "ytd_pct": 3.744
     },
     "sofr": {
-      "last": 3.9,
-      "last_date": "2026-10-22",
-      "n_obs": 224,
+      "last": 3.92,
+      "last_date": "2026-10-23",
+      "n_obs": 225,
       "d1": 0.02,
-      "d5": 0.01,
+      "d5": 0.04,
       "trend20": "up",
-      "z120": 2.096,
+      "z120": 2.222,
       "z_thin": false,
       "flag": true,
       "unit": "pct",
-      "ytd_abs": 0.03,
-      "ytd_pct": 0.775
+      "ytd_abs": 0.05,
+      "ytd_pct": 1.292
     },
     "fed_bs": {
       "last": 6753604.0,
@@ -160,12 +160,12 @@
     },
     "on_rrp": {
       "last": 0.2,
-      "last_date": "2026-10-23",
-      "n_obs": 225,
-      "d1": -0.151,
-      "d5": 0.1,
+      "last_date": "2026-10-26",
+      "n_obs": 226,
+      "d1": 0.0,
+      "d5": -0.13,
       "trend20": "flat",
-      "z120": -0.525,
+      "z120": -0.524,
       "z_thin": false,
       "flag": false,
       "unit": "busd",
@@ -187,153 +187,153 @@
       "ytd_pct": 13.698
     },
     "spx": {
-      "last": 7623.680176,
-      "last_date": "2026-10-23",
-      "n_obs": 223,
-      "d1": -39.75,
-      "d5": -35.759765,
-      "trend20": "down",
-      "z120": 0.355,
+      "last": 7676.77002,
+      "last_date": "2026-10-26",
+      "n_obs": 224,
+      "d1": 53.089844,
+      "d5": -13.95996,
+      "trend20": "flat",
+      "z120": 0.685,
       "z_thin": false,
       "flag": false,
       "unit": "index",
-      "ytd_abs": 778.180176,
-      "ytd_pct": 11.368
+      "ytd_abs": 831.27002,
+      "ytd_pct": 12.143
     },
     "ndx": {
-      "last": 25955.339844,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": -53.519531,
-      "d5": -184.689453,
+      "last": 26169.380859,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 214.041015,
+      "d5": -261.509766,
       "trend20": "down",
-      "z120": -0.509,
+      "z120": -0.17,
       "z_thin": false,
       "flag": false,
       "unit": "index",
-      "ytd_abs": 2713.34961,
-      "ytd_pct": 11.674
+      "ytd_abs": 2927.390625,
+      "ytd_pct": 12.595
     },
     "rut": {
-      "last": 2775.899902,
-      "last_date": "2026-10-23",
-      "n_obs": 223,
-      "d1": -8.130127,
-      "d5": 54.529785,
+      "last": 2786.419922,
+      "last_date": "2026-10-26",
+      "n_obs": 224,
+      "d1": 10.52002,
+      "d5": 58.119873,
       "trend20": "down",
-      "z120": -1.519,
+      "z120": -1.411,
       "z_thin": false,
-      "flag": true,
+      "flag": false,
       "unit": "index",
-      "ytd_abs": 293.98999,
-      "ytd_pct": 11.845
+      "ytd_abs": 304.51001,
+      "ytd_pct": 12.269
     },
     "wti": {
-      "last": 103.269997,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 3.799996,
-      "d5": 1.859993,
+      "last": 101.760002,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": -1.509995,
+      "d5": -1.900002,
       "trend20": "up",
-      "z120": 1.51,
+      "z120": 1.367,
       "z_thin": false,
-      "flag": true,
+      "flag": false,
       "unit": "usd",
-      "ytd_abs": 45.849999,
-      "ytd_pct": 79.85
+      "ytd_abs": 44.340004,
+      "ytd_pct": 77.22
     },
     "gold": {
-      "last": 4007.899902,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": -52.5,
-      "d5": -173.200196,
+      "last": 4038.399902,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 30.5,
+      "d5": -121.700196,
       "trend20": "down",
-      "z120": -1.443,
+      "z120": -1.268,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": -317.700196,
-      "ytd_pct": -7.345
+      "ytd_abs": -287.200196,
+      "ytd_pct": -6.64
     },
     "copper": {
-      "last": 6.476,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 0.1135,
-      "d5": -0.055,
+      "last": 6.508,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 0.032,
+      "d5": -0.03,
       "trend20": "down",
-      "z120": 0.226,
+      "z120": 0.378,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 0.846,
-      "ytd_pct": 15.027
+      "ytd_abs": 0.878,
+      "ytd_pct": 15.595
     },
     "spy": {
-      "last": 759.969971,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": -3.990051,
-      "d5": -3.280029,
-      "trend20": "down",
-      "z120": 0.316,
+      "last": 765.369995,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 5.400024,
+      "d5": -1.109985,
+      "trend20": "flat",
+      "z120": 0.677,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 78.049988,
-      "ytd_pct": 11.446
+      "ytd_abs": 83.450012,
+      "ytd_pct": 12.238
     },
     "rsp": {
-      "last": 216.539993,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": -1.680008,
-      "d5": 2.449997,
+      "last": 217.289993,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 0.75,
+      "d5": 3.889999,
       "trend20": "up",
-      "z120": 0.698,
+      "z120": 0.829,
       "z_thin": false,
       "flag": false,
       "unit": "usd",
-      "ytd_abs": 24.979995,
-      "ytd_pct": 13.04
+      "ytd_abs": 25.729995,
+      "ytd_pct": 13.432
     },
     "smh": {
-      "last": 527.200012,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 3.850036,
-      "d5": -12.589966,
+      "last": 541.619995,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 14.419983,
+      "d5": -6.840027,
       "trend20": "down",
-      "z120": -1.678,
+      "z120": -1.254,
       "z_thin": false,
-      "flag": true,
+      "flag": false,
       "unit": "usd",
-      "ytd_abs": 167.070007,
-      "ytd_pct": 46.392
+      "ytd_abs": 181.48999,
+      "ytd_pct": 50.396
     }
   },
   "derived": {
     "s2s10": {
-      "last": 31.0,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 0.0,
-      "d5": -4.0,
-      "trend20": "flat",
-      "z120": -1.258,
+      "last": 32.0,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 1.0,
+      "d5": -6.0,
+      "trend20": "down",
+      "z120": -1.106,
       "z_thin": false,
       "flag": false,
       "unit": "bp"
     },
     "s3m10y": {
       "last": 78.0,
-      "last_date": "2026-10-23",
-      "n_obs": 226,
-      "d1": 4.0,
-      "d5": -5.0,
+      "last_date": "2026-10-26",
+      "n_obs": 227,
+      "d1": 0.0,
+      "d5": -10.0,
       "trend20": "down",
-      "z120": -0.163,
+      "z120": -0.168,
       "z_thin": false,
       "flag": false,
       "unit": "bp"
@@ -342,65 +342,47 @@
       "ath": 7818.930176,
       "ath_date": "2026-10-06",
       "basis": "close",
-      "dist_pct": -2.497
+      "dist_pct": -1.818
     }
   },
   "flags": [
     {
       "series": "ust_3m",
-      "z120": 1.665,
+      "z120": 1.633,
       "last": 4.22,
-      "last_date": "2026-10-23"
+      "last_date": "2026-10-26"
     },
     {
       "series": "hy_oas",
-      "z120": 3.552,
-      "last": 3.4,
-      "last_date": "2026-10-22"
+      "z120": 3.24,
+      "last": 3.38,
+      "last_date": "2026-10-23"
     },
     {
       "series": "ig_oas",
-      "z120": 3.009,
-      "last": 0.89,
-      "last_date": "2026-10-22"
+      "z120": 3.428,
+      "last": 0.91,
+      "last_date": "2026-10-23"
     },
     {
       "series": "sofr",
-      "z120": 2.096,
-      "last": 3.9,
-      "last_date": "2026-10-22"
-    },
-    {
-      "series": "rut",
-      "z120": -1.519,
-      "last": 2775.899902,
-      "last_date": "2026-10-23"
-    },
-    {
-      "series": "wti",
-      "z120": 1.51,
-      "last": 103.269997,
-      "last_date": "2026-10-23"
-    },
-    {
-      "series": "smh",
-      "z120": -1.678,
-      "last": 527.200012,
+      "z120": 2.222,
+      "last": 3.92,
       "last_date": "2026-10-23"
     }
   ],
   "long_history": {
     "ust_3m": {
       "start_date": "1981-09-01",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 45.1,
-      "n_obs": 11286,
+      "n_obs": 11287,
       "pct_rank_all_time": 52.1,
       "percentiles": {
         "min": 0.0,
         "p10": 0.07,
         "p25": 0.94,
-        "median": 3.93,
+        "median": 3.94,
         "p75": 5.57,
         "p90": 8.02,
         "max": 17.01
@@ -408,7 +390,7 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
+      "modern_start_date": "1996-10-25",
       "pct_rank_modern": 70.4,
       "percentiles_modern": {
         "min": 0.0,
@@ -422,7 +404,7 @@
       "regime_divergence_pts": 18.3,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-22",
+        "date": "2026-10-23",
         "value": 4.22,
         "years_ago": 0.0,
         "recession_within_12m": []
@@ -511,8 +493,8 @@
           "365": "2025-08-29"
         },
         "current_run_start": "2026-09-24",
-        "current_run_sessions": 17,
-        "current_run_total_sessions": 21,
+        "current_run_sessions": 18,
+        "current_run_total_sessions": 22,
         "current_streak_start": "2026-10-07",
         "current_run_unbroken": false,
         "current_run_years": 0.1,
@@ -531,14 +513,14 @@
           "brief": false,
           "extreme": 5.63,
           "extreme_date": "2023-10-06",
-          "years_since": 1.1,
+          "years_since": 1.2,
           "overlapping": []
         },
         "last_sustained": {
           "start": "2022-10-31",
           "end": "2025-08-29",
           "n_obs": 707,
-          "years_since": 1.1
+          "years_since": 1.2
         },
         "record": false,
         "run_is_record": false,
@@ -628,20 +610,20 @@
           "min": 0.0,
           "max": 5.63,
           "share_at_or_above_pct": 42.5,
-          "n_obs": 1703,
+          "n_obs": 1704,
           "complete": false
         }
       },
       "latest_value": 4.22,
-      "latest_date": "2026-10-23",
+      "latest_date": "2026-10-26",
       "label": "unusual lately; ordinary historically"
     },
     "ust_2y": {
       "start_date": "1976-06-01",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 50.4,
-      "n_obs": 12596,
-      "pct_rank_all_time": 51.0,
+      "n_obs": 12597,
+      "pct_rank_all_time": 50.9,
       "percentiles": {
         "min": 0.09,
         "p10": 0.48,
@@ -654,8 +636,8 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
-      "pct_rank_modern": 80.2,
+      "modern_start_date": "1996-10-25",
+      "pct_rank_modern": 80.1,
       "percentiles_modern": {
         "min": 0.09,
         "p10": 0.29,
@@ -668,8 +650,8 @@
       "regime_divergence_pts": 29.2,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-21",
-        "value": 4.81,
+        "date": "2026-10-23",
+        "value": 4.69,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -736,7 +718,7 @@
         }
       ],
       "lookback": {
-        "ext": 80.2,
+        "ext": 80.1,
         "side": "high",
         "gated": true,
         "short_history": false,
@@ -751,8 +733,8 @@
           "365": "2024-07-03"
         },
         "current_run_start": "2026-09-16",
-        "current_run_sessions": 25,
-        "current_run_total_sessions": 27,
+        "current_run_sessions": 26,
+        "current_run_total_sessions": 28,
         "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 0.1,
@@ -767,7 +749,7 @@
         "last_touch": {
           "start": "2022-11-03",
           "end": "2024-07-03",
-          "n_obs": 192,
+          "n_obs": 198,
           "brief": false,
           "extreme": 5.19,
           "extreme_date": "2023-10-17",
@@ -779,7 +761,7 @@
         "last_sustained": {
           "start": "2022-11-03",
           "end": "2024-07-03",
-          "n_obs": 192,
+          "n_obs": 198,
           "years_since": 2.3
         },
         "record": false,
@@ -799,7 +781,7 @@
             "fed_funds_at_entry": 4.51,
             "fed_funds_change_next_12m": 0.74,
             "end": "2007-07-25",
-            "n_obs": 294,
+            "n_obs": 303,
             "overlapping": []
           },
           {
@@ -814,7 +796,7 @@
             "fed_funds_at_entry": 3.83,
             "fed_funds_change_next_12m": 1.5,
             "end": "2024-07-03",
-            "n_obs": 192,
+            "n_obs": 198,
             "overlapping": [
               "2022-23 inflation-shock hiking cycle"
             ]
@@ -853,14 +835,14 @@
         "1990s": {
           "min": 3.67,
           "max": 9.05,
-          "share_at_or_above_pct": 80.4,
+          "share_at_or_above_pct": 80.5,
           "n_obs": 2503,
           "complete": true
         },
         "2000s": {
           "min": 0.65,
           "max": 6.93,
-          "share_at_or_above_pct": 22.8,
+          "share_at_or_above_pct": 23.2,
           "n_obs": 2501,
           "complete": true
         },
@@ -874,20 +856,20 @@
         "2020s": {
           "min": 0.09,
           "max": 5.19,
-          "share_at_or_above_pct": 12.7,
-          "n_obs": 1703,
+          "share_at_or_above_pct": 13.1,
+          "n_obs": 1704,
           "complete": false
         }
       },
-      "latest_value": 4.69,
-      "latest_date": "2026-10-23",
+      "latest_value": 4.68,
+      "latest_date": "2026-10-26",
       "label": "quiet lately; high vs. last 30 yrs (80th), about average since 1976 (51st)"
     },
     "ust_10y": {
       "start_date": "1962-01-02",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 64.8,
-      "n_obs": 16188,
+      "n_obs": 16189,
       "pct_rank_all_time": 46.3,
       "percentiles": {
         "min": 0.52,
@@ -901,8 +883,8 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
-      "pct_rank_modern": 82.9,
+      "modern_start_date": "1996-10-25",
+      "pct_rank_modern": 83.0,
       "percentiles_modern": {
         "min": 0.52,
         "p10": 1.73,
@@ -912,11 +894,11 @@
         "p90": 5.58,
         "max": 6.98
       },
-      "regime_divergence_pts": 36.6,
+      "regime_divergence_pts": 36.7,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-21",
-        "value": 5.13,
+        "date": "2026-10-23",
+        "value": 5.0,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -995,7 +977,7 @@
         }
       ],
       "lookback": {
-        "ext": 82.9,
+        "ext": 83.0,
         "side": "high",
         "gated": true,
         "short_history": false,
@@ -1010,8 +992,8 @@
           "365": "2007-07-19"
         },
         "current_run_start": "2026-09-15",
-        "current_run_sessions": 24,
-        "current_run_total_sessions": 28,
+        "current_run_sessions": 25,
+        "current_run_total_sessions": 29,
         "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 0.1,
@@ -1021,7 +1003,7 @@
         "run_extreme_prior": {
           "end": "2002-05-14",
           "n_obs": 8179,
-          "years_since": 24.4
+          "years_since": 24.5
         },
         "last_touch": {
           "start": "2006-04-13",
@@ -1122,20 +1104,20 @@
           "min": 0.52,
           "max": 5.31,
           "share_at_or_above_pct": 1.4,
-          "n_obs": 1703,
+          "n_obs": 1704,
           "complete": false
         }
       },
       "latest_value": 5.0,
-      "latest_date": "2026-10-23",
+      "latest_date": "2026-10-26",
       "label": "quiet lately; high vs. last 30 yrs (83rd), about average since 1962 (46th)"
     },
     "ust_30y": {
       "start_date": "1977-02-15",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 49.7,
-      "n_obs": 11424,
-      "pct_rank_all_time": 46.4,
+      "n_obs": 11425,
+      "pct_rank_all_time": 46.3,
       "percentiles": {
         "min": 0.99,
         "p10": 2.78,
@@ -1148,22 +1130,22 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
-      "pct_rank_modern": 81.4,
+      "modern_start_date": "1996-10-25",
+      "pct_rank_modern": 81.3,
       "percentiles_modern": {
         "min": 0.99,
         "p10": 2.32,
         "p25": 2.98,
         "median": 4.11,
         "p75": 4.95,
-        "p90": 5.88,
+        "p90": 5.87,
         "max": 7.17
       },
       "regime_divergence_pts": 35.0,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-21",
-        "value": 5.42,
+        "date": "2026-10-23",
+        "value": 5.33,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -1230,7 +1212,7 @@
         }
       ],
       "lookback": {
-        "ext": 81.4,
+        "ext": 81.3,
         "side": "high",
         "gated": true,
         "short_history": false,
@@ -1244,12 +1226,12 @@
           "180": "2007-06-12",
           "365": "2007-06-12"
         },
-        "current_run_start": "2026-09-10",
-        "current_run_sessions": 27,
-        "current_run_total_sessions": 31,
+        "current_run_start": "2026-08-17",
+        "current_run_sessions": 29,
+        "current_run_total_sessions": 49,
         "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
-        "current_run_years": 0.1,
+        "current_run_years": 0.2,
         "run_extreme": 5.67,
         "run_extreme_date": "2026-10-07",
         "today_is_run_extreme": false,
@@ -1271,7 +1253,7 @@
         "last_sustained": {
           "start": "1977-02-15",
           "end": "2002-02-15",
-          "n_obs": 6098,
+          "n_obs": 6109,
           "years_since": 24.7
         },
         "record": false,
@@ -1310,14 +1292,14 @@
         "1990s": {
           "min": 4.7,
           "max": 9.18,
-          "share_at_or_above_pct": 95.8,
+          "share_at_or_above_pct": 95.9,
           "n_obs": 2503,
           "complete": true
         },
         "2000s": {
           "min": 2.53,
           "max": 6.75,
-          "share_at_or_above_pct": 32.6,
+          "share_at_or_above_pct": 33.2,
           "n_obs": 1507,
           "complete": true
         },
@@ -1331,21 +1313,21 @@
         "2020s": {
           "min": 0.99,
           "max": 5.67,
-          "share_at_or_above_pct": 1.5,
-          "n_obs": 1703,
+          "share_at_or_above_pct": 1.6,
+          "n_obs": 1704,
           "complete": false
         }
       },
       "exclude_note": "30Y readings from 2002-02-19 to 2006-02-08 excluded: Treasury had suspended the 30-year bond, so values in that window are not genuine 30Y constant-maturity prints.",
-      "latest_value": 5.33,
-      "latest_date": "2026-10-23",
+      "latest_value": 5.31,
+      "latest_date": "2026-10-26",
       "label": "quiet lately; high vs. last 30 yrs (81st), about average since 1977 (46th)"
     },
     "tips_10y_real": {
       "start_date": "2003-01-02",
-      "end_date": "2026-10-22",
+      "end_date": "2026-10-23",
       "years": 23.8,
-      "n_obs": 5956,
+      "n_obs": 5957,
       "pct_rank_all_time": 98.6,
       "percentiles": {
         "min": -1.19,
@@ -1397,8 +1379,8 @@
         },
         "current_run_start": "2026-09-16",
         "current_run_sessions": 23,
-        "current_run_total_sessions": 26,
-        "current_streak_start": "2026-09-23",
+        "current_run_total_sessions": 27,
+        "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 0.1,
         "run_extreme": 2.95,
@@ -1431,9 +1413,9 @@
         "run_is_record": false,
         "track": [
           {
-            "entry": "2006-06-23",
+            "entry": "2006-06-26",
             "spx_12m": {
-              "return_pct": 20.3,
+              "return_pct": 19.4,
               "worst_drawdown_pct": -5.9
             },
             "recession_24m": {
@@ -1441,10 +1423,10 @@
               "recession": "2007-09 Global Financial Crisis",
               "months_after": 19
             },
-            "fed_funds_at_entry": 4.98,
-            "fed_funds_change_next_12m": 0.26,
-            "end": "2007-07-19",
-            "n_obs": 32,
+            "fed_funds_at_entry": 5.03,
+            "fed_funds_change_next_12m": 0.22,
+            "end": "2007-07-17",
+            "n_obs": 27,
             "overlapping": []
           },
           {
@@ -1481,8 +1463,8 @@
           "regimes_over_max_years": 0
         }
       },
-      "latest_value": 2.64,
-      "latest_date": "2026-10-22",
+      "latest_value": 2.66,
+      "latest_date": "2026-10-23",
       "label": "quiet lately; extreme since 2003 (short record); Cleveland model: high vs. last 30 yrs (80th), about average since 1982 (54th)",
       "tips_window_divergence": true,
       "cleveland_pct_all_time": 54.0,
@@ -1490,10 +1472,10 @@
     },
     "bkeven_10y": {
       "start_date": "2003-01-02",
-      "end_date": "2026-10-22",
+      "end_date": "2026-10-23",
       "years": 23.8,
-      "n_obs": 5956,
-      "pct_rank_all_time": 66.1,
+      "n_obs": 5957,
+      "pct_rank_all_time": 71.1,
       "percentiles": {
         "min": 0.04,
         "p10": 1.6,
@@ -1546,7 +1528,7 @@
         }
       ],
       "lookback": {
-        "ext": 66.1,
+        "ext": 71.1,
         "side": "high",
         "gated": false,
         "short_history": false,
@@ -1557,13 +1539,13 @@
         "gap_sensitive": true,
         "prior_end_by_gap_days": {
           "90": "2025-10-09",
-          "180": "2013-05-14",
-          "365": "2013-05-14"
+          "180": "2013-05-10",
+          "365": "2013-05-10"
         },
-        "current_run_start": "2021-03-22",
-        "current_run_sessions": 833,
-        "current_run_total_sessions": 1399,
-        "current_streak_start": "2026-09-01",
+        "current_run_start": "2021-03-26",
+        "current_run_sessions": 690,
+        "current_run_total_sessions": 1396,
+        "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 5.6,
         "run_extreme": 3.02,
@@ -1571,56 +1553,56 @@
         "today_is_run_extreme": false,
         "run_extreme_prior": null,
         "last_touch": {
-          "start": "2009-12-22",
-          "end": "2013-05-14",
-          "n_obs": 333,
+          "start": "2009-12-28",
+          "end": "2013-05-10",
+          "n_obs": 306,
           "brief": false,
           "extreme": 2.64,
           "extreme_date": "2011-04-08",
-          "years_since": 13.4,
+          "years_since": 13.5,
           "overlapping": [
             "2013 taper tantrum"
           ]
         },
         "last_sustained": {
-          "start": "2009-12-22",
-          "end": "2013-05-14",
-          "n_obs": 333,
-          "years_since": 13.4
+          "start": "2009-12-28",
+          "end": "2013-05-10",
+          "n_obs": 306,
+          "years_since": 13.5
         },
         "record": false,
         "run_is_record": false,
         "track": [
           {
-            "entry": "2003-10-24",
+            "entry": "2003-10-27",
             "spx_12m": {
-              "return_pct": 6.4,
+              "return_pct": 9.1,
               "worst_drawdown_pct": -8.2
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 1.01,
-            "fed_funds_change_next_12m": 0.71,
+            "fed_funds_at_entry": 1.03,
+            "fed_funds_change_next_12m": 0.74,
             "end": "2008-08-04",
-            "n_obs": 969,
+            "n_obs": 880,
             "overlapping": [
               "2007-09 Global Financial Crisis"
             ]
           },
           {
-            "entry": "2009-12-22",
+            "entry": "2009-12-28",
             "spx_12m": {
-              "return_pct": 12.6,
+              "return_pct": 11.6,
               "worst_drawdown_pct": -16.0
             },
             "recession_24m": {
               "status": "no"
             },
             "fed_funds_at_entry": 0.12,
-            "fed_funds_change_next_12m": 0.07,
-            "end": "2013-05-14",
-            "n_obs": 333,
+            "fed_funds_change_next_12m": 0.06,
+            "end": "2013-05-10",
+            "n_obs": 306,
             "overlapping": [
               "2011 Eurozone debt crisis / US debt-ceiling standoff",
               "2013 taper tantrum"
@@ -1642,16 +1624,16 @@
           "regimes_over_max_years": 0
         }
       },
-      "latest_value": 2.32,
-      "latest_date": "2026-10-22",
+      "latest_value": 2.34,
+      "latest_date": "2026-10-23",
       "label": "quiet lately; ordinary since 2003 (short record)"
     },
     "sofr": {
       "start_date": "1954-07-01",
-      "end_date": "2026-10-22",
+      "end_date": "2026-10-23",
       "years": 72.3,
-      "n_obs": 26407,
-      "pct_rank_all_time": 45.2,
+      "n_obs": 26408,
+      "pct_rank_all_time": 45.3,
       "percentiles": {
         "min": 0.04,
         "p10": 0.16,
@@ -1664,7 +1646,7 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-21",
+      "modern_start_date": "1996-10-22",
       "pct_rank_modern": 67.3,
       "percentiles_modern": {
         "min": 0.04,
@@ -1675,12 +1657,12 @@
         "p90": 5.33,
         "max": 7.07
       },
-      "regime_divergence_pts": 22.1,
+      "regime_divergence_pts": 22.0,
       "regime_divergence": true,
       "most_recent_comparable": {
-        "date": "2026-10-06",
-        "value": 3.9,
-        "years_ago": 0.0,
+        "date": "2025-12-09",
+        "value": 3.93,
+        "years_ago": 0.9,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [
@@ -1792,14 +1774,14 @@
         "sessions_per_reading": 1,
         "gap_sensitive": true,
         "prior_end_by_gap_days": {
-          "90": "2025-12-10",
-          "180": "2025-12-10",
+          "90": "2025-12-09",
+          "180": "2025-12-09",
           "365": "2008-01-21"
         },
         "current_run_start": "2022-12-15",
-        "current_run_sessions": 1063,
-        "current_run_total_sessions": 1403,
-        "current_streak_start": "2026-10-22",
+        "current_run_sessions": 1058,
+        "current_run_total_sessions": 1404,
+        "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 3.9,
         "run_extreme": 5.33,
@@ -1813,7 +1795,7 @@
         "last_touch": {
           "start": "2005-09-30",
           "end": "2008-01-21",
-          "n_obs": 817,
+          "n_obs": 814,
           "brief": false,
           "extreme": 5.41,
           "extreme_date": "2007-02-28",
@@ -1825,7 +1807,7 @@
         "last_sustained": {
           "start": "2005-09-30",
           "end": "2008-01-21",
-          "n_obs": 817,
+          "n_obs": 814,
           "years_since": 18.8
         },
         "record": false,
@@ -1862,7 +1844,7 @@
             "fed_funds_at_entry": 3.93,
             "fed_funds_change_next_12m": 1.41,
             "end": "2008-01-21",
-            "n_obs": 817,
+            "n_obs": 814,
             "overlapping": [
               "2007-09 Global Financial Crisis"
             ]
@@ -1915,14 +1897,14 @@
         "1990s": {
           "min": 2.58,
           "max": 10.39,
-          "share_at_or_above_pct": 78.9,
+          "share_at_or_above_pct": 78.7,
           "n_obs": 3652,
           "complete": true
         },
         "2000s": {
           "min": 0.05,
           "max": 7.03,
-          "share_at_or_above_pct": 37.3,
+          "share_at_or_above_pct": 37.1,
           "n_obs": 3653,
           "complete": true
         },
@@ -1936,22 +1918,22 @@
         "2020s": {
           "min": 0.04,
           "max": 5.33,
-          "share_at_or_above_pct": 42.8,
-          "n_obs": 2481,
+          "share_at_or_above_pct": 42.6,
+          "n_obs": 2482,
           "complete": false
         }
       },
       "proxy_note": "SOFR itself only exists from 2018; this uses the effective fed funds rate, its long-run predecessor as the economy's overnight rate.",
-      "latest_value": 3.9,
-      "latest_date": "2026-10-22",
+      "latest_value": 3.92,
+      "latest_date": "2026-10-23",
       "label": "unusual lately; ordinary historically"
     },
     "hy_oas": {
       "start_date": "2023-10-09",
-      "end_date": "2026-10-22",
+      "end_date": "2026-10-23",
       "years": 3.0,
-      "n_obs": 797,
-      "pct_rank_all_time": 84.4,
+      "n_obs": 798,
+      "pct_rank_all_time": 83.2,
       "percentiles": {
         "min": 2.59,
         "p10": 2.69,
@@ -1966,14 +1948,14 @@
       "regime_divergence": false,
       "regime_divergence_pts": null,
       "most_recent_comparable": {
-        "date": "2026-03-30",
-        "value": 3.46,
-        "years_ago": 0.6,
+        "date": "2026-10-22",
+        "value": 3.4,
+        "years_ago": 0.0,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [],
       "lookback": {
-        "ext": 84.4,
+        "ext": 83.2,
         "side": "high",
         "gated": false,
         "short_history": true,
@@ -1988,8 +1970,8 @@
           "365": null
         },
         "current_run_start": "2023-10-09",
-        "current_run_sessions": 128,
-        "current_run_total_sessions": 797,
+        "current_run_sessions": 137,
+        "current_run_total_sessions": 798,
         "current_streak_start": "2026-10-22",
         "current_run_unbroken": false,
         "current_run_years": 3.0,
@@ -2017,16 +1999,16 @@
           "regimes_over_max_years": 0
         }
       },
-      "latest_value": 3.4,
-      "latest_date": "2026-10-22",
+      "latest_value": 3.38,
+      "latest_date": "2026-10-23",
       "label": "unusual lately; 3-yr record only"
     },
     "ig_oas": {
       "start_date": "2023-10-09",
-      "end_date": "2026-10-22",
+      "end_date": "2026-10-23",
       "years": 3.0,
-      "n_obs": 796,
-      "pct_rank_all_time": 61.2,
+      "n_obs": 797,
+      "pct_rank_all_time": 66.0,
       "percentiles": {
         "min": 0.73,
         "p10": 0.76,
@@ -2041,14 +2023,14 @@
       "regime_divergence": false,
       "regime_divergence_pts": null,
       "most_recent_comparable": {
-        "date": "2026-03-31",
-        "value": 0.9,
+        "date": "2026-03-30",
+        "value": 0.93,
         "years_ago": 0.6,
         "recession_within_12m": []
       },
       "episodes_matching_or_exceeding": [],
       "lookback": {
-        "ext": 61.2,
+        "ext": 66.0,
         "side": "high",
         "gated": false,
         "short_history": true,
@@ -2058,14 +2040,14 @@
         "sessions_per_reading": 1,
         "gap_sensitive": true,
         "prior_end_by_gap_days": {
-          "90": "2026-03-31",
-          "180": "2026-03-31",
+          "90": "2026-03-30",
+          "180": "2026-03-30",
           "365": null
         },
         "current_run_start": "2023-10-09",
-        "current_run_sessions": 331,
-        "current_run_total_sessions": 796,
-        "current_streak_start": "2026-10-22",
+        "current_run_sessions": 292,
+        "current_run_total_sessions": 797,
+        "current_streak_start": "2026-10-23",
         "current_run_unbroken": false,
         "current_run_years": 3.0,
         "run_extreme": 1.33,
@@ -2093,8 +2075,8 @@
         }
       },
       "proxy_key": "baa_10y_spread",
-      "latest_value": 0.89,
-      "latest_date": "2026-10-22",
+      "latest_value": 0.91,
+      "latest_date": "2026-10-23",
       "label": "unusual lately; 3-yr record only"
     },
     "baa_10y_spread": {
@@ -2413,10 +2395,10 @@
     },
     "s2s10": {
       "start_date": "1976-06-01",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 50.4,
-      "n_obs": 12596,
-      "pct_rank_all_time": 30.9,
+      "n_obs": 12597,
+      "pct_rank_all_time": 31.3,
       "percentiles": {
         "min": -2.41,
         "p10": -0.26,
@@ -2429,8 +2411,8 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
-      "pct_rank_modern": 33.0,
+      "modern_start_date": "1996-10-25",
+      "pct_rank_modern": 33.5,
       "percentiles_modern": {
         "min": -1.08,
         "p10": -0.13,
@@ -2440,7 +2422,7 @@
         "p90": 2.35,
         "max": 2.91
       },
-      "regime_divergence_pts": 2.1,
+      "regime_divergence_pts": 2.2,
       "regime_divergence": false,
       "most_recent_comparable": {
         "date": "2026-10-21",
@@ -2565,7 +2547,7 @@
         }
       ],
       "lookback": {
-        "ext": 69.1,
+        "ext": 68.7,
         "side": "low",
         "gated": false,
         "short_history": false,
@@ -2580,8 +2562,8 @@
           "365": "2025-04-02"
         },
         "current_run_start": "2026-06-17",
-        "current_run_sessions": 16,
-        "current_run_total_sessions": 89,
+        "current_run_sessions": 20,
+        "current_run_total_sessions": 90,
         "current_streak_start": "2026-10-22",
         "current_run_unbroken": false,
         "current_run_years": 0.4,
@@ -2596,7 +2578,7 @@
         "last_touch": {
           "start": "2022-03-04",
           "end": "2025-04-02",
-          "n_obs": 729,
+          "n_obs": 734,
           "brief": false,
           "extreme": -1.08,
           "extreme_date": "2023-07-03",
@@ -2606,27 +2588,25 @@
         "last_sustained": {
           "start": "2022-03-04",
           "end": "2025-04-02",
-          "n_obs": 729,
+          "n_obs": 734,
           "years_since": 1.6
         },
         "record": false,
         "run_is_record": false,
         "track": [
           {
-            "entry": "1978-04-28",
+            "entry": "1977-10-18",
             "spx_12m": {
-              "return_pct": 5.1,
-              "worst_drawdown_pct": -13.6
+              "return_pct": 7.5,
+              "worst_drawdown_pct": -10.1
             },
             "recession_24m": {
-              "status": "yes",
-              "recession": "1980 recession (first Volcker)",
-              "months_after": 22
+              "status": "no"
             },
-            "fed_funds_at_entry": 7.25,
-            "fed_funds_change_next_12m": 2.91,
+            "fed_funds_at_entry": 6.46,
+            "fed_funds_change_next_12m": 2.4,
             "end": "1982-10-06",
-            "n_obs": 932,
+            "n_obs": 939,
             "overlapping": [
               "1980 recession (first Volcker)",
               "1981-82 recession (second Volcker)"
@@ -2661,7 +2641,7 @@
             "fed_funds_at_entry": 8.27,
             "fed_funds_change_next_12m": 0.13,
             "end": "1990-07-17",
-            "n_obs": 419,
+            "n_obs": 420,
             "overlapping": []
           },
           {
@@ -2676,24 +2656,24 @@
             "fed_funds_at_entry": 5.4,
             "fed_funds_change_next_12m": 0.32,
             "end": "1995-10-23",
-            "n_obs": 40,
+            "n_obs": 44,
             "overlapping": [
               "1994 bond market crash (Fed hiking shock)"
             ]
           },
           {
-            "entry": "1997-07-22",
+            "entry": "1997-07-14",
             "spx_12m": {
-              "return_pct": 24.6,
+              "return_pct": 28.2,
               "worst_drawdown_pct": -10.8
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 5.44,
-            "fed_funds_change_next_12m": 0.04,
+            "fed_funds_at_entry": 5.5,
+            "fed_funds_change_next_12m": -0.05,
             "end": "2001-02-15",
-            "n_obs": 803,
+            "n_obs": 815,
             "overlapping": [
               "1997-98 Asian financial crisis",
               "1998 LTCM / Russia default crisis",
@@ -2711,8 +2691,8 @@
             },
             "fed_funds_at_entry": 3.17,
             "fed_funds_change_next_12m": 1.85,
-            "end": "2007-08-09",
-            "n_obs": 519,
+            "end": "2007-08-27",
+            "n_obs": 528,
             "overlapping": []
           },
           {
@@ -2728,8 +2708,8 @@
             },
             "fed_funds_at_entry": 1.91,
             "fed_funds_change_next_12m": 0.47,
-            "end": "2020-03-10",
-            "n_obs": 408,
+            "end": "2020-03-11",
+            "n_obs": 417,
             "overlapping": [
               "2020 COVID recession",
               "2018 Q4 selloff (QT + rate-hike scare)",
@@ -2748,7 +2728,7 @@
             "fed_funds_at_entry": 0.08,
             "fed_funds_change_next_12m": 4.49,
             "end": "2025-04-02",
-            "n_obs": 729,
+            "n_obs": 734,
             "overlapping": [
               "2022-23 inflation-shock hiking cycle"
             ]
@@ -2759,8 +2739,8 @@
           "small_n": false,
           "n_spx_known": 8,
           "n_spx_negative": 1,
-          "n_recession_yes": 3,
-          "n_recession_no": 5,
+          "n_recession_yes": 2,
+          "n_recession_no": 6,
           "n_recession_pending": 0,
           "n_recession_in_progress": 0,
           "spx_12m_median_pct": 14.8
@@ -2774,55 +2754,55 @@
         "1970s": {
           "min": -1.69,
           "max": 1.61,
-          "share_at_or_above_pct": 55.6,
+          "share_at_or_above_pct": 55.2,
           "n_obs": 892,
           "complete": false
         },
         "1980s": {
           "min": -2.41,
           "max": 1.67,
-          "share_at_or_above_pct": 66.3,
+          "share_at_or_above_pct": 66.1,
           "n_obs": 2495,
           "complete": true
         },
         "1990s": {
           "min": -0.14,
           "max": 2.65,
-          "share_at_or_above_pct": 71.6,
+          "share_at_or_above_pct": 71.2,
           "n_obs": 2503,
           "complete": true
         },
         "2000s": {
           "min": -0.52,
           "max": 2.82,
-          "share_at_or_above_pct": 69.1,
+          "share_at_or_above_pct": 69.0,
           "n_obs": 2501,
           "complete": true
         },
         "2010s": {
           "min": -0.04,
           "max": 2.91,
-          "share_at_or_above_pct": 85.6,
+          "share_at_or_above_pct": 85.5,
           "n_obs": 2501,
           "complete": true
         },
         "2020s": {
           "min": -1.08,
           "max": 1.59,
-          "share_at_or_above_pct": 54.1,
-          "n_obs": 1703,
+          "share_at_or_above_pct": 53.5,
+          "n_obs": 1704,
           "complete": false
         }
       },
-      "latest_value": 0.31,
-      "latest_date": "2026-10-23",
+      "latest_value": 0.32,
+      "latest_date": "2026-10-26",
       "label": "quiet lately; ordinary historically"
     },
     "s3m10y": {
       "start_date": "1981-09-01",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 45.1,
-      "n_obs": 11286,
+      "n_obs": 11287,
       "pct_rank_all_time": 30.0,
       "percentiles": {
         "min": -1.89,
@@ -2836,7 +2816,7 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
+      "modern_start_date": "1996-10-25",
       "pct_rank_modern": 36.5,
       "percentiles_modern": {
         "min": -1.89,
@@ -2850,8 +2830,8 @@
       "regime_divergence_pts": 6.5,
       "regime_divergence": false,
       "most_recent_comparable": {
-        "date": "2026-10-21",
-        "value": 0.8799999999999999,
+        "date": "2026-10-23",
+        "value": 0.7800000000000002,
         "years_ago": 0.0,
         "recession_within_12m": []
       },
@@ -2982,8 +2962,8 @@
         },
         "current_run_start": "2022-07-12",
         "current_run_sessions": 1009,
-        "current_run_total_sessions": 1072,
-        "current_streak_start": "2026-10-22",
+        "current_run_total_sessions": 1073,
+        "current_streak_start": "2026-10-26",
         "current_run_unbroken": false,
         "current_run_years": 4.3,
         "run_extreme": -1.89,
@@ -3173,20 +3153,20 @@
           "min": -1.89,
           "max": 2.27,
           "share_at_or_above_pct": 28.7,
-          "n_obs": 1703,
+          "n_obs": 1704,
           "complete": false
         }
       },
       "latest_value": 0.78,
-      "latest_date": "2026-10-23",
+      "latest_date": "2026-10-26",
       "label": "quiet lately; ordinary historically"
     },
     "dxy": {
       "start_date": "1971-01-04",
-      "end_date": "2026-10-23",
+      "end_date": "2026-10-26",
       "years": 55.8,
-      "n_obs": 14171,
-      "pct_rank_all_time": 70.5,
+      "n_obs": 14172,
+      "pct_rank_all_time": 70.9,
       "percentiles": {
         "min": 71.330002,
         "p10": 81.440002,
@@ -3199,18 +3179,18 @@
       "short_history": false,
       "modern_window_years_requested": 30,
       "modern_years": 30.0,
-      "modern_start_date": "1996-10-22",
-      "pct_rank_modern": 79.8,
+      "modern_start_date": "1996-10-25",
+      "pct_rank_modern": 80.3,
       "percentiles_modern": {
         "min": 71.330002,
         "p10": 79.470001,
-        "p25": 84.290001,
+        "p25": 84.279999,
         "median": 94.980003,
         "p75": 100.389999,
         "p90": 106.660004,
         "max": 120.900002
       },
-      "regime_divergence_pts": 9.3,
+      "regime_divergence_pts": 9.4,
       "regime_divergence": false,
       "most_recent_comparable": {
         "date": "2026-10-19",
@@ -3269,9 +3249,9 @@
         }
       ],
       "lookback": {
-        "ext": 79.8,
+        "ext": 80.3,
         "side": "high",
-        "gated": false,
+        "gated": true,
         "short_history": false,
         "history_start": "1971-01-04",
         "history_years": 55.8,
@@ -3284,9 +3264,9 @@
           "365": "2025-04-09"
         },
         "current_run_start": "2026-10-01",
-        "current_run_sessions": 14,
-        "current_run_total_sessions": 17,
-        "current_streak_start": "2026-10-23",
+        "current_run_sessions": 11,
+        "current_run_total_sessions": 18,
+        "current_streak_start": "2026-10-26",
         "current_run_unbroken": false,
         "current_run_years": 0.1,
         "run_extreme": 102.58,
@@ -3300,7 +3280,7 @@
         "last_touch": {
           "start": "2022-04-26",
           "end": "2025-04-09",
-          "n_obs": 673,
+          "n_obs": 659,
           "brief": false,
           "extreme": 114.11,
           "extreme_date": "2022-09-27",
@@ -3310,16 +3290,16 @@
         "last_sustained": {
           "start": "2022-04-26",
           "end": "2025-04-09",
-          "n_obs": 673,
+          "n_obs": 659,
           "years_since": 1.5
         },
         "record": false,
         "run_is_record": false,
         "track": [
           {
-            "entry": "1989-05-17",
+            "entry": "1989-05-19",
             "spx_12m": {
-              "return_pct": 11.7,
+              "return_pct": 11.4,
               "worst_drawdown_pct": -10.2
             },
             "recession_24m": {
@@ -3327,25 +3307,25 @@
               "recession": "1990-91 recession (Gulf War/S&L crisis)",
               "months_after": 15
             },
-            "fed_funds_at_entry": 9.92,
-            "fed_funds_change_next_12m": -1.72,
-            "end": "1989-09-22",
-            "n_obs": 48,
+            "fed_funds_at_entry": 9.73,
+            "fed_funds_change_next_12m": -1.51,
+            "end": "1989-09-15",
+            "n_obs": 42,
             "overlapping": []
           },
           {
-            "entry": "1998-04-02",
+            "entry": "1998-06-15",
             "spx_12m": {
-              "return_pct": 18.0,
+              "return_pct": 20.8,
               "worst_drawdown_pct": -19.3
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 5.45,
-            "fed_funds_change_next_12m": -0.76,
-            "end": "2003-03-21",
-            "n_obs": 829,
+            "fed_funds_at_entry": 5.78,
+            "fed_funds_change_next_12m": -1.11,
+            "end": "2003-01-07",
+            "n_obs": 812,
             "overlapping": [
               "2001 recession (dot-com bust)",
               "1998 LTCM / Russia default crisis",
@@ -3363,8 +3343,8 @@
             },
             "fed_funds_at_entry": 0.41,
             "fed_funds_change_next_12m": 1.0,
-            "end": "2017-03-09",
-            "n_obs": 21,
+            "end": "2017-03-08",
+            "n_obs": 18,
             "overlapping": []
           },
           {
@@ -3379,7 +3359,7 @@
             "fed_funds_at_entry": 0.33,
             "fed_funds_change_next_12m": 4.5,
             "end": "2025-04-09",
-            "n_obs": 673,
+            "n_obs": 659,
             "overlapping": [
               "2022-23 inflation-shock hiking cycle"
             ]
@@ -3404,49 +3384,49 @@
         "1970s": {
           "min": 82.07,
           "max": 120.55,
-          "share_at_or_above_pct": 51.9,
+          "share_at_or_above_pct": 50.9,
           "n_obs": 2243,
           "complete": false
         },
         "1980s": {
           "min": 84.12,
           "max": 164.72,
-          "share_at_or_above_pct": 58.3,
+          "share_at_or_above_pct": 58.1,
           "n_obs": 2548,
           "complete": true
         },
         "1990s": {
           "min": 78.33,
           "max": 104.5,
-          "share_at_or_above_pct": 2.6,
+          "share_at_or_above_pct": 2.2,
           "n_obs": 2608,
           "complete": true
         },
         "2000s": {
           "min": 71.33,
           "max": 120.9,
-          "share_at_or_above_pct": 29.9,
+          "share_at_or_above_pct": 29.7,
           "n_obs": 2543,
           "complete": true
         },
         "2010s": {
           "min": 72.93,
           "max": 103.29,
-          "share_at_or_above_pct": 0.8,
+          "share_at_or_above_pct": 0.7,
           "n_obs": 2515,
           "complete": true
         },
         "2020s": {
           "min": 89.44,
           "max": 114.11,
-          "share_at_or_above_pct": 40.2,
-          "n_obs": 1713,
+          "share_at_or_above_pct": 39.2,
+          "n_obs": 1714,
           "complete": false
         }
       },
-      "latest_value": 101.809998,
-      "latest_date": "2026-10-23",
-      "label": "quiet lately; ordinary historically"
+      "latest_value": 101.959999,
+      "latest_date": "2026-10-26",
+      "label": "quiet lately; high vs. last 30 yrs (80th), above average since 1971 (71st)"
     },
     "real10_cleveland": {
       "start_date": "1982-01-01",
@@ -4135,9 +4115,9 @@
     "ust_2y": {
       "ytd": {
         "mode": "bp",
-        "change": 122.0,
+        "change": 121.0,
         "direction": "up",
-        "rank": 9,
+        "rank": 10,
         "n_years": 50,
         "first_year": 1977,
         "median_prior": 3.0,
@@ -4145,42 +4125,42 @@
         "years_more_extreme": [
           {
             "year": 2022,
-            "change": 376.0
-          },
-          {
-            "year": 1979,
-            "change": 265.0
+            "change": 366.0
           },
           {
             "year": 1994,
-            "change": 255.0
+            "change": 265.0
           },
           {
             "year": 1981,
-            "change": 235.0
+            "change": 250.0
+          },
+          {
+            "year": 1979,
+            "change": 207.0
           },
           {
             "year": 1977,
-            "change": 188.0
+            "change": 183.0
           },
           {
             "year": 1978,
-            "change": 162.0
+            "change": 183.0
           },
           {
             "year": 1999,
-            "change": 142.0
+            "change": 148.0
           },
           {
-            "year": 1987,
-            "change": 141.0
+            "year": 2005,
+            "change": 130.0
           }
         ]
       },
       "shock": {
-        "change_12m_pp": 1.21,
+        "change_12m_pp": 1.2,
         "side": "high",
-        "share_of_days_pct": 20.2,
+        "share_of_days_pct": 20.4,
         "history_start": "1977-06-01",
         "current_run_start": "2026-09-16",
         "n_briefer_excluded": 0,
@@ -4198,7 +4178,7 @@
             "fed_funds_at_entry": 6.2,
             "fed_funds_change_next_12m": 2.61,
             "end": "1982-04-01",
-            "n_obs": 816,
+            "n_obs": 820,
             "change_at_extreme_pp": 7.07,
             "level_at_entry": 7.14,
             "overlapping": [
@@ -4218,7 +4198,7 @@
             "fed_funds_at_entry": 9.74,
             "fed_funds_change_next_12m": -1.48,
             "end": "1984-10-17",
-            "n_obs": 183,
+            "n_obs": 185,
             "change_at_extreme_pp": 3.3,
             "level_at_entry": 10.92,
             "overlapping": []
@@ -4235,7 +4215,7 @@
             "fed_funds_at_entry": 6.65,
             "fed_funds_change_next_12m": 1.49,
             "end": "1989-05-10",
-            "n_obs": 216,
+            "n_obs": 217,
             "change_at_extreme_pp": 2.96,
             "level_at_entry": 7.67,
             "overlapping": [
@@ -4262,9 +4242,9 @@
             ]
           },
           {
-            "entry": "1999-09-29",
+            "entry": "1999-09-28",
             "spx_12m": {
-              "return_pct": 13.3,
+              "return_pct": 13.7,
               "worst_drawdown_pct": -11.2
             },
             "recession_24m": {
@@ -4273,12 +4253,12 @@
               "months_after": 19,
               "same_recession_as_earlier": false
             },
-            "fed_funds_at_entry": 5.26,
-            "fed_funds_change_next_12m": 1.34,
+            "fed_funds_at_entry": 5.32,
+            "fed_funds_change_next_12m": 1.27,
             "end": "2000-05-30",
-            "n_obs": 165,
+            "n_obs": 167,
             "change_at_extreme_pp": 2.03,
-            "level_at_entry": 5.68,
+            "level_at_entry": 5.65,
             "overlapping": [
               "2000-02 dot-com bear market"
             ]
@@ -4295,15 +4275,15 @@
             "fed_funds_at_entry": 1.0,
             "fed_funds_change_next_12m": 2.01,
             "end": "2006-07-19",
-            "n_obs": 336,
+            "n_obs": 343,
             "change_at_extreme_pp": 2.38,
             "level_at_entry": 2.67,
             "overlapping": []
           },
           {
-            "entry": "2018-04-18",
+            "entry": "2018-04-17",
             "spx_12m": {
-              "return_pct": 7.3,
+              "return_pct": 7.2,
               "worst_drawdown_pct": -19.8
             },
             "recession_24m": {
@@ -4313,19 +4293,19 @@
               "same_recession_as_earlier": false
             },
             "fed_funds_at_entry": 1.69,
-            "fed_funds_change_next_12m": 0.74,
+            "fed_funds_change_next_12m": 0.73,
             "end": "2018-11-09",
-            "n_obs": 110,
+            "n_obs": 116,
             "change_at_extreme_pp": 1.46,
-            "level_at_entry": 2.42,
+            "level_at_entry": 2.41,
             "overlapping": [
               "2018 Q4 selloff (QT + rate-hike scare)"
             ]
           },
           {
-            "entry": "2022-02-07",
+            "entry": "2022-02-04",
             "spx_12m": {
-              "return_pct": -7.1,
+              "return_pct": -8.7,
               "worst_drawdown_pct": -22.8
             },
             "recession_24m": {
@@ -4333,10 +4313,10 @@
             },
             "fed_funds_at_entry": 0.08,
             "fed_funds_change_next_12m": 4.5,
-            "end": "2023-09-14",
-            "n_obs": 399,
+            "end": "2023-09-18",
+            "n_obs": 401,
             "change_at_extreme_pp": 4.33,
-            "level_at_entry": 1.3,
+            "level_at_entry": 1.31,
             "overlapping": [
               "2022-23 inflation-shock hiking cycle"
             ]
@@ -4351,7 +4331,7 @@
           "n_recession_no": 6,
           "n_recession_pending": 0,
           "n_recession_in_progress": 0,
-          "spx_12m_median_pct": 6.3,
+          "spx_12m_median_pct": 6.2,
           "n_distinct_recessions": 2
         }
       }
@@ -4364,47 +4344,47 @@
         "rank": 15,
         "n_years": 64,
         "first_year": 1963,
-        "median_prior": 5.0,
+        "median_prior": 12.0,
         "tied_with": [],
         "years_more_extreme": [
           {
             "year": 1981,
-            "change": 287.0
+            "change": 317.0
           },
           {
             "year": 2022,
-            "change": 269.0
+            "change": 252.0
           },
           {
             "year": 1994,
-            "change": 198.0
-          },
-          {
-            "year": 1979,
-            "change": 187.0
-          },
-          {
-            "year": 1987,
-            "change": 175.0
+            "change": 205.0
           },
           {
             "year": 1999,
-            "change": 156.0
+            "change": 159.0
+          },
+          {
+            "year": 1987,
+            "change": 157.0
+          },
+          {
+            "year": 1979,
+            "change": 152.0
           },
           {
             "year": 1980,
-            "change": 149.0
+            "change": 141.0
           },
           {
-            "year": 2009,
-            "change": 126.0
+            "year": 1983,
+            "change": 136.0
           }
         ]
       },
       "shock": {
-        "change_12m_pp": 0.99,
+        "change_12m_pp": 0.98,
         "side": "high",
-        "share_of_days_pct": 15.2,
+        "share_of_days_pct": 15.5,
         "history_start": "1963-01-02",
         "current_run_start": "2026-09-23",
         "n_briefer_excluded": 2,
@@ -4431,9 +4411,9 @@
             "overlapping": []
           },
           {
-            "entry": "1967-12-22",
+            "entry": "1967-12-21",
             "spx_12m": {
-              "return_pct": 10.5,
+              "return_pct": 10.3,
               "worst_drawdown_pct": -9.3
             },
             "recession_24m": {
@@ -4442,9 +4422,9 @@
             "fed_funds_at_entry": 4.63,
             "fed_funds_change_next_12m": 1.62,
             "end": "1968-06-06",
-            "n_obs": 69,
+            "n_obs": 75,
             "change_at_extreme_pp": 1.46,
-            "level_at_entry": 5.69,
+            "level_at_entry": 5.64,
             "overlapping": []
           },
           {
@@ -4461,8 +4441,8 @@
             },
             "fed_funds_at_entry": 9.13,
             "fed_funds_change_next_12m": -2.13,
-            "end": "1970-08-19",
-            "n_obs": 224,
+            "end": "1970-08-20",
+            "n_obs": 226,
             "change_at_extreme_pp": 2.03,
             "level_at_entry": 6.6,
             "overlapping": [
@@ -4502,7 +4482,7 @@
             "fed_funds_at_entry": 11.62,
             "fed_funds_change_next_12m": -5.42,
             "end": "1974-12-04",
-            "n_obs": 36,
+            "n_obs": 38,
             "change_at_extreme_pp": 1.17,
             "level_at_entry": 8.1,
             "overlapping": [
@@ -4510,20 +4490,20 @@
             ]
           },
           {
-            "entry": "1978-01-03",
+            "entry": "1977-12-29",
             "spx_12m": {
-              "return_pct": 4.2,
+              "return_pct": 1.2,
               "worst_drawdown_pct": -13.6
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 7.05,
-            "fed_funds_change_next_12m": 1.29,
+            "fed_funds_at_entry": 7.01,
+            "fed_funds_change_next_12m": 3.83,
             "end": "1982-06-28",
-            "n_obs": 732,
+            "n_obs": 744,
             "change_at_extreme_pp": 4.76,
-            "level_at_entry": 7.83,
+            "level_at_entry": 7.82,
             "overlapping": [
               "1980 recession (first Volcker)",
               "1981-82 recession (second Volcker)"
@@ -4541,7 +4521,7 @@
             "fed_funds_at_entry": 9.67,
             "fed_funds_change_next_12m": 0.35,
             "end": "1984-10-09",
-            "n_obs": 192,
+            "n_obs": 193,
             "change_at_extreme_pp": 3.36,
             "level_at_entry": 11.59,
             "overlapping": []
@@ -4558,7 +4538,7 @@
             "fed_funds_at_entry": 6.55,
             "fed_funds_change_next_12m": 0.19,
             "end": "1989-03-22",
-            "n_obs": 206,
+            "n_obs": 213,
             "change_at_extreme_pp": 2.7,
             "level_at_entry": 8.28,
             "overlapping": [
@@ -4576,8 +4556,8 @@
             },
             "fed_funds_at_entry": 3.62,
             "fed_funds_change_next_12m": 2.46,
-            "end": "1995-03-07",
-            "n_obs": 210,
+            "end": "1995-03-08",
+            "n_obs": 211,
             "change_at_extreme_pp": 2.54,
             "level_at_entry": 7.16,
             "overlapping": [
@@ -4598,8 +4578,8 @@
             },
             "fed_funds_at_entry": 5.24,
             "fed_funds_change_next_12m": 1.26,
-            "end": "2000-05-12",
-            "n_obs": 139,
+            "end": "2000-05-24",
+            "n_obs": 142,
             "change_at_extreme_pp": 2.09,
             "level_at_entry": 5.97,
             "overlapping": [
@@ -4638,7 +4618,7 @@
             "fed_funds_at_entry": 5.01,
             "fed_funds_change_next_12m": 0.26,
             "end": "2006-07-11",
-            "n_obs": 33,
+            "n_obs": 35,
             "change_at_extreme_pp": 1.33,
             "level_at_entry": 5.19,
             "overlapping": []
@@ -4672,7 +4652,7 @@
             "fed_funds_at_entry": 0.1,
             "fed_funds_change_next_12m": -0.01,
             "end": "2014-04-29",
-            "n_obs": 103,
+            "n_obs": 107,
             "change_at_extreme_pp": 1.38,
             "level_at_entry": 2.73,
             "overlapping": [
@@ -4691,7 +4671,7 @@
             "fed_funds_at_entry": 0.07,
             "fed_funds_change_next_12m": 0.01,
             "end": "2024-05-13",
-            "n_obs": 326,
+            "n_obs": 332,
             "change_at_extreme_pp": 2.77,
             "level_at_entry": 1.55,
             "overlapping": [
@@ -4708,78 +4688,78 @@
           "n_recession_no": 10,
           "n_recession_pending": 0,
           "n_recession_in_progress": 1,
-          "spx_12m_median_pct": 10.5,
+          "spx_12m_median_pct": 10.4,
           "n_distinct_recessions": 4
         }
       },
       "daily_move": {
-        "move": 4.0,
-        "share_at_least_this_big_pct": 43.7,
-        "share_at_least_this_big_30y_pct": 48.4,
-        "one_in_n_days": 2,
+        "move": 0.0,
+        "share_at_least_this_big_pct": 100.0,
+        "share_at_least_this_big_30y_pct": 100.0,
+        "one_in_n_days": 1,
         "history_start": "1962-01-03"
       }
     },
     "ust_30y": {
       "ytd": {
         "mode": "bp",
-        "change": 49.0,
+        "change": 47.0,
         "direction": "up",
-        "rank": 16,
+        "rank": 17,
         "n_years": 44,
         "first_year": 1978,
-        "median_prior": -8.0,
+        "median_prior": -9.0,
         "tied_with": [],
         "years_more_extreme": [
           {
             "year": 1981,
-            "change": 283.0
+            "change": 323.0
           },
           {
             "year": 2022,
-            "change": 243.0
+            "change": 229.0
           },
           {
             "year": 1994,
-            "change": 164.0
-          },
-          {
-            "year": 1987,
-            "change": 162.0
+            "change": 171.0
           },
           {
             "year": 2009,
-            "change": 160.0
+            "change": 168.0
           },
           {
             "year": 1980,
-            "change": 157.0
+            "change": 150.0
           },
           {
-            "year": 1979,
-            "change": 137.0
+            "year": 1987,
+            "change": 145.0
+          },
+          {
+            "year": 1983,
+            "change": 130.0
           },
           {
             "year": 1999,
-            "change": 127.0
+            "change": 129.0
           }
         ]
       },
       "shock": {
-        "change_12m_pp": 0.75,
+        "change_12m_pp": 0.72,
         "side": "high",
-        "share_of_days_pct": 21.2,
+        "share_of_days_pct": 22.1,
         "history_start": "1978-02-15",
-        "current_run_start": "2026-09-28",
+        "current_run_start": "2026-09-25",
         "n_briefer_excluded": 1,
         "briefer_excluded_starts": [
           "2017-07-06"
         ],
         "track": [
           {
-            "entry": "1978-05-31",
+            "entry": "1978-05-25",
             "spx_12m": {
-              "return_pct": 1.9,
+              "return_pct": 3.5,
               "worst_drawdown_pct": -13.6
             },
             "recession_24m": {
@@ -4788,12 +4768,12 @@
               "months_after": 21,
               "same_recession_as_earlier": false
             },
-            "fed_funds_at_entry": 7.43,
-            "fed_funds_change_next_12m": 2.88,
+            "fed_funds_at_entry": 7.47,
+            "fed_funds_change_next_12m": 2.58,
             "end": "1982-07-06",
-            "n_obs": 784,
+            "n_obs": 812,
             "change_at_extreme_pp": 3.88,
-            "level_at_entry": 8.5,
+            "level_at_entry": 8.48,
             "overlapping": [
               "1980 recession (first Volcker)",
               "1981-82 recession (second Volcker)"
@@ -4811,66 +4791,66 @@
             "fed_funds_at_entry": 9.67,
             "fed_funds_change_next_12m": 0.35,
             "end": "1984-10-09",
-            "n_obs": 210,
+            "n_obs": 211,
             "change_at_extreme_pp": 3.25,
             "level_at_entry": 11.62,
             "overlapping": []
           },
           {
-            "entry": "1987-04-10",
+            "entry": "1987-04-09",
             "spx_12m": {
-              "return_pct": -7.6,
+              "return_pct": -7.8,
               "worst_drawdown_pct": -33.5
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 6.35,
-            "fed_funds_change_next_12m": 0.49,
-            "end": "1989-03-03",
-            "n_obs": 255,
+            "fed_funds_at_entry": 6.27,
+            "fed_funds_change_next_12m": 0.57,
+            "end": "1989-03-17",
+            "n_obs": 260,
             "change_at_extreme_pp": 2.46,
-            "level_at_entry": 8.19,
+            "level_at_entry": 8.06,
             "overlapping": [
               "1987 Black Monday crash"
             ]
           },
           {
-            "entry": "1990-08-07",
+            "entry": "1990-08-06",
             "spx_12m": {
-              "return_pct": 16.6,
+              "return_pct": 16.8,
               "worst_drawdown_pct": -13.1
             },
             "recession_24m": {
               "status": "in_progress",
               "recession": "1990-91 recession (Gulf War/S&L crisis)"
             },
-            "fed_funds_at_entry": 8.05,
-            "fed_funds_change_next_12m": -1.76,
-            "end": "1990-11-08",
-            "n_obs": 52,
+            "fed_funds_at_entry": 8.04,
+            "fed_funds_change_next_12m": -2.34,
+            "end": "1990-11-09",
+            "n_obs": 55,
             "change_at_extreme_pp": 1.07,
-            "level_at_entry": 8.86,
+            "level_at_entry": 8.82,
             "overlapping": [
               "1990-91 recession (Gulf War/S&L crisis)",
               "1990-91 Gulf War oil spike"
             ]
           },
           {
-            "entry": "1994-05-09",
+            "entry": "1994-05-06",
             "spx_12m": {
-              "return_pct": 18.4,
+              "return_pct": 17.0,
               "worst_drawdown_pct": -6.4
             },
             "recession_24m": {
               "status": "no"
             },
-            "fed_funds_at_entry": 3.77,
-            "fed_funds_change_next_12m": 2.18,
+            "fed_funds_at_entry": 3.78,
+            "fed_funds_change_next_12m": 2.2,
             "end": "1995-03-07",
-            "n_obs": 172,
+            "n_obs": 176,
             "change_at_extreme_pp": 2.17,
-            "level_at_entry": 7.63,
+            "level_at_entry": 7.53,
             "overlapping": [
               "1994 bond market crash (Fed hiking shock)"
             ]
@@ -4886,8 +4866,8 @@
             },
             "fed_funds_at_entry": 5.79,
             "fed_funds_change_next_12m": 0.27,
-            "end": "1997-01-30",
-            "n_obs": 11,
+            "end": "1997-01-31",
+            "n_obs": 15,
             "change_at_extreme_pp": 0.9,
             "level_at_entry": 6.75,
             "overlapping": []
@@ -4906,8 +4886,8 @@
             },
             "fed_funds_at_entry": 5.57,
             "fed_funds_change_next_12m": 1.08,
-            "end": "2000-02-18",
-            "n_obs": 114,
+            "end": "2000-02-23",
+            "n_obs": 119,
             "change_at_extreme_pp": 1.65,
             "level_at_entry": 6.07,
             "overlapping": []
@@ -4923,16 +4903,16 @@
             },
             "fed_funds_at_entry": 0.13,
             "fed_funds_change_next_12m": 0.07,
-            "end": "2010-04-26",
-            "n_obs": 101,
+            "end": "2010-04-27",
+            "n_obs": 103,
             "change_at_extreme_pp": 2.08,
             "level_at_entry": 4.2,
             "overlapping": []
           },
           {
-            "entry": "2013-06-20",
+            "entry": "2013-06-03",
             "spx_12m": {
-              "return_pct": 23.6,
+              "return_pct": 17.3,
               "worst_drawdown_pct": -5.8
             },
             "recession_24m": {
@@ -4940,29 +4920,29 @@
             },
             "fed_funds_at_entry": 0.1,
             "fed_funds_change_next_12m": 0.0,
-            "end": "2014-01-16",
-            "n_obs": 131,
+            "end": "2014-01-22",
+            "n_obs": 140,
             "change_at_extreme_pp": 1.19,
-            "level_at_entry": 3.49,
+            "level_at_entry": 3.27,
             "overlapping": [
               "2013 taper tantrum"
             ]
           },
           {
-            "entry": "2021-03-08",
+            "entry": "2021-03-05",
             "spx_12m": {
-              "return_pct": 9.1,
-              "worst_drawdown_pct": -13.0
+              "return_pct": 9.3,
+              "worst_drawdown_pct": -12.4
             },
             "recession_24m": {
               "status": "no"
             },
             "fed_funds_at_entry": 0.07,
             "fed_funds_change_next_12m": 0.01,
-            "end": "2025-09-05",
-            "n_obs": 470,
+            "end": "2025-09-10",
+            "n_obs": 508,
             "change_at_extreme_pp": 2.48,
-            "level_at_entry": 2.31,
+            "level_at_entry": 2.28,
             "overlapping": [
               "2022-23 inflation-shock hiking cycle"
             ]
@@ -4977,7 +4957,7 @@
           "n_recession_no": 7,
           "n_recession_pending": 0,
           "n_recession_in_progress": 1,
-          "spx_12m_median_pct": 12.0,
+          "spx_12m_median_pct": 12.1,
           "n_distinct_recessions": 2
         }
       }
@@ -4985,7 +4965,7 @@
     "tips_10y_real": {
       "ytd": {
         "mode": "bp",
-        "change": 71.0,
+        "change": 73.0,
         "direction": "up",
         "rank": 5,
         "n_years": 23,
@@ -4999,22 +4979,22 @@
           },
           {
             "year": 2013,
-            "change": 104.0
-          },
-          {
-            "year": 2023,
-            "change": 88.0
+            "change": 103.0
           },
           {
             "year": 2008,
-            "change": 86.0
+            "change": 94.0
+          },
+          {
+            "year": 2023,
+            "change": 87.0
           }
         ]
       },
       "shock": {
-        "change_12m_pp": 0.96,
+        "change_12m_pp": 0.95,
         "side": "high",
-        "share_of_days_pct": 10.3,
+        "share_of_days_pct": 10.5,
         "history_start": "2004-01-02",
         "current_run_start": "2026-09-16",
         "n_briefer_excluded": 1,
@@ -5035,7 +5015,7 @@
             "fed_funds_at_entry": 0.95,
             "fed_funds_change_next_12m": -0.84,
             "end": "2009-03-11",
-            "n_obs": 22,
+            "n_obs": 23,
             "change_at_extreme_pp": 1.53,
             "level_at_entry": 3.02,
             "overlapping": [
@@ -5054,7 +5034,7 @@
             "fed_funds_at_entry": 0.1,
             "fed_funds_change_next_12m": 0.0,
             "end": "2014-05-06",
-            "n_obs": 212,
+            "n_obs": 215,
             "change_at_extreme_pp": 1.64,
             "level_at_entry": 0.46,
             "overlapping": [
@@ -5073,7 +5053,7 @@
             "fed_funds_at_entry": 0.83,
             "fed_funds_change_next_12m": 4.25,
             "end": "2024-05-03",
-            "n_obs": 339,
+            "n_obs": 342,
             "change_at_extreme_pp": 2.87,
             "level_at_entry": 0.18,
             "overlapping": [
@@ -5103,8 +5083,8 @@
       "side_b": "low",
       "today": {
         "tips_10y_real": {
-          "obs_date": "2026-10-22",
-          "value": 2.64
+          "obs_date": "2026-10-23",
+          "value": 2.66
         },
         "baa_10y_spread": {
           "obs_date": "2026-10-06",
@@ -5131,7 +5111,7 @@
             "start": "2024-04-16",
             "end": "2025-01-23",
             "n_obs": 28,
-            "years_since": 1.7
+            "years_since": 1.8
           }
         },
         "20": {
@@ -5150,7 +5130,7 @@
             "start": "2005-08-02",
             "end": "2007-07-25",
             "n_obs": 377,
-            "years_since": 19.2
+            "years_since": 19.3
           }
         },
         "25": {
@@ -5398,72 +5378,72 @@
   "market_history": {
     "spx": {
       "label": "S&P 500",
-      "as_of": "2026-10-23",
+      "as_of": "2026-10-26",
       "history_start": "1927-12-30",
       "years": 98.8,
       "move": {
-        "pct": -0.519,
-        "direction": "down",
-        "share_days_at_least_this_big_all_pct": 22.89,
-        "share_days_at_least_this_big_recent_pct": 24.08,
-        "per_year_recent": 60.6,
-        "n_recent": 1817,
+        "pct": 0.696,
+        "direction": "up",
+        "share_days_at_least_this_big_all_pct": 19.9,
+        "share_days_at_least_this_big_recent_pct": 22.23,
+        "per_year_recent": 55.9,
+        "n_recent": 1677,
         "recent_window_years": 30,
         "in_tail": false,
-        "count_this_year_incl_today": 41,
+        "count_this_year_incl_today": 42,
         "last_at_least_this_big": {
-          "date": "2026-10-22",
-          "pct": -1.208,
-          "sessions_ago": 1
+          "date": "2026-10-02",
+          "pct": 0.734,
+          "sessions_ago": 16
         }
       },
       "record": {
-        "pct_below_record": -2.497,
+        "pct_below_record": -1.818,
         "record_close": 7818.9302,
         "record_date": "2026-10-06",
         "stale": false
       },
       "ytd": {
         "mode": "pct",
-        "change": 11.37,
+        "change": 12.14,
         "direction": "up",
-        "rank": 38,
+        "rank": 35,
         "n_years": 99,
         "first_year": 1928,
-        "median_prior": 7.2,
+        "median_prior": 6.92,
         "tied_with": [],
         "years_more_extreme": [
           {
-            "year": 1975,
-            "change": 33.08
+            "year": 1933,
+            "change": 36.42
           },
           {
-            "year": 1933,
-            "change": 30.35
+            "year": 1975,
+            "change": 31.02
           },
           {
             "year": 1935,
-            "change": 29.79
+            "change": 30.84
           },
           {
             "year": 1954,
-            "change": 29.5
+            "change": 28.74
           },
           {
             "year": 1997,
-            "change": 28.34
+            "change": 27.12
           },
           {
             "year": 1958,
-            "change": 27.46
+            "change": 27.06
+          },
+          {
+            "year": 1938,
+            "change": 25.69
           },
           {
             "year": 1995,
-            "change": 27.39
-          },
-          {
-            "year": 1936,
-            "change": 27.25
+            "change": 25.57
           }
         ]
       },
@@ -5487,168 +5467,163 @@
     },
     "ndx": {
       "label": "Nasdaq Composite",
-      "as_of": "2026-10-23",
+      "as_of": "2026-10-26",
       "history_start": "1971-02-05",
       "years": 55.7,
       "move": {
-        "pct": -0.206,
-        "direction": "down",
-        "share_days_at_least_this_big_all_pct": 34.66,
-        "share_days_at_least_this_big_recent_pct": 37.46,
-        "per_year_recent": 94.2,
-        "n_recent": 2827,
+        "pct": 0.825,
+        "direction": "up",
+        "share_days_at_least_this_big_all_pct": 18.29,
+        "share_days_at_least_this_big_recent_pct": 24.41,
+        "per_year_recent": 61.4,
+        "n_recent": 1842,
         "recent_window_years": 30,
         "in_tail": false,
-        "count_this_year_incl_today": 82,
+        "count_this_year_incl_today": 57,
         "last_at_least_this_big": {
-          "date": "2026-10-22",
-          "pct": -2.599,
-          "sessions_ago": 1
+          "date": "2026-10-21",
+          "pct": 1.052,
+          "sessions_ago": 3
         }
       },
       "record": {
-        "pct_below_record": -5.958,
+        "pct_below_record": -5.183,
         "record_close": 27599.7891,
         "record_date": "2026-10-06",
         "stale": false
       },
       "ytd": {
         "mode": "pct",
-        "change": 11.67,
+        "change": 12.6,
         "direction": "up",
-        "rank": 29,
+        "rank": 28,
         "n_years": 55,
         "first_year": 1972,
-        "median_prior": 12.57,
+        "median_prior": 12.7,
         "tied_with": [],
         "years_more_extreme": [
           {
             "year": 1991,
-            "change": 43.17
+            "change": 40.48
           },
           {
             "year": 2003,
-            "change": 41.18
-          },
-          {
-            "year": 1995,
-            "change": 37.9
+            "change": 39.69
           },
           {
             "year": 2009,
-            "change": 36.62
+            "change": 35.82
+          },
+          {
+            "year": 1995,
+            "change": 35.32
           },
           {
             "year": 1975,
-            "change": 30.49
-          },
-          {
-            "year": 1980,
-            "change": 29.56
-          },
-          {
-            "year": 1997,
-            "change": 29.45
+            "change": 31.43
           },
           {
             "year": 2013,
-            "change": 29.39
+            "change": 30.6
+          },
+          {
+            "year": 1980,
+            "change": 29.79
+          },
+          {
+            "year": 1999,
+            "change": 28.22
           }
         ]
       }
     },
     "wti": {
       "label": "WTI crude (front-month futures)",
-      "as_of": "2026-10-23",
+      "as_of": "2026-10-26",
       "history_start": "2000-08-23",
       "years": 26.2,
       "move": {
-        "pct": 3.82,
-        "direction": "up",
-        "share_days_at_least_this_big_all_pct": 4.77,
-        "share_days_at_least_this_big_recent_pct": 4.77,
-        "per_year_recent": 11.9,
-        "n_recent": 313,
+        "pct": -1.462,
+        "direction": "down",
+        "share_days_at_least_this_big_all_pct": 22.24,
+        "share_days_at_least_this_big_recent_pct": 22.24,
+        "per_year_recent": 55.8,
+        "n_recent": 1461,
         "recent_window_years": 26.2,
-        "in_tail": true,
-        "count_this_year_incl_today": 28,
+        "in_tail": false,
+        "count_this_year_incl_today": 57,
         "last_at_least_this_big": {
-          "date": "2026-09-15",
-          "pct": 4.379,
-          "sessions_ago": 28
+          "date": "2026-10-21",
+          "pct": -4.558,
+          "sessions_ago": 3
         }
       },
       "record": {
-        "pct_below_record": -28.921,
+        "pct_below_record": -29.961,
         "record_close": 145.29,
         "record_date": "2008-07-03",
         "stale": true
       },
       "ytd": {
         "mode": "pct",
-        "change": 79.85,
+        "change": 77.22,
         "direction": "up",
-        "rank": 2,
+        "rank": 1,
         "n_years": 26,
         "first_year": 2001,
-        "median_prior": 2.94,
+        "median_prior": 3.68,
         "tied_with": [],
-        "years_more_extreme": [
-          {
-            "year": 2009,
-            "change": 80.49
-          }
-        ]
+        "years_more_extreme": []
       }
     },
     "gold": {
       "label": "Gold (front-month futures)",
-      "as_of": "2026-10-23",
+      "as_of": "2026-10-26",
       "history_start": "2000-08-30",
-      "years": 26.1,
+      "years": 26.2,
       "move": {
-        "pct": -1.293,
-        "direction": "down",
-        "share_days_at_least_this_big_all_pct": 9.13,
-        "share_days_at_least_this_big_recent_pct": 9.13,
-        "per_year_recent": 23.0,
-        "n_recent": 599,
-        "recent_window_years": 26.1,
-        "in_tail": true,
-        "count_this_year_incl_today": 33,
+        "pct": 0.761,
+        "direction": "up",
+        "share_days_at_least_this_big_all_pct": 21.11,
+        "share_days_at_least_this_big_recent_pct": 21.11,
+        "per_year_recent": 52.9,
+        "n_recent": 1385,
+        "recent_window_years": 26.2,
+        "in_tail": false,
+        "count_this_year_incl_today": 61,
         "last_at_least_this_big": {
-          "date": "2026-10-22",
-          "pct": -2.159,
-          "sessions_ago": 1
+          "date": "2026-10-15",
+          "pct": 1.514,
+          "sessions_ago": 7
         }
       },
       "record": {
-        "pct_below_record": -24.641,
+        "pct_below_record": -24.067,
         "record_close": 5318.3999,
         "record_date": "2026-01-29",
         "stale": false
       },
       "ytd": {
         "mode": "pct",
-        "change": -7.34,
+        "change": -6.64,
         "direction": "down",
         "rank": 4,
         "n_years": 26,
         "first_year": 2001,
-        "median_prior": 10.67,
+        "median_prior": 10.11,
         "tied_with": [],
         "years_more_extreme": [
           {
             "year": 2013,
-            "change": -20.35
+            "change": -19.25
           },
           {
             "year": 2008,
-            "change": -14.56
+            "change": -12.67
           },
           {
             "year": 2022,
-            "change": -9.42
+            "change": -8.72
           }
         ]
       }
@@ -5721,9 +5696,9 @@
       {
         "key": "spx",
         "label": "S&P 500",
-        "as_of": "2026-10-23",
-        "three_year_return_pct": 80.8,
-        "pct_rank_all_time": 94.1,
+        "as_of": "2026-10-26",
+        "three_year_return_pct": 85.6,
+        "pct_rank_all_time": 95.1,
         "history_start": "1930-12-30",
         "peak_1997_2000": {
           "date": "1999-07-16",
@@ -5733,9 +5708,9 @@
       {
         "key": "ndx",
         "label": "Nasdaq Composite",
-        "as_of": "2026-10-23",
-        "three_year_return_pct": 99.4,
-        "pct_rank_all_time": 91.3,
+        "as_of": "2026-10-26",
+        "three_year_return_pct": 107.8,
+        "pct_rank_all_time": 93.4,
         "history_start": "1974-02-05",
         "peak_1997_2000": {
           "date": "2000-03-24",
@@ -5756,14 +5731,14 @@
           "value": 5.04
         },
         "now": {
-          "date": "2026-10-23",
+          "date": "2026-10-26",
           "value": 5.0
         },
         "gap": -0.04,
         "pct_then": 46.7,
         "pct_now": 46.3,
         "pct30_then": 83.6,
-        "pct30_now": 83.0,
+        "pct30_now": 83.1,
         "similar": true
       },
       {
@@ -5775,14 +5750,14 @@
           "value": 5.25
         },
         "now": {
-          "date": "2026-10-22",
-          "value": 3.9
+          "date": "2026-10-23",
+          "value": 3.92
         },
-        "gap": -1.35,
+        "gap": -1.33,
         "pct_then": 62.6,
         "pct_now": 45.3,
         "pct30_then": 84.3,
-        "pct30_now": 67.3,
+        "pct30_now": 67.4,
         "similar": false
       },
       {
@@ -5794,14 +5769,14 @@
           "value": 0.17
         },
         "now": {
-          "date": "2026-10-23",
-          "value": 0.31
+          "date": "2026-10-26",
+          "value": 0.32
         },
-        "gap": 0.14,
+        "gap": 0.15,
         "pct_then": 23.9,
-        "pct_now": 31.0,
+        "pct_now": 31.3,
         "pct30_then": 23.2,
-        "pct30_now": 33.0,
+        "pct30_now": 33.5,
         "similar": true
       },
       {
@@ -5813,7 +5788,7 @@
           "value": 0.06
         },
         "now": {
-          "date": "2026-10-23",
+          "date": "2026-10-26",
           "value": 0.78
         },
         "gap": 0.72,
@@ -5832,10 +5807,10 @@
           "value": 2.65
         },
         "now": {
-          "date": "2026-10-22",
-          "value": 2.64
+          "date": "2026-10-23",
+          "value": 2.66
         },
-        "gap": -0.01,
+        "gap": 0.01,
         "pct_then": 98.8,
         "pct_now": 98.8,
         "pct30_then": null,
@@ -5851,12 +5826,12 @@
           "value": 2.39
         },
         "now": {
-          "date": "2026-10-22",
-          "value": 2.32
+          "date": "2026-10-23",
+          "value": 2.34
         },
-        "gap": -0.07,
+        "gap": -0.05,
         "pct_then": 79.8,
-        "pct_now": 66.2,
+        "pct_now": 71.2,
         "pct30_then": null,
         "pct30_now": null,
         "similar": true
@@ -5877,7 +5852,7 @@
         "pct_then": 53.1,
         "pct_now": 66.1,
         "pct30_then": 65.1,
-        "pct30_now": 80.9,
+        "pct30_now": 81.0,
         "similar": false
       },
       {
@@ -5895,7 +5870,7 @@
         "gap": -0.13,
         "pct_then": 12.1,
         "pct_now": 3.1,
-        "pct30_then": 8.9,
+        "pct30_then": 8.8,
         "pct30_now": 1.9,
         "similar": true
       },
@@ -5908,14 +5883,14 @@
           "value": 0.0
         },
         "now": {
-          "date": "2026-10-23",
-          "value": -2.497
+          "date": "2026-10-26",
+          "value": -1.818
         },
-        "gap": -2.497,
+        "gap": -1.818,
         "pct_then": 100.0,
-        "pct_now": 74.4,
+        "pct_now": 78.2,
         "pct30_then": 100.0,
-        "pct30_now": 65.6,
+        "pct30_now": 69.8,
         "similar": false
       },
       {
@@ -5947,8 +5922,8 @@
       "tier": 1,
       "years_since": 19.3,
       "series": "ust_10y",
-      "sentence": "The 10-year Treasury yield (5.00%) first reached this level on Sep 15 and has been there on 24 of the 28 sessions since; before this run, the last time was Jul 2007. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 83 of every 100 days of the last 30 years, but about average (46th percentile) since 1962. Every reading in the 1970s and 1980s was at or above today's 5.00%.",
-      "email": "The 10-year Treasury yield (5.00%) first reached this level on Sep 15 and has been there on 24 of the 28 sessions since; before this run, the last time was Jul 2007. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 83 of every 100 days of the last 30 years, but about average (46th percentile) since 1962.",
+      "sentence": "The 10-year Treasury yield (5.00%) first reached this level on Sep 15 and has been there on 25 of the 29 sessions since; before this run, the last time was Jul 2007. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 83 of every 100 days of the last 30 years, but about average (46th percentile) since 1962. Every reading in the 1970s and 1980s was at or above today's 5.00%.",
+      "email": "The 10-year Treasury yield (5.00%) first reached this level on Sep 15 and has been there on 25 of the 29 sessions since; before this run, the last time was Jul 2007. This run's high was 5.31% on Oct 5, last matched in May 2002. Today's reading is at or above the reading on 83 of every 100 days of the last 30 years, but about average (46th percentile) since 1962.",
       "anchor_date": "2007-07-19"
     },
     {
@@ -5957,16 +5932,16 @@
       "tier": 1,
       "years_since": 17.9,
       "series": "tips_10y_real",
-      "sentence": "The 10-year TIPS real yield (2.64%, dated 10-22) first reached this level on Sep 16 and has been there on 23 of the 26 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
-      "email": "The 10-year TIPS real yield (2.64%, dated 10-22) first reached this level on Sep 16 and has been there on 23 of the 26 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
+      "sentence": "The 10-year TIPS real yield (2.66%, dated 10-23) first reached this level on Sep 16 and has been there on 23 of the 27 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
+      "email": "The 10-year TIPS real yield (2.66%, dated 10-23) first reached this level on Sep 16 and has been there on 23 of the 27 sessions since; before this run, the last time was Nov 2008 (during the 2007-09 Global Financial Crisis). This run's high was 2.95% on Oct 5, last matched in Nov 2008. Today's reading is at or above the reading on 99 of every 100 days since 2003. But TIPS only exist since 2003: the Cleveland Fed's model real rate, back to 1982, puts real rates at the 80th percentile of the last 30 years and the 54th since 1982 \u2014 high against the last 30 years, about average since 1982.",
       "anchor_date": "2008-11-26"
     },
     {
       "id": "pace:ust_2y",
       "family": "pace",
       "tier": 3,
-      "sentence": "The 2-year Treasury yield is up 122bp this year \u2014 the 9th-largest rise through this date in 50 years (bigger: 2022 +376bp, 1979 +265bp, 1994 +255bp, \u2026). Over the last 12 months it is up 1.21 points; a 12-month rise at least that big has started 8 times since 1977. Measured from each start, the S&P 500 (price only) was lower a year later in 3 of 8 (any 12-month stretch since 1962: 24.4%), and a recession began within two years in 2 of 8 (any two-year stretch since 1962 outside a recession: 27.4%).",
-      "email": "The 2-year Treasury yield is up 122bp this year \u2014 the 9th-largest rise through this date in 50 years (bigger: 2022 +376bp, 1979 +265bp, 1994 +255bp, \u2026)."
+      "sentence": "The 2-year Treasury yield is up 121bp this year \u2014 the 10th-largest rise through this date in 50 years (bigger: 2022 +366bp, 1994 +265bp, 1981 +250bp, \u2026). Over the last 12 months it is up 1.20 points; a 12-month rise at least that big has started 8 times since 1977. Measured from each start, the S&P 500 (price only) was lower a year later in 3 of 8 (any 12-month stretch since 1962: 24.4%), and a recession began within two years in 2 of 8 (any two-year stretch since 1962 outside a recession: 27.4%).",
+      "email": "The 2-year Treasury yield is up 121bp this year \u2014 the 10th-largest rise through this date in 50 years (bigger: 2022 +366bp, 1994 +265bp, 1981 +250bp, \u2026)."
     }
   ]
 }

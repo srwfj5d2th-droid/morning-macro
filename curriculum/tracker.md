@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 7, Financing cycles & reflexivity — segment 1 taught 2026-10-26.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 7, Financing cycles & reflexivity — segment 2 taught 2026-10-27.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -99,3 +99,4 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 1 taught 
 | Sympathy selling — one company's news moving peers that didn't report; check whether the news is about the whole group or just sentiment | 2026-10-22 |
 | The breadth toolkit (Unit 6 capstone) — index vs. average can disagree on magnitude or on direction entirely; check whether selling/buying is concentrated or broad before calling the market's move | 2026-10-23 |
 | The Minsky sequence (hedge/speculative/Ponzi financing) and reflexivity — the lens for judging whether a capex boom is self-funding or needs the credit window to stay open | 2026-10-26 |
+| Vendor financing and the Lucent reference class — telling a growth number apart from a financing-structure artifact | 2026-10-27 |

@@ -1,0 +1,49 @@
+{
+  "pulled_at_utc": "2026-10-27T10:45:00Z",
+  "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+  "items": [
+    {
+      "topic": "Fair Isaac (FICO) -13.15% on wholesale-pricing freeze and FHFA pressure",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/article/fico-stock-falls-14-after-pulte-pledges-more-action-on-credit-score-competition-194328661.html",
+        "https://www.gurufocus.com/news/9143439/fair-isaac-corp-fico-shares-drop-over-13-amid-competitive-pressures-and-pricing-concerns",
+        "https://www.financialcontent.com/article/stockstory-2026-10-26-why-fair-isaac-corporation-fico-stock-is-nosediving",
+        "https://www.chartmill.com/news/EFX/Chartmill-56818-SP-500-Top-Movers-Today-Lumentum-Leads-Fair-Isaac-Falls"
+      ],
+      "facts": "FICO said it will hold its wholesale FICO Score price at $10 for mortgage lenders enrolled in its Preferred partner program, a defensive move against VantageScore's gains under FHFA's new combined mortgage pricing grid (which now treats VantageScore 4.0 and Classic FICO equally, removing VantageScore's prior 20-point pricing deduction). FHFA Director Bill Pulte posted that regulators are 'taking more action this week' on credit-score competition. Wells Fargo downgraded FICO to Equal Weight; UBS cut its target to $942 from $1,100; BMO Capital cut its target to $897. This system's own close: -13.15% to $708.07 from $815.31. Press figures for the day's drop ranged 13.09%-14.49% depending on snapshot timing; this system's own script-verified close is used for magnitude per §4C.",
+      "caveat": "Press cited only for the stated reason and analyst-reaction facts, per §4C; this system's own macro_series.csv/movers scan used for magnitude."
+    },
+    {
+      "topic": "Anthropic S-1 IPO filing and the broad AI-chip/semiconductor rally",
+      "sources": [
+        "https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-rally-as-investors-parse-anthropic-ipo-filing-busy-week-of-tech-earnings-153428995.html",
+        "https://www.investing.com/news/stock-market-news/asia-chipmaking-ai-stocks-surge-on-anthropic-ipo-cheer-4974130",
+        "https://www.bloomberg.com/news/newsletters/2026-10-27/anthropic-s-ipo-filing-extends-tech-rally",
+        "https://www.chartmill.com/news/CLF/Chartmill-56857-stock-market-today-anthropic-ipo-filing-chip-stocks-rally-tesla-lockheed-fico-2026-10-26"
+      ],
+      "facts": "Anthropic publicly filed its S-1 prospectus Monday 10-26, planning a Nasdaq listing under the ticker 'ANT'; share count and valuation undetermined at filing. The S-1 disclosed approximately $16.3B in first-half-2026 revenue and a net loss of about $80.7B, of which roughly $72.4B is a non-cash charge tied to revaluing convertible notes (not operating cash burn), per Chartmill's read of the filing. Nvidia, Broadcom, Micron and Intel rose in midday trading; the iShares Semiconductor ETF (SOXX) and the Philadelphia Semiconductor Index (SOX) each rose roughly 2.8-3% the same session. This system's own scan shows Lumentum (+8.19%), Texas Instruments, NXP, Analog Devices, Lam Research, AMD, Applied Materials and Micron among the day's gainers riding the same catalyst (data/raw/movers_2026-10-26.json).",
+      "caveat": "Sources disagreed on exact index-level move sizes (Dow +0.4% to S&P 500 +0.7% depending on outlet/snapshot); this system's own SPX/SMH closes (macro_series.csv) used for any index-level magnitude claim. Tesla and Lockheed Martin moves were also reported same-day by Chartmill (single-sourced) as driven by separate analyst upgrades; this system found no second source or a dated-today upgrade for either and does not assert a reason for TSLA/LMT's moves beyond the broad rally already covered via Lumentum."
+    },
+    {
+      "topic": "Charter Communications (CHTR) -5.92%, 52-week low amid sector-wide telecom selloff",
+      "sources": [
+        "https://www.investing.com/news/company-news/charter-communications-stock-hits-52week-low-at-10159-93CH-4973476",
+        "https://news.alphastreet.com/charter-communications-drops-5-4-amid-sector-wide-selling/amp/"
+      ],
+      "facts": "Charter Communications hit a new 52-week low on 10-26 (reported range $101.57-$102.72 depending on snapshot; this system's own close $102.18, -5.92%). Sector peers Vodafone/VSNT and Cable One (CABO) also fell the same session; coverage attributes the move to a sector-wide selloff among telecom service providers rather than a Charter-specific headline. Background context (not dated to today): Charter has faced sustained pressure over 2026 on broadband-subscriber losses and Starlink/satellite competitive fears.",
+      "caveat": "No same-day, Charter-specific catalyst was found; reported as a sector-wide pattern per §4C, consistent with the day's XLC sector-divergence screen hit (movers_2026-10-26.json)."
+    },
+    {
+      "topic": "Comfort Systems USA (FIX) +7.18% rebound -- no same-day catalyst found",
+      "sources": [],
+      "facts": "This system searched multiple named sources for a same-day catalyst for FIX's 7.18% rebound from Friday 10-23's post-earnings drop and found none dated to 10-26. One Weiss Ratings alert describing a prior ~4.9% 'dip-buying rebound' on an unconfirmed Friday could not be dated to this session.",
+      "caveat": "Reported as no distinct catalyst found rather than inferred, per §4C; the move is reported in Movers/Claims as a continuation of the open CL-0051 test."
+    },
+    {
+      "topic": "DoorDash (DASH), NVR, Reddit (RDDT), Merck (MRK), Netflix (NFLX) moves -- no same-day catalyst found",
+      "sources": [],
+      "facts": "This system searched for same-day, dated catalysts for DASH (-6.10%), NVR (-4.28%), RDDT (-4.02%), MRK (-3.21%) and NFLX (-2.96%) and found none specific to 10-26 (the DoorDash earnings-miss coverage found was dated to a prior-year Q3 report, not this session).",
+      "caveat": "None of these five made the movers cap; reported as left out with no asserted reason, per §4C."
+    }
+  ]
+}
