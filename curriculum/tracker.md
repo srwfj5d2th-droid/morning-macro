@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 7, Financing cycles & reflexivity — segment 2 taught 2026-10-27.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 7, Financing cycles & reflexivity — segment 3 taught 2026-10-28.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -100,3 +100,4 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 2 taught 
 | The breadth toolkit (Unit 6 capstone) — index vs. average can disagree on magnitude or on direction entirely; check whether selling/buying is concentrated or broad before calling the market's move | 2026-10-23 |
 | The Minsky sequence (hedge/speculative/Ponzi financing) and reflexivity — the lens for judging whether a capex boom is self-funding or needs the credit window to stay open | 2026-10-26 |
 | Vendor financing and the Lucent reference class — telling a growth number apart from a financing-structure artifact | 2026-10-27 |
+| Broad credit tightening vs. an AI-specific credit story — why Tier 3's weekly depth exists; a daily IG/HY OAS flag can't say whether AI-adjacent borrowers specifically are driving it | 2026-10-28 |

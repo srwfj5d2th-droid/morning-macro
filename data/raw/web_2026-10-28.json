@@ -1,0 +1,69 @@
+{
+ "pulled_at_utc": "2026-10-28T10:55:00Z",
+ "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+ "items": [
+  {
+   "topic": "Xylem (XYL) -14.21% on Q3 miss and full-year guidance cut",
+   "sources": [
+    "https://www.tradingview.com/news/benzinga:37b998381094b:0-xylem-stock-plunges-to-52-week-low-after-slashing-2026-profit-outlook/",
+    "https://seekingalpha.com/news/4658362-xylem-tumbles-14-to-new-52-week-low-after-earnings-miss",
+    "https://www.kucoin.com/news/flash/xylem-stock-drops-11-79-after-q3-earnings-miss-and-downgraded-guidance",
+    "https://www.investing.com/news/stock-market-news/why-is-xylem-stock-tumbling-today-93CH-4975447",
+    "https://au.investing.com/news/stock-market-news/xylem-q3-2026-slides-orders-surge-10-but-guidance-cut-sends-shares-lower-93CH-4718357"
+   ],
+   "facts": "Xylem reported Q3 2026 revenue of $2.201B (vs. ~$2.276B consensus) and adjusted EPS of $1.44 (vs. $1.45 consensus), both slight misses; revenue fell 3.0% YoY and was flat organically. The company cut full-year 2026 revenue guidance to ~$8.95B (from a ~$9.19B consensus) and adjusted EPS guidance to $5.40-$5.45 (from $5.55-$5.70, consensus $5.65). Management cited project-timing slippage and more cautious utility customers delaying water-metering upgrade purchases. The company also announced plans to divest two businesses (~9% of revenue, <5% of EBITDA) and reorganize into three segments starting 2027. Shares closed at a new 52-week low; this system's own close matches ($92.86, from $108.24).",
+   "caveat": "Press figures for the day's drop ranged ~7%-14% depending on snapshot timing; this system's own script-verified close (-14.21%) is used for magnitude per §4C."
+  },
+  {
+   "topic": "Boeing (BA) -10.69% on Q3 loss miss and 737 delivery-forecast cut",
+   "sources": [
+    "https://www.rttnews.com/3399117/boeing-q3-loss-narrows-core-loss-misses-view-cuts-737-delivery-forecast.aspx?type=ern",
+    "https://www.benzinga.com/node/62361894",
+    "https://247wallst.com/investing/2026/10/24/is-boeing-cleared-for-departure-latest-faa-win-sets-the-stage-for-q3-earnings-showdown-on-oct-27/",
+    "https://www.webull.com/news/15747509204820992"
+   ],
+   "facts": "Boeing released Q3 2026 results Tuesday 10-27 (conference call 10:30am ET, CEO Kelly Ortberg and CFO Jay Malave). RTTNews: Q3 core loss narrowed year-over-year but still missed the Street's view, and Boeing cut its 737 delivery forecast. Pre-earnings previews (Benzinga, 24/7 Wall St) had consensus looking for a loss in the $0.19-$0.34-per-share range on ~$24.50B revenue; preliminary Q3 deliveries were 161 commercial aircraft (475 YTD). Shares were already down ~15% since the prior report heading into this print.",
+   "caveat": "This system did not find a single outlet reporting the exact post-earnings EPS/revenue print alongside the stock reaction; the RTTNews headline (core loss narrows, misses view, delivery forecast cut) is used as the stated reason per §4C, with pre-earnings consensus figures reported as context only, not asserted as the actual print."
+  },
+  {
+   "topic": "Pentair (PNR) +12.80% on Q3 beat, same morning as Xylem's miss",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0000077360/000007736026000055/q32026pressrelease.htm",
+    "https://www.rttnews.com/3583966/pentair-plc-q3-profit-increases-beats-estimates.aspx"
+   ],
+   "facts": "Pentair's Q3 2026 8-K (released 10-27) reported sales of $976M, GAAP EPS of $0.91, and adjusted EPS of $1.18 -- down from $1.24 a year earlier but above the company's own Q3 outlook of $1.05-$1.08. Full-year 2026 guidance: GAAP EPS ~$3.76, adjusted EPS midpoint ~$4.70. This system's own close: +12.80% to $62.29 from $55.22.",
+   "caveat": "No single source confirmed the exact market-consensus adjusted-EPS estimate for this specific quarter with full confidence; the company's own prior guidance range is used as the comparison point per §4C."
+  },
+  {
+   "topic": "Refiners (VLO/MPC/PSX) selloff and XLE sector divergence -- no same-day catalyst found",
+   "sources": [
+    "https://oilprice.com/Company-News/Valero-Q3-Earnings-Surge-Sixfold-to-68-Billion-on-Refining-Boom.amp.html",
+    "https://247wallst.com/cards/valero-energy-q3-2026-earnings-vlo-01m5hs2e7dnht5h4w2ey4hf68p",
+    "https://247wallst.com/investing/2026/08/05/oil-refiners-are-quietly-printing-money-this-companys-earnings-jumped-975/"
+   ],
+   "facts": "Valero's own Q3 2026 earnings (released 10-22, not today) showed net income of $6.8B ($23.90 adjusted EPS vs. $20.30 consensus), refining margin of $39.24/bbl (vs. $13.14 a year earlier), and near-record refinery utilization. A separate 247wallst piece (dated Aug 2026) cites a Valero commentary pointing to a possible 2027 earnings decline as crack spreads normalize -- a standing analyst debate, not dated to today. Multiple targeted searches for a same-day (10-27) catalyst for VLO (-9.24%), MPC (-7.36%) or PSX (-7.04%) returned no credible, dated reporting.",
+   "caveat": "No stated reason is asserted for today's refiner selloff; reported as unexplained per §4C, and logged as conditional claim CL-0053 rather than inferred. The Q3-earnings and crack-spread-normalization context above is background only, explicitly not claimed as today's trigger."
+  },
+  {
+   "topic": "Western Digital (WDC) +6.95% and the broad second-day chip/AI-hardware rally",
+   "sources": [
+    "https://www.blocksandfiles.com/ai-ml/2025/10/31/western-digital-makes-bank-in-q1-amid-ai-gold-rush/1595858",
+    "https://www.pulse.bot/hardware/news/ai-demand-drives-wd-revenues-sky-high-with-more-to-come-d56b37d9-ba66-455b-ab8f-a1e1c5f13efd/",
+    "https://www.digitalcitizen.life/micron-warns-ai-demand-could-keep-memory-supply-tight-beyond-2026/",
+    "https://linux.slashdot.org/story/450339"
+   ],
+   "facts": "No dated, same-day news was found specifically for WDC's 10-27 move. Standing backdrop: Western Digital's CEO has said the company is 'pretty much' sold out of hard-disk-drive capacity for 2026 on AI/data-center demand, with purchase orders secured from its top seven customers; Micron has separately said the broader DRAM/NAND shortage should persist beyond 2026 on AI demand, with new fab capacity not due until 2027-2030. Today's broader move (DELL +7.46%, SMCI +7.34%, CDNS +6.49%, COHR +6.45%, ON +6.22%, LITE +5.88%, AMD +5.46%, AVGO +4.00%, TXN +3.62%, INTC +3.61%, MU +2.77%, and more) reads as a second straight day of the chip/AI-infrastructure rally that began Monday 10-26 on Anthropic's S-1 filing (see data/raw/web_2026-10-27.json), with no new dated catalyst found for Tuesday 10-27 specifically.",
+   "caveat": "Context only, explicitly not claimed as a same-day trigger for WDC or the broader basket; reported as continuation with no new catalyst found, per §4C."
+  },
+  {
+   "topic": "FOMC decision setup (today, 2026-10-28)",
+   "sources": [
+    "https://www.cnbc.com/2026/10/26/fed-decision-expectations-october-meeting.html",
+    "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-28-dow-sp-500-nasdaq-fed-meeting-decision-080642111.html",
+    "https://kalshi.com/markets/kxfeddecision/fed-meeting/kxfeddecision-26oct"
+   ],
+   "facts": "Fed Chair Kevin Warsh's rate decision is scheduled for 2:00pm ET today with a press conference at 2:30pm ET. Pre-decision pricing (CME FedWatch per CNBC, Kalshi) put a hold near 90% likely and a 25bp hike near 7%; the Fed hiked 25bp last month (its first hike since 2023) to a target range of 3.75%-4.00%. Big Tech earnings (Microsoft, Alphabet) also report this week, adding to trader focus alongside the Fed.",
+   "caveat": "Pre-decision previews only; this system does not predict the outcome (§4E) and will reconcile against the actual statement/press-conference language tomorrow."
+  }
+ ]
+}
