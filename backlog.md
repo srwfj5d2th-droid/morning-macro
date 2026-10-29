@@ -212,3 +212,13 @@ Opened 2026-10-09 (Jacob, live: "I still didn't see in the morning macro a deepe
   HEAD detached across a run boundary. Worth a monthly-review look at
   whether the scheduled task's checkout step can be made to land on `main`
   directly, rather than relying on each run's own step-0 check to catch it.
+- [ ] **Official titles for named Fed officials** (found 2026-10-29, Jacob's
+  Lisa Cook question). The 10-29 brief called Cleveland Fed President Beth
+  Hammack a "Governor" — the run's own source notes
+  (`data/raw/web_2026-10-29.json`, left unedited as the record) carried the
+  error forward into the regime line, story and calendar note. Corrected
+  same morning. Candidate rule for monthly review: when a brief names an
+  FOMC member, take the title from the Fed's own statement/roster
+  (Governor vs. Reserve Bank President), not from secondary-source
+  summaries. Mostly matters for dissents, where "a governor" vs. "a
+  regional president" changes how much the split means.
