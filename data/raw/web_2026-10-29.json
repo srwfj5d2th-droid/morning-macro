@@ -1,0 +1,54 @@
+{
+  "pulled_at_utc": "2026-10-29T10:55:00Z",
+  "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+  "items": [
+    {
+      "topic": "FOMC decision 2026-10-28: hold at 3.75%-4.00%, 10-2 vote, two hawkish dissents",
+      "sources": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+        "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html",
+        "https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-october-28-2026",
+        "https://economics.td.com/us-fomc-statement",
+        "https://seekingalpha.com/article/4958991-feds-interest-rate-decision-october-28-2026"
+      ],
+      "facts": "The FOMC held its target range at 3.75%-4.00% on Wednesday 10-28, a 10-2 vote. Governors Lisa Cook and Beth Hammack dissented, preferring a 25bp hike. The statement kept 'inflation remains elevated' language while upgrading its assessment of economic activity to a 'strong' pace. Chair Kevin Warsh's 2:30pm press conference said the Fed will reduce the number of rate-setting meetings starting in 2027 and reiterated he does not favor forward guidance absent a crisis. TD Economics reads the pause as raising the odds of a December hike; Seeking Alpha likewise reports markets pricing one more 25bp hike in December.",
+      "caveat": "This is the test condition for claims-ledger entry CL-0052 (opened 10-27): the vote split and growth-language upgrade point toward the policy-driven branch, but the Treasury/SOFR legs of that specific test are mixed as of today's data and the claim's deadline (Fri 10-30) hasn't arrived -- reported as progress, not resolved."
+    },
+    {
+      "topic": "Vertiv (VRT) +16.48% on Q3 beat, order growth, raised guidance",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/articles/why-vertiv-vrt-stock-trading-014234723.html",
+        "https://www.tradingview.com/news/stockstory:99bd3e821094b:0-why-vertiv-vrt-stock-is-trading-up-today/",
+        "https://www.fool.com/investing/2026/10/28/why-vertiv-stock-soared-today/",
+        "https://stocktwits.com/news-articles/markets/equity/vertiv-ceo-says-largest-infrastructure-buildout-is-accelerating-as-q3-earnings-beat-estimates-outlook-raised/cZU9WSQRB6z"
+      ],
+      "facts": "Vertiv's Q3 2026 adjusted EPS of $2.21 beat the ~$1.82 consensus; net sales of $4.31B beat the ~$3.75B estimate, up 61% YoY. Organic orders grew more than 100% YoY. Management raised full-year guidance and guided Q4 adjusted EPS to $2.22-$2.28, above the $2.21 consensus. Executive Chairman Dave Cote tied the beat to accelerating AI/data-center infrastructure demand. Vertiv led S&P 500 gainers on the day; this system's own close ($242.94 from $208.56, +16.48%) matches.",
+      "caveat": "Sources differ slightly on the exact intraday magnitude (13%-16.5%, depending on snapshot); this system's own script-verified close is used for magnitude per §4C."
+    },
+    {
+      "topic": "Oracle (ORCL) +10.73% on investor-day long-term targets, not a new earnings print",
+      "sources": [
+        "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-28-211011574.html",
+        "https://finance.yahoo.com/markets/stocks/articles/oracle-shares-jump-long-term-190338261.html",
+        "https://stockstotrade.com/news/oracle-corporation-orcl-news-2026_10_28/",
+        "https://www.tradingkey.com/news/market-movers/262247707-market-movers-orcl-20261028"
+      ],
+      "facts": "At an investor day, Oracle set a timeline back to positive free cash flow in the second half of fiscal 2028, a free-cash-flow target of $30B+ by fiscal 2029, a long-term revenue target of at least $225B by fiscal 2030, and capped new capital raises through fiscal 2030. Oracle reaffirmed fiscal 2027 guidance (at least $90B revenue, $8.10 non-GAAP EPS). The stock was roughly flat near $130 until about 2:20pm ET, then jumped ~13% within minutes of the release; this system's own close ($144.54 from $130.53, +10.73%) matches the most commonly reported figure. Volume ran roughly 2.7x its recent average.",
+      "caveat": "A few sources report slightly higher closes ($147.06-$147.43); this system's own script-verified close is used per §4C."
+    },
+    {
+      "topic": "F5 (FFIV) -20.43% despite a Q4 beat, on tepid FY2027 growth guidance",
+      "sources": [
+        "https://www.gurufocus.com/news/9149224/f5-inc-ffiv-shares-plunge-over-20-after-q4-earnings-and-tepid-2027-revenue-outlook",
+        "https://www.fool.com/investing/2026/10/28/why-f5-stock-is-getting-crushed-today/",
+        "https://www.tradingview.com/news/gurufocus:0cea14dbd094b:0-f5-stocks-decline-19-34-after-its-fy2027-growth-outlook/",
+        "https://finance.yahoo.com/markets/stocks/articles/f5-ffiv-reported-q4-revenue-160836554.html"
+      ],
+      "facts": "F5's fiscal Q4 2026 revenue rose 13% YoY to $917M, topping the ~$884M consensus. The stock fell on guidance: FY2027 implies 8-9% revenue growth, down from 11% in FY2026; EPS guidance for next quarter slightly missed; operating margin fell to 23.1% from 25.4% a year earlier. Analysts cited a decelerating hardware-refresh cycle and uncertainty about how quickly new AI-enabled products translate into revenue. Piper Sandler downgraded the stock to Neutral; RBC and Morgan Stanley raised price targets despite the move. F5 also authorized a $1.5B share-repurchase program.",
+      "caveat": "Sources report the regular-session close at approximately -20.4%, matching this system's own scan (-20.43%)."
+    }
+  ],
+  "no_catalyst_found": [
+    "Fortinet (FTNT) -5.90%: no same-day named-source reporting found for a distinct catalyst beyond the same hardware/security-cycle backdrop cited for F5; reported as such rather than inferred, and folded into new conditional claim CL-0054 alongside F5."
+  ]
+}
