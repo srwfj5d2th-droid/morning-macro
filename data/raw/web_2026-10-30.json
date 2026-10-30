@@ -1,0 +1,81 @@
+{
+  "pulled_at_utc": "2026-10-30T10:55:00Z",
+  "method": "WebSearch (standard/extended modes), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+  "items": [
+    {
+      "topic": "Alphabet (GOOGL/GOOG) Q3 2026 results and -12.6%/-12.3% reaction, dated 2026-10-29",
+      "sources": [
+        "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+        "https://www.marketbeat.com/articles/alphabets-cloud-is-paying-offbut-the-bill-for-building-it-keeps-growing/",
+        "https://fortune.com/2026/10/28/alphabet-google-stock-drops-cloud-revenue-doubles-free-cash-flow-negative/",
+        "https://www.cnbc.com/2026/10/29/alphabet-q3-earnings-analyst-reaction.html"
+      ],
+      "facts": "Q3 2026 revenue ~$127.6B (+25% YoY, slightly below some estimates); Google Cloud revenue roughly doubled to ~$30.7B with operating income more than tripling. GAAP EPS $2.12 (includes an $8.7B paper loss on equity stakes) vs. adjusted $2.67 against a ~$3.01 consensus. Q3 capex ~$51.4B, more than double a year ago; free cash flow approximately -$9.1B. 2026 capex guidance held at $195-205B; company signaled a significant 2027 step-up, which Fortune estimated at roughly $300B. Shares fell about 10-11% after hours Wednesday; Fortune put the market-value loss at $280B+. Analysts split: some trimmed targets/downgraded, Deutsche Bank kept Buy.",
+      "caveat": "The ~$300B 2027 figure is attributed to one outlet (Fortune), not independently confirmed across sources; reported as such in the brief."
+    },
+    {
+      "topic": "ServiceNow (NOW) Q3 2026 results and record -27% drop, dated 2026-10-29",
+      "sources": [
+        "https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html",
+        "https://www.gurufocus.com/news/9151752/servicenow-now-shares-plunge-24-following-disappointing-q3-earnings",
+        "https://www.tradingkey.com/news/market-movers/262253643-market-movers-now-20261029",
+        "https://247wallst.com/investing/2026/10/29/servicenows-19-crash-says-wall-street-thinks-ai-will-eat-software-its-openai-deal-says-the-opposite/"
+      ],
+      "facts": "Q3 revenue ~$4.11B, roughly in line. Adjusted EPS $1.00 vs. $1.02 consensus. Full-year 2026 subscription revenue guidance lifted slightly to $15.78-15.79B. Remaining performance obligations grew 21% YoY; next-period growth guided toward ~18.5% (deceleration flagged by multiple outlets). TradingKey cited higher interest costs from debt financing the $7.75B Armis acquisition. CNBC: results underwhelmed and reignited AI-disruption-of-enterprise-software concerns. CNBC reported the close as the company's worst single day on record (~27%); premarket figures from other outlets ran lower (18-20%).",
+      "caveat": "Sources disagree on exact drop magnitude (18% premarket vs. 27% at close per CNBC/TradingKey); brief uses the scan's own script-verified close-to-close figure (-26.95%) and cites CNBC's 'worst day on record' characterization as attributed framing, not an independently re-derived stat."
+    },
+    {
+      "topic": "Marvell (MRVL) -13.2%, reported Lumentum acquisition talks, dated 2026-10-29",
+      "sources": [
+        "https://www.fool.com/investing/2026/10/29/why-marvell-stock-is-down-today/",
+        "https://www.benzinga.com/m-a/26/10/62706513/marvell-lumentum-acquisition-broadcom",
+        "https://finance.yahoo.com/markets/stocks/articles/why-marvell-stock-down-today-190602606.html"
+      ],
+      "facts": "Bloomberg reported (per Fool.com/Benzinga) Marvell is in advanced talks to acquire Lumentum, an optical-components maker supplying AI datacenters, in an expected all-stock deal; nothing finalized, announcement possibly as soon as next week. Stock reaction attributed to dilution risk from the all-stock structure plus broader same-day chip weakness (Arm, AMD, Broadcom also down).",
+      "caveat": "Deal unconfirmed/reported, not announced; framed as reported M&A talks, not a completed transaction."
+    },
+    {
+      "topic": "Caterpillar (CAT) Q3 2026 results, -9.25%, dated 2026-10-29",
+      "sources": [
+        "https://www.benzinga.com/markets/earnings/26/10/62696996/ais-power-hunger-sends-caterpillar-orders-soaring-tariffs-spoil-the-party",
+        "https://www.fool.com/earnings/call-transcripts/2026/10/29/caterpillar-cat-q3-2026-earnings-call-transcript/",
+        "https://www.sec.gov/Archives/edgar/data/0000018230/000001823026000052/ex991toformcat3q2026earnin.htm"
+      ],
+      "facts": "Adjusted EPS $7.20 (vs. ~$7.06-7.08 consensus, a beat); revenue $20.7B (+17%). Q3 tariff costs ~$600M (roughly flat YoY), full-year 2026 tariff costs guided to ~$2.2B. Full-year sales growth still expected mid-to-high teens; adjusted operating margin guided near the bottom of its target range on tariffs/freight costs. Power and Energy segment profit +31% to $2.1B on datacenter-power demand. Record backlog of $78B.",
+      "caveat": "Not one of the brief's 3 capped mover write-ups; mentioned briefly in the 'other movers' line."
+    },
+    {
+      "topic": "Fortinet (FTNT) -20.09% on top of Wednesday's -5.90%, dated 2026-10-29",
+      "sources": [
+        "https://goldesel.de/aktien/news/fortinet-aktie-q3-schlagt-erwartungen-doch-der-kurs-sturzt-ab"
+      ],
+      "facts": "German-language outlet reports Fortinet raised full-year 2026 revenue/EPS guidance alongside a Q3 beat, yet the stock fell sharply.",
+      "caveat": "Single, non-English, uncorroborated source; reported as thinly sourced rather than a settled catalyst. Feeds CL-0054's existing test rather than a new claim."
+    },
+    {
+      "topic": "Health Care (XLV) sector outperformance, +2.79pp vs. SPX, dated 2026-10-29",
+      "sources": [],
+      "facts": "No credible, dated same-day reporting found across multiple searches.",
+      "caveat": "Reported as 'no catalyst found' per §4C; read-through framed as consistent with, not proof of, a defensive rotation."
+    },
+    {
+      "topic": "AI-datacenter/hyperscaler bond issuance and credit-spread background (weekly Tier 3)",
+      "sources": [
+        "https://www.westernsouthern.com/-/media/files/fortwashington/fort-washington-financing-the-ai-buildout-whitepaper.pdf",
+        "https://www.blackrock.com/gls-download/literature/market-commentary/credit-currents-8-12-2026.pdf",
+        "https://www.pennmutualam.com/market-insights/blogs/chart-of-the-week/2026-08-06-ai-infrastructure-bonds-a-full-picture-of-spreads"
+      ],
+      "facts": "Fort Washington (dated this month) estimates >$300B of new AI-related hyperscaler issuance over the trailing 12 months and says concentrated issuance from a few correlated issuers has widened AI-related spreads materially. BlackRock (Aug 12) and Penn Mutual (Aug 6) both describe high-yield data-center spreads widening since June 2026 while investment-grade hyperscaler spreads tightened modestly on scale/relative strength.",
+      "caveat": "None of this is dated to the current week specifically; reported as background context in the weekly Tier 3 section, not a live reading."
+    },
+    {
+      "topic": "FOMC Oct 28 decision recap (context for Claims/Story), dated 2026-10-28",
+      "sources": [
+        "https://admiralmarkets.com/analytics/traders-blog/fomc-october-2026-fed-holds-rates",
+        "https://investinglive.com/central-banks/the-full-statement-from-the-october-2026-fomc-rate-decision/"
+      ],
+      "facts": "Fed held target range at 3.75%-4.00%, a 10-2 vote; Lisa Cook (Board governor) and Beth Hammack (Cleveland Fed President) dissented for a hike. Chair Kevin Warsh at the press conference.",
+      "caveat": "Consistent with 2026-10-29 brief's own correction (Hammack is a Reserve Bank president, not a governor); carried forward correctly here."
+    }
+  ]
+}
