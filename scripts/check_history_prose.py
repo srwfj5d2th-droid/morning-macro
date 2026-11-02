@@ -70,6 +70,33 @@ OUTCOME_RE = re.compile(r"\bfollowed\b|\ba year later\b|\bnext (?:12 months|year
                         r"\b(?:recession|S&P 500|stocks)\b[^.]{0,60}\b\d+ months (?:later|after)\b|"
                         r"\bbegan within\b|\brecessions?\b[^.]{0,40}\bwithin (?:one|two|three|\d+) years?\b", re.I)
 MAX_HISTORY_WORDS = 300
+# rule 19 (2026-11-02, Jacob): no superlative or first-time claim measured
+# against this system's own record ("the roughest drops this system has
+# recorded", "the widest day this system has scanned"). The system's data
+# starts in Dec 2025, so its record is too short for that yardstick to mean
+# anything; a reader hears "historically extreme". Applies to every subject
+# (stocks, scans, series, calendar weeks) and to the notes fields too.
+SELF_FIELDS = CHECKED_FIELDS + ["flags_html", "calendar_note_html", "claims_section_html"]
+SELF_REF_RE = re.compile(r"\b(?:this|the|our) system(?:'s|’s)?\b|"
+                         r"\bsince (?:it|we|this system|the system) (?:started|began) "
+                         r"(?:keeping score|tracking)\b|\bsince tracking began\b", re.I)
+SELF_SUP_RE = re.compile(r"\b(?:worst|best|roughest|biggest|largest|highest|lowest|widest|tightest|"
+                         r"narrowest|busiest|heaviest|sharpest|steepest|deepest|strongest|weakest|"
+                         r"clearest|cleanest|fastest|slowest|longest|shortest|greatest|smallest|"
+                         r"most|least|rare|record|ever|first time|fresh (?:high|low)|"
+                         r"new (?:high|low))\b|"
+                         r"\b(?:hasn't|has not|hadn't|haven't|never)\b[^,;]{0,40}\bbefore\b|"
+                         r"\b(?:hasn't|has not) seen\b", re.I)
+# a comparison inside today's board ("the day's largest move in this system's
+# scan", "this system's largest active flag") is fine -- unless the clause
+# also reaches for the record
+TODAY_SCOPE_RE = re.compile(r"\b(?:the day's|today's|this (?:week|month)'s|the week's|that session|of the day|"
+                            r"on (?:today's|the) board|(?:active|standing) flag|"
+                            r"(?:largest|biggest|smallest) of (?:the )?(?:two|three|four|five|six|\d+)|"
+                            r"best (?:read|gauge|proxy|test)|longest maturity)\b", re.I)
+RECORD_RE = re.compile(r"\b(?:ever|on record|recorded|history|first time|fresh (?:high|low)|"
+                       r"new (?:high|low)|since (?:this|the) system|since tracking)\b", re.I)
+QUOTED_RE = re.compile(r"“[^”]*”|\"[^\"]*\"")
 
 
 def _text(html_fragment):
@@ -143,7 +170,20 @@ def lint(content, state):
             for m in re.finditer(pat, text, re.I):
                 errors.append(f"{field}: banned phrase '{m.group(0)}' (§4C/§4F)")
 
-    blocks = {k: state.get(k) for k in HISTORY_BLOCKS if state.get(k) is not None}
+    # 19. no superlative against this system's own short record; quoted text
+    #     is exempt so a correction can name the phrase it withdrew
+    for field in SELF_FIELDS:
+        text = QUOTED_RE.sub(" ", _text(content.get(field, "")))
+        for sent in _sentences(text):
+            for clause in re.split(r"[;—–]|,\s", sent):
+                if SELF_REF_RE.search(clause) and SELF_SUP_RE.search(clause) and \
+                        (RECORD_RE.search(clause) or not TODAY_SCOPE_RE.search(clause)):
+                    errors.append(f"{field}: superlative measured against this system's own "
+                                  f"short record (§4F, 2026-11-02): “{clause.strip()[:120]}…” — "
+                                  "give the plain number, or a long-run comparison from a "
+                                  "named source or the history data")
+
+    blocks ={k: state.get(k) for k in HISTORY_BLOCKS if state.get(k) is not None}
     if not blocks:
         if state.get("history_error"):
             # the history files failed to load: no long-run number can be checked,

@@ -623,6 +623,34 @@ def test_lint_passes_grounded_prose_and_catches_overclaims():
     assert "without a count" in joined
 
 
+def test_lint_blocks_system_relative_superlatives():
+    """Jacob, 2026-11-02: "Saying it was the biggest drop since their IPO is
+    helpful. Saying it's the biggest drop the system has ever recorded is
+    not." The three sentences 11-02's first edition shipped must fail."""
+    bad = {"regime_line": "Reddit (−29.22%) and Intel (−28.58%) both posted some of the "
+                          "roughest single-session drops this system has recorded.",
+           "story_html": "<p><strong>Friday was the worst day this system has tracked for two "
+                         "individual stocks, and the damage didn't stay contained to them.</strong></p>",
+           "flags_html": "<p>91 name candidates &mdash; the widest day this system has scanned; "
+                         "cap held.</p>",
+           "movers_html": "<p>Meta's largest single-day gain this system has recorded. "
+                          "SOFR jumped to a level this system hasn't seen before.</p>"}
+    errors, _ = lint.lint(bad, _lint_state())
+    hits = [e for e in errors if "own short record" in e]
+    assert {e.split(":")[0] for e in hits} == {"regime_line", "story_html", "flags_html",
+                                              "movers_html"}
+    assert len(hits) == 5
+    good = {"regime_line": "Reddit (−29.22%) and Intel (−28.58%) each lost nearly 30% in one "
+                           "session (Reddit's biggest one-day drop since its 2024 IPO, per Beinsure).",
+            "movers_html": "<p>The day's single largest move in this system's scan. SOFR still "
+                           "carries this system's largest active flag. Tech was the day's worst "
+                           "sector.</p>",
+            "flags_html": "<p>Correction: the first edition called it “the widest day this "
+                          "system has scanned”; replaced with the plain count.</p>"}
+    errors, _ = lint.lint(good, _lint_state())
+    assert not [e for e in errors if "own short record" in e]
+
+
 def test_lint_blocks_highest_since_below_run_peak():
     state = _lint_state()
     state["long_history"]["ust_10y"]["lookback"] = {

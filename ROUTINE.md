@@ -169,11 +169,18 @@ the data shows nothing outside normal ranges and lead with the movers; prose
 over bullets in interpretive sections; the movers cap is 3 names + 1 sector
 note with fact / attributed reason / read-through, and NR-held names get
 facts and read-throughs but never position commentary — plausibly NR-relevant
-items get one `→ Route to NR commentary process:` flag line only; any
-"widest/highest/record this system has tracked" sentence must pair with that
-series' `long_history` percentile and nearest comparable episode from
-`data/state.json` (§4F) — never left as a bare short-lookback superlative,
-and never say "no long-run source" when `long_history` actually has the key.
+items get one `→ Route to NR commentary process:` flag line only; never
+measure a superlative or a "first time" against this system's own record
+("the worst drop this system has recorded", "the widest day this system has
+scanned", "a new high in this system's data") — the data only starts in
+December 2025, too short a yardstick to mean anything, and Jacob has objected
+to it repeatedly (§4F amendment, 2026-11-02; the linter blocks it). Anchor a
+superlative to a real long-run record instead — the company's own history
+from a named source ("its biggest one-day drop since its 2024 IPO, per
+Reuters"), or for a Tier 1 series its `long_history` percentile and nearest
+comparable episode from `data/state.json` (§4F) — or drop the superlative and
+give the plain number. Never say "no long-run source" when `long_history`
+actually has the key.
 When `long_history`'s `pct_rank_all_time` and `pct_rank_modern` disagree by
 20+ points (`regime_divergence: true`), cite both, not whichever is more
 convenient — the disagreement itself is the finding (§4F). Every brief carries a "Today in history" section (§4F amendment, 2026-10-09). The 120-day z-score says what's unusual lately; the history section says what's unusual, full stop, and when it last happened.

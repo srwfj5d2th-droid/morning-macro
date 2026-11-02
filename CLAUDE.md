@@ -139,8 +139,7 @@ one real overclaim (HY OAS called "the widest ... ever recorded" on
 2026-10-05, corrected same-day) and is the standing fix for it.
 
 - **The rule:** any brief sentence that calls a Tier 1 reading a
-  record/widest/highest/largest — whether "this system has tracked" or any
-  other superlative — must pair that claim with where the series actually
+  record/widest/highest/largest must pair that claim with where the series actually
   sits against real long-run history: its all-time percentile rank *and*
   its trailing-30-year percentile (both — see the regime-pooling note
   below; citing only one when they disagree is the same mistake this
@@ -325,6 +324,29 @@ which change only at monthly review:
   - The 30Y file's values for 2002-02 to 2006-02 (when Treasury had
     suspended the bond) are excluded as unverifiable. See
     `data/history/README.md`.
+
+### §4F amendment (2026-11-02, Jacob — "Saying it was the biggest drop since their IPO is helpful. Saying it's the biggest drop the system has ever recorded is not.")
+
+The 10-08 rule let "the widest reading this system has tracked" through as
+long as long-run context came with it, and covered Tier 1 series only. The
+phrasing kept coming back for stocks, scans, and calendar weeks: 149 clauses
+across 35 of the first 50 briefs, ending with 11-02's "the roughest
+single-session drops this system has recorded" for Reddit and Intel.
+
+- **Banned outright, for any subject:** a superlative, "first time," or
+  "new high" measured against this system's own record ("this system has
+  recorded/tracked/logged/scanned," "in this system's history/data,"
+  "since this system began"). The data starts in December 2025. That
+  yardstick is too short to mean anything, and it reads as "historically
+  extreme."
+- **What to write instead:** the plain number, or a real long-run anchor.
+  For a stock, that's its own history from a named source ("its biggest
+  one-day drop since its 2024 IPO, per Reuters"). For a Tier 1 series,
+  it's `long_history` per the rule above. A comparison within today's
+  board ("the day's largest move") is fine.
+- **Enforced in code:** `check_history_prose.py` rule 19 checks every prose
+  and notes field. Quoted text is exempt, so a correction can name the
+  phrase it withdrew. A regression test holds the 11-02 sentences.
 
 ---
 
