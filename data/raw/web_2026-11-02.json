@@ -1,0 +1,45 @@
+{
+ "pulled_at_utc": "2026-11-02T12:10:00Z",
+ "method": "WebSearch (standard mode), named-source attribution required; no paid services (Bigdata.com excluded per 2026-08-21 decision)",
+ "items": [
+  {
+   "topic": "Reddit (RDDT) -29.22% on 2026-10-30, Q3 2026 earnings reaction",
+   "sources": [
+    "https://beinsure.com/news/reddit-stock-price-forecast-shares-crash-on-ai-search-fears",
+    "https://www.globalbankingandfinance.com/october-ends-thud-intel-reddit-ai-stalwarts/",
+    "https://www.alainguillot.com/stock-market-recap-october-30-2026/"
+   ],
+   "facts": "Reddit fell approximately 30% on 2026-10-30, its biggest single-day decline since its 2024 IPO, after third-quarter results disappointed: daily active unique visitors fell short of Wall Street expectations and fourth-quarter revenue guidance came in below analyst forecasts. Beinsure also flags a search-traffic dependency risk (recovery seen as contingent on growing audience/ad revenue with less reliance on Google search) and that Reddit plans to test mandatory logins in select non-U.S. markets in Q4 2026. Shares had already fallen roughly 43% year-to-date before this drop. Broader market recaps (Global Banking & Finance, Alain Guillot) group Reddit with Intel as the session's two biggest 'AI stalwart' casualties.",
+   "caveat": "Beinsure is the only source with Reddit-specific detail found; treated as single-sourced for the specific guidance figures, corroborated only generally (that Reddit fell hard same day as Intel) by the two market-recap pieces."
+  },
+  {
+   "topic": "Intel (INTC) -28.58% on 2026-10-30, Q3 beat / weak Q4 guidance",
+   "sources": [
+    "https://www.kucoin.com/news/flash/intel-posts-23-after-hours-drop-as-q4-guidance-misses-expectations",
+    "https://www.tikr.com/blog/intel-tumbles-as-israel-fab-shutdown-and-substrate-shortage-hit-q4-guidance",
+    "https://stocktwits.com/news-articles/markets/equity/intc-stock-tumbles-after-hours-after-q3-pc-slump-and-supply-bottlenecks-cloud-fourth-quarter-guidance/cZUQyleR9Rf",
+    "https://www.insiderfinance.io/news/intel-q4-guidance-misses-estimates-after-mixed-q3-results",
+    "https://www.kotakneo.com/news/global-markets/intel-stock-falls-over-20-percent-after-weak-fourth-quarter-forecast/"
+   ],
+   "facts": "Intel beat Q3 2026 estimates (revenue $16.5B, +21% YoY, in line with consensus; adjusted EPS $0.52 vs. ~$0.40 expected) but guided Q4 revenue to $15B-$16B against an LSEG consensus near $17.1B, and adjusted EPS to $0.25 vs. $0.43 consensus. Drivers cited: a deepening PC-market contraction (one source cites a projected ~10% 2027 decline after an ~12% 2026 slide) and an October production disruption at Intel's Israel fab plus a substrate shortage. Shares fell roughly 20-23% after hours on 10-29 and extended to a premarket drop reported at 25-26% on 10-30 (one source: 'worst since 1974'). Cantor Fitzgerald cut its price target to $90 from $125; other coverage cites a Bank of America rating cut.",
+   "caveat": "No tier-one wire (Reuters/CNBC original) located in this search; figures corroborated across five secondary/aggregator outlets which agree on the direction and rough magnitude but differ by 2-3 points on the exact drop size — reported as a range."
+  },
+  {
+   "topic": "AMD (-10.88%), broader chip/AI-hardware complex, 2026-10-30",
+   "sources": [],
+   "facts": "No dated, named-source reporting specific to AMD's 2026-10-30 move was found despite multiple searches; AMD's last confirmed guidance cycle in these results traces to August 2026 (Q3 guide), not an Oct 29/30 report. General market recaps (hedgeweek, AJC/AP wire via adn.com, STL.News) describe a broad, same-day chip-sector pullback tied to renewed doubts about AI-infrastructure spending sustainability following Intel's and Alphabet's results, without naming AMD specifically.",
+   "caveat": "No company-specific catalyst found for AMD; reported in the brief as such rather than inferred. Read as part of the broad sector move, not an idiosyncratic story."
+  },
+  {
+   "topic": "Broad Oct 30 2026 tech/AI-capex-doubt selloff, press framing for Monday Story section",
+   "sources": [
+    "https://hedgeweek.com/news/global-tech-selloff-deepens-as-ai-spending-concerns-trigger-market-rout",
+    "https://www.adn.com/business-economy/2026/10/30/sell-off-for-tech-stocks-worsens-and-drowns-out-strength-elsewhere-on-wall-street/",
+    "https://www.stl.news/stock-market-today-wall-street-sinks-on-ai-fears/",
+    "https://www.globalbankingandfinance.com/october-ends-thud-intel-reddit-ai-stalwarts/"
+   ],
+   "facts": "AP wire coverage (via adn.com) and hedgeweek describe a global tech rout on 2026-10-30 driven by weak earnings (Intel, Reddit) and renewed doubt about the pace/payoff of AI infrastructure spending, following Alphabet's -12.6% drop (its worst day in two decades, per Thursday 10-29 reporting) on rising capex and negative free cash flow. STL.News (citing Reuters) put the Nasdaq about 7.8% below its October 6 record close by Friday's close. Global Banking & Finance frames the week as led by the biggest AI-buildout spenders (Microsoft, Meta, Amazon, Alphabet) with hyperscaler capex, partly externally funded, adding to investor nervousness.",
+   "caveat": "Index-level percentages differ slightly across outlets (intraday vs. close); this system's own script-computed closes (data/state.json) are used for every number in the brief, these sources are used only for the narrative framing and attribution."
+  }
+ ]
+}
