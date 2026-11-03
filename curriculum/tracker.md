@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 7, Financing cycles & reflexivity — segment 6 taught 2026-11-02.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 7, Financing cycles & reflexivity — segment 7 taught 2026-11-03.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -51,6 +51,7 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 6 taught 
 | 2026-10-26 | 7 | 1 | Financing cycles & reflexivity opens — the Minsky sequence (hedge financing, where cash flow covers debt service; speculative financing, where it covers interest but not principal; Ponzi financing, where new borrowing itself covers interest) as the lens for judging whether a capex boom is self-funding or needs the credit window to stay open; reflexivity as the two-way link between rising asset prices and the willingness to lend against them | Bloom Energy and Comfort Systems USA, two AI-datacenter-buildout suppliers, both posted record quarters and beat estimates Thursday night and still sold off 11.24% and 9.26% Friday on margin/cash-flow-quality questions, not demand; separately, Morningstar reported data-center bonds at fresh lows and JPMorgan cutting CoreWeave's project-finance bonds to Neutral on oversupply risk — live texture for where this cycle's financing actually sits, set against credit's own eighth straight widening-flagged session |
 | 2026-10-30 | 7 | 5 | A third lever — equity financing alongside cash flow and debt, and the different kind of fragility each one carries (equity needs no lender but dilutes holders; debt needs the credit window to stay open; cash flow needs nothing from outside but can run out) | Marvell's reported all-stock talks to acquire Lumentum (equity-financed, dilutive) against Alphabet's own buildout funded almost entirely from its own increasingly negative free cash flow (hedge financing at hyperscaler scale) — two different answers to "who's paying for this," on the same morning three AI-capex-adjacent megacaps (Alphabet, ServiceNow, Marvell) all sold off double digits |
 | 2026-11-02 | 7 | 6 | Reflexivity in reverse — falling prices tighten the equity-financing lever itself (segment 5's third lever), and neither direction needs a change in the underlying business to happen | AMD and the broader chip complex fell double digits Friday with no distinct company-specific catalyst this system could find, alongside Reddit's and Intel's own earnings-driven crashes — a live illustration that a lower share price itself makes any future equity-funded AI-capex buildout more dilutive to execute, independent of whether the business actually changed |
+| 2026-11-03 | 7 | 7 | Reading a real raise through the Minsky lens (segment 1's hedge/speculative/Ponzi categories) — naming the exact question (does existing cash flow cover the new debt's interest, or does the capex have to pay off first) rather than labeling a filing with more confidence than the data supports | Oracle's actual $20B filing — $10B new common stock, $10B senior notes — split evenly between segment 5's two non-cash-flow levers; this system's own data pull doesn't carry Oracle's cash-flow/interest-coverage detail, so the segment names the diagnostic question and says plainly it can't answer it from today's pull, rather than asserting a Minsky label it can't support |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -99,10 +100,11 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 6 taught 
 | OAS as tie-breaker — a rate spike is only a risk spike if credit confirms it | 2026-10-20 (R) |
 | A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | 2026-10-21 |
 | Sympathy selling — one company's news moving peers that didn't report; check whether the news is about the whole group or just sentiment | 2026-10-22 |
-| The breadth toolkit (Unit 6 capstone) — index vs. average can disagree on magnitude or on direction entirely; check whether selling/buying is concentrated or broad before calling the market's move | 2026-10-23 |
-| The Minsky sequence (hedge/speculative/Ponzi financing) and reflexivity — the lens for judging whether a capex boom is self-funding or needs the credit window to stay open | 2026-10-26 |
+| The breadth toolkit (Unit 6 capstone) — index vs. average can disagree on magnitude or on direction entirely; check whether selling/buying is concentrated or broad before calling the market's move | 2026-11-03 (R) |
+| The Minsky sequence (hedge/speculative/Ponzi financing) and reflexivity — the lens for judging whether a capex boom is self-funding or needs the credit window to stay open | 2026-11-03 (R) |
 | Vendor financing and the Lucent reference class — telling a growth number apart from a financing-structure artifact | 2026-10-27 |
 | Broad credit tightening vs. an AI-specific credit story — why Tier 3's weekly depth exists; a daily IG/HY OAS flag can't say whether AI-adjacent borrowers specifically are driving it | 2026-10-28 |
 | Demand-side evidence vs. financing-side evidence — Vertiv's doubled orders (demand) against Oracle's free-cash-flow timeline (financing); a capex cycle needs both to hold up | 2026-10-29 |
 | A third lever — equity financing (dilutive, no lender needed) alongside cash flow (hedge financing) and debt (speculative/vendor financing); each fails in a different way | 2026-10-30 |
 | Reflexivity in reverse — falling prices tighten the equity-financing lever itself; works both directions without any change in the underlying business | 2026-11-02 |
+| Reading a real raise through the Minsky lens — naming the diagnostic question a filing's structure raises, and saying plainly when this system's own data can't answer it | 2026-11-03 |

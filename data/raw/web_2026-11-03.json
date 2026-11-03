@@ -1,0 +1,31 @@
+{
+ "pulled_at_utc": "2026-11-03T11:50:00Z",
+ "searches": [
+  {
+   "query": "Oracle Marvell Datadog shares fall Monday chip AI capex concerns",
+   "used_for": "Oracle $20bn raise detail; Marvell/Lumentum deal framing",
+   "sources": [
+    "https://thewallstreetrepublic.substack.com/p/marvell-sinks-1272-on-a-115bn-lumentum",
+    "https://thestreet.com/investing/stocks/oracle-stock-sinks-as-wall-street-confronts-a-20-billion-ai-problem",
+    "https://invezz.com/ca/news/2026/11/02/nasdaq-falls-1percent-as-ai-spending-concerns-weigh-on-tech-stocks/"
+   ]
+  },
+  {
+   "query": "stock market close Monday November 2 2026 Nasdaq S&P 500 chip stocks",
+   "used_for": "index closes, breadth, Dow/oil divergence",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-2-144446387.html",
+    "https://finance.yahoo.com/markets/world-indices/articles/major-us-stock-indexes-fared-212103580.html",
+    "https://www.bbntimes.com/technology/nasdaq-today-composite-falls-to-25-164-36-as-oracle-amd-and-marvell-lead-fresh-tech-rout"
+   ]
+  },
+  {
+   "query": "IDEXX earnings report third quarter 2026 results guidance raised",
+   "used_for": "IDXX +21.85% earnings beat (excluded under movers cap, noted idiosyncratic)",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0000874716/000110465926120892/tm2628647d1_ex99-1.htm"
+   ]
+  }
+ ],
+ "note": "No credible, dated, named-source reporting found for Ciena, Pandora (P), Intel, Datadog, Seagate, Super Micro, APA, or AMD's 2026-11-02 declines despite searching; reported as unexplained sympathy selling inside the chip/AI-infrastructure complex rather than inferring a cause."
+}
