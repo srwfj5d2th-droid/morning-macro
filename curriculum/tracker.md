@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 7, Financing cycles & reflexivity — segment 7 taught 2026-11-03.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 7, Financing cycles & reflexivity — closed with its capstone (segment 8) taught 2026-11-04. Unit 8, Cross-asset confirmation, opens next session.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -52,6 +52,7 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 7 taught 
 | 2026-10-30 | 7 | 5 | A third lever — equity financing alongside cash flow and debt, and the different kind of fragility each one carries (equity needs no lender but dilutes holders; debt needs the credit window to stay open; cash flow needs nothing from outside but can run out) | Marvell's reported all-stock talks to acquire Lumentum (equity-financed, dilutive) against Alphabet's own buildout funded almost entirely from its own increasingly negative free cash flow (hedge financing at hyperscaler scale) — two different answers to "who's paying for this," on the same morning three AI-capex-adjacent megacaps (Alphabet, ServiceNow, Marvell) all sold off double digits |
 | 2026-11-02 | 7 | 6 | Reflexivity in reverse — falling prices tighten the equity-financing lever itself (segment 5's third lever), and neither direction needs a change in the underlying business to happen | AMD and the broader chip complex fell double digits Friday with no distinct company-specific catalyst this system could find, alongside Reddit's and Intel's own earnings-driven crashes — a live illustration that a lower share price itself makes any future equity-funded AI-capex buildout more dilutive to execute, independent of whether the business actually changed |
 | 2026-11-03 | 7 | 7 | Reading a real raise through the Minsky lens (segment 1's hedge/speculative/Ponzi categories) — naming the exact question (does existing cash flow cover the new debt's interest, or does the capex have to pay off first) rather than labeling a filing with more confidence than the data supports | Oracle's actual $20B filing — $10B new common stock, $10B senior notes — split evenly between segment 5's two non-cash-flow levers; this system's own data pull doesn't carry Oracle's cash-flow/interest-coverage detail, so the segment names the diagnostic question and says plainly it can't answer it from today's pull, rather than asserting a Minsky label it can't support |
+| 2026-11-04 | 7 | 8 (capstone) | Assembling segments 1-7 into one working checklist — which Minsky financing type, which lever (cash flow/debt/equity), and whether a move is about financing structure or underlying demand — closing the unit | Oracle's 5.85% bounce (the equity lever getting less dilutive as the stock recovered, segment 6's reflexivity running the helpful direction, a pure financing-structure story) against Gartner's 13.19% drop the same morning (a beat-and-raise quarter sold off on a pure demand-side sales-cycle comment) — the same toolkit, two unrelated readings, one morning, closing Unit 7 |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -108,3 +109,5 @@ Current position: **Unit 7, Financing cycles & reflexivity — segment 7 taught 
 | A third lever — equity financing (dilutive, no lender needed) alongside cash flow (hedge financing) and debt (speculative/vendor financing); each fails in a different way | 2026-10-30 |
 | Reflexivity in reverse — falling prices tighten the equity-financing lever itself; works both directions without any change in the underlying business | 2026-11-02 |
 | Reading a real raise through the Minsky lens — naming the diagnostic question a filing's structure raises, and saying plainly when this system's own data can't answer it | 2026-11-03 |
+| The financing-cycle toolkit (Unit 7 capstone) — which Minsky type, which lever (cash flow/debt/equity), financing-structure vs. underlying demand | 2026-11-04 |
+| A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | 2026-11-04 (R) |

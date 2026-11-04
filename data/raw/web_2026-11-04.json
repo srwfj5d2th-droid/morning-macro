@@ -1,0 +1,57 @@
+{
+  "pulled_at_utc": "2026-11-04T12:05:00Z",
+  "searches": [
+    {
+      "query": "semiconductor stocks rally November 3 2026 AI chip",
+      "used_for": "broad chip-sector rebound detail (SOX index move, AMD/Broadcom/Micron, Nvidia overtaking Apple), Apple's memory-cost margin story",
+      "sources": [
+        "https://www.benzinga.com/markets/equities/26/11/chip-stocks-rebound-nasdaq-snaps-losing-streak",
+        "https://www.barchart.com/story/news/chip-stocks-rebound-november-3-2026",
+        "https://www.nasdaq.com/articles/chip-stocks-rebound-wall-street"
+      ]
+    },
+    {
+      "query": "Oracle stock November 3 2026",
+      "used_for": "Oracle's 5.85% bounce: raise priced as previewed, analyst target, volume spike",
+      "sources": [
+        "https://finance.yahoo.com/news/oracle-stock-rebounds-after-ai-raise-priced",
+        "https://247wallst.com/investing/2026/11/03/oracle-ai-raise-priced/",
+        "https://www.marketbeat.com/stocks/NYSE/ORCL/price-target/",
+        "https://www.tipranks.com/stocks/orcl/stock-analysis"
+      ]
+    },
+    {
+      "query": "Gartner stock drop November 2026 earnings",
+      "used_for": "Gartner's -13.19% move: Q3 beat and raised guidance (Reuters/Investing.com), earnings-call commentary on sales cycles/geopolitical risk (GuruFocus)",
+      "sources": [
+        "https://www.investing.com/news/stock-market-news/gartner-q3-2026-earnings-beat-raises-guidance",
+        "https://www.gurufocus.com/news/gartner-shares-fall-despite-beat-sales-cycle-warning"
+      ]
+    },
+    {
+      "query": "Sysco stock drop November 2026 earnings",
+      "used_for": "attempted to source Sysco's -9.33% move; no credible dated same-day reporting found",
+      "sources": []
+    },
+    {
+      "query": "2026 midterm elections results November 3",
+      "used_for": "election calls (House and Senate to Democrats, uncalled races) for §4D-governed factual mention",
+      "sources": [
+        "https://www.cnbc.com/2026/11/04/midterm-elections-house-senate-results.html",
+        "https://www.foxnews.com/politics/2026-midterms-results",
+        "https://www.cbsnews.com/news/2026-midterm-election-results/",
+        "https://www.cbc.ca/news/world/us-midterms-2026",
+        "https://www.cnn.com/politics/live-news/elections-results-2026",
+        "https://www.forbes.com/sites/2026-midterm-election-results/"
+      ]
+    },
+    {
+      "query": "stock market reaction 2026 midterm election results",
+      "used_for": "checking whether any named outlet ties Tuesday's rally to the election outcome",
+      "sources": [
+        "https://finance.yahoo.com/news/investors-brace-for-midterm-election-results"
+      ]
+    }
+  ],
+  "note": "No credible, dated, named-source reporting found tying Sysco's decline to a distinct same-day catalyst despite searching; reported as such rather than inferred (Movers, content_2026-11-04.json). No outlet found explicitly attributing Tuesday's market rally to the election outcome specifically; the stated driver across sources is the chip rebound. No paid services used."
+}
