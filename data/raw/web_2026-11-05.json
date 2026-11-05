@@ -1,0 +1,37 @@
+{
+  "pulled_at_utc": "2026-11-05T11:50:00Z",
+  "searches": [
+    {
+      "query": "Fiserv FIS stock November 4 2026 shares plunge guidance cut",
+      "used_for": "FIS's -23.67% move: 2026 EPS guidance cut, preliminary 2027 EPS decline, CFO departure/interim CFO, strategic review, JPMorgan/Mizuho price-target cuts",
+      "sources": [
+        "https://www.benzinga.com/trading-ideas/movers/26/11/62876156/fidelity-national-information-slashes-2026-eps-forecast-as-technology-costs-delays-rise",
+        "https://www.gurufocus.com/news/9170288/fis-shares-plunge-2357-amid-cfo-departure-and-guidance-concerns-ticker-fis",
+        "https://finchannel.com/fis-shares-plunge-after-guidance-cut-and-cfo-transition/140597/american-business-trends/2026/11/",
+        "https://www.vantagemarkets.com/market-analysis/why-fis-stock-fell-guidance-cut-q3-beat-november-5-2026/",
+        "https://www.investing.com/news/analyst-ratings/mizuho-cuts-fidelity-national-information-services-price-target-on-revenue-headwinds-93CH-5002704"
+      ]
+    },
+    {
+      "query": "Vistra NRG utilities stock drop Wednesday November 4 2026",
+      "used_for": "Vistra's -13.83% and NRG's -13.52% moves: Texas gubernatorial election result read as data-center-permitting risk, KeyBanc (Sophie Karp) downgrade of Vistra to Sector Weight",
+      "sources": [
+        "https://www.gurufocus.com/news/9170427/vistra-corp-vst-shares-plunge-135-amid-regulatory-concerns-posttexas-midterms",
+        "https://www.marketbeat.com/instant-alerts/price-vistra-nyse-vst-shares-down-139-after-analyst-downgrade-2026-11-04/",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-plunges-13-5-texas-180149225.html"
+      ]
+    },
+    {
+      "query": "Fortune seismic blue wave oil prices energy stocks power permitting reform November 2026",
+      "used_for": "broader election framing ('blue wave'), oil-price drop tied partly to Iran peace-talk optimism the same day as the election",
+      "sources": [
+        "https://fortune.com/2026/11/04/seismic-blue-wave-sinking-oil-prices-energy-stocks-power-permitting-reform/"
+      ]
+    },
+    {
+      "query": "stock market November 4 2026 close rally rotation financials value; Datadog/Mosaic/Trimble/Block stock move November 2026",
+      "used_for": "checked for catalysts on DDOG, MOS, TRMB, XYZ before excluding them from the capped movers list; no credible, dated, named-source reporting found specific to Nov 4 2026 for any of the four, so none were asserted a reason and none were selected under the 3-name cap",
+      "sources": []
+    }
+  ]
+}
