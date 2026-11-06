@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 8, Cross-asset confirmation — opened with segment 1 taught 2026-11-05.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 8, Cross-asset confirmation — segment 2 taught 2026-11-06.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -54,6 +54,7 @@ Current position: **Unit 8, Cross-asset confirmation — opened with segment 1 t
 | 2026-11-03 | 7 | 7 | Reading a real raise through the Minsky lens (segment 1's hedge/speculative/Ponzi categories) — naming the exact question (does existing cash flow cover the new debt's interest, or does the capex have to pay off first) rather than labeling a filing with more confidence than the data supports | Oracle's actual $20B filing — $10B new common stock, $10B senior notes — split evenly between segment 5's two non-cash-flow levers; this system's own data pull doesn't carry Oracle's cash-flow/interest-coverage detail, so the segment names the diagnostic question and says plainly it can't answer it from today's pull, rather than asserting a Minsky label it can't support |
 | 2026-11-04 | 7 | 8 (capstone) | Assembling segments 1-7 into one working checklist — which Minsky financing type, which lever (cash flow/debt/equity), and whether a move is about financing structure or underlying demand — closing the unit | Oracle's 5.85% bounce (the equity lever getting less dilutive as the stock recovered, segment 6's reflexivity running the helpful direction, a pure financing-structure story) against Gartner's 13.19% drop the same morning (a beat-and-raise quarter sold off on a pure demand-side sales-cycle comment) — the same toolkit, two unrelated readings, one morning, closing Unit 7 |
 | 2026-11-05 | 8 | 1 | Cross-asset confirmation opens — a hierarchy-of-evidence habit for when bonds, credit, FX, and equities disagree, rather than taking whichever asset's move is loudest at face value; credit (lenders have money directly at risk) outranks equity sentiment, and a single name outranks neither | A clean three-way split: equities rallied broadly with breadth confirming (RSP +1.86% outgained SPX's +1.58%), credit (HY/IG OAS) stayed flat but pinned in the upper reaches of its own range — neither confirming nor denying — and the AI-power trade (Vistra −13.83%, NRG −13.52%) sold off over 13% apiece on a Texas-election-driven regulatory shock unrelated to either |
+| 2026-11-06 | 8 | 2 | Agreement is the strongest signal — the mirror case of segment 1: when multiple asset classes move the same direction for the same reason, there's no tie to break, and that agreement is itself stronger evidence than any single market's move alone | A genuine three-way confirmation: the S&P 500 fell 4.36%, HY/IG OAS stayed in their own widened, flagged range rather than snapping back, and Treasury yields eased in a flight-to-quality move — stocks, credit, and bonds all agreeing on the same broad AI-hardware selloff, with only the dollar (+0.04%) not visibly reacting |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -113,3 +114,4 @@ Current position: **Unit 8, Cross-asset confirmation — opened with segment 1 t
 | The financing-cycle toolkit (Unit 7 capstone) — which Minsky type, which lever (cash flow/debt/equity), financing-structure vs. underlying demand | 2026-11-04 |
 | A beat today can still be a sell on tomorrow's guide — stock prices are forward-looking; a backward beat can lose to a weaker forward outlook | 2026-11-04 (R) |
 | Cross-asset confirmation — a hierarchy-of-evidence habit when bonds, credit, FX, and equities disagree | 2026-11-05 |
+| Agreement across asset classes is the strongest signal — the mirror case when markets agree instead of disagree | 2026-11-06 |

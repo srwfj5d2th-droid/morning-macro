@@ -1,0 +1,41 @@
+{
+  "pulled_at_utc": "2026-11-06T11:55:00Z",
+  "searches": [
+    {
+      "query": "chip stocks selloff Thursday November 2026 AI bubble fears Nasdaq",
+      "used_for": "the day's dominant story: size and framing of the broad Nov 5 selloff (S&P -4.4%, Nasdaq -5.5%, SOX intraday ~-9.75%), midterm-election/AI-data-center-regulation and December-rate-odds framing",
+      "sources": [
+        "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html",
+        "https://spectrumlocalnews.com/us/snplus/business/2026/11/05/stock-market-ai-chip-selloff",
+        "https://fortune.com/2026/11/05/wall-street-drop-off-tech-ai-plunge-2-trillion/",
+        "https://www.cnn.com/2026/11/05/investing/tech-heavy-nasdaq-plunges",
+        "https://investing.com/news/stock-market-news/sp-500-futures-steady-after-midterm-rally-nasdaq-lags-on-chip-weakness-5003237"
+      ]
+    },
+    {
+      "query": "AppLovin Q3 2026 earnings report results November 5",
+      "used_for": "AppLovin's +31.04% move: Q3 2026 results beat consensus (EPS $4.30 vs ~$4.01-4.03; revenue ~$2.19B vs $2.06-2.08B guided range)",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000068/exhibit991-3q26earningspre.htm",
+        "https://www.benzinga.com/quote/APP/earnings-forecasts"
+      ]
+    },
+    {
+      "query": "SanDisk Micron Western Digital stock November 5 2026 plunge memory",
+      "used_for": "checked for a SanDisk-specific dated catalyst; none found -- stated plainly in Movers rather than inferring one",
+      "sources": []
+    },
+    {
+      "query": "AMD Lambda Research Marvell semiconductor stock November 5 2026 drop",
+      "used_for": "checked for an AMD-specific dated catalyst; none found beyond the broad complex-wide selloff already sourced above",
+      "sources": []
+    },
+    {
+      "query": "Reuters AI data center regulation midterm election fears chip stocks November 5 2026",
+      "used_for": "background on the pre-election AI-data-center-permitting-backlash narrative building since late October, corroborating the post-election framing used in the story section",
+      "sources": [
+        "https://www.kitco.com/news/off-the-wire/2026-10-22/investors-see-risk-us-midterms-ai-trade-data-center-backlash-builds"
+      ]
+    }
+  ]
+}
