@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 8, Cross-asset confirmation — segment 3 taught 2026-11-09.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 8, Cross-asset confirmation — segment 4 taught 2026-11-10.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -116,3 +116,4 @@ Current position: **Unit 8, Cross-asset confirmation — segment 3 taught 2026-1
 | Cross-asset confirmation — a hierarchy-of-evidence habit when bonds, credit, FX, and equities disagree | 2026-11-05 |
 | Agreement across asset classes is the strongest signal — the mirror case when markets agree instead of disagree | 2026-11-06 |
 | When agreement doesn't last — reapplying the hierarchy the very next session; confirmation has to be checked fresh each morning, not assumed to hold | 2026-11-09 |
+| Stabilizing vs. confirming — why credit easing from "worse" to "flat" isn't the same as credit agreeing with a rally; the test is whether the z-score crosses back below the flag line, not whether it stopped climbing | 2026-11-10 |
