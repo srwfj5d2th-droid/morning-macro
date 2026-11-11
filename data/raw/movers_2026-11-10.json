@@ -1,0 +1,171 @@
+{
+ "row_date": "2026-11-10",
+ "scanned_at_utc": "2026-11-11T11:41:23.383833Z",
+ "universe": {
+  "sp500": 503,
+  "sp500_covered": 503,
+  "megacap": 50,
+  "megacap_covered": 50,
+  "missing": []
+ },
+ "thresholds": {
+  "sp500_pct": 4.0,
+  "megacap_pct": 2.5,
+  "sector_divergence_pp": 1.5
+ },
+ "name_candidates": [
+  {
+   "symbol": "CHTR",
+   "pct_1d": 10.611,
+   "close": 134.06,
+   "prev_close": 121.2,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "TTWO",
+   "pct_1d": 8.312,
+   "close": 224.64,
+   "prev_close": 207.4,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "SKYD",
+   "pct_1d": -7.586,
+   "close": 8.04,
+   "prev_close": 8.7,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "MRNA",
+   "pct_1d": -6.755,
+   "close": 250.83,
+   "prev_close": 269.0,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "FSLR",
+   "pct_1d": -5.548,
+   "close": 180.98,
+   "prev_close": 191.61,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NVDA",
+   "pct_1d": -5.474,
+   "close": 168.89,
+   "prev_close": 178.67,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "LEN",
+   "pct_1d": -5.372,
+   "close": 86.66,
+   "prev_close": 91.58,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NVR",
+   "pct_1d": -4.764,
+   "close": 6036.42,
+   "prev_close": 6338.38,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "COHR",
+   "pct_1d": -4.676,
+   "close": 214.66,
+   "prev_close": 225.19,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CVS",
+   "pct_1d": 4.411,
+   "close": 89.01,
+   "prev_close": 85.25,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BE",
+   "pct_1d": -4.364,
+   "close": 185.42,
+   "prev_close": 193.88,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "AKAM",
+   "pct_1d": 4.26,
+   "close": 83.71,
+   "prev_close": 80.29,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "CVNA",
+   "pct_1d": -4.249,
+   "close": 73.02,
+   "prev_close": 76.26,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "ALB",
+   "pct_1d": -4.227,
+   "close": 94.93,
+   "prev_close": 99.12,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "EQT",
+   "pct_1d": 4.188,
+   "close": 52.0,
+   "prev_close": 49.91,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "NEM",
+   "pct_1d": -4.155,
+   "close": 119.96,
+   "prev_close": 125.16,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "BXP",
+   "pct_1d": -4.004,
+   "close": 63.54,
+   "prev_close": 66.19,
+   "close_date": "2026-11-10",
+   "screen": "sp500_4pct"
+  },
+  {
+   "symbol": "AVGO",
+   "pct_1d": 3.913,
+   "close": 331.98,
+   "prev_close": 319.48,
+   "close_date": "2026-11-10",
+   "screen": "megacap_2.5pct"
+  },
+  {
+   "symbol": "GEV",
+   "pct_1d": -3.895,
+   "close": 797.04,
+   "prev_close": 829.34,
+   "close_date": "2026-11-10",
+   "screen": "megacap_2.5pct"
+  }
+ ],
+ "sector_candidates": []
+}
