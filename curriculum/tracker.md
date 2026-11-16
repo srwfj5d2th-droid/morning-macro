@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 8, Cross-asset confirmation — segment 5 taught 2026-11-11.** (No segments on 10-13/10-14: both runs failed closed on a FRED data gap.)
+Current position: **Unit 8, Cross-asset confirmation — segment 6 taught 2026-11-16.** (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -58,6 +58,7 @@ Current position: **Unit 8, Cross-asset confirmation — segment 5 taught 2026-1
 | 2026-11-09 | 8 | 3 (R) | When agreement doesn't last — reapplying the hierarchy the very next session; confirmation has to be checked fresh each morning, not assumed to hold | Friday's three-way agreement (segment 2) didn't survive the weekend: Monday's jobs-beat-driven front-end selloff had credit (HY/IG OAS) widening further even as equities held up — the hierarchy re-run from scratch rather than carried over |
 | 2026-11-10 | 8 | 4 | Stabilizing vs. confirming — why credit easing from "worse" to "flat" isn't the same as credit agreeing with a rally; the test is whether the z-score crosses back below the flag line, not whether it stopped climbing | Monday's AMD-led chip rally (S&P +2.35%) alongside HY/IG OAS easing but staying flagged (z +2.46/+2.68) — credit stopped getting worse without actually confirming the rally, the precise distinction segment 4 names |
 | 2026-11-11 | 8 | 5 | When the hierarchy splits three ways, not two — rates, credit, and breadth can each be right about a different question, so the habit is matching each signal to the question it actually answers, not picking a single winner | Today's hot-CPI reaction: rates/dollar confirmed a hawkish Fed repricing (2Y +17bp, CL-0065 confirmed), credit kept easing (HY/IG OAS both lower, z +2.04/+2.19), and breadth stayed narrow (RSP -0.03% vs. SPX -0.38%) — three readings that only look contradictory until you ask what each one is actually measuring |
+| 2026-11-16 | 8 | 6 | A fourth vote joins the hierarchy — the dollar tends to side with rates, not credit, because both price off the same real-rate input, so the two moving together isn't independent confirmation the way credit agreeing with equities would be | This week's DXY climb to this run's largest flag (z +2.44) alongside the front-end-led rate rise (UST 2Y +42bp over five sessions), while HY OAS eased below its own flag (z +1.38) and breadth stayed positive (RSP +0.20% on a down-index Friday) — rates and the dollar moving together as one signal measured twice, credit and breadth still the independent votes |
 
 <!-- One row per brief. Reinforcement reactivations are logged with (R). -->
 
@@ -121,3 +122,4 @@ Current position: **Unit 8, Cross-asset confirmation — segment 5 taught 2026-1
 | When agreement doesn't last — reapplying the hierarchy the very next session; confirmation has to be checked fresh each morning, not assumed to hold | 2026-11-09 |
 | Stabilizing vs. confirming — why credit easing from "worse" to "flat" isn't the same as credit agreeing with a rally; the test is whether the z-score crosses back below the flag line, not whether it stopped climbing | 2026-11-10 |
 | Hierarchy splits three ways — rates, credit, and breadth each answer a different question; match the signal to the question instead of picking one winner | 2026-11-11 |
+| A fourth vote (the dollar) joins the hierarchy — FX tends to side with rates, not credit, since both price off the same real-rate input; moving together isn't independent confirmation | 2026-11-16 |
