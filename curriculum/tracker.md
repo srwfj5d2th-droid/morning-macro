@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Unit 8, Cross-asset confirmation — segment 6 taught 2026-11-16.** (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
+Current position: **Unit 8, Cross-asset confirmation — segment 7 taught 2026-11-17.** (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -123,3 +123,4 @@ Current position: **Unit 8, Cross-asset confirmation — segment 6 taught 2026-1
 | Stabilizing vs. confirming — why credit easing from "worse" to "flat" isn't the same as credit agreeing with a rally; the test is whether the z-score crosses back below the flag line, not whether it stopped climbing | 2026-11-10 |
 | Hierarchy splits three ways — rates, credit, and breadth each answer a different question; match the signal to the question instead of picking one winner | 2026-11-11 |
 | A fourth vote (the dollar) joins the hierarchy — FX tends to side with rates, not credit, since both price off the same real-rate input; moving together isn't independent confirmation | 2026-11-16 |
+| Commodities join the vote, but mechanically — gold and copper are dollar-priced, so a move in both often confirms the dollar rather than casting an independent vote on global growth | 2026-11-17 |
