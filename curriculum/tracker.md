@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2026-11-18; reinforcing from here.** All eight units of the §7 CFP→CFA sequence are now taught at least once; the brief reinforces these tools against live data per the reinforcement rule rather than introducing new segments. Most recent reinforcement: Unit 8 segment 7 (R), 2026-11-20. (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
+Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2026-11-18; reinforcing from here.** All eight units of the §7 CFP→CFA sequence are now taught at least once; the brief reinforces these tools against live data per the reinforcement rule rather than introducing new segments. Most recent reinforcement: Unit 8 segment 7 (R), 2026-11-23. (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -130,3 +130,4 @@ Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2
 | Commodities join the vote, but mechanically — gold and copper are dollar-priced, so a move in both often confirms the dollar rather than casting an independent vote on global growth | 2026-11-20 (R) |
 | The hierarchy-of-evidence habit, applied end to end (Unit 8 capstone) — when rates, credit, the dollar, and breadth all finally agree, that agreement outranks the size of any single day's number | 2026-11-18 |
 | When agreement doesn't last — reapplying the hierarchy the very next session; confirmation has to be checked fresh each morning, not assumed to hold | 2026-11-19 (R) |
+| Same assets falling, different reason — gold and copper fell again without the dollar doing the work this time; check the mechanism fresh each session instead of assuming yesterday's explanation still fits because the price action looks alike | 2026-11-23 (R) |
