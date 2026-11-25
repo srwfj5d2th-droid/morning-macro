@@ -1,6 +1,6 @@
 # Curriculum Tracker
 
-Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2026-11-18; reinforcing from here.** All eight units of the §7 CFP→CFA sequence are now taught at least once; the brief reinforces these tools against live data per the reinforcement rule rather than introducing new segments. Most recent reinforcement: Unit 6 segment 4 (R), 2026-11-24. (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
+Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2026-11-18; reinforcing from here.** All eight units of the §7 CFP→CFA sequence are now taught at least once; the brief reinforces these tools against live data per the reinforcement rule rather than introducing new segments. Most recent reinforcement: Unit 3 segment 4 (R), 2026-11-25. (No segments on 10-13/10-14 or 11-12/11-13: all four runs failed closed on data gaps.)
 
 | Date | Unit | Segment | Concept taught | Anchored to |
 |---|---|---|---|---|
@@ -133,3 +133,4 @@ Current position: **Curriculum complete — Unit 8 segment 8 (capstone) taught 2
 | When agreement doesn't last — reapplying the hierarchy the very next session; confirmation has to be checked fresh each morning, not assumed to hold | 2026-11-19 (R) |
 | Same assets falling, different reason — gold and copper fell again without the dollar doing the work this time; check the mechanism fresh each session instead of assuming yesterday's explanation still fits because the price action looks alike | 2026-11-23 (R) |
 | Breadth, applied to an up day — a narrow rally (index vs. average) is the opposite-direction case of segments 1-2's concentrated-selling tool | 2026-11-24 (R) |
+| Dispersion isn't a credit signal until OAS says so (Unit 3 segment 4) — a severe, concentrated chip/AI-hardware selloff (SMH −7.27%, ADI/HPE/MU all down double digits) with HY and IG OAS both easing, not widening, is a live case for checking whether credit actually moved before reading a sector swing as systemic risk | 2026-11-25 (R) |
